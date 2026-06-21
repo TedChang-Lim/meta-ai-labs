@@ -679,6 +679,122 @@
       color: var(--text-main);
     }
     
+    /* Programs Section */
+    #programs {
+      background: rgba(17, 24, 39, 0.15);
+      position: relative;
+    }
+    
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .program-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 18px;
+      padding: 2.5rem 1.8rem;
+      transition: var(--transition-smooth);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      backdrop-filter: var(--glass-filter);
+      -webkit-backdrop-filter: var(--glass-filter);
+      overflow: hidden;
+    }
+    
+    .program-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(6, 182, 212, 0.3);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(6, 182, 212, 0.15);
+    }
+    
+    .program-icon-box {
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+      display: inline-block;
+      transition: var(--transition-smooth);
+    }
+    
+    .program-card:hover .program-icon-box {
+      transform: scale(1.15) rotate(5deg);
+    }
+    
+    .program-card h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+    }
+    
+    .program-target {
+      font-size: 0.8rem;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 0.5px;
+    }
+    
+    .program-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .program-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .program-tags span {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0.2rem 0.6rem;
+      border-radius: 50px;
+      transition: var(--transition-smooth);
+    }
+    
+    .program-card:hover .program-tags span {
+      background: rgba(6, 182, 212, 0.06);
+      border-color: rgba(6, 182, 212, 0.15);
+      color: #ffffff;
+    }
+    
+    .program-btn {
+      width: 100%;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+      display: block;
+      margin-top: auto;
+    }
+    
+    .program-card:hover .program-btn {
+      background: var(--gold-metallic);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      border-color: #b38728;
+      box-shadow: 0 0 10px rgba(179, 135, 40, 0.2);
+    }
+    
     /* Services Section */
     .services-grid {
       display: grid;
@@ -1144,6 +1260,7 @@
       .vision-grid { grid-template-columns: repeat(3, 1fr); }
       .bylaws-highlight-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .programs-grid { grid-template-columns: repeat(2, 1fr); }
     }
     
     @media (max-width: 768px) {
@@ -1153,6 +1270,7 @@
       .vision-grid { grid-template-columns: repeat(2, 1fr); }
       .services-grid { grid-template-columns: 1fr; }
       .bylaws-highlight-grid { grid-template-columns: 1fr; }
+      .programs-grid { grid-template-columns: 1fr; }
       .contact-form { padding: 2rem; }
       .bylaws-modal-header { padding: 2rem 2rem 1rem; }
       .bylaws-modal-content { padding: 1.5rem 2rem; }
@@ -1209,6 +1327,7 @@
     </a>
     <nav>
       <a href="#about">소개</a>
+      <a href="#programs">교육 과정</a>
       <a href="#members">이사진</a>
       <a href="#services">사업 영역</a>
       <a href="#bylaws">공식 문서</a>
@@ -1390,6 +1509,129 @@
             </linearGradient>
           </defs>
         </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section id="programs">
+    <div class="container">
+      <div class="section-label">CURRICULUM</div>
+      <h2 class="section-title">교육 과정 안내</h2>
+      <p class="section-desc">왕초보 입문자를 위한 일상 밀착형 과정부터 비개발자를 위한 마케팅 및 코딩 자동화까지,<br>누구나 쉽게 배워 바로 활용하는 현장 맞춤형 AI 커리큘럼입니다.</p>
+      
+      <div class="programs-grid">
+        <!-- Card 1 -->
+        <div class="program-card reveal">
+          <div class="program-icon-box">💡</div>
+          <h4>왕초보 AI 활용법</h4>
+          <div class="program-target">대상: AI를 처음 접하는 모든 분</div>
+          <p>어려운 코딩이나 용어 없이 챗GPT와 인공지능 기초를 마스터합니다. 마우스 클릭 몇 번으로 일상의 비서로 활용하는 방법을 배웁니다.</p>
+          <div class="program-tags">
+            <span>#챗GPT입문</span>
+            <span>#왕초보탈출</span>
+            <span>#쉬운AI비서</span>
+          </div>
+          <a href="#contact" class="program-btn">수강 문의하기</a>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="program-card reveal">
+          <div class="program-icon-box">✍️</div>
+          <h4>챗GPT로 문서 작성하기</h4>
+          <div class="program-target">대상: 일반인, 직장인, 학생</div>
+          <p>각종 업무 보고서, 기획안, 비즈니스 이메일 작성을 자동화합니다. 챗GPT를 똑똑하게 부리는 질문(프롬프트) 설계 노하우를 제공합니다.</p>
+          <div class="program-tags">
+            <span>#문서자동화</span>
+            <span>#업무생산성</span>
+            <span>#보고서작성</span>
+          </div>
+          <a href="#contact" class="program-btn">수강 문의하기</a>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="program-card reveal">
+          <div class="program-icon-box">🎨</div>
+          <h4>AI로 이미지 만들기</h4>
+          <div class="program-target">대상: 마케터, 예비 디자이너, 초보자</div>
+          <p>미드저니, 달리 등 최고의 AI 도구를 활용하여 고품질 이미지를 생성합니다. 배경 누끼 따기부터 로고, 홍보물 시안 제작까지 손쉽게 해결합니다.</p>
+          <div class="program-tags">
+            <span>#미드저니</span>
+            <span>#AI디자인</span>
+            <span>#홍보물제작</span>
+          </div>
+          <a href="#contact" class="program-btn">수강 문의하기</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="program-card reveal">
+          <div class="program-icon-box">📖</div>
+          <h4>AI 동화책·그림책 작가 되기</h4>
+          <div class="program-target">대상: 학부모, 예비 작가, 시니어</div>
+          <p>AI와 함께 이야기를 짓고 삽화를 그려 나만의 실물 책을 발간합니다. 소장용 책 제작부터 교육원 자체 네트워크를 통한 <strong>정식 출판(ISBN 등록)</strong>까지 원스톱으로 연계 지원합니다.</p>
+          <div class="program-tags">
+            <span>#그림책만들기</span>
+            <span>#정식출판(ISBN)</span>
+            <span>#나만의책</span>
+          </div>
+          <a href="#contact" class="program-btn">수강 문의하기</a>
+        </div>
+        
+        <!-- Card 5 -->
+        <div class="program-card reveal">
+          <div class="program-icon-box">📱</div>
+          <h4>스마트폰으로 AI 100% 활용</h4>
+          <div class="program-target">대상: 시니어, 주부, 스마트폰 초보자</div>
+          <p>생활 속에 유용한 스마트폰 인공지능 비서 앱 활용법을 익힙니다. 실시간 통역, 사진 편집 및 보정, 음성 텍스트 변환 등 일상 속 편리함을 누립니다.</p>
+          <div class="program-tags">
+            <span>#스마트폰비서</span>
+            <span>#시니어디지털</span>
+            <span>#생활편의AI</span>
+          </div>
+          <a href="#contact" class="program-btn">수강 문의하기</a>
+        </div>
+        
+        <!-- Card 6 -->
+        <div class="program-card reveal">
+          <div class="program-icon-box">📹</div>
+          <h4>유튜브·SNS AI로 운영하기</h4>
+          <div class="program-target">대상: 크리에이터, 소상공인, 예비 유튜버</div>
+          <p>숏폼(쇼츠/릴스), 동영상 제작을 자동화합니다. AI로 1분 만에 채널 대본을 짜고 어울리는 섬네일을 만들어 조회수를 늘리는 전략을 공유합니다.</p>
+          <div class="program-tags">
+            <span>#쇼츠자동제작</span>
+            <span>#채널브랜딩</span>
+            <span>#SNS성장</span>
+          </div>
+          <a href="#contact" class="program-btn">수강 문의하기</a>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="program-card reveal">
+          <div class="program-icon-box">🤖</div>
+          <h4>AI SNS 마케팅 &amp; 스토어 자동화</h4>
+          <div class="program-target">대상: 자영업자, 쇼핑몰 운영자, 1인 창업가</div>
+          <p>블로그 자동 포스팅, 인스타그램 광고 콘텐츠 자동 제작, 네이버 스마트스토어 상품 정보 관리를 인공지능 자동화 봇으로 구축하여 내 스마트폰과 PC에 24시간 일하는 비서를 둡니다.</p>
+          <div class="program-tags">
+            <span>#스토어자동화</span>
+            <span>#인스타홍보</span>
+            <span>#AI마케팅</span>
+          </div>
+          <a href="#contact" class="program-btn">수강 문의하기</a>
+        </div>
+        
+        <!-- Card 8 -->
+        <div class="program-card reveal">
+          <div class="program-icon-box">💻</div>
+          <h4>바이브코딩 입문</h4>
+          <div class="program-target">대상: 비개발자, 대학생, 직장인</div>
+          <p>코딩을 전혀 몰라도 자연어로 명령하여 웹사이트나 앱을 완성합니다. AI 코딩 어시스턴트를 활용해 누구나 자신만의 디지털 아이디어를 빠르게 실현해 봅니다.</p>
+          <div class="program-tags">
+            <span>#바이브코딩</span>
+            <span>#노코드앱개발</span>
+            <span>#AI코딩어시스트</span>
+          </div>
+          <a href="#contact" class="program-btn">수강 문의하기</a>
+        </div>
       </div>
     </div>
   </section>
