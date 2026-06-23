@@ -1695,6 +1695,7 @@
             <li><strong>핵심 과정:</strong> 스마트폰 AI 비서 설정, 카드뉴스 제작, 여행/요리 꿀팁 대화, 간단한 실무 메일 및 문서 작성</li>
             <li><strong>권장 기간:</strong> 4주~8주 코스 (주 1회, 2시간)</li>
           </ul>
+          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1.5rem; cursor: pointer;" onclick="openCurriculumModal('track-A')">📋 상세 커리큘럼 보기</button>
         </div>
         
         <!-- Track B -->
@@ -1710,6 +1711,7 @@
             <li><strong>핵심 과정:</strong> AI 동화책 기획 ➔ 삽화 생성 ➔ 3D펜 주인공 입체 캐릭터 피규어 메이킹 ➔ AI 숏폼 영상 편집 및 시사회</li>
             <li><strong>권장 기간:</strong> 8주~12주 코스 (방과후 및 학기제 특화)</li>
           </ul>
+          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1.5rem; cursor: pointer;" onclick="openCurriculumModal('track-B')">📋 상세 커리큘럼 보기</button>
         </div>
         
         <!-- Track C -->
@@ -1725,6 +1727,7 @@
             <li><strong>핵심 과정:</strong> 과목별 맞춤형 AI 수업 지도안 설계, 프롬프트 엔지니어링, 학생 디지털 성과 대시보드 관리 및 자격증 연계</li>
             <li><strong>권장 기간:</strong> 1일 집중 마스터 특강 (4시간~8시간)</li>
           </ul>
+          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1.5rem; cursor: pointer;" onclick="openCurriculumModal('track-C')">📋 상세 커리큘럼 보기</button>
         </div>
       </div>
       
@@ -2514,6 +2517,183 @@
     </div>
   </div>
 
+  <!-- Curriculum Modal -->
+  <div class="bylaws-overlay" id="curriculumOverlay" onclick="closeCurriculumOverlay(event)">
+    <div class="bylaws-modal">
+      <div class="bylaws-modal-header" style="flex-direction: column; align-items: flex-start; gap: 1.5rem; padding-bottom: 0;">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+          <h2 style="font-size: 1.6rem; font-weight: 800; background: var(--rainbow-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">📋 KACEC AI 융합 교육 상세 커리큘럼</h2>
+          <button class="bylaws-close" onclick="toggleCurriculumModal(false)">✕</button>
+        </div>
+        <!-- Tab Navigation inside Modal -->
+        <div class="doc-tabs-nav" style="display: flex; gap: 10px; width: 100%; border-bottom: 1px solid var(--border-card); padding-bottom: 0.5rem;">
+          <button class="doc-tab-btn" id="tabBtnTrackA" onclick="switchCurriculumTab('track-A')" style="background: none; border: none; color: var(--primary); font-size: 1.05rem; font-weight: 700; padding: 0.5rem 1rem; cursor: pointer; border-bottom: 2px solid var(--primary); transition: var(--transition-smooth);">Track A (시니어/왕초보)</button>
+          <button class="doc-tab-btn" id="tabBtnTrackB" onclick="switchCurriculumTab('track-B')" style="background: none; border: none; color: var(--text-muted); font-size: 1.05rem; font-weight: 600; padding: 0.5rem 1rem; cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-smooth);">Track B (청소년 메이커)</button>
+          <button class="doc-tab-btn" id="tabBtnTrackC" onclick="switchCurriculumTab('track-C')" style="background: none; border: none; color: var(--text-muted); font-size: 1.05rem; font-weight: 600; padding: 0.5rem 1rem; cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-smooth);">Track C (교사 연수)</button>
+        </div>
+      </div>
+      <div class="bylaws-modal-content" style="padding: 2.5rem 3rem;">
+        
+        <!-- Tab A: Track A -->
+        <div id="trackATabContent" class="doc-tab-content" style="display: block;">
+          <h3 style="color: var(--secondary); margin-bottom: 1rem;">시니어·왕초보 생활 밀착형 AI 실용 패키지</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">마우스와 키보드, 스마트폰 조작 등 가장 쉬운 입문부터 단계별로 학습하며, 일상의 편의와 기본적인 문서 작성 생산성을 기르는 4주~8주 맞춤형 과정입니다.</p>
+          
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem; color: var(--text-main); font-size: 0.9rem;">
+            <thead>
+              <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); text-align: left;">
+                <th style="padding: 10px; width: 20%; color: var(--teal);">주차 (시간)</th>
+                <th style="padding: 10px; width: 30%; color: #ffffff;">주요 주제</th>
+                <th style="padding: 10px; width: 50%; color: #ffffff;">세부 교육 내용 및 실습</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">1주차 (2H)</td>
+                <td style="padding: 12px 10px; font-weight: bold;">인공지능(AI)과의 첫 만남</td>
+                <td style="padding: 12px 10px; color: var(--text-muted);">챗GPT/제미나이 회원가입 및 기본 대화법, 내 손안의 AI 비서(스마트폰 마이크 입력) 설정 및 첫 음성 대화 실습</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">2주차 (2H)</td>
+                <td style="padding: 12px 10px; font-weight: bold;">일상 속의 AI 비서 꿀팁</td>
+                <td style="padding: 12px 10px; color: var(--text-muted);">스마트폰 카메라 사진 분석(사물/식물 이름 찾기, 한글 영작), AI와 요리 레시피 짜기, 여행 코스 및 맛집 실시간 추천 대화</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">3주차 (2H)</td>
+                <td style="padding: 12px 10px; font-weight: bold;">비주얼 AI 맛보기 (Canva)</td>
+                <td style="padding: 12px 10px; color: var(--text-muted);">디자인 플랫폼 캔바(Canva)를 활용하여 가족 경조사 메시지 카드 만들기, AI가 알아서 배경을 지워주는(누끼 따기) 사진 편집 실습</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">4주차 (2H)</td>
+                <td style="padding: 12px 10px; font-weight: bold;">텍스트로 그림 그리기 (AI 미술)</td>
+                <td style="padding: 12px 10px; color: var(--text-muted);">ChatGPT 달리를 활용해 원하는 장면을 글자로 묘사하여 멋진 고화질 이미지 생성하기, 나만의 모바일 명절 카드/안부 카드 제작</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">5주차 (2H)</td>
+                <td style="padding: 12px 10px; font-weight: bold;">편지 및 서식 대행 비서</td>
+                <td style="padding: 12px 10px; color: var(--text-muted);">공공기관 제출용 민원 서식 및 탄원서 작성 요청 요령, 비즈니스 격식 이메일 및 감사 편지 대필 설계 실습</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">6주차 (2H)</td>
+                <td style="padding: 12px 10px; font-weight: bold;">AI 숏폼 비디오 크리에이팅</td>
+                <td style="padding: 12px 10px; color: var(--text-muted);">스마트폰 촬영 영상을 바탕으로 AI 자막 자동 생성기(Vrew, CapCut)를 이용해 1분짜리 힐링/여행 숏폼 비디오 편집 완료</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div style="background: rgba(139, 92, 246, 0.08); border-left: 4px solid var(--secondary); padding: 1.2rem; border-radius: 4px; font-size: 0.88rem; color: var(--text-main); line-height: 1.6;">
+            <strong>📌 정책/예산 수립 담당자님께 드리는 안내:</strong><br>
+            본 생활 밀착형 패키지는 주민센터 평생교육, 시니어 정보화 아카데미, 경로당 정보화 교육 등 지원 예산 규격에 맞춰 **자유롭게 시간과 세부 도구를 변경**하여 맞춤형으로 기획·출강할 수 있습니다.
+          </div>
+        </div>
+        
+        <!-- Tab B: Track B -->
+        <div id="trackBTabContent" class="doc-tab-content" style="display: none;">
+          <h3 style="color: var(--teal); margin-bottom: 1rem;">미래세대 청소년 창의·융합 AI &amp; 메이커 패키지</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">학생들이 인공지능과 하드웨어 교구의 접점을 체득하며 논리적 사고력과 문제 해결력을 키우는 8주~12주 하이브리드 메이커 융합 과정입니다.</p>
+          
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem; color: var(--text-main); font-size: 0.9rem;">
+            <thead>
+              <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); text-align: left;">
+                <th style="padding: 10px; width: 20%; color: var(--teal);">주차 (시간)</th>
+                <th style="padding: 10px; width: 30%; color: #ffffff;">주요 주제</th>
+                <th style="padding: 10px; width: 50%; color: #ffffff;">세부 교육 내용 및 실습</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">1~2주차 (4H)</td>
+                <td style="padding: 12px 10px; font-weight: bold;">AI 리터러시 &amp; 스토리 빌딩</td>
+                <td style="padding: 12px 10px; color: var(--text-muted);">생성형 AI와 함께 브레인스토밍하여 나만의 창작 동화 스토리 라인 구성, 생성 조건 설계를 통한 일러스트 삽화 생성</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">3~4주차 (4H)</td>
+                <td style="padding: 12px 10px; font-weight: bold;">3D펜 실물 메이커 활동</td>
+                <td style="padding: 12px 10px; color: var(--text-muted);">교육청 공인 3D펜 사용 안전 교육, 앞서 생성한 동화책 캐릭터의 평면 도안 설계 및 3D 필라멘트 결합을 통한 실물 피규어 입체 구현</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">5~6주차 (4H)</td>
+                <td style="padding: 12px 10px; font-weight: bold;">자율주행 코딩 및 하드웨어 연동</td>
+                <td style="padding: 12px 10px; color: var(--text-muted);">엔트리 및 씽크보드, 엠봇2 피지컬 교구를 활용하여 센서 정보(조도, 거리) 읽기 실습, 자율주행 라인트레이싱 코딩 주행 실험</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">7~8주차 (4H)</td>
+                <td style="padding: 12px 10px; font-weight: bold;">AI 비디오 에디팅 &amp; 시사회</td>
+                <td style="padding: 12px 10px; color: var(--text-muted);">AI 목소리 합성 툴로 스토리 나레이션을 넣고 이미지들을 모아 자막과 배경음악이 입혀진 애니메이션 숏폼 제작 완료 및 작품 공유 시사회</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div style="background: rgba(6, 182, 212, 0.08); border-left: 4px solid var(--teal); padding: 1.2rem; border-radius: 4px; font-size: 0.88rem; color: var(--text-main); line-height: 1.6;">
+            <strong>📌 학교 및 자유학기제 담당 교사단 안내:</strong><br>
+            학교의 메이커스페이스 및 교구 구비 현황에 맞추어 **실제 로봇 기기 수량을 조절(조별 1대 협동 프로젝트 등)하여 전체 교구비 예산 수준을 탄력적으로 커스터마이징**할 수 있습니다.
+          </div>
+        </div>
+        
+        <!-- Tab C: Track C -->
+        <div id="trackBTabContent" class="doc-tab-content" style="display: none;">
+          <!-- Empty fallback to avoid structure error, this is now track-C tab content -->
+        </div>
+        
+        <div id="trackCTabContent" class="doc-tab-content" style="display: none;">
+          <h3 style="color: var(--gold); margin-bottom: 1rem;">교사·강사 역량 강화 생성형 AI 교수법 연수 패키지</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">학교 및 학원 등 교육 현장에서 생성형 AI를 수업과 행정 업무에 즉시 활용하여 교원의 업무 효율성을 10배 높이는 초단기 원데이 집중 연수 프로그램입니다.</p>
+          
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem; color: var(--text-main); font-size: 0.9rem;">
+            <thead>
+              <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); text-align: left;">
+                <th style="padding: 10px; width: 25%; color: var(--gold);">구분 (시간)</th>
+                <th style="padding: 10px; width: 35%; color: #ffffff;">핵심 강의 주제</th>
+                <th style="padding: 10px; width: 40%; color: #ffffff;">실습 내용 및 결과물</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 10px; font-weight: bold; color: var(--gold);">1교시 (2H)</td>
+                <td style="padding: 12px 10px; font-weight: bold;">생성형 AI와 교육 패러다임 변화</td>
+                <td style="padding: 12px 10px; color: var(--text-muted);">챗GPT, 제미나이의 공공 교육 활용 가이드라인 분석, 올바른 AI 프롬프트 설계법과 AI 텍스트 팩트체크 기법 실습</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 10px; font-weight: bold; color: var(--gold);">2교시 (2H)</td>
+                <td style="padding: 12px 10px; font-weight: bold;">AI 기반 맞춤형 교안 및 학습지 설계</td>
+                <td style="padding: 12px 10px; color: var(--text-muted);">수업 대상의 수준에 따른 학습 수준 분석 ➔ AI를 통해 매끄러운 1차 교육 계획안 및 실무 보조 퀴즈 학습지 자동 생성</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 10px; font-weight: bold; color: var(--gold);">3교시 (2H)</td>
+                <td style="padding: 12px 10px; font-weight: bold;">피지컬 교구 수업 적용 워크숍</td>
+                <td style="padding: 12px 10px; color: var(--text-muted);">3D펜 캐릭터 입체화 수업 설계 템플릿, 엔트리와 하드웨어 연동 시 발생하는 주요 에러 자가 진단 및 피드백 시나리오 설계</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 12px 10px; font-weight: bold; color: var(--gold);">4교시 (2H)</td>
+                <td style="padding: 12px 10px; font-weight: bold;">학생 포트폴리오 디지털 관리</td>
+                <td style="padding: 12px 10px; color: var(--text-muted);">KACEC 클라우드 및 학생 대시보드를 통한 학습 산출물 수집 노하우, AI 이용 과제 간이 평가 프롬프트 설정</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid var(--gold); padding: 1.2rem; border-radius: 4px; font-size: 0.88rem; color: var(--text-main); line-height: 1.6;">
+            <strong>📌 교육연수원 및 교육지원청 장학사단 안내:</strong><br>
+            교사 연수 시간(2시간부터 2일 연속 워크숍까지) 및 학교의 세부 전공 과목 특성에 맞추어 **실제 연수 자료 제작 방향을 자유롭게 맞춤 설계**할 수 있습니다.
+          </div>
+        </div>
+        
+        <!-- General Customization Disclaimer (Direct Target to Administrators) -->
+        <div style="margin-top: 2.5rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 2rem;">
+          <p style="font-size: 0.95rem; color: #ffffff; font-weight: 600; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+            ⚙️ KACEC 유연한 맞춤형 설계 보장 안내
+          </p>
+          <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; max-width: 780px; margin: 0 auto;">
+            "본 교육원 협동조합의 모든 교육 과정과 3대 특화 패키지는 **요청 기관 및 학교의 학사 일정, 배정 예산, 수강생 연령대 및 수준**에 맞추어 유기적으로 커스터마이징하여 교안을 변형하고 하드웨어 교구 사양을 유연하게 조정할 수 있습니다."
+          </p>
+          <div style="margin-top: 1.5rem;">
+            <a href="#contact" class="btn btn-primary" onclick="toggleCurriculumModal(false)" style="padding: 0.6rem 1.8rem; font-size: 0.85rem;">💬 맞춤형 교육 설계 및 강사 출강 문의하기</a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
   <!-- Contact Section -->
   <section id="contact">
     <div class="container">
@@ -2704,6 +2884,67 @@
         });
       }
     });
+
+    // Curriculum Modal Toggle
+    function toggleCurriculumModal(show, activeTab = 'track-A') {
+      const overlay = document.getElementById('curriculumOverlay');
+      if (show) {
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        switchCurriculumTab(activeTab);
+      } else {
+        overlay.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function openCurriculumModal(trackId) {
+      toggleCurriculumModal(true, trackId);
+    }
+
+    function closeCurriculumOverlay(event) {
+      if (event.target === document.getElementById('curriculumOverlay')) {
+        toggleCurriculumModal(false);
+      }
+    }
+
+    // Curriculum Tab Switcher inside Modal
+    function switchCurriculumTab(tabName) {
+      const contentA = document.getElementById('trackATabContent');
+      const contentB = document.getElementById('trackBTabContent');
+      const contentC = document.getElementById('trackCTabContent');
+      
+      const btnA = document.getElementById('tabBtnTrackA');
+      const btnB = document.getElementById('tabBtnTrackB');
+      const btnC = document.getElementById('tabBtnTrackC');
+      
+      contentA.style.display = 'none';
+      contentB.style.display = 'none';
+      contentC.style.display = 'none';
+      
+      [btnA, btnB, btnC].forEach(btn => {
+        btn.style.color = 'var(--text-muted)';
+        btn.style.borderBottomColor = 'transparent';
+        btn.style.fontWeight = '600';
+      });
+      
+      if (tabName === 'track-A') {
+        contentA.style.display = 'block';
+        btnA.style.color = 'var(--primary)';
+        btnA.style.borderBottomColor = 'var(--primary)';
+        btnA.style.fontWeight = '700';
+      } else if (tabName === 'track-B') {
+        contentB.style.display = 'block';
+        btnB.style.color = 'var(--primary)';
+        btnB.style.borderBottomColor = 'var(--primary)';
+        btnB.style.fontWeight = '700';
+      } else if (tabName === 'track-C') {
+        contentC.style.display = 'block';
+        btnC.style.color = 'var(--primary)';
+        btnC.style.borderBottomColor = 'var(--primary)';
+        btnC.style.fontWeight = '700';
+      }
+    }
 
     // Bylaws & Minutes Modal Toggle
     function toggleBylawsModal(show, activeTab = 'bylaws') {
