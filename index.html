@@ -1430,18 +1430,7 @@
 
     /* Program Card Curriculum Expander */
     .program-detail-collapse {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      border-top: 1px dashed rgba(255, 255, 255, 0.0);
-      margin-top: 0;
-      padding-top: 0;
-    }
-    .program-detail-collapse.show {
-      max-height: 400px;
-      border-top-color: rgba(255, 255, 255, 0.08);
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
+      display: none;
     }
     
     .program-weeks-list {
@@ -1834,7 +1823,7 @@
               <li><strong>4주차:</strong> 생성형 AI 오류(환각) 유형 확인 및 안전한 정보 활용법</li>
             </ul>
           </div>
-          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="toggleProgramDetail(this)">📋 세부과정 보기</button>
+          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="openProgramDetailModal(this)">📋 세부과정 보기</button>
           <a href="#contact" class="program-btn" style="margin-top: 0.5rem;">수강 문의하기</a>
         </div>
         
@@ -1857,7 +1846,7 @@
               <li><strong>4주차:</strong> 내 업무에 딱 맞는 전용 프롬프트 템플릿 제작 및 활용</li>
             </ul>
           </div>
-          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="toggleProgramDetail(this)">📋 세부과정 보기</button>
+          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="openProgramDetailModal(this)">📋 세부과정 보기</button>
           <a href="#contact" class="program-btn" style="margin-top: 0.5rem;">수강 문의하기</a>
         </div>
         
@@ -1880,7 +1869,7 @@
               <li><strong>4주차:</strong> SNS 카드뉴스 및 포스터 홍보물 완성 프로젝트</li>
             </ul>
           </div>
-          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="toggleProgramDetail(this)">📋 세부과정 보기</button>
+          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="openProgramDetailModal(this)">📋 세부과정 보기</button>
           <a href="#contact" class="program-btn" style="margin-top: 0.5rem;">수강 문의하기</a>
         </div>
  
@@ -1903,7 +1892,7 @@
               <li><strong>4주차:</strong> 자가 출판 플랫폼 등록 및 정식 출판(ISBN 발급) 신청 진행</li>
             </ul>
           </div>
-          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="toggleProgramDetail(this)">📋 세부과정 보기</button>
+          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="openProgramDetailModal(this)">📋 세부과정 보기</button>
           <a href="#contact" class="program-btn" style="margin-top: 0.5rem;">수강 문의하기</a>
         </div>
         
@@ -1926,7 +1915,7 @@
               <li><strong>4주차:</strong> 해외여행용 실시간 다국어 음성 통역 비서 앱 완전 마스터</li>
             </ul>
           </div>
-          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="toggleProgramDetail(this)">📋 세부과정 보기</button>
+          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="openProgramDetailModal(this)">📋 세부과정 보기</button>
           <a href="#contact" class="program-btn" style="margin-top: 0.5rem;">수강 문의하기</a>
         </div>
         
@@ -1949,7 +1938,7 @@
               <li><strong>4주차:</strong> 0.1초 시선을 끄는 섬네일 디자인 및 플랫폼 동시 배포</li>
             </ul>
           </div>
-          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="toggleProgramDetail(this)">📋 세부과정 보기</button>
+          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="openProgramDetailModal(this)">📋 세부과정 보기</button>
           <a href="#contact" class="program-btn" style="margin-top: 0.5rem;">수강 문의하기</a>
         </div>
  
@@ -1972,7 +1961,7 @@
               <li><strong>4주차:</strong> 네이버 스마트스토어 상세페이지 상품 등록 키워드 SEO 자동 최적화</li>
             </ul>
           </div>
-          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="toggleProgramDetail(this)">📋 세부과정 보기</button>
+          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="openProgramDetailModal(this)">📋 세부과정 보기</button>
           <a href="#contact" class="program-btn" style="margin-top: 0.5rem;">수강 문의하기</a>
         </div>
         
@@ -1995,7 +1984,7 @@
               <li><strong>4주차:</strong> 나만의 디지털 포트폴리오 사이트 완성 및 웹 서버 실시간 호스팅</li>
             </ul>
           </div>
-          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="toggleProgramDetail(this)">📋 세부과정 보기</button>
+          <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1rem; cursor: pointer;" onclick="openProgramDetailModal(this)">📋 세부과정 보기</button>
           <a href="#contact" class="program-btn" style="margin-top: 0.5rem;">수강 문의하기</a>
         </div>
             </div>
@@ -2852,6 +2841,38 @@
     </div>
   </div>
 
+  <!-- Program Course Detail Modal -->
+  <div class="bylaws-overlay" id="programDetailOverlay" onclick="closeProgramDetailOverlay(event)">
+    <div class="bylaws-modal" style="max-width: 600px; height: auto; max-height: 85vh;">
+      <div class="bylaws-modal-header" style="flex-direction: column; align-items: flex-start; gap: 0.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-card);">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+          <h2 id="pModalTitle" style="font-size: 1.5rem; font-weight: 800; background: var(--rainbow-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">왕초보 AI 활용법</h2>
+          <button class="bylaws-close" onclick="toggleProgramDetailModal(false)">✕</button>
+        </div>
+        <div id="pModalTarget" class="program-target" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--teal); font-weight: bold;">대상: AI를 처음 접하는 모든 분</div>
+      </div>
+      <div class="bylaws-modal-content" style="padding: 2rem;">
+        <p id="pModalDesc" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">어려운 코딩이나 용어 없이 챗GPT와 인공지능 기초를 마스터합니다.</p>
+        
+        <div id="pModalTags" class="program-tags" style="margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <!-- Tags go here -->
+        </div>
+
+        <h4 style="color: #ffffff; font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; border-left: 3px solid var(--primary); padding-left: 0.7rem;">📋 주차별 교육 세부 내용</h4>
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); border-radius: 12px; padding: 1.5rem;">
+          <ul id="pModalWeeks" class="program-weeks-list" style="margin: 0; padding: 0; list-style-type: none;">
+            <!-- Weeks go here -->
+          </ul>
+        </div>
+
+        <div style="margin-top: 2rem; display: flex; gap: 10px; justify-content: flex-end;">
+          <button class="btn btn-outline" onclick="toggleProgramDetailModal(false)" style="padding: 0.6rem 1.5rem; font-size: 0.85rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; cursor: pointer; border-radius: 8px;">닫기</button>
+          <a href="#contact" class="btn btn-primary" onclick="toggleProgramDetailModal(false)" style="padding: 0.6rem 1.5rem; font-size: 0.85rem; text-decoration: none; display: flex; align-items: center; justify-content: center;">💬 출강 문의하기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Contact Section -->
   <section id="contact">
     <div class="container">
@@ -3043,18 +3064,38 @@
       }
     });
 
-    // Toggle individual program 4-week details expander
-    function toggleProgramDetail(btn) {
-      const card = btn.parentElement;
-      const collapseDiv = card.querySelector('.program-detail-collapse');
-      const isShowing = collapseDiv.classList.contains('show');
+    // Open dynamic program detail modal
+    function openProgramDetailModal(btn) {
+      const card = btn.closest('.program-card');
+      const title = card.querySelector('h4').innerText;
+      const target = card.querySelector('.program-target').innerText;
+      const description = card.querySelector('p').innerText;
+      const tagsHtml = card.querySelector('.program-tags').innerHTML;
+      const weeksHtml = card.querySelector('.program-weeks-list').innerHTML;
       
-      if (isShowing) {
-        collapseDiv.classList.remove('show');
-        btn.innerText = '📋 세부과정 보기';
+      document.getElementById('pModalTitle').innerText = title;
+      document.getElementById('pModalTarget').innerText = target;
+      document.getElementById('pModalDesc').innerText = description;
+      document.getElementById('pModalTags').innerHTML = tagsHtml;
+      document.getElementById('pModalWeeks').innerHTML = weeksHtml;
+      
+      toggleProgramDetailModal(true);
+    }
+
+    function toggleProgramDetailModal(show) {
+      const overlay = document.getElementById('programDetailOverlay');
+      if (show) {
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
       } else {
-        collapseDiv.classList.add('show');
-        btn.innerText = '▲ 세부과정 접기';
+        overlay.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function closeProgramDetailOverlay(event) {
+      if (event.target === document.getElementById('programDetailOverlay')) {
+        toggleProgramDetailModal(false);
       }
     }
 
