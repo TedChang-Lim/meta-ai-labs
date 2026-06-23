@@ -1407,6 +1407,70 @@
       opacity: 1;
     }
     
+    /* Mobile Board Bio Toggle Button */
+    .member-bio-toggle-btn {
+      display: none;
+      width: 100%;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--teal);
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: var(--transition-smooth);
+    }
+    .member-bio-toggle-btn:hover {
+      background: rgba(6, 182, 212, 0.1);
+      border-color: var(--teal);
+    }
+
+    /* Program Card Curriculum Expander */
+    .program-detail-collapse {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      border-top: 1px dashed rgba(255, 255, 255, 0.0);
+      margin-top: 0;
+      padding-top: 0;
+    }
+    .program-detail-collapse.show {
+      max-height: 400px;
+      border-top-color: rgba(255, 255, 255, 0.08);
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+    }
+    
+    .program-weeks-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+      text-align: left;
+    }
+    .program-weeks-list li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+      line-height: 1.5;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .program-weeks-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-weight: bold;
+    }
+    .program-weeks-list li strong {
+      color: #ffffff;
+      display: inline-block;
+      margin-right: 0.3rem;
+    }
+    
     /* Responsive Breakpoints */
     @media (max-width: 1024px) {
       header { padding: 0 2rem; }
@@ -1434,6 +1498,21 @@
       .contact-form { padding: 2rem; }
       .bylaws-modal-header { padding: 2rem 2rem 1rem; }
       .bylaws-modal-content { padding: 1.5rem 2rem; }
+      
+      /* Collapse member bio by default on mobile */
+      .member-bio {
+        max-height: 0;
+        overflow: hidden;
+        margin-bottom: 0;
+        transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), margin-bottom 0.5s ease;
+      }
+      .member-bio.show {
+        max-height: 1000px;
+        margin-bottom: 2rem;
+      }
+      .member-bio-toggle-btn {
+        display: block;
+      }
     }
     
     @media (max-width: 480px) {
@@ -1875,6 +1954,7 @@
               <p>• 영어유치원 전문강사를 거쳐 <span class="hl">해일로 영어코칭연구소</span> 및 <span class="hl">줄리아코칭영어학원</span>을 경영하며 21년 이상 영어 교육과 자기주도학습 솔루션을 제시해 왔습니다.</p>
               <p>• 저서로 베스트셀러인 <span class="hl">《밤 9시 엄마와 영어 글쓰기》</span>, 단독 번역서 <span class="hl">《공감으로 완성하는 코칭》</span> 외 다수 집필이 있으며, 갤러리 개인 유화 전시회 개최 및 시민 연극 극본 집필 등 문학과 미술을 아우르는 창작 예술 활동을 융합 교육 모델에 반영하고 있습니다.</p>
             </div>
+            <button class="member-bio-toggle-btn" onclick="toggleMemberBio(this)">▼ 상세 약력 보기</button>
             <div class="member-tags">
               <span>🎓 경복대 AI·XR 석사연구원</span>
               <span>📚 코칭학 석사 (GPA 4.5)</span>
@@ -1908,6 +1988,7 @@
               <p>• <span class="hl">문화체육관광부 예술전문강사</span> 및 올림푸스한국(주) 교육팀 강사를 거쳐 원주시 평생교육원, 복지관, 상지대학교 등에서 AI 미디어 활용 교육을 전담하는 전문 강사로 활약하고 있습니다.</p>
               <p>• 국내 1위 여행 잡지인 <span class="hl">‘트래비(Travie)’</span> 및 러닝 전문 매거진 <span class="hl">‘런시티’</span>, <span class="hl">‘월간항공’</span> 공식 포토그래퍼로 활동하며 수십 편의 전문 사진과 원고를 기고했습니다.</p>
             </div>
+            <button class="member-bio-toggle-btn" onclick="toggleMemberBio(this)">▼ 상세 약력 보기</button>
             <div class="member-tags">
               <span>🎓 경복대 AI·XR 석사연구원</span>
               <span>✍️ 《퍼스널 비주얼 브랜딩》 저자</span>
@@ -1937,6 +2018,7 @@
               <p>• 前 <span class="hl">화성ICT생활문화센터 센터장</span>으로 미디어아트전시, ICT 융합 교육, 생활문화 교육, 메이커스페이스를 운영하였으며, 문화예술 관련 전문가로 경기도의회 지역사회공헌 표창장을 수상하였습니다.</p>
               <p>• <span class="hl">㈜메이브 대표이사</span>(전시 콘텐츠 기획개발) 및 <span class="hl">리얼라이즈미디어 대표</span>(출판 및 문화예술 교육)를 역임하며, 전시 시스템 구축 등 다수의 공공 전시 프로젝트를 수행하였습니다.</p>
             </div>
+            <button class="member-bio-toggle-btn" onclick="toggleMemberBio(this)">▼ 상세 약력 보기</button>
             <div class="member-tags">
               <span>🏫 경복대학교 겸임교수</span>
               <span>🎬 前 화성ICT센터장</span>
@@ -1968,6 +2050,7 @@
               <p>• <span class="hl">비정형 다층구조 빔프로젝션 맵핑</span> 특허기술을 보유하고 있으며, K-MDAS 사고조사 프로그램 SW, VR 헬리콥터·720도 모션비행 시뮬레이터, 승무원 사격 VR 시뮬레이션 게임, 피지털 스포테인먼트 플랫폼 등 다양한 프로젝트를 성공적으로 수행하였습니다.</p>
               <p>• 경복대학교 AI·XR 석사과정을 통해 최신 이론을 흡수하며, 협동조합의 <span class="hl">3D 프로젝션 맵핑·미디어 파사드·방산 시뮬레이터 R&amp;D 트랙</span>을 이끄는 핵심 기술 파트너입니다.</p>
             </div>
+            <button class="member-bio-toggle-btn" onclick="toggleMemberBio(this)">▼ 상세 약력 보기</button>
             <div class="member-tags">
               <span>🏢 ㈜글림시스템즈 대표이사</span>
               <span>⭐ 특급기술자(21년)</span>
@@ -1994,6 +2077,7 @@
               <p>• AR·VR·XR, 홀로그램 실감 미디어뿐만 아니라 3차원 가상 도시 설계 모델인 스마트시티(Smart City)와 디지털 트윈(Digital Twin) 분야의 학술 권위자입니다.</p>
               <p>• 경복대학교와 제주뮤지엄아이바가든 등 국내 대표 실감미디어 전시관들과의 산학 협력 프로젝트를 이끌며, 학술적 이론과 실무 융합 교육 모델의 가교 역할을 담당하고 있습니다.</p>
             </div>
+            <button class="member-bio-toggle-btn" onclick="toggleMemberBio(this)">▼ 상세 약력 보기</button>
             <div class="member-tags">
               <span>🏫 경복대 시각디자인학과 전임교수</span>
               <span>🔬 AR/VR/XR 실감미디어 연구</span>
@@ -2884,6 +2968,36 @@
         });
       }
     });
+
+    // Toggle individual program 4-week details expander
+    function toggleProgramDetail(btn) {
+      const card = btn.parentElement;
+      const collapseDiv = card.querySelector('.program-detail-collapse');
+      const isShowing = collapseDiv.classList.contains('show');
+      
+      if (isShowing) {
+        collapseDiv.classList.remove('show');
+        btn.innerText = '📋 세부과정 보기';
+      } else {
+        collapseDiv.classList.add('show');
+        btn.innerText = '▲ 세부과정 접기';
+      }
+    }
+
+    // Toggle member bio details for mobile
+    function toggleMemberBio(btn) {
+      const card = btn.parentElement;
+      const bioDiv = card.querySelector('.member-bio');
+      const isShowing = bioDiv.classList.contains('show');
+      
+      if (isShowing) {
+        bioDiv.classList.remove('show');
+        btn.innerText = '▼ 상세 약력 보기';
+      } else {
+        bioDiv.classList.add('show');
+        btn.innerText = '▲ 약력 접기';
+      }
+    }
 
     // Curriculum Modal Toggle
     function toggleCurriculumModal(show, activeTab = 'track-A') {
