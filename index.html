@@ -354,6 +354,7 @@
     section {
       padding: 8rem 4rem;
       position: relative;
+      scroll-margin-top: 100px;
     }
     
     .container {
@@ -683,6 +684,165 @@
     #programs {
       background: rgba(17, 24, 39, 0.15);
       position: relative;
+    }
+    
+    /* Package Tracks Styling */
+    .package-tracks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+      margin-bottom: 4rem;
+    }
+    .track-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 3rem 2.2rem;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: var(--glass-filter);
+      -webkit-backdrop-filter: var(--glass-filter);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .track-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      transition: var(--transition-smooth);
+    }
+    .track-card.reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .track-card.reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .track-header {
+      margin-bottom: 1.5rem;
+    }
+    .track-badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+    }
+    
+    /* Track-specific colors */
+    .track-card:nth-child(1)::before {
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+    }
+    .track-card:nth-child(1) .track-badge {
+      background: rgba(139, 92, 246, 0.15);
+      color: var(--secondary);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+    }
+    .track-card:nth-child(1):hover {
+      border-color: rgba(139, 92, 246, 0.3);
+      box-shadow: 0 15px 30px rgba(139, 92, 246, 0.15), 0 0 15px rgba(139, 92, 246, 0.05);
+      transform: translateY(-8px) scale(1.02);
+    }
+    
+    .track-card:nth-child(2)::before {
+      background: linear-gradient(90deg, var(--teal), var(--primary));
+    }
+    .track-card:nth-child(2) .track-badge {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--teal);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+    .track-card:nth-child(2):hover {
+      border-color: rgba(6, 182, 212, 0.3);
+      box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15), 0 0 15px rgba(6, 182, 212, 0.05);
+      transform: translateY(-8px) scale(1.02);
+    }
+    
+    .track-card:nth-child(3)::before {
+      background: linear-gradient(90deg, var(--gold), var(--secondary));
+    }
+    .track-card:nth-child(3) .track-badge {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--gold);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .track-card:nth-child(3):hover {
+      border-color: rgba(245, 158, 11, 0.3);
+      box-shadow: 0 15px 30px rgba(245, 158, 11, 0.15), 0 0 15px rgba(245, 158, 11, 0.05);
+      transform: translateY(-8px) scale(1.02);
+    }
+    
+    .track-card h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.35;
+      letter-spacing: -0.5px;
+    }
+    .track-intro {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .track-features {
+      list-style: none;
+      margin-top: auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 1.5rem;
+    }
+    .track-features li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+    .track-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-weight: bold;
+    }
+    .track-features li strong {
+      color: #ffffff;
+    }
+    
+    .divider-text {
+      font-family: 'Outfit', sans-serif;
+      text-align: center;
+      position: relative;
+      font-size: 0.85rem;
+      letter-spacing: 4px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 5rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .divider-text::before, .divider-text::after {
+      content: '';
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      flex-grow: 1;
     }
     
     .programs-grid {
@@ -1518,10 +1678,60 @@
     <div class="container">
       <div class="section-label">CURRICULUM</div>
       <h2 class="section-title">교육 과정 안내</h2>
-      <p class="section-desc">왕초보 입문자를 위한 일상 밀착형 과정부터 비개발자를 위한 마케팅 및 코딩 자동화까지,<br>누구나 쉽게 배워 바로 활용하는 현장 맞춤형 AI 커리큘럼입니다.</p>
+      <p class="section-desc">지자체·학교·기관 특화형 3대 AI 융합 트랙부터 실무 맞춤형 8대 세부 교과목까지,<br>한국 AI 융합 교육원만의 검증된 교육 프로그램을 제안합니다.</p>
+      
+      <!-- 3대 특화 패키지 트랙 -->
+      <div class="package-tracks">
+        <!-- Track A -->
+        <div class="track-card reveal">
+          <div class="track-header">
+            <span class="track-badge">Track A</span>
+            <h3>시니어·왕초보<br>생활 밀착형 AI 실용 패키지</h3>
+          </div>
+          <p class="track-intro">디지털 취약계층과 중장년을 대상으로 100% 모바일/웹 실습을 진행하여 실생활 속 문제 해결과 기본 문서 실무 능력을 갖춥니다.</p>
+          <ul class="track-features">
+            <li><strong>대상:</strong> 중장년층, 시니어, 일반 디지털 입문자</li>
+            <li><strong>주요 도구:</strong> 챗GPT(무료), 구글 Gemini, Canva</li>
+            <li><strong>핵심 과정:</strong> 스마트폰 AI 비서 설정, 카드뉴스 제작, 여행/요리 꿀팁 대화, 간단한 실무 메일 및 문서 작성</li>
+            <li><strong>권장 기간:</strong> 4주~8주 코스 (주 1회, 2시간)</li>
+          </ul>
+        </div>
+        
+        <!-- Track B -->
+        <div class="track-card reveal">
+          <div class="track-header">
+            <span class="track-badge">Track B</span>
+            <h3>미래세대 청소년<br>창의·융합 AI &amp; 메이커 패키지</h3>
+          </div>
+          <p class="track-intro">상상을 현실로 만드는 생성형 AI 스토리 빌딩과 교육청 공인 하드웨어(3D펜, 로봇) 활동을 유기적으로 결합한 자기주도형 융합 트랙입니다.</p>
+          <ul class="track-features">
+            <li><strong>대상:</strong> 초등·중등·고등학생 및 지역 청소년 센터</li>
+            <li><strong>주요 도구:</strong> 생성형 AI, 3D펜, 엔트리 코딩, 엠봇2</li>
+            <li><strong>핵심 과정:</strong> AI 동화책 기획 ➔ 삽화 생성 ➔ 3D펜 주인공 입체 캐릭터 피규어 메이킹 ➔ AI 숏폼 영상 편집 및 시사회</li>
+            <li><strong>권장 기간:</strong> 8주~12주 코스 (방과후 및 학기제 특화)</li>
+          </ul>
+        </div>
+        
+        <!-- Track C -->
+        <div class="track-card reveal">
+          <div class="track-header">
+            <span class="track-badge">Track C</span>
+            <h3>교사·강사 역량 강화<br>생성형 AI 교수법 연수 패키지</h3>
+          </div>
+          <p class="track-intro">공공 교육 현장에 계신 교원 및 강사님들의 디지털 리터러시를 강화하고, 수업 보조 도구 기획 및 포트폴리오 관리 노하우를 전수합니다.</p>
+          <ul class="track-features">
+            <li><strong>대상:</strong> 초·중·고 교원, 방과후 교사, 프리랜서 강사</li>
+            <li><strong>주요 도구:</strong> 챗GPT, Gemini, 웹 기반 실습 포털</li>
+            <li><strong>핵심 과정:</strong> 과목별 맞춤형 AI 수업 지도안 설계, 프롬프트 엔지니어링, 학생 디지털 성과 대시보드 관리 및 자격증 연계</li>
+            <li><strong>권장 기간:</strong> 1일 집중 마스터 특강 (4시간~8시간)</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Divider to individual courses -->
+      <div class="divider-text">KACEC 8대 세부 교과과정</div>
       
       <div class="programs-grid">
-        <!-- Card 1 -->
         <div class="program-card reveal">
           <div class="program-icon-box">💡</div>
           <h4>왕초보 AI 활용법</h4>
@@ -2410,28 +2620,33 @@
       }
     });
 
-    // Stats counter animation
+    // Stats counter animation (Smooth Ease-Out with requestAnimationFrame)
     function animateCounters() {
       const counters = document.querySelectorAll('.stat-num');
+      
       counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
         const suffix = counter.getAttribute('data-suffix') || '';
-        let count = 0;
-        const duration = 1500; // Total animation duration in ms
-        const steps = 60;
-        const stepTime = duration / steps;
-        const increment = target / steps;
+        const duration = 2000; // Animation duration in ms
+        let startTime = null;
         
-        const updateCount = () => {
-          count += increment;
-          if (count < target) {
-            counter.innerText = Math.floor(count) + suffix;
-            setTimeout(updateCount, stepTime);
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+        
+        const step = (timestamp) => {
+          if (!startTime) startTime = timestamp;
+          const progress = Math.min((timestamp - startTime) / duration, 1);
+          const currentCount = Math.floor(easeOutCubic(progress) * target);
+          
+          counter.innerText = currentCount + suffix;
+          
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
           } else {
             counter.innerText = target + suffix;
           }
         };
-        updateCount();
+        
+        window.requestAnimationFrame(step);
       });
     }
 
@@ -2450,6 +2665,28 @@
         }, { threshold: 0.2 });
         statsObserver.observe(statsBar);
       }
+
+      // 3D Card Tilt and Glow Effect for .track-card and .program-card
+      const cards = document.querySelectorAll('.track-card, .program-card');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const percentX = (x / rect.width - 0.5) * 2;
+          const percentY = (y / rect.height - 0.5) * 2;
+          
+          const maxRotate = 8; // Max tilt angle in degrees
+          card.style.transform = `perspective(1000px) translateY(-8px) scale(1.03) rotateX(${percentY * -maxRotate}deg) rotateY(${percentX * maxRotate}deg)`;
+          card.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(6, 182, 212, 0.15)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+          card.style.boxShadow = '';
+        });
+      });
 
       // Scroll-driven animation fallback
       if (!CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {
