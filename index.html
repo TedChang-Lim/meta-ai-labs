@@ -856,7 +856,7 @@
       background: var(--bg-card);
       border: 1px solid var(--border-card);
       border-radius: 18px;
-      padding: 2.5rem 1.8rem;
+      padding: 2rem 1.4rem;
       transition: var(--transition-smooth);
       position: relative;
       display: flex;
@@ -874,29 +874,35 @@
     }
     
     .program-icon-box {
-      font-size: 2.5rem;
-      margin-bottom: 1.2rem;
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
       display: inline-block;
       transition: var(--transition-smooth);
     }
     
     .program-card:hover .program-icon-box {
-      transform: scale(1.15) rotate(5deg);
+      transform: scale(1.1);
     }
     
     .program-card h4 {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: #ffffff;
       margin-bottom: 0.5rem;
-      letter-spacing: -0.5px;
+      line-height: 1.4;
     }
     
     .program-target {
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       color: var(--teal);
+      background: rgba(20, 184, 166, 0.08);
+      border: 1px solid rgba(20, 184, 166, 0.15);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.8rem;
       font-weight: 600;
-      margin-bottom: 1rem;
+      width: fit-content;
       letter-spacing: 0.5px;
     }
     
@@ -904,7 +910,7 @@
       font-size: 0.88rem;
       color: var(--text-muted);
       line-height: 1.6;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       flex-grow: 1;
     }
     
@@ -912,7 +918,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.2rem;
     }
     
     .program-tags span {
@@ -926,7 +932,6 @@
     }
     
     .program-card:hover .program-tags span {
-      background: rgba(6, 182, 212, 0.06);
       border-color: rgba(6, 182, 212, 0.15);
       color: #ffffff;
     }
@@ -948,11 +953,15 @@
     }
     
     .program-card:hover .program-btn {
-      background: var(--gold-metallic);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background: rgba(179, 135, 40, 0.08);
+      color: #b38728;
       border-color: #b38728;
       box-shadow: 0 0 10px rgba(179, 135, 40, 0.2);
+    }
+    .program-btn:hover {
+      background: rgba(179, 135, 40, 0.2) !important;
+      color: #ffffff !important;
+      border-color: #b38728 !important;
     }
     
     /* Services Section */
