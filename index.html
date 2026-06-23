@@ -845,6 +845,32 @@
       flex-grow: 1;
     }
     
+    
+    /* Certification and Business Model Box */
+    .certification-box {
+      margin-top: 3.5rem;
+      margin-bottom: 4rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      backdrop-filter: var(--glass-filter);
+      -webkit-backdrop-filter: var(--glass-filter);
+    }
+    .certification-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .cert-left {
+      padding-right: 0.5rem;
+    }
+    .cert-right {
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
+      padding-left: 3.5rem;
+    }
+
     .programs-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -1494,6 +1520,9 @@
       .bylaws-highlight-grid { grid-template-columns: 1fr; }
       .programs-grid { grid-template-columns: 1fr; }
       .package-tracks { grid-template-columns: 1fr; gap: 1.5rem; }
+      .certification-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+      .cert-right { border-left: none !important; padding-left: 0 !important; }
+      .certification-box { padding: 2rem 1.5rem !important; }
       .contact-form { padding: 2rem; }
       .bylaws-modal-header { padding: 2rem 2rem 1rem; }
       .bylaws-modal-content { padding: 1.5rem 2rem; }
@@ -1806,6 +1835,73 @@
             <li><strong>권장 기간:</strong> 1일 집중 마스터 특강 (4시간~8시간)</li>
           </ul>
           <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1.5rem; cursor: pointer;" onclick="openCurriculumModal('track-C')">📋 상세 커리큘럼 보기</button>
+        </div>
+      </div>
+
+      <!-- KACEC 자격 인증 및 교육 운영 모델 -->
+      <div class="certification-box reveal">
+        <div class="certification-grid">
+          
+          <!-- Left: Certification Tiers -->
+          <div class="cert-left">
+            <h4 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem;">
+              🎖️ KACEC 인공지능 교육 자격/인증 체계
+            </h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+              본 교육원 협동조합은 표준 교과과정 이수자를 대상으로 전문 검정을 거쳐 자체 공식 인증서 및 민간 자격증(등록 심사 대기)을 발급하여 교육의 공신력과 학생 포트폴리오의 실질 가치를 증명합니다.
+            </p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; color: var(--text-main);">
+              <thead>
+                <tr style="border-bottom: 1.5px solid rgba(255,255,255,0.1); text-align: left;">
+                  <th style="padding: 10px; color: var(--teal); font-weight: 700; width: 20%;">등급</th>
+                  <th style="padding: 10px; color: #ffffff; font-weight: 700; width: 35%;">자격 명칭</th>
+                  <th style="padding: 10px; color: #ffffff; font-weight: 700; width: 45%;">대상 및 이수 조건</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                  <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">1급</td>
+                  <td style="padding: 12px 10px; font-weight: bold; color: #ffffff;">AI 활용 전문가</td>
+                  <td style="padding: 12px 10px; color: var(--text-muted);">트랙 A (시니어/왕초보) 과정 이수 + 실습 평가</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                  <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">2급</td>
+                  <td style="padding: 12px 10px; font-weight: bold; color: #ffffff;">AI 콘텐츠 제작사</td>
+                  <td style="padding: 12px 10px; color: var(--text-muted);">트랙 B (청소년 메이커) 과정 이수 + 프로젝트 발표</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                  <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">특급</td>
+                  <td style="padding: 12px 10px; font-weight: bold; color: #ffffff;">AI 교육 강사</td>
+                  <td style="padding: 12px 10px; color: var(--text-muted);">트랙 C (교사/강사 연수) 과정 이수 + 강의 시연 평가</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Right: Business Collaboration Model -->
+          <div class="cert-right">
+            <h4 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem;">
+              🤝 합리적인 공공/학교 위탁 교육 운영 모델
+            </h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+              학교 및 지자체의 교육 예산 집행 규격에 완벽하게 맞추어 교육 서비스를 제공하며, 교육 콘텐츠 전문성과 예산의 투명성을 함께 보장합니다.
+            </p>
+            <ul style="margin: 0; padding: 0; list-style-type: none; font-size: 0.85rem; line-height: 1.7; color: var(--text-main);">
+              <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 0.6rem;">
+                <span style="color: var(--teal); font-weight: bold; margin-top: 0.1rem;">✔</span>
+                <span><strong>교육과정 및 강의 (KACEC):</strong> 학사 일정과 요구 차시에 맞춰 기획된 고품질 교육 서비스 공급 및 전문 강사단 직접 파견 (수강료/강사 출강료 집행)</span>
+              </li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 0.6rem;">
+                <span style="color: var(--teal); font-weight: bold; margin-top: 0.1rem;">✔</span>
+                <span><strong>물리적 교구 구매 (학교/기관):</strong> 학교 자체 교구 예산 또는 SW미래채움 사업비 등으로 제조사 직접 구매 처리 (예산 집행 투명성 보장)</span>
+              </li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 0.6rem;">
+                <span style="color: var(--teal); font-weight: bold; margin-top: 0.1rem;">✔</span>
+                <span><strong>수료증 및 인증 관리 (KACEC):</strong> 학업 산출물 디지털 포털 수집, 학생별 사용량 모니터링 및 KACEC 공식 수료/인증 발급</span>
+              </li>
+            </ul>
+          </div>
+          
         </div>
       </div>
       
