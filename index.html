@@ -3469,6 +3469,12 @@
         btnC.style.borderBottomColor = 'var(--primary)';
         btnC.style.fontWeight = '700';
       }
+
+      // Reset scroll position to top
+      const modalContent = document.querySelector('#curriculumOverlay .bylaws-modal-content');
+      if (modalContent) {
+        modalContent.scrollTop = 0;
+      }
     }
 
     // Bylaws & Minutes Modal Toggle
@@ -3484,6 +3490,7 @@
       }
     }
 
+    // Close overlays
     function closeOverlay(event) {
       if (event.target === document.getElementById('bylawsOverlay')) {
         toggleBylawsModal(false);
@@ -3519,6 +3526,12 @@
         btnBylaws.style.color = 'var(--text-muted)';
         btnBylaws.style.borderBottomColor = 'transparent';
         btnBylaws.style.fontWeight = '600';
+      }
+
+      // Reset scroll position to top
+      const modalContent = document.querySelector('#bylawsOverlay .bylaws-modal-content');
+      if (modalContent) {
+        modalContent.scrollTop = 0;
       }
     }
 
