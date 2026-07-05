@@ -1,6 +1,7 @@
 import asyncio
 import json
 import os
+import time
 from datetime import datetime
 from pathlib import Path
 from fastapi import FastAPI, Request, HTTPException
@@ -9,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
 import uvicorn
+from watchfiles import awatch
 
 app = FastAPI()
 app.add_middleware(
@@ -71,6 +73,67 @@ async def event_generator(request: Request):
 async def broadcast(message: dict):
     for queue in app.client_queues:
         await queue.put(message)
+
+
+# 백그라운드 파일 시스템 감시 태스크 (대시보드 상태 자동 감지용)
+async def watch_agent_activities():
+    last_active = {
+        "Mimo": 0.0,
+        "Hena": 0.0,
+        "AG": 0.0,
+    }
+
+    # 10초 무활동 시 idle 상태로 자동 복귀 처리
+    async def idle_timeout_check():
+        global saved_cost
+        while True:
+            await asyncio.sleep(2)
+            now = time.time()
+            updated = False
+            for agent, last_time in last_active.items():
+                if agents_state[agent]["status"] == "busy" and (now - last_time) > 10:
+                    agents_state[agent]["status"] = "idle"
+                    agents_state[agent]["file"] = "-"
+                    updated = True
+            if updated:
+                await broadcast({"type": "update", "agents": agents_state, "saved_cost": saved_cost})
+
+    asyncio.create_task(idle_timeout_check())
+
+    try:
+        async for changes in awatch(str(SHARED_DIR)):
+            now = time.time()
+            updated = False
+            for change_type, filepath in changes:
+                filename = os.path.basename(filepath)
+                # 시스템 및 git 파일 필터링
+                if ".git" in filepath or filename.startswith("."):
+                    continue
+
+                target_agent = None
+                # 파일 수정 주체 매핑
+                if filename == "mimo_chat_log.md" or "to-mimo" in filename:
+                    target_agent = "Mimo"
+                elif filename == "to-ag.md" or "drafts" in filepath:
+                    target_agent = "Hena"
+                elif filename == "to-hena.md":
+                    target_agent = "AG"
+
+                if target_agent:
+                    agents_state[target_agent]["status"] = "busy"
+                    agents_state[target_agent]["file"] = filename
+                    last_active[target_agent] = now
+                    updated = True
+
+            if updated:
+                await broadcast({"type": "update", "agents": agents_state, "saved_cost": saved_cost})
+    except Exception as e:
+        print(f"Error in file watcher: {e}")
+
+
+@app.on_event("startup")
+async def startup_event():
+    asyncio.create_task(watch_agent_activities())
 
 
 @app.get("/", response_class=HTMLResponse)
