@@ -1,15 +1,14 @@
 import asyncio
 import json
 import os
-import time
+from datetime import datetime
 from pathlib import Path
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import StreamingResponse, HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
 import uvicorn
-from watchfiles import awatch
 
 app = FastAPI()
 app.add_middleware(
@@ -20,7 +19,12 @@ app.add_middleware(
 )
 
 BASE_DIR = Path(__file__).parent
-SHARED_DIR = "/Users/tedchanglimchangsik/초보프로젝트/hermes-ag-shared"
+SHARED_DIR = Path.home() / "초보프로젝트" / "hermes-ag-shared"
+MESSAGES_DIR = SHARED_DIR / "messages"
+ARCHIVE_DIR = SHARED_DIR / "archive"
+
+MESSAGES_DIR.mkdir(parents=True, exist_ok=True)
+ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
 
 agents_state = {
     "Hena": {"status": "idle", "file": "-", "cost": 0.0},
@@ -40,6 +44,11 @@ class AgentUpdate(BaseModel):
     file: Optional[str] = "-"
     cost: Optional[float] = 0.0
     saved: Optional[float] = 0.0
+
+
+class MessageAdd(BaseModel):
+    agent: str
+    content: str
 
 
 async def event_generator(request: Request):
@@ -62,67 +71,6 @@ async def event_generator(request: Request):
 async def broadcast(message: dict):
     for queue in app.client_queues:
         await queue.put(message)
-
-
-# 백그라운드 파일 시스템 감시 태스크
-async def watch_agent_activities():
-    last_active = {
-        "Mimo": 0.0,
-        "Hena": 0.0,
-        "AG": 0.0,
-    }
-
-    # 10초 무활동 시 idle 상태로 자동 복귀 처리
-    async def idle_timeout_check():
-        global saved_cost
-        while True:
-            await asyncio.sleep(2)
-            now = time.time()
-            updated = False
-            for agent, last_time in last_active.items():
-                if agents_state[agent]["status"] == "busy" and (now - last_time) > 10:
-                    agents_state[agent]["status"] = "idle"
-                    agents_state[agent]["file"] = "-"
-                    updated = True
-            if updated:
-                await broadcast({"type": "update", "agents": agents_state, "saved_cost": saved_cost})
-
-    asyncio.create_task(idle_timeout_check())
-
-    try:
-        async for changes in awatch(SHARED_DIR):
-            now = time.time()
-            updated = False
-            for change_type, filepath in changes:
-                filename = os.path.basename(filepath)
-                # 시스템 및 git 파일 필터링
-                if ".git" in filepath or filename.startswith("."):
-                    continue
-
-                target_agent = None
-                # 파일 수정 주체 매핑
-                if filename == "mimo_chat_log.md" or "to-mimo" in filename:
-                    target_agent = "Mimo"
-                elif filename == "to-ag.md" or "drafts" in filepath:
-                    target_agent = "Hena"
-                elif filename == "to-hena.md":
-                    target_agent = "AG"
-
-                if target_agent:
-                    agents_state[target_agent]["status"] = "busy"
-                    agents_state[target_agent]["file"] = filename
-                    last_active[target_agent] = now
-                    updated = True
-
-            if updated:
-                await broadcast({"type": "update", "agents": agents_state, "saved_cost": saved_cost})
-    except Exception as e:
-        print(f"Error in file watcher: {e}")
-
-
-@app.on_event("startup")
-async def startup_event():
-    asyncio.create_task(watch_agent_activities())
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -158,6 +106,61 @@ async def stream(request: Request):
 async def stop_server():
     await broadcast({"type": "stop"})
     os._exit(0)
+
+
+@app.get("/messages")
+async def list_messages():
+    messages = []
+    if MESSAGES_DIR.exists():
+        for file in MESSAGES_DIR.glob("*.md"):
+            stat = file.stat()
+            messages.append({
+                "filename": file.name,
+                "size": stat.st_size,
+                "modified": datetime.fromtimestamp(stat.st_mtime).isoformat(),
+            })
+    return {"messages": messages, "count": len(messages)}
+
+
+@app.get("/messages/{filename}")
+async def read_message(filename: str):
+    file_path = MESSAGES_DIR / filename
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail="Message not found")
+    with open(file_path, "r", encoding="utf-8") as f:
+        content = f.read()
+    return {"filename": filename, "content": content}
+
+
+@app.post("/messages/{filename}")
+async def add_message(filename: str, data: MessageAdd):
+    file_path = MESSAGES_DIR / filename
+    timestamp = datetime.now().isoformat()
+    message_line = json.dumps({
+        "timestamp": timestamp,
+        "agent": data.agent,
+        "content": data.content,
+    }, ensure_ascii=False)
+    with open(file_path, "a", encoding="utf-8") as f:
+        f.write(message_line + "\n")
+    await broadcast({
+        "type": "message",
+        "filename": filename,
+        "agent": data.agent,
+        "timestamp": timestamp,
+    })
+    return {"status": "success", "timestamp": timestamp}
+
+
+@app.post("/messages/{filename}/read")
+async def mark_as_read(filename: str):
+    file_path = MESSAGES_DIR / filename
+    archive_path = ARCHIVE_DIR / filename
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail="Message not found")
+    file_path.rename(archive_path)
+    await broadcast({"type": "archived", "filename": filename})
+    return {"status": "success", "archived_to": str(archive_path)}
 
 
 if __name__ == "__main__":
