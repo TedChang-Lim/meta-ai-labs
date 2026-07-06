@@ -2531,164 +2531,6 @@
           <button class="program-btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-top: 1.5rem; cursor: pointer;" onclick="openCurriculumModal('track-C')">📋 상세 커리큘럼 보기</button>
         </div>
       </div>
-
-      <!-- KACEC Online Academy Roadmap Map -->
-      <div class="reveal" style="margin-top: 3.5rem; margin-bottom: 2.5rem;">
-        <div style="background: rgba(10, 15, 30, 0.6); border: 1px solid rgba(20, 184, 166, 0.15); border-radius: 20px; padding: 2.5rem 2rem; backdrop-filter: blur(12px); box-shadow: var(--shadow-neon-teal);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px dashed rgba(255,255,255,0.15); padding-bottom: 1.2rem; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
-            <div>
-              <span style="font-size: 0.75rem; font-weight: 800; color: var(--teal); letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.4rem;">Learning Map</span>
-              <h3 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0; letter-spacing: -1px;">🎓 KACEC AI 아카데미 지식 마인드맵 (Skill Tree)</h3>
-            </div>
-            <button onclick="toggleCampusModal(true)" class="btn btn-primary" style="padding: 0.6rem 1.4rem; font-size: 0.85rem; border-radius: 8px;">
-              ⚡ 실시간 AI 캠퍼스 실습기 열기
-            </button>
-          </div>
-          
-          <div class="kacec-mindmap-container">
-            <!-- Center Root -->
-            <div class="mindmap-root-wrapper">
-              <div class="mindmap-node root-node">
-                <span>KACEC AI 아카데미</span>
-              </div>
-            </div>
-            
-            <div class="mindmap-branches">
-              <!-- Branch 1 -->
-              <div class="mindmap-branch-group">
-                <div class="mindmap-node branch-node basics-color" style="cursor: pointer;" onclick="openCampusToCourse('basics')">
-                  <span>📚 AI 기초 & 프롬프트</span>
-                </div>
-                <div class="mindmap-leaves">
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('basics')">🌱 페르소나 설계 (역할+맥락)</div>
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('basics')">📝 문서 요약 및 핵심 정보 추출</div>
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('basics')">🎨 이미지 생성 프롬프트 구도</div>
-                </div>
-              </div>
-              
-              <!-- Branch 2 -->
-              <div class="mindmap-branch-group">
-                <div class="mindmap-node branch-node marketing-color" style="cursor: pointer;" onclick="openCampusToCourse('marketing')">
-                  <span>📢 소상공인 마케팅 🔒</span>
-                </div>
-                <div class="mindmap-leaves">
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('marketing')">🧴 라벤더 꿀 비누 카피라이팅</div>
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('marketing')">✍️ 블로그/SNS 홍보 원고(SEO)</div>
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('marketing')">💬 고객 리뷰 컴플레인 응대 템플릿</div>
-                </div>
-              </div>
-              
-              <!-- Branch 3 -->
-              <div class="mindmap-branch-group">
-                <div class="mindmap-node branch-node video-color" style="cursor: pointer;" onclick="openCampusToCourse('video')">
-                  <span>🎬 AI 영상 크리에이터 🔒</span>
-                </div>
-                <div class="mindmap-leaves">
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('video')">📹 유튜브 숏츠 60초 대본 기획</div>
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('video')">🎬 스토리보드 시나리오 컷 분할</div>
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('video')">🎙️ AI 성우 음성 합성 및 더빙</div>
-                </div>
-              </div>
-              
-              <!-- Branch 4 -->
-              <div class="mindmap-branch-group">
-                <div class="mindmap-node branch-node automation-color" style="cursor: pointer;" onclick="openCampusToCourse('automation')">
-                  <span>⚙️ AI 비즈니스 자동화 🔒</span>
-                </div>
-                <div class="mindmap-leaves">
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('automation')">📊 엑셀 수식 및 VBA 매크로 코드</div>
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('automation')">🕷️ 파이썬 가격 크롤러 수집</div>
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('automation')">✉️ 고객 맞춤형 이메일 자동 발송</div>
-                </div>
-              </div>
-              
-              <!-- Branch 5 -->
-              <div class="mindmap-branch-group">
-                <div class="mindmap-node branch-node exclusive-color" style="cursor: pointer;" onclick="openCampusToCourse('exclusive')">
-                  <span>🤝 KACEC 조합원 실무 🔒</span>
-                </div>
-                <div class="mindmap-leaves">
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('exclusive')">📜 조합 표준 정관 조항 분석</div>
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('exclusive')">💼 지자체 교육 출강 제안서 설계</div>
-                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('exclusive')">🗄️ 서브도메인 분산 스토리지 구축</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- KACEC 자격 인증 및 교육 운영 모델 -->
-      <div class="certification-box reveal">
-        <div class="certification-grid">
-          
-          <!-- Left: Certification Tiers -->
-          <div class="cert-left">
-            <h4 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem;">
-              🎖️ KACEC 인공지능 교육 자격/인증 체계
-            </h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
-              본 교육원 협동조합은 표준 교과과정 이수자를 대상으로 전문 검정을 거쳐 자체 공식 인증서 및 민간 자격증(등록 심사 대기)을 발급하여 교육의 공신력과 학생 포트폴리오의 실질 가치를 증명합니다.
-            </p>
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; color: var(--text-main);">
-              <thead>
-                <tr style="border-bottom: 1.5px solid rgba(255,255,255,0.1); text-align: left;">
-                  <th style="padding: 10px; color: var(--teal); font-weight: 700; width: 25%;">등급</th>
-                  <th style="padding: 10px; color: #ffffff; font-weight: 700; width: 35%;">자격 명칭</th>
-                  <th style="padding: 10px; color: #ffffff; font-weight: 700; width: 40%;">대상 및 이수 조건</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                  <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">3급</td>
-                  <td style="padding: 12px 10px; font-weight: bold; color: #ffffff;">AI 활용지도사</td>
-                  <td style="padding: 12px 10px; color: var(--text-muted);">트랙 A (시니어/일반) 과정 이수 + 실습 평가</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                  <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">2급</td>
-                  <td style="padding: 12px 10px; font-weight: bold; color: #ffffff;">AI 미디어크리에이터</td>
-                  <td style="padding: 12px 10px; color: var(--text-muted);">트랙 B (청소년 메이커) 과정 이수 + 프로젝트 발표</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                  <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">1급 (최상위)</td>
-                  <td style="padding: 12px 10px; font-weight: bold; color: #ffffff;">XR 콘텐츠제작사</td>
-                  <td style="padding: 12px 10px; color: var(--text-muted);">트랙 C (교사/강사 연수) 과정 이수 + 강의 시연 평가</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          
-          <!-- Right: Business Collaboration Model -->
-          <div class="cert-right">
-            <h4 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem;">
-              🤝 합리적인 공공/학교 위탁 교육 운영 모델
-            </h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
-              학교 및 지자체의 교육 예산 집행 규격에 완벽하게 맞추어 교육 서비스를 제공하며, 교육 콘텐츠 전문성과 예산의 투명성을 함께 보장합니다.
-            </p>
-            <ul style="margin: 0; padding: 0; list-style-type: none; font-size: 0.85rem; line-height: 1.7; color: var(--text-main);">
-              <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 0.6rem;">
-                <span style="color: var(--teal); font-weight: bold; margin-top: 0.1rem;">✔</span>
-                <span><strong>교육과정 및 강의 (KACEC):</strong> 학사 일정과 요구 차시에 맞춰 기획된 고품질 교육 서비스 공급 및 전문 강사단 직접 파견 (수강료/강사 출강료 집행)</span>
-              </li>
-              <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 0.6rem;">
-                <span style="color: var(--teal); font-weight: bold; margin-top: 0.1rem;">✔</span>
-                <span><strong>물리적 교구 구매 (학교/기관):</strong> 학교 자체 교구 예산 또는 SW미래채움 사업비 등으로 제조사 직접 구매 처리 (예산 집행 투명성 보장)</span>
-              </li>
-              <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 0.6rem;">
-                <span style="color: var(--teal); font-weight: bold; margin-top: 0.1rem;">✔</span>
-                <span><strong>수료증 및 인증 관리 (KACEC):</strong> 학업 산출물 디지털 포털 수집, 학생별 사용량 모니터링 및 KACEC 공식 수료/인증 발급</span>
-              </li>
-            </ul>
-            <div style="margin-top: 1.5rem; padding: 0.8rem 1rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem;">
-              <span>✉️</span>
-              <span><strong>공공기관·지자체·학교 공문 문의:</strong> <a href="mailto:office@kacec.kr" style="color: var(--teal); text-decoration: none; font-weight: bold; border-bottom: 1px solid rgba(20, 184, 166, 0.4); padding-bottom: 1px;">office@kacec.kr</a></span>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      
       <!-- Divider to individual courses -->
       <div class="divider-text">KACEC 12대 세부 교과과정</div>
       
@@ -2969,6 +2811,163 @@
     </div>
   </section>
 
+      <!-- KACEC Online Academy Roadmap Map -->
+      <div class="reveal" style="margin-top: 3.5rem; margin-bottom: 2.5rem;">
+        <div style="background: rgba(10, 15, 30, 0.6); border: 1px solid rgba(20, 184, 166, 0.15); border-radius: 20px; padding: 2.5rem 2rem; backdrop-filter: blur(12px); box-shadow: var(--shadow-neon-teal);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px dashed rgba(255,255,255,0.15); padding-bottom: 1.2rem; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 800; color: var(--teal); letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.4rem;">Learning Map</span>
+              <h3 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0; letter-spacing: -1px;">🎓 KACEC AI 아카데미 지식 마인드맵 (Skill Tree)</h3>
+            </div>
+            <button onclick="toggleCampusModal(true)" class="btn btn-primary" style="padding: 0.6rem 1.4rem; font-size: 0.85rem; border-radius: 8px;">
+              ⚡ 실시간 AI 캠퍼스 실습기 열기
+            </button>
+          </div>
+          
+          <div class="kacec-mindmap-container">
+            <!-- Center Root -->
+            <div class="mindmap-root-wrapper">
+              <div class="mindmap-node root-node">
+                <span>KACEC AI 아카데미</span>
+              </div>
+            </div>
+            
+            <div class="mindmap-branches">
+              <!-- Branch 1 -->
+              <div class="mindmap-branch-group">
+                <div class="mindmap-node branch-node basics-color" style="cursor: pointer;" onclick="openCampusToCourse('basics')">
+                  <span>📚 AI 기초 & 프롬프트</span>
+                </div>
+                <div class="mindmap-leaves">
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('basics')">🌱 페르소나 설계 (역할+맥락)</div>
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('basics')">📝 문서 요약 및 핵심 정보 추출</div>
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('basics')">🎨 이미지 생성 프롬프트 구도</div>
+                </div>
+              </div>
+              
+              <!-- Branch 2 -->
+              <div class="mindmap-branch-group">
+                <div class="mindmap-node branch-node marketing-color" style="cursor: pointer;" onclick="openCampusToCourse('marketing')">
+                  <span>📢 소상공인 마케팅 🔒</span>
+                </div>
+                <div class="mindmap-leaves">
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('marketing')">🧴 라벤더 꿀 비누 카피라이팅</div>
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('marketing')">✍️ 블로그/SNS 홍보 원고(SEO)</div>
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('marketing')">💬 고객 리뷰 컴플레인 응대 템플릿</div>
+                </div>
+              </div>
+              
+              <!-- Branch 3 -->
+              <div class="mindmap-branch-group">
+                <div class="mindmap-node branch-node video-color" style="cursor: pointer;" onclick="openCampusToCourse('video')">
+                  <span>🎬 AI 영상 크리에이터 🔒</span>
+                </div>
+                <div class="mindmap-leaves">
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('video')">📹 유튜브 숏츠 60초 대본 기획</div>
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('video')">🎬 스토리보드 시나리오 컷 분할</div>
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('video')">🎙️ AI 성우 음성 합성 및 더빙</div>
+                </div>
+              </div>
+              
+              <!-- Branch 4 -->
+              <div class="mindmap-branch-group">
+                <div class="mindmap-node branch-node automation-color" style="cursor: pointer;" onclick="openCampusToCourse('automation')">
+                  <span>⚙️ AI 비즈니스 자동화 🔒</span>
+                </div>
+                <div class="mindmap-leaves">
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('automation')">📊 엑셀 수식 및 VBA 매크로 코드</div>
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('automation')">🕷️ 파이썬 가격 크롤러 수집</div>
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('automation')">✉️ 고객 맞춤형 이메일 자동 발송</div>
+                </div>
+              </div>
+              
+              <!-- Branch 5 -->
+              <div class="mindmap-branch-group">
+                <div class="mindmap-node branch-node exclusive-color" style="cursor: pointer;" onclick="openCampusToCourse('exclusive')">
+                  <span>🤝 KACEC 조합원 실무 🔒</span>
+                </div>
+                <div class="mindmap-leaves">
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('exclusive')">📜 조합 표준 정관 조항 분석</div>
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('exclusive')">💼 지자체 교육 출강 제안서 설계</div>
+                  <div class="mindmap-node leaf-node" onclick="openCampusToCourse('exclusive')">🗄️ 서브도메인 분산 스토리지 구축</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KACEC 자격 인증 및 교육 운영 모델 -->
+      <div class="certification-box reveal">
+        <div class="certification-grid">
+          
+          <!-- Left: Certification Tiers -->
+          <div class="cert-left">
+            <h4 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem;">
+              🎖️ KACEC 인공지능 교육 자격/인증 체계
+            </h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+              본 교육원 협동조합은 표준 교과과정 이수자를 대상으로 전문 검정을 거쳐 자체 공식 인증서 및 민간 자격증(등록 심사 대기)을 발급하여 교육의 공신력과 학생 포트폴리오의 실질 가치를 증명합니다.
+            </p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; color: var(--text-main);">
+              <thead>
+                <tr style="border-bottom: 1.5px solid rgba(255,255,255,0.1); text-align: left;">
+                  <th style="padding: 10px; color: var(--teal); font-weight: 700; width: 25%;">등급</th>
+                  <th style="padding: 10px; color: #ffffff; font-weight: 700; width: 35%;">자격 명칭</th>
+                  <th style="padding: 10px; color: #ffffff; font-weight: 700; width: 40%;">대상 및 이수 조건</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                  <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">3급</td>
+                  <td style="padding: 12px 10px; font-weight: bold; color: #ffffff;">AI 활용지도사</td>
+                  <td style="padding: 12px 10px; color: var(--text-muted);">트랙 A (시니어/일반) 과정 이수 + 실습 평가</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                  <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">2급</td>
+                  <td style="padding: 12px 10px; font-weight: bold; color: #ffffff;">AI 미디어크리에이터</td>
+                  <td style="padding: 12px 10px; color: var(--text-muted);">트랙 B (청소년 메이커) 과정 이수 + 프로젝트 발표</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                  <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">1급 (최상위)</td>
+                  <td style="padding: 12px 10px; font-weight: bold; color: #ffffff;">XR 콘텐츠제작사</td>
+                  <td style="padding: 12px 10px; color: var(--text-muted);">트랙 C (교사/강사 연수) 과정 이수 + 강의 시연 평가</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Right: Business Collaboration Model -->
+          <div class="cert-right">
+            <h4 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem;">
+              🤝 합리적인 공공/학교 위탁 교육 운영 모델
+            </h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+              학교 및 지자체의 교육 예산 집행 규격에 완벽하게 맞추어 교육 서비스를 제공하며, 교육 콘텐츠 전문성과 예산의 투명성을 함께 보장합니다.
+            </p>
+            <ul style="margin: 0; padding: 0; list-style-type: none; font-size: 0.85rem; line-height: 1.7; color: var(--text-main);">
+              <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 0.6rem;">
+                <span style="color: var(--teal); font-weight: bold; margin-top: 0.1rem;">✔</span>
+                <span><strong>교육과정 및 강의 (KACEC):</strong> 학사 일정과 요구 차시에 맞춰 기획된 고품질 교육 서비스 공급 및 전문 강사단 직접 파견 (수강료/강사 출강료 집행)</span>
+              </li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 0.6rem;">
+                <span style="color: var(--teal); font-weight: bold; margin-top: 0.1rem;">✔</span>
+                <span><strong>물리적 교구 구매 (학교/기관):</strong> 학교 자체 교구 예산 또는 SW미래채움 사업비 등으로 제조사 직접 구매 처리 (예산 집행 투명성 보장)</span>
+              </li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 0.6rem;">
+                <span style="color: var(--teal); font-weight: bold; margin-top: 0.1rem;">✔</span>
+                <span><strong>수료증 및 인증 관리 (KACEC):</strong> 학업 산출물 디지털 포털 수집, 학생별 사용량 모니터링 및 KACEC 공식 수료/인증 발급</span>
+              </li>
+            </ul>
+            <div style="margin-top: 1.5rem; padding: 0.8rem 1rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem;">
+              <span>✉️</span>
+              <span><strong>공공기관·지자체·학교 공문 문의:</strong> <a href="mailto:office@kacec.kr" style="color: var(--teal); text-decoration: none; font-weight: bold; border-bottom: 1px solid rgba(20, 184, 166, 0.4); padding-bottom: 1px;">office@kacec.kr</a></span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
   <!-- Members Section -->
   <section id="members">
     <div class="container">
