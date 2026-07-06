@@ -2083,6 +2083,154 @@
         padding: 1rem;
       }
     }
+
+    /* Grand Curriculum Dashboard Styles */
+    .grand-curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.2rem;
+      width: 100%;
+      align-items: start;
+    }
+    @media (max-width: 1200px) {
+      .grand-curriculum-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .grand-curriculum-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .grand-course-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      transition: var(--transition-smooth);
+    }
+    .grand-course-card:hover {
+      border-color: rgba(20, 184, 166, 0.3);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    .grand-course-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fff;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .grand-level-section {
+      border-radius: 6px;
+      padding: 0.6rem;
+      margin-bottom: 0.3rem;
+    }
+    .grand-level-section.beginner {
+      background: rgba(16, 185, 129, 0.04);
+      border: 1px solid rgba(16, 185, 129, 0.12);
+    }
+    .grand-level-section.intermediate {
+      background: rgba(245, 158, 11, 0.04);
+      border: 1px solid rgba(245, 158, 11, 0.12);
+    }
+    .grand-level-section.advanced {
+      background: rgba(239, 68, 68, 0.04);
+      border: 1px solid rgba(239, 68, 68, 0.12);
+    }
+    .grand-level-header {
+      font-size: 0.7rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .grand-level-header.beginner { color: #10b981; }
+    .grand-level-header.intermediate { color: #f59e0b; }
+    .grand-level-header.advanced { color: #ef4444; }
+    .grand-step-item {
+      font-size: 0.68rem;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 0.25rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      line-height: 1.35;
+    }
+    .grand-step-item:last-child {
+      border-bottom: none;
+    }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #curriculumOverlay, #curriculumOverlay * {
+        visibility: visible;
+      }
+      #curriculumOverlay {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        background: #ffffff !important;
+        display: block !important;
+        overflow: visible !important;
+      }
+      .bylaws-modal {
+        background: #ffffff !important;
+        box-shadow: none !important;
+        border: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .bylaws-modal-header {
+        border-bottom: 2px solid #000000 !important;
+        padding: 10px 0 !important;
+      }
+      .bylaws-modal-header h2 {
+        color: #000000 !important;
+        -webkit-text-fill-color: initial !important;
+      }
+      .bylaws-modal-header p {
+        color: #555555 !important;
+      }
+      .grand-curriculum-grid {
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 0.4rem !important;
+      }
+      .grand-course-card {
+        background: #ffffff !important;
+        border: 1px solid #999999 !important;
+        box-shadow: none !important;
+        color: #000000 !important;
+        padding: 0.4rem !important;
+      }
+      .grand-course-title {
+        color: #000000 !important;
+        border-bottom: 2px solid #000000 !important;
+      }
+      .grand-level-section {
+        border: 1px solid #cccccc !important;
+        background: #fdfdfd !important;
+        padding: 0.3rem !important;
+      }
+      .grand-step-item {
+        color: #111111 !important;
+        border-bottom: 1px solid #dddddd !important;
+      }
+      button, .btn, .bylaws-close {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -3526,270 +3674,22 @@
 
   <!-- Curriculum Modal -->
   <div class="bylaws-overlay" id="curriculumOverlay" onclick="closeCurriculumOverlay(event)">
-    <div class="bylaws-modal">
-      <div class="bylaws-modal-header" style="flex-direction: column; align-items: flex-start; gap: 1.5rem; padding-bottom: 0;">
-        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-          <h2 style="font-size: 1.6rem; font-weight: 800; background: var(--rainbow-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">📋 KACEC AI 융합 교육 상세 커리큘럼</h2>
-          <button class="bylaws-close" onclick="toggleCurriculumModal(false)">✕</button>
+    <div class="bylaws-modal" style="max-width: 95%; width: 1400px; height: 90vh; display: flex; flex-direction: column;">
+      <div class="bylaws-modal-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 1px solid var(--border-card);">
+        <div>
+          <h2 style="font-size: 1.5rem; font-weight: 800; background: var(--rainbow-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">📋 KACEC AI 융합 교육 100선 그랜드 로드맵</h2>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem;">협동조합 10대 핵심 사업과 이사진 전공 분야를 초급(2급) ➔ 중급(1급) ➔ 고급(전문가) 과정으로 연계한 통합 교육 설계도입니다.</p>
         </div>
-        <!-- Tab Navigation inside Modal -->
-        <div class="doc-tabs-nav" style="display: flex; gap: 10px; width: 100%; border-bottom: 1px solid var(--border-card); padding-bottom: 0.5rem;">
-          <button class="doc-tab-btn" id="tabBtnTrackA" onclick="switchCurriculumTab('track-A')" style="background: none; border: none; color: var(--primary); font-size: 1.05rem; font-weight: 700; padding: 0.5rem 1rem; cursor: pointer; border-bottom: 2px solid var(--primary); transition: var(--transition-smooth);">Track A (시니어/왕초보)</button>
-          <button class="doc-tab-btn" id="tabBtnTrackB" onclick="switchCurriculumTab('track-B')" style="background: none; border: none; color: var(--text-muted); font-size: 1.05rem; font-weight: 600; padding: 0.5rem 1rem; cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-smooth);">Track B (청소년 메이커)</button>
-          <button class="doc-tab-btn" id="tabBtnTrackC" onclick="switchCurriculumTab('track-C')" style="background: none; border: none; color: var(--text-muted); font-size: 1.05rem; font-weight: 600; padding: 0.5rem 1rem; cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-smooth);">Track C (교사 연수)</button>
+        <div style="display: flex; gap: 0.8rem; align-items: center;">
+          <button onclick="window.print()" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem; background: var(--teal); border-color: var(--teal); font-weight: 700;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:4px;"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            PDF / 인쇄하기
+          </button>
+          <button class="bylaws-close" onclick="toggleCurriculumModal(false)" style="position: static; font-size: 1.5rem;">✕</button>
         </div>
       </div>
-      <div class="bylaws-modal-content" style="padding: 2.5rem 3rem;">
-        
-        <!-- Tab A: Track A -->
-        <div id="trackATabContent" class="doc-tab-content" style="display: block;">
-          <h3 style="color: var(--secondary); margin-bottom: 0.5rem;">시니어·왕초보 생활 밀착형 AI 실용 패키지</h3>
-          <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem;">가장 쉬운 스마트폰 조작부터 시작해 음악 창작과 인생 시집 디지털 출판까지 연결하여 삶을 풍요롭게 만드는 평생교육 최적화 패키지입니다.</p>
-          
-          <h4 style="color: var(--secondary); margin-bottom: 0.8rem; font-weight: 700; font-size: 1.05rem;">[1단계] 생활 밀착형 4주 기본 과정 (초보자 입문)</h4>
-          <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem; color: var(--text-main); font-size: 0.9rem;">
-            <thead>
-              <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); text-align: left;">
-                <th style="padding: 10px; width: 20%; color: var(--teal);">주차 (시간)</th>
-                <th style="padding: 10px; width: 30%; color: #ffffff;">주요 주제</th>
-                <th style="padding: 10px; width: 50%; color: #ffffff;">세부 교육 내용 및 실습</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">1주차 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">인공지능(AI)과의 첫 만남</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">챗GPT/제미나이 회원가입 및 기본 대화법, 내 손안의 AI 비서(스마트폰 마이크 연동 음성 비서) 설정 및 말로 대화하기</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">2주차 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">스마트폰 AI 비서 100% 활용</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">스마트폰 카메라 사진 분석(사물/식물 이름 찾기), AI와 요리 레시피 짜기, 여행 코스 및 맛집 추천 대화</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">3주차 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">디지털 편지 및 서식 대행</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">공공기관 제출용 서식 및 이메일 작성 요청 요령, 감사 편지 및 경조사 안부 인사 대필 설계 실습</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">4주차 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">AI 팩트체크 및 자가진단</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">생성형 AI 오류(환각) 확인 및 예방 습관, AI 의존도 자가 진단 및 건강한 디지털 활용 원칙 수립</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h4 style="color: var(--secondary); margin: 2rem 0 0.8rem; font-weight: 700; font-size: 1.05rem;">[2단계] 생활문화예술 8주 심화 과정 (예술 창작 &amp; 디지털 출판)</h4>
-          <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem; color: var(--text-main); font-size: 0.9rem;">
-            <thead>
-              <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); text-align: left;">
-                <th style="padding: 10px; width: 20%; color: var(--teal);">주차 (시간)</th>
-                <th style="padding: 10px; width: 30%; color: #ffffff;">주요 주제</th>
-                <th style="padding: 10px; width: 50%; color: #ffffff;">세부 교육 내용 및 실습</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">5주차 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">구글 MusicFX와 AI 음악 작곡</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">내 인생의 추억을 노랫말로 쓰고, 100% 무료 구글 MusicFX를 활용해 어울리는 악기 구성 및 나만의 벨소리/BGM 작곡 완료</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">6주차 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">비주얼 디지털 디자인 (Canva)</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">디자인 플랫폼 캔바(Canva)를 활용하여 가족 경조사 메시지 카드 만들기, AI가 알아서 배경을 제거하는(누끼) 편집 실습</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">7주차 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">생활문화예술 AI 시화전</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">스마트폰 카메라 촬영 사진과 AI 삽화 이미지, 자작 시를 결합하여 나만의 감성 디지털 시화(詩畵) 캔버스 제작</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">8주차 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">AI 비디오 &amp; 디지털 시집 출판</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">생성한 자작 음악과 그림을 Vrew를 활용해 영상 숏폼으로 결합하고, 조합 독립 출판 연계망을 통해 가족 디지털 시집 완성 발표</td>
-              </tr>
-            </tbody>
-          </table>
-          
-          <div style="background: rgba(139, 92, 246, 0.08); border-left: 4px solid var(--secondary); padding: 1.2rem; border-radius: 4px; font-size: 0.88rem; color: var(--text-main); line-height: 1.6;">
-            <strong>📌 정책/예산 수립 담당자님께 드리는 안내:</strong><br>
-            본 생활 밀착형 패키지는 주민센터 평생교육, 시니어 정보화 아카데미, 경로당 정보화 교육 등 지원 예산 규격에 맞춰 **자유롭게 시간과 세부 도구를 변경**하여 맞춤형으로 기획·출강할 수 있습니다.
-          </div>
-
-          <div style="background: rgba(139, 92, 246, 0.04); border: 1px dashed rgba(139, 92, 246, 0.3); padding: 1.2rem; border-radius: 8px; font-size: 0.88rem; color: var(--text-main); margin-top: 1.5rem;">
-            <strong style="color: var(--secondary); display: block; margin-bottom: 0.4rem;">➕ Track A 특화 모듈 (선택 추가 옵션)</strong>
-            • <strong>AI 그림동화 작가 모듈 (+2주 추가 가능):</strong> 자녀/손주를 위한 그림책 스토리 기획 및 삽화 대량 생성 실습 과정 연계
-          </div>
-        </div>
-        
-        <!-- Tab B: Track B -->
-        <div id="trackBTabContent" class="doc-tab-content" style="display: none;">
-          <h3 style="color: var(--teal); margin-bottom: 0.5rem;">미래세대 청소년 창의·융합 AI &amp; 메이커 패키지</h3>
-          <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem;">학생들이 이야기 구성부터 전자 회로 설계, 코딩 및 미디어아트 융합까지 체득하며 논리적 사고력을 넓히는 8주~12주 하이브리드 과정입니다.</p>
-          
-          <h4 style="color: var(--teal); margin-bottom: 0.8rem; font-weight: 700; font-size: 1.05rem;">[1단계] 창의 실물 메이커 8주 기본 과정</h4>
-          <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem; color: var(--text-main); font-size: 0.9rem;">
-            <thead>
-              <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); text-align: left;">
-                <th style="padding: 10px; width: 20%; color: var(--teal);">주차 (시간)</th>
-                <th style="padding: 10px; width: 30%; color: #ffffff;">주요 주제</th>
-                <th style="padding: 10px; width: 50%; color: #ffffff;">세부 교육 내용 및 실습</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">1~2주차 (4H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">AI 리터러시 &amp; 스토리 빌딩</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">생성형 AI와 함께 브레인스토밍하여 나만의 창작 동화 스토리 라인 구성, 생성 조건 설계를 통한 일러스트 삽화 생성</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">3~4주차 (4H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">종이회로(Paper Circuit) 메이커</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">기초 전기 회로 원리 학습 후, 전도성 구리 테이프와 LED 전구를 배치하여 불빛이 번쩍이는 동화 속 입체 캐릭터 팝업 카드 설계</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">5~6주차 (4H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">3D펜 실물 메이커 활동</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">교육청 공인 3D펜 사용 안전 교육, 앞서 생성한 동화책 캐릭터의 평면 도안 설계 및 3D 필라멘트 결합을 통한 실물 피규어 입체 구현</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">7~8주차 (4H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">AI 비디오 에디팅 &amp; 시사회</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">AI 목소리 합성 툴로 스토리 나레이션을 넣고 이미지들을 모아 자막과 배경음악이 입혀진 애니메이션 숏폼 제작 완료 및 작품 공유 시사회</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h4 style="color: var(--teal); margin: 2rem 0 0.8rem; font-weight: 700; font-size: 1.05rem;">[2단계] 코딩 미디어아트 12주 심화 과정 (로봇 &amp; 미디어아트 결합)</h4>
-          <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem; color: var(--text-main); font-size: 0.9rem;">
-            <thead>
-              <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); text-align: left;">
-                <th style="padding: 10px; width: 20%; color: var(--teal);">주차 (시간)</th>
-                <th style="padding: 10px; width: 30%; color: #ffffff;">주요 주제</th>
-                <th style="padding: 10px; width: 50%; color: #ffffff;">세부 교육 내용 및 실습</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">9주차 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">구글 MusicFX 음악 편곡</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">구글 MusicFX 작곡 플랫폼을 이용해 동화 애니메이션 분위기에 딱 맞는 맞춤형 시그니처 사운드트랙 작곡 및 믹싱 연동</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">10~11주차 (4H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">사운드 비주얼라이제이션</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">피지컬 컴퓨팅 보드의 마이크 센서를 사용해 주변 음성/소리 데시벨을 수집하고, 소리 크기에 실시간 반응하는 그래픽 렌더링 코딩 실습</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--teal);">12주차 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">자율주행 코딩 &amp; 포트폴리오 발표</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">엠봇2 자율주행 센서 피지컬 코딩을 수행하고, 나만의 종합 디지털 미디어아트 및 메이커 콘텐츠 최종 포트폴리오 전시 및 시사회</td>
-              </tr>
-            </tbody>
-          </table>
-          
-          <div style="background: rgba(6, 182, 212, 0.08); border-left: 4px solid var(--teal); padding: 1.2rem; border-radius: 4px; font-size: 0.88rem; color: var(--text-main); line-height: 1.6;">
-            <strong>📌 학교 및 자유학기제 담당 교사단 안내:</strong><br>
-            학교의 메이커스페이스 및 교구 구비 현황에 맞추어 **실제 로봇 기기 수량을 조절(조별 1대 협동 프로젝트 등)하여 전체 교구비 예산 수준을 탄력적으로 커스터마이징**할 수 있습니다.
-          </div>
-
-          <div style="background: rgba(6, 182, 212, 0.04); border: 1px dashed rgba(6, 182, 212, 0.3); padding: 1.2rem; border-radius: 8px; font-size: 0.88rem; color: var(--text-main); margin-top: 1.5rem;">
-            <strong style="color: var(--teal); display: block; margin-bottom: 0.4rem;">➕ Track B 특화 모듈 (선택 추가 옵션)</strong>
-            • <strong>AI 메타버스 가상 미술관 모듈 (+2주 추가 가능):</strong> 코스페이시스/로블록스를 활용해 본인들이 만든 캐릭터 피규어와 미디어아트를 3D 가상 공간에 전시
-          </div>
-        </div>
-        
-        <!-- Tab C: Track C -->
-        <div id="trackCTabContent" class="doc-tab-content" style="display: none;">
-          <h3 style="color: var(--gold); margin-bottom: 0.5rem;">교사·강사 역량 강화 생성형 AI 교수법 연수 패키지</h3>
-          <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem;">학교 및 기관 현장에서 교육 실무와 교구 연계 수업을 빠르게 체득하여 교원의 디지털 교수 역량을 극대화하는 맞춤형 연수 프로그램입니다.</p>
-          
-          <h4 style="color: var(--gold); margin-bottom: 0.8rem; font-weight: 700; font-size: 1.05rem;">[1단계] 1일 집중 마스터 연수 (4시간 코스)</h4>
-          <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem; color: var(--text-main); font-size: 0.9rem;">
-            <thead>
-              <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); text-align: left;">
-                <th style="padding: 10px; width: 25%; color: var(--gold);">구분 (시간)</th>
-                <th style="padding: 10px; width: 35%; color: #ffffff;">핵심 강의 주제</th>
-                <th style="padding: 10px; width: 40%; color: #ffffff;">실습 내용 및 결과물</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--gold);">1교시 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">생성형 AI와 교육 패러다임 변화</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">챗GPT, 제미나이의 공공 교육 활용 가이드라인 분석, 올바른 AI 프롬프트 설계법과 AI 텍스트 팩트체크 기법 실습</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--gold);">2교시 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">AI 기반 맞춤형 교안 및 학습지 설계</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">수업 대상의 수준에 따른 학습 수준 분석 ➔ AI를 통해 매끄러운 1차 교육 계획안 및 실무 보조 퀴즈 학습지 자동 생성</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--gold);">3교시 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">피지컬 교구 수업 적용 워크숍</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">3D펜 캐릭터 입체화 수업 설계 템플릿, 엔트리와 하드웨어 연동 시 발생하는 주요 에러 자가 진단 및 피드백 시나리오 설계</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--gold);">4교시 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">학생 포트폴리오 디지털 관리</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">KACEC 클라우드 및 학생 대시보드를 통한 학습 산출물 수집 노하우, AI 이용 과제 간이 평가 프롬프트 설정</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h4 style="color: var(--gold); margin: 2rem 0 0.8rem; font-weight: 700; font-size: 1.05rem;">[2단계] 2일 심화 전문가 연수 (8시간 코스)</h4>
-          <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem; color: var(--text-main); font-size: 0.9rem;">
-            <thead>
-              <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); text-align: left;">
-                <th style="padding: 10px; width: 25%; color: var(--gold);">구분 (시간)</th>
-                <th style="padding: 10px; width: 35%; color: #ffffff;">핵심 강의 주제</th>
-                <th style="padding: 10px; width: 40%; color: #ffffff;">실습 내용 및 결과물</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--gold);">5교시 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">종이회로 및 피컬 교재 교수법</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">종이회로 메이커 키트 제작 기술 전수, 전도성 구리선 설계 디버깅, 안전사고 예방 지도 요령 실습</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--gold);">6교시 (2H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">구글 MusicFX &amp; 미디어아트 지도법</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">AI 작곡 및 사운드 비주얼라이제이션 코딩 디렉팅 기법, 피지컬 컴퓨팅 마이크 입력 제어 트러블슈팅 교육</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <td style="padding: 12px 10px; font-weight: bold; color: var(--gold);">7~8교시 (4H)</td>
-                <td style="padding: 12px 10px; font-weight: bold;">AI 융합 교안 모의 수업 및 자격 검정</td>
-                <td style="padding: 12px 10px; color: var(--text-muted);">자체 설계한 융합 교안으로 교사별 시범 수업 15분 진행, KACEC 1급 교수법 전문 자격 심사 및 수료 피드백</td>
-              </tr>
-            </tbody>
-          </table>
-          
-          <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid var(--gold); padding: 1.2rem; border-radius: 4px; font-size: 0.88rem; color: var(--text-main); line-height: 1.6;">
-            <strong>📌 교육연수원 및 교육지원청 장학사단 안내:</strong><br>
-            교사 연수 시간(2시간부터 2일 연속 워크숍까지) 및 학교의 세부 전공 과목 특성에 맞추어 **실제 연수 자료 제작 방향을 자유롭게 맞춤 설계**할 수 있습니다.
-          </div>
-
-          <div style="background: rgba(245, 158, 11, 0.04); border: 1px dashed rgba(245, 158, 11, 0.3); padding: 1.2rem; border-radius: 8px; font-size: 0.88rem; color: var(--text-main); margin-top: 1.5rem;">
-            <strong style="color: var(--gold); display: block; margin-bottom: 0.4rem;">➕ Track C 특화 모듈 (선택 추가 옵션)</strong>
-            • <strong>지자체 예산 조달 제안서 설계 모듈 (+2시간 추가 가능):</strong> 학교 및 센터 대상 제안 영업서 실무 워크숍
-          </div>
-        </div>
-        
-        <!-- General Customization Disclaimer (Direct Target to Administrators) -->
-        <div style="margin-top: 2.5rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 2rem;">
-          <p style="font-size: 0.95rem; color: #ffffff; font-weight: 600; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-            ⚙️ KACEC 유연한 맞춤형 설계 보장 안내
-          </p>
-          <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; max-width: 780px; margin: 0 auto;">
-            "본 교육원 협동조합의 모든 교육 과정과 3대 특화 패키지는 **요청 기관 및 학교의 학사 일정, 배정 예산, 수강생 연령대 및 수준**에 맞추어 유기적으로 커스터마이징하여 교안을 변형하고 하드웨어 교구 사양을 유연하게 조정할 수 있습니다."
-          </p>
-          <div style="margin-top: 1.5rem;">
-            <a href="#contact" class="btn btn-primary" onclick="toggleCurriculumModal(false)" style="padding: 0.6rem 1.8rem; font-size: 0.85rem;">💬 맞춤형 교육 설계 및 강사 출강 문의하기</a>
-          </div>
-        </div>
-        
+      <div class="bylaws-modal-content" style="padding: 2rem 2.5rem; flex: 1; overflow-y: auto;" id="grandCurriculumContainer">
+        <!-- Dynamic grid populated via JS -->
       </div>
     </div>
   </div>
@@ -4201,20 +4101,21 @@
     }
 
     // Curriculum Modal Toggle
-    function toggleCurriculumModal(show, activeTab = 'track-A') {
+    // Curriculum Modal Toggle
+    function toggleCurriculumModal(show) {
       const overlay = document.getElementById('curriculumOverlay');
       if (show) {
         overlay.classList.add('show');
         document.body.style.overflow = 'hidden';
-        switchCurriculumTab(activeTab);
+        renderCurriculumGrandMap();
       } else {
         overlay.classList.remove('show');
         document.body.style.overflow = '';
       }
     }
 
-    function openCurriculumModal(trackId) {
-      toggleCurriculumModal(true, trackId);
+    function openCurriculumModal() {
+      toggleCurriculumModal(true);
     }
 
     function closeCurriculumOverlay(event) {
@@ -4223,48 +4124,66 @@
       }
     }
 
-    // Curriculum Tab Switcher inside Modal
-    function switchCurriculumTab(tabName) {
-      const contentA = document.getElementById('trackATabContent');
-      const contentB = document.getElementById('trackBTabContent');
-      const contentC = document.getElementById('trackCTabContent');
+    function renderCurriculumGrandMap() {
+      const container = document.getElementById('grandCurriculumContainer');
+      if (!container) return;
+      container.innerHTML = '';
       
-      const btnA = document.getElementById('tabBtnTrackA');
-      const btnB = document.getElementById('tabBtnTrackB');
-      const btnC = document.getElementById('tabBtnTrackC');
+      const grid = document.createElement('div');
+      grid.className = 'grand-curriculum-grid';
       
-      contentA.style.display = 'none';
-      contentB.style.display = 'none';
-      contentC.style.display = 'none';
-      
-      [btnA, btnB, btnC].forEach(btn => {
-        btn.style.color = 'var(--text-muted)';
-        btn.style.borderBottomColor = 'transparent';
-        btn.style.fontWeight = '600';
+      Object.keys(coursesData).forEach(key => {
+        const course = coursesData[key];
+        const card = document.createElement('div');
+        card.className = 'grand-course-card';
+        
+        // Course Title
+        const titleEl = document.createElement('div');
+        titleEl.className = 'grand-course-title';
+        titleEl.innerText = course.title;
+        card.appendChild(titleEl);
+        
+        // Difficulty-based containers
+        const beginnerSec = document.createElement('div');
+        beginnerSec.className = 'grand-level-section beginner';
+        beginnerSec.innerHTML = '<div class="grand-level-header beginner"><span>🟢 초급 코스 (2급 취득)</span><span>Step 01-05</span></div>';
+        
+        const intermediateSec = document.createElement('div');
+        intermediateSec.className = 'grand-level-section intermediate';
+        intermediateSec.innerHTML = '<div class="grand-level-header intermediate"><span>🟡 중급 코스 (1급 취득)</span><span>Step 06-15</span></div>';
+        
+        const advancedSec = document.createElement('div');
+        advancedSec.className = 'grand-level-section advanced';
+        advancedSec.innerHTML = '<div class="grand-level-header advanced"><span>🔴 고급 전문가 (수석 강사)</span><span>Step 16-20</span></div>';
+        
+        let flatIndex = 1;
+        course.chapters.forEach(chap => {
+          chap.missions.forEach(m => {
+            const stepItem = document.createElement('div');
+            stepItem.className = 'grand-step-item';
+            
+            // Extract title before colon for a cleaner print view
+            const cleanTitle = m.title.includes(':') ? m.title.split(':')[1].trim() : m.title;
+            stepItem.innerText = `${m.num}. ${cleanTitle}`;
+            
+            if (flatIndex <= 5) {
+              beginnerSec.appendChild(stepItem);
+            } else if (flatIndex <= 15) {
+              intermediateSec.appendChild(stepItem);
+            } else {
+              advancedSec.appendChild(stepItem);
+            }
+            flatIndex++;
+          });
+        });
+        
+        card.appendChild(beginnerSec);
+        card.appendChild(intermediateSec);
+        card.appendChild(advancedSec);
+        grid.appendChild(card);
       });
       
-      if (tabName === 'track-A') {
-        contentA.style.display = 'block';
-        btnA.style.color = 'var(--primary)';
-        btnA.style.borderBottomColor = 'var(--primary)';
-        btnA.style.fontWeight = '700';
-      } else if (tabName === 'track-B') {
-        contentB.style.display = 'block';
-        btnB.style.color = 'var(--primary)';
-        btnB.style.borderBottomColor = 'var(--primary)';
-        btnB.style.fontWeight = '700';
-      } else if (tabName === 'track-C') {
-        contentC.style.display = 'block';
-        btnC.style.color = 'var(--primary)';
-        btnC.style.borderBottomColor = 'var(--primary)';
-        btnC.style.fontWeight = '700';
-      }
-
-      // Reset scroll position to top
-      const modalContent = document.querySelector('#curriculumOverlay .bylaws-modal-content');
-      if (modalContent) {
-        modalContent.scrollTop = 0;
-      }
+      container.appendChild(grid);
     }
 
     // Bylaws & Minutes Modal Toggle
