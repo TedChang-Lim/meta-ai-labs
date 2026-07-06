@@ -4307,244 +4307,245 @@
 
     // Course & Mission Data Schema
     const coursesData = {
-      basics: {
+      beginner: {
         unlocked: true,
-        title: "📚 AI 기초 & 프롬프트 학과",
-        chapters: [
-          {
-            name: "Chapter 1: AI 작동 원리 및 첫걸음",
-            missions: [
-              { num: "Step 01", title: "생성형 AI란 무엇인가: 똑똑한 기계의 정체", locked: false, guide: "생성형 인공지능의 기본 개념을 파악하고 대화 준비를 마치는 실습입니다.", placeholder: "AI에 대해 궁금한 점을 한 줄로 질문해 보세요." },
-              { num: "Step 02", title: "첫 대화 나누기: 챗GPT 화면 및 기본 조작", locked: false, guide: "AI 챗 화면의 기본 버튼 조작과 첫 응답 텍스트를 제어해 봅니다.", placeholder: "안녕 챗GPT, 오늘 날씨와 어울리는 인사를 건네줘." },
-              { num: "Step 03", title: "프롬프트의 이해: 소통하는 언어의 규칙", locked: false, guide: "프롬프트가 무엇인지, 그 기본 규칙을 파악해 봅니다.", placeholder: "여기에 기본 인사 프롬프트를 작성해 보세요." },
-              { num: "Step 04", title: "AI 답변 생성 원리 (LLM의 기초)", locked: false, guide: "거대 언어 모델(LLM)이 단어를 예측해 문장을 만드는 원리를 체험해 봅니다.", placeholder: "인공지능은 어떻게 대답하는지 설명해 달라고 지시해 보세요." },
-              { num: "Step 05", title: "질문법의 차이: 단순 검색 vs 생성형 지시", locked: false, guide: "포털 검색과 생성형 AI 프롬프트의 실질적인 질문 차이를 비교 실습합니다.", placeholder: "'오늘 저녁 메뉴 추천'에 대한 검색식 질문과 생성식 질문의 차이를 적어보세요." }
-            ]
-          },
-          {
-            name: "Chapter 2: 프롬프트 3대 구성 요소 마스터",
-            missions: [
-              { num: "Step 06", title: "역할 부여(Persona)의 힘: 전문가 설정", locked: false, guide: "<strong>📝 실습 지시사항:</strong><br>인공지능에게 단순한 질문대신 구체적인 <strong>역할(페르소나)</strong>을 부여하고 지시를 내려보세요.<br><br><em>예시: '너는 30년 경력의 베테랑 사진감독이야. 스마트폰 카메라로 아름다운 야경 사진을 촬영하기 위한 3대 핵심 팁을 친절하게 설명해줘.'</em>", placeholder: "너는 [역할]이야. [임무]를 [출력 형식]으로 설명해줘." },
-              { num: "Step 07", title: "맥락(Context) 제공법: 구체적 배경 설명", locked: false, guide: "<strong>📝 실습 지시사항:</strong><br>배경 상황이나 추가 상황을 명확하게 덧붙여 프롬프트를 보강해 보세요.", placeholder: "여기에 배경이 덧붙여진 프롬프트를 입력하세요." },
-              { num: "Step 08", title: "출력 형식(Format) 제어: 분량과 어조 제한", locked: false, guide: "답변의 어조(경어체/구어체)와 글자 수 혹은 줄 바꿈 제한 조건을 걸어 보세요.", placeholder: "여기에 출력 형식 제어문을 입력하세요." },
-              { num: "Step 09", title: "명확한 지시(Request) 내리기: 행동 동사", locked: false, guide: "AI가 실행할 구체적인 행동 동사들을 지정해 명령해 봅니다.", placeholder: "여기에 행동 지시 동사를 포함한 프롬프트를 작성하세요." },
-              { num: "Step 10", title: "종합 실습: 3대 요소 캡스톤 미션", locked: false, guide: "역할, 맥락, 요청을 모두 버무려 하나의 완성도 높은 지시문을 작성해 제출하세요.", placeholder: "역할 + 맥락 + 요청을 모두 작성해 보세요." }
-            ]
-          },
-          {
-            name: "Chapter 3: 문서 분석 및 핵심 정보 가공",
-            missions: [
-              { num: "Step 11", title: "문서 요약: 기사/보고서 3문장 압축", locked: false, guide: "<strong>📝 실습 지시사항:</strong><br>제공된 텍스트에서 <strong>주요 핵심 내용 3문장</strong>을 요약하고 쉽고 명확하게 정리하도록 지시해 보세요.<br><br><em>예시: '아래 텍스트를 읽고 소상공인 지원금 접수 일정과 지원 자격을 3줄로 알기 쉽게 정리해줘. [텍스트내용]'</em>", placeholder: "여기에 문서 요약 지시문을 입력하세요." },
-              { num: "Step 12", title: "정보 추출: 주요일정과 대상 조건 필터링", locked: false, guide: "원문 텍스트 내에서 날짜, 시간, 연락처 등 특정 주요 데이터만 찾아내어 출력해 보세요.", placeholder: "여기에 정보 추출 프롬프트를 작성하세요." },
-              { num: "Step 13", title: "번역 및 언어 최적화: 한-영 프롬프트 번역", locked: false, guide: "한글 프롬프트를 영문으로 최적화 번역하여 답변 성능을 높여 봅니다.", placeholder: "여기에 번역 및 성능 향상 지시를 작성해 보세요." },
-              { num: "Step 14", title: "표(Table) 형식 변환: 데이터 가독성 극대화", locked: false, guide: "<strong>📝 실습 지시사항:</strong><br>AI의 답변 결과를 가독성 높은 <strong>표(Table) 또는 특정 형식</strong>으로 정렬하여 출력하도록 상세 조건을 작성해 보세요.<br><br><em>예시: '주요 마케팅 채널별 장단점과 권장 예산을 비교 분석해서 표 형식으로 그려줘.'</em>", placeholder: "여기에 표 형식 출력 지시문을 입력하세요." },
-              { num: "Step 15", title: "구조화 데이터 변환: JSON 형식 변환", locked: false, guide: "마크다운 표뿐만 아니라 개발에 활용할 수 있는 JSON 형태의 규격화된 키-값 데이터를 요청해 봅니다.", placeholder: "여기에 JSON 변환 프롬프트를 입력하세요." }
-            ]
-          },
-          {
-            name: "Chapter 4: 창의적 시각화 & 이미지 생성",
-            missions: [
-              { num: "Step 16", title: "AI 이미지 생성 메커니즘의 이해", locked: false, guide: "텍스트 투 이미지 모델의 원리와 프롬프트가 이미지에 미치는 영향을 알아봅니다.", placeholder: "생성하고 싶은 가상의 그림 장면을 한 문장으로 적어보세요." },
-              { num: "Step 17", title: "이미지 4대 요소 기획 (주제+화풍+구도+분위기)", locked: false, guide: "<strong>📝 실습 지시사항:</strong><br>가을 단풍 공원 벤치에 앉아 책을 읽는 여성을 예시로 4요소를 모두 갖춘 완벽한 묘사문을 빌드해 봅니다.", placeholder: "주제, 스타일, 분위기, 구도를 쉼표로 연결해 입력해 보세요." },
-              { num: "Step 18", title: "사실적 묘사(Photorealistic) 카메라 설정", locked: false, guide: "DSLR 기종, 렌즈 초점 거리, 아웃포커싱 등 사진관 조명 연출 기법을 작성해 봅니다.", placeholder: "여기에 렌즈 사양과 사진 연출 키워드를 넣어보세요." },
-              { num: "Step 19", title: "예술적 스타일 모사: 수채화, 웹툰, 일러스트", locked: false, guide: "수채화 화풍이나 디즈니 일러스트, 레트로 웹툰 스타일 등의 특화 키워드를 작성해 봅니다.", placeholder: "여기에 예술 화풍 키워드를 넣어보세요." },
-              { num: "Step 20", title: "완성형 캡스톤 미션: 브랜드 로고/포스터 기획", locked: false, guide: "KACEC 조합원용 로고나 홍보용 포스터 이미지 생성을 위한 완성형 프롬프트를 제출해 보세요.", placeholder: "최종 완성형 이미지 묘사 프롬프트를 작성해 보세요." }
-            ]
-          }
+        track: "intro",
+        trackTitle: "🤖 AI 입문 코스",
+        title: "📚 왕초보 AI 첫걸음",
+        missions: [
+          { num: "Step 01", title: "생성형 AI란 무엇인가: 똑똑한 기계의 정체", locked: false, guide: "생성형 인공지능의 기본 개념을 파악하고 대화 준비를 마치는 실습입니다.", placeholder: "AI에 대해 궁금한 점을 한 줄로 질문해 보세요." },
+          { num: "Step 02", title: "첫 대화 나누기: 챗GPT 화면 및 기본 조작", locked: false, guide: "AI 챗 화면의 기본 버튼 조작과 첫 응답 텍스트를 제어해 봅니다.", placeholder: "안녕 챗GPT, 오늘 날씨와 어울리는 인사를 건네줘." },
+          { num: "Step 03", title: "프롬프트의 이해: 소통하는 언어의 규칙", locked: false, guide: "프롬프트가 무엇인지, 그 기본 규칙을 파악해 봅니다.", placeholder: "여기에 기본 인사 프롬프트를 작성해 보세요." },
+          { num: "Step 04", title: "AI 답변 생성 원리 (LLM의 기초)", locked: false, guide: "거대 언어 모델(LLM)이 단어를 예측해 문장을 만드는 원리를 체험해 봅니다.", placeholder: "인공지능은 어떻게 대답하는지 설명해 달라고 지시해 보세요." },
+          { num: "Step 05", title: "질문법의 차이: 단순 검색 vs 생성형 지시", locked: false, guide: "포털 검색과 생성형 AI 프롬프트의 실질적인 질문 차이를 비교 실습합니다.", placeholder: "'오늘 저녁 메뉴 추천'에 대한 검색식 질문과 생성식 질문의 차이를 적어보세요." }
         ]
       },
-      marketing: {
-        unlocked: false,
-        title: "📢 소상공인 B2B 마케팅 학과",
-        chapters: [
-          {
-            name: "Chapter 1: 매장 브랜딩 및 제품 포지셔닝",
-            missions: [
-              { num: "Step 21", title: "페르소나 마케팅: 가상 고객 프로파일 설계", locked: true, guide: "우리 매장에 올 수 있는 타겟 고객층의 상세 페르소나 정보를 구축해 봅니다.", placeholder: "여기에 타겟 고객 페르소나 지시를 작성하세요." },
-              { num: "Step 22", title: "경쟁 매장 분석: AI 상권 리포트 요약", locked: true, guide: "경쟁 점포 리뷰 데이터를 AI로 분석하여 벤치마킹할 차별화 포인트를 요약 요청해 봅니다.", placeholder: "여기에 경쟁 매장 리뷰 분석 프롬프트를 입력하세요." },
-              { num: "Step 23", title: "신제품 스토리 빌딩: 감성 브랜드 원고", locked: true, guide: "매장의 대표 시그니처 상품에 얽힌 감동적인 탄생 스토리를 지어내도록 유도해 보세요.", placeholder: "여기에 감성 스토리 빌딩 프롬프트를 입력하세요." },
-              { num: "Step 24", title: "온라인 스토어 상세페이지 기획", locked: true, guide: "신규 유입 고객의 이탈을 막을 수 있는 레이아웃과 소개 도입부를 설계해 봅니다.", placeholder: "상세페이지 섹션 기획을 지시해 보세요." },
-              { num: "Step 25", title: "대표 브랜드 한 줄 슬로건 도출", locked: true, guide: "제품의 특징과 가치를 함축한 10자 이내의 강렬한 슬로건 5종을 요청해 봅니다.", placeholder: "여기에 슬로건 도출 지시문을 입력하세요." }
-            ]
-          },
-          {
-            name: "Chapter 2: SNS 채널별 최적화 원고 마케팅",
-            missions: [
-              { num: "Step 26", title: "네이버 블로그 SEO 최적화 포스팅", locked: true, guide: "네이버 검색 노출을 위해 핵심 키워드가 반복 적용된 친근한 블로그 원고 작성을 지시해 봅니다.", placeholder: "여기에 블로그 SEO 원고 지시문을 입력하세요." },
-              { num: "Step 27", title: "인스타그램 감성 피드 문구 기획", locked: true, guide: "<strong>📝 실습 지시사항:</strong><br>카페 시즌 메뉴 고구마 라떼를 홍보하는 인스타그램 피드 문구(해시태그 3개 포함, 방문유도 멘트 포함)를 기획해 봅니다.", placeholder: "여기에 인스타그램 피드 기획 프롬프트를 입력하세요." },
-              { num: "Step 28", title: "카카오톡 채널 단골 유입 알림톡", locked: true, guide: "카톡 플친들에게 보낼 주말 이벤트 소식과 혜택이 명시된 대량 발송 문구를 뽑아봅니다.", placeholder: "여기에 알림톡 문구 지시문을 입력하세요." },
-              { num: "Step 29", title: "유튜브 쇼츠 숏폼 후크 문장 설계", locked: true, guide: "초반 3초 이내에 이탈을 방지할 숏폼용 임팩트 오프닝 후크 카피 3가지를 기획해 봅니다.", placeholder: "여기에 쇼츠 대본 후크 지시문을 작성하세요." },
-              { num: "Step 30", title: "상품 카피라이팅: 꿀 비누 3종 카피", locked: true, guide: "<strong>📝 실습 지시사항:</strong><br>신제품 '라벤더 꿀 비누' 온라인 스토어 소개글(성분: 라벤더오일,꿀,올리브오일, 가격: 12,000원 포함)을 요청해 보세요.", placeholder: "여기에 카피라이팅 지시문을 입력하세요." }
-            ]
-          },
-          {
-            name: "Chapter 3: CS 응대 및 스마트 대응 시스템",
-            missions: [
-              { num: "Step 31", title: "신규 고객 환영 및 웰컴 이메일 작성", locked: true, guide: "가입 또는 첫 구매 고객을 위한 감사 및 브랜드 소개 웰컴 메일을 작성합니다.", placeholder: "여기에 웰컴 이메일 지시를 입력하세요." },
-              { num: "Step 32", title: "정중한 교환/반품/환불 안내 템플릿", locked: true, guide: "CS 접수 시 가장 많이 일어나는 CS 업무 교환 답변 템플릿을 만듭니다.", placeholder: "여기에 CS 가이드 작성 지시를 적어보세요." },
-              { num: "Step 33", title: "컴플레인 대처법: 진중하고 차분한 대응문", locked: true, guide: "고객 불만사항 발생 시 정중하게 대처하는 사과문 템플릿을 생성합니다.", placeholder: "여기에 사과문 작성 프롬프트를 입력하세요." },
-              { num: "Step 34", title: "네이버 플레이스 리뷰 자동 답글 프롬프트", locked: true, guide: "영수증 리뷰에 알맞은 키워드 매핑 답변 프롬프트를 작성합니다.", placeholder: "리뷰 자동 답글 지시를 적어보세요." },
-              { num: "Step 35", title: "단골 전용 VIP 특별 케어 레터 작성", locked: true, guide: "VIP 전용 안내 레터와 혜택 소개글을 만듭니다.", placeholder: "여기에 VIP 레터 작성을 지시하세요." }
-            ]
-          },
-          {
-            name: "Chapter 4: 로컬 상권 타겟 오프라인 마케팅",
-            missions: [
-              { num: "Step 36", title: "오프라인 전단지/배너 레이아웃 디자인", locked: true, guide: "오프라인 홍보 배너의 헤드라인과 레이아웃 지침을 요청합니다.", placeholder: "배너 카피 지시를 적어보세요." },
-              { num: "Step 37", title: "네이버 스마트플레이스 노출 전략 수립", locked: true, guide: "우리 동네 상권 지도 노출을 올리기 위한 키워드 최적화 보고서를 작성합니다.", placeholder: "여기에 지도 노출 리포트 프롬프트를 적어보세요." },
-              { num: "Step 38", title: "당근마켓 동네 광고 문구 세팅", locked: true, guide: "반경 3km 내에 쏠 수 있는 로컬 당근 광고 카피를 뽑아냅니다.", placeholder: "여기에 당근 광고 지시를 적어보세요." },
-              { num: "Step 39", title: "지자체 소상공인 경영개선 지원금 신청서", locked: true, guide: "지원금 조달 서식의 추진 개요와 기대 효과를 작성해 봅니다.", placeholder: "여기에 지원서 작성 프롬프트를 적어보세요." },
-              { num: "Step 40", title: "로컬 이벤트 포스터 이미지 프롬프트", locked: true, guide: "매장 내 포스터 인쇄를 위한 그래픽 이미지 프롬프트를 설계합니다.", placeholder: "포스터 이미지 묘사 프롬프트를 입력하세요." }
-            ]
-          }
+      smartphone: {
+        unlocked: true,
+        track: "intro",
+        trackTitle: "🤖 AI 입문 코스",
+        title: "📱 스마트폰 AI 100% 활용",
+        missions: [
+          { num: "Step 01", title: "내 손안의 음성 비서: 스마트폰 마이크 설정", locked: false, guide: "스마트폰 기본 음성 비서 기능을 활성화하고 대화를 시도해 봅니다.", placeholder: "음성 비서로 지시하고 싶은 내용을 입력하세요." },
+          { num: "Step 02", title: "스마트폰 카메라 사진 분석 및 사물 검색", locked: false, guide: "구글 렌즈 등을 통해 카메라로 사물이나 식물의 정보를 찾는 법을 배웁니다.", placeholder: "사진 속 대상을 설명하도록 지시해 보세요." },
+          { num: "Step 03", title: "AI와 함께하는 실시간 길찾기 및 맛집 검색", locked: false, guide: "위치 정보를 포함한 프롬프트로 현지 주민 추천 코스를 얻어냅니다.", placeholder: "어느 지역의 어떤 맛집을 찾을지 지시하세요." },
+          { num: "Step 04", title: "말로 쓰는 카톡 메시지 및 텍스트 음성 입력", locked: false, guide: "키보드를 누르지 않고 긴 안부 문자를 말로 완성하는 프롬프트를 짭니다.", placeholder: "전송하고 싶은 안부 내용을 적어보세요." },
+          { num: "Step 05", title: "스마트폰 실시간 번역기를 통한 여행 준비", locked: false, guide: "해외여행 시 마주할 간판이나 메뉴판을 즉시 번역하는 팁을 얻어냅니다.", placeholder: "번역을 요청할 문장을 적어보세요." }
         ]
       },
-      video: {
+      docimg: {
+        unlocked: true,
+        track: "practical",
+        trackTitle: "💼 AI 실무 생산성 코스",
+        title: "✍️ 채집비트 문서 작성 & AI 이미지",
+        missions: [
+          { num: "Step 01", title: "문서 요약: 기사/보고서 3문장 압축", locked: false, guide: "<strong>📝 실습 지시사항:</strong><br>제공된 텍스트에서 <strong>주요 핵심 내용 3문장</strong>을 요약하고 쉽고 명확하게 정리하도록 지시해 보세요.<br><br><em>예시: '아래 텍스트를 읽고 소상공인 지원금 접수 일정과 지원 자격을 3줄로 알기 쉽게 정리해줘. [텍스트내용]'</em>", placeholder: "여기에 문서 요약 지시문을 입력하세요." },
+          { num: "Step 02", title: "정보 추출: 일정 및 주요내용 필터링", locked: false, guide: "원문 텍스트 내에서 날짜, 시간, 연락처 등 특정 주요 데이터만 찾아내어 출력해 보세요.", placeholder: "여기에 정보 추출 프롬프트를 작성하세요." },
+          { num: "Step 03", title: "표(Table) 형식 변환: 데이터 가독성 극대화", locked: false, guide: "AI의 답변 결과를 가독성 높은 <strong>표(Table) 또는 특정 형식</strong>으로 정렬하여 출력하도록 상세 조건을 작성해 보세요.", placeholder: "여기에 표 형식 출력 지시문을 입력하세요." },
+          { num: "Step 04", title: "AI 이미지 생성 메커니즘과 프롬프트 4대 요소", locked: false, guide: "가을 단풍 공원 벤치에 앉아 책을 읽는 여성을 예시로 4요소를 모두 갖춘 완벽한 묘사문을 빌드해 봅니다.", placeholder: "주제, 스타일, 분위기, 구도를 쉼표로 연결해 입력해 보세요." },
+          { num: "Step 05", title: "예술적 스타일 이미지 및 로고 디자인", locked: false, guide: "수채화 화풍이나 디즈니 일러스트, 레트로 웹툰 스타일 등의 특화 키워드를 작성해 봅니다.", placeholder: "여기에 예술 화풍 키워드를 넣어보세요." }
+        ]
+      },
+      cultural: {
         unlocked: false,
-        title: "🎬 AI 영상 크리에이터 학과",
-        chapters: [
-          {
-            name: "Chapter 1: 숏폼/롱폼 영상 기획 및 대본",
-            missions: [
-              { num: "Step 41", title: "유튜브 숏츠 60초 대본 기획", locked: true, guide: "60초 이내에 완독을 유도할 스토리 라인 숏폼 스크립트를 요청합니다.", placeholder: "쇼츠 대본 지시를 입력하세요." },
-              { num: "Step 42", title: "인스타그램 릴스 트렌디 챌린지 시나리오", locked: true, guide: "유행하는 음악과 매핑할 숏폼 동작 및 화면 전개 시나리오를 구성해 봅니다.", placeholder: "여기에 시나리오 지시를 적으세요." },
-              { num: "Step 43", title: "유튜브 5분 정보형 영상 기획서 작성", locked: true, guide: "5분 분량의 유익한 정보 전달 영상 인트로-본론-결론 대본의 아웃라인을 설계합니다.", placeholder: "정보 영상 대본 기획 지시를 적어보세요." },
-              { num: "Step 44", title: "유튜브 영상 스크립트 작성", locked: true, guide: "오프닝 후크가 강렬한 숏폼 자막용 스크립트를 추출해 봅니다.", placeholder: "여기에 자막 대본 프롬프트를 적어보세요." },
-              { num: "Step 45", title: "스토리보드 시나리오 컷 분할 테이블", locked: true, guide: "대본의 각 컷별 카메라 구도, 렌즈 설정, 대사, 자막을 엑셀 표로 나누어 요약해 봅니다.", placeholder: "여기에 컷분할 표 생성 지시를 작성하세요." }
-            ]
-          },
-          {
-            name: "Chapter 2: 화면 연출 및 컷분할 스토리보드",
-            missions: [
-              { num: "Step 46", title: "각 컷별 연출 지시문(Directing Note) 추출", locked: true, guide: "촬영자가 직관적으로 파악할 수 있는 화면 구도 및 인물 표정 묘사 노트 작성을 지시합니다.", placeholder: "디렉팅 노트 프롬프트를 입력하세요." },
-              { num: "Step 47", title: "AI 이미지 기반 스토리보드 컷 생성", locked: true, guide: "각 씬에 맞는 시각용 이미지들을 미드저니/DALL-E로 일관성 있게 생성하는 특화 지문법을 배웁니다.", placeholder: "스토리보드 이미지 프롬프트를 입력하세요." },
-              { num: "Step 48", title: "영상 조명 및 카메라 앵글 디렉션", locked: true, guide: "시네마틱 톤을 얻기 위한 조명 위치(키라이트, 백라이트) 및 카메라 무빙을 지시해 봅니다.", placeholder: "조명 연출 지시를 입력하세요." },
-              { num: "Step 49", title: "가상 배경 및 세트장 컨셉 빌딩", locked: true, guide: "크로마키 촬영에 합성할 환상적인 3D 가상 스튜디오 배경 컨셉을 텍스트 묘사로 얻어냅니다.", placeholder: "배경 컨셉 지시를 적어보세요." },
-              { num: "Step 50", title: "티저 영상 오프닝 컷 시각 연출 기획", locked: true, guide: "마스터님이 구상하신 시네마틱 티저 오프닝 씬의 3D 공간 구성을 AI로 연출해 봅니다.", placeholder: "오프닝 연출 지시를 작성하세요." }
-            ]
-          },
-          {
-            name: "Chapter 3: 목소리 및 오디오 엔지니어링 (TTS)",
-            missions: [
-              { num: "Step 51", title: "AI 성우 TTS 보이스 스크립트 작성", locked: true, guide: "성우 보이스의 호흡 간격과 강조어 처리를 포함한 텍스트 리딩 템플릿을 생성합니다.", placeholder: "TTS 원고 지시를 입력하세요." },
-              { num: "Step 52", title: "영상 배경음(BGM) 및 사운드 효과 매칭 리스트", locked: true, guide: "각 감정선(긴장, 행복, 슬픔)에 알맞은 악기 구성과 효과음 타이밍 표를 작성해 봅니다.", placeholder: "음악 매칭 리스트 작성을 지시하세요." },
-              { num: "Step 53", title: "클론 보이스 학습용 1분 낭독 원고 작성", locked: true, guide: "자신의 목소리를 복제하기 위해 가장 다양한 음역대와 발음을 포함한 1분 대본을 추출해 봅니다.", placeholder: "여기에 목소리 복제 원고 지시를 입력하세요." },
-              { num: "Step 54", title: "팟캐스트 라디오 방송용 대본 2인 토크쇼 기획", locked: true, guide: "진행자와 초대석 손님이 주고받는 티키타카 라디오용 3분 토크 대본을 짭니다.", placeholder: "2인 토크 대본 지시를 입력하세요." },
-              { num: "Step 55", title: "외국어 더빙용 오디오 스크립트 번역 최적화", locked: true, guide: "한국어 TTS 대본을 구어체 영문/일문/중문으로 번역하되 각 국 성우 음절 호흡에 맞추어 조율합니다.", placeholder: "외국어 TTS 대본 번역 지시를 적어보세요." }
-            ]
-          },
-          {
-            name: "Chapter 4: 자동 편집 및 캡컷 연동 자막화",
-            missions: [
-              { num: "Step 56", title: "자동 컷 편집 시나리오 스크립트 생성", locked: true, guide: "캡컷이나 프리미어에서 오디오 무음 구간을 날리고 핵심만 연결할 타임라인 기획서를 만듭니다.", placeholder: "컷편집 기획안 프롬프트를 적어보세요." },
-              { num: "Step 57", title: "영상 자막 스타일 가이드 및 특수 효과 기획", locked: true, guide: "강조하고 싶은 키워드별 폰트 스타일, 컬러, 바운스 이펙트 처리 지시를 자동화합니다.", placeholder: "자막 스타일 지시를 적어보세요." },
-              { num: "Step 58", title: "인공지능 가상 아바타 강사 HeyGen 템플릿", locked: true, guide: "온라인 강의를 대신 찍어줄 가상 AI 모델 아바타 강사용 텍스트 발화 가이드를 추출해 봅니다.", placeholder: "아바타 가이드 프롬프트를 적어보세요." },
-              { num: "Step 59", title: "홍보 영상 클릭율을 높이는 AI 썸네일 디자인", locked: true, guide: "조회수를 폭발시킬 미드저니 썸네일 전용 이미지 프롬프트 조합법을 배웁니다.", placeholder: "썸네일 프롬프트 지시를 입력하세요." },
-              { num: "Step 60", title: "종합 실습: KACEC 티저 숏폼 완성 릴리즈", locked: true, guide: "영상 기획부터 오디오, 연출, 최종 인코딩 사양까지 아우르는 캡스톤 미션을 완료합니다.", placeholder: "종합 비디오 기획안 프롬프트를 작성하세요." }
-            ]
-          }
+        track: "practical",
+        trackTitle: "💼 AI 실무 생산성 코스",
+        title: "🎨 생활 문화 AI 아카데미",
+        missions: [
+          { num: "Step 01", title: "AI 동화책 기획: 줄거리 및 캐릭터 설정", locked: true, guide: "동화책 제작의 시작인 중심 갈등과 주인공 캐릭터 성격 묘사문을 기획해 봅니다.", placeholder: "동화책 줄거리 프롬프트를 입력하세요." },
+          { num: "Step 02", title: "그림책 일러스트 삽화 생성용 프롬프트 추출", locked: true, guide: "각 페이지별 묘사 씬을 AI 이미지 모델용 영어 프롬프트로 전환합니다.", placeholder: "영어 삽화 묘사 프롬프트를 입력하세요." },
+          { num: "Step 03", title: "자작 시(詩) 창작과 감성 이미지 매칭", locked: true, guide: "내 추억이나 가을 감성을 담은 4연 시를 AI와 창작하고 분위기 톤을 맞춥니다.", placeholder: "자작시 창작 프롬프트를 입력하세요." },
+          { num: "Step 04", title: "디지털 시화전용 레이아웃 및 캔버스 가이드", locked: true, guide: "가사와 그림을 한데 모으는 엽서 비율의 시각 디자인 레이아웃 구상을 얻어냅니다.", placeholder: "시화전 레이아웃 지시를 적어보세요." },
+          { num: "Step 05", title: "종합: 독립출판용 자작 시집 책 표지 설계", locked: true, guide: "자작 시집 출판을 위한 메인 제목 타이포그래피와 배경 아트웍 지침을 완성합니다.", placeholder: "시집 표지 프롬프트를 입력하세요." }
+        ]
+      },
+      youtube: {
+        unlocked: false,
+        track: "creator",
+        trackTitle: "🎨 AI 미디어 크리에이티브 코스",
+        title: "🎬 유튜브 크리에이터 & AI 영상제작",
+        missions: [
+          { num: "Step 01", title: "유튜브 숏츠 60초 대본 기획", locked: true, guide: "60초 이내에 완독을 유도할 스토리 라인 숏폼 스크립트를 요청합니다.", placeholder: "쇼츠 대본 지시를 입력하세요." },
+          { num: "Step 02", title: "스토리보드 시나리오 컷 분할 테이블", locked: true, guide: "대본의 각 컷별 카메라 구도, 렌즈 설정, 대사, 자막을 엑셀 표로 나누어 요약해 봅니다.", placeholder: "여기에 컷분할 표 생성 지시를 작성하세요." },
+          { num: "Step 03", title: "각 컷별 연출 지시문(Directing Note) 추출", locked: true, guide: "촬영자가 직관적으로 파악할 수 있는 화면 구도 및 인물 표정 묘사 노트를 구합니다.", placeholder: "디렉팅 노트 프롬프트를 입력하세요." },
+          { num: "Step 04", title: "AI 이미지 기반 스토리보드 컷 생성", locked: true, guide: "각 씬에 맞는 시각용 이미지들을 미드저니/DALL-E용 프롬프트로 추출해 봅니다.", placeholder: "스토리보드 이미지 프롬프트를 입력하세요." },
+          { num: "Step 05", title: "캡컷 자동 자막 스타일 가이드 및 특수 효과", locked: true, guide: "동영상 자막의 가독성을 높이기 위한 색상, 폰트 크기, 바운스 연출 지시를 자동화합니다.", placeholder: "자막 스타일 지시를 적어보세요." }
+        ]
+      },
+      music: {
+        unlocked: false,
+        track: "creator",
+        trackTitle: "🎨 AI 미디어 크리에이티브 코스",
+        title: "🎵 AI 작곡 & 음악 창작",
+        missions: [
+          { num: "Step 01", title: "구글 MusicFX 연동 곡 장르 및 악기 배치", locked: true, guide: "원하는 곡 분위기(밝음/웅장함/어두움)에 맞는 템포와 편곡 구성을 AI로 추천받습니다.", placeholder: "작곡 장르와 악기 배치 아이디어를 요청하세요." },
+          { num: "Step 02", title: "내 노래 가사 작사 및 음절 호흡 매칭", locked: true, guide: "벌스(Verse)와 훅(Hook) 구조를 갖춘 노랫말을 짓고 노래 리듬에 맞게 음절을 다듬습니다.", placeholder: "노랫말 작사 프롬프트를 작성하세요." },
+          { num: "Step 03", title: "AI 성우 TTS 보이스 스크립트 강조어 설정", locked: true, guide: "나레이션 보이스의 톤 조절과 쉼표를 이용한 호흡 구간 가이드를 짭니다.", placeholder: "성우 대본 프롬프트를 입력하세요." },
+          { num: "Step 04", title: "영상 배경음(BGM) 사운드 트랙 매칭 표 생성", locked: true, guide: "동영상 스토리 진행에 따라 어울리는 악기 편성과 효과음 타이밍을 테이블로 얻어냅니다.", placeholder: "배경음악 기획 프롬프트를 적어보세요." },
+          { num: "Step 05", title: "종합: AI 오디오-비디오 사운드트랙 완성", locked: true, guide: "음악, TTS 나레이션, 효과음을 결합한 종합 시네마틱 오디오 믹싱 기획서를 도출합니다.", placeholder: "최종 믹싱 기획 프롬프트를 작성하세요." }
+        ]
+      },
+      circuit: {
+        unlocked: false,
+        track: "maker",
+        trackTitle: "🧱 AI & 피지컬 메이커 코스",
+        title: "🔌 청소년 종이회로 메이커",
+        missions: [
+          { num: "Step 01", title: "종이회로 작동 개념 및 회로 기호 파악", locked: true, guide: "전도성 구리선, LED, 코인 전지를 이용해 종이 위에 회로를 그리는 원리를 배웁니다.", placeholder: "종이회로 기본 개념 설명을 요청하세요." },
+          { num: "Step 02", title: "스마트 팝업 카드 설계 도안 레이아웃", locked: true, guide: "카드를 열었을 때 입체 캐릭터 부분에 불이 켜지게 하는 회로 도안 배치를 지시합니다.", placeholder: "회로 도안 설계 프롬프트를 작성하세요." },
+          { num: "Step 03", title: "직렬/병렬 회로 배치 및 전압 디버깅", locked: true, guide: "LED 전구 개수에 따라 밝기를 조절하기 위한 직/병렬 스위치 연결 가이드를 얻어냅니다.", placeholder: "회로 디버깅 지시를 적으세요." },
+          { num: "Step 04", title: "회로 단선 및 합선 에러 극복 트러블슈팅", locked: true, guide: "동작 불능 상태의 원인을 분석해 고치기 위한 3대 자가진단 항목을 요청해 봅니다.", placeholder: "자가진단 항목 프롬프트를 입력하세요." },
+          { num: "Step 05", title: "종합: 크리스마스 카드 LED 메이커 설계 완성", locked: true, guide: "트리에 불이 들어오는 카드 외관 도안 및 회로 연결 최종 명세서를 완성합니다.", placeholder: "최종 카드 명세서 프롬프트를 적어보세요." }
+        ]
+      },
+      maker3d: {
+        unlocked: false,
+        track: "maker",
+        trackTitle: "🧱 AI & 피지컬 메이커 코스",
+        title: "🧱 AI & 3D 입체 융합 메이커",
+        missions: [
+          { num: "Step 01", title: "3D펜 작동 구조 및 사용 안전 수칙 수립", locked: true, guide: "노즐 온도 조절과 필라멘트 송출 속도 제어 등 안전 교육 가이드를 AI로 요약합니다.", placeholder: "안전 가이드 요약을 지시하세요." },
+          { num: "Step 02", title: "3D 입체 캐릭터 평면 도안 컷 분할 기획", locked: true, guide: "3D 캐릭터 피규어를 조립식으로 만들기 위해 바닥, 몸통, 머리 도안을 분할 요청합니다.", placeholder: "조립 도안 기획안을 요청하세요." },
+          { num: "Step 03", title: "필라멘트 두께 및 열 수축 방지 가이드", locked: true, guide: "출출물이 바닥에서 일어나는 들뜸 현상을 방지하기 위한 바닥 라프트(Raft) 설계 조건을 배웁니다.", placeholder: "수축 방지 프롬프트를 입력하세요." },
+          { num: "Step 04", title: "면 채우기 기술 및 깔끔한 마감 팁 도출", locked: true, guide: "격자 채우기, 지그재그 채우기 등 입체물 표면을 매끄럽게 가공하는 팁을 AI로 추출합니다.", placeholder: "마감 팁 추출 지시를 작성하세요." },
+          { num: "Step 05", title: "종합: KACEC 로고 캐릭터 3D 피규어 조립서", locked: true, guide: "각 파츠를 3D펜으로 드로잉해 접합하는 최종 캐릭터 피규어 제작 조립 설명서를 얻어냅니다.", placeholder: "최종 조립 설명서 프롬프트를 적어보세요." }
+        ]
+      },
+      vibecoding: {
+        unlocked: false,
+        track: "builder",
+        trackTitle: "💻 AI 빌더 & 바이브 코딩 코스",
+        title: "💻 바이브 코딩 입문 (Vibe Coding)",
+        missions: [
+          { num: "Step 01", title: "바이브코딩의 철학: 생각하는 대로 앱 만들기", locked: true, guide: "코딩을 전혀 몰라도 자연어 프롬프트만으로 작동하는 웹앱을 기획하는 법을 배웁니다.", placeholder: "웹앱 기본 아이디어를 한 줄로 적어보세요." },
+          { num: "Step 02", title: "HTML/CSS 기반 웹 화면 디자인 초안 생성", locked: true, guide: "다크 글래스모피즘이 가미된 반응형 랜딩 페이지의 HTML/CSS 소스코드를 요청합니다.", placeholder: "화면 디자인 세부 조건을 지시하세요." },
+          { num: "Step 03", title: "자바스크립트(JS) 이벤트 및 데이터 제어 함수 작성", locked: true, guide: "입력값 검증 및 버튼 클릭 시 결과 상자가 튀어나오는 동적 모션 함수 생성을 유도합니다.", placeholder: "JS 이벤트 요구사항을 입력하세요." },
+          { num: "Step 04", title: "에러 로그 발생 시 인공지능 자가 디버깅 기법", locked: true, guide: "브라우저 콘솔창의 빨간 에러 메시지를 AI에게 줘서 1초 만에 수정본 코드를 얻어내는 법을 실습합니다.", placeholder: "콘솔 에러 디버깅 지시를 작성하세요." },
+          { num: "Step 05", title: "종합: 나만의 실시간 웹 위젯 완성 및 배포", locked: true, guide: "동작하는 미니 계산기 또는 날씨 위젯 소스코드를 하나의 단일 파일로 완성해 다운로드 받도록 지시합니다.", placeholder: "종합 웹 위젯 프롬프트를 작성하세요." }
+        ]
+      },
+      mediaart: {
+        unlocked: false,
+        track: "builder",
+        trackTitle: "💻 AI 빌더 & 바이브 코딩 코스",
+        title: "🌌 사운드 비주얼 & 미디어아트",
+        missions: [
+          { num: "Step 01", title: "사운드 비주얼라이제이션 작동 원리", locked: true, guide: "사운드 주파수(Hz) 데이터의 크기를 그래픽의 픽셀 좌표 크기로 매핑하는 개념을 배웁니다.", placeholder: "작동 원리 요약을 요청하세요." },
+          { num: "Step 02", title: "마이크 입력 연동 캔버스 반응형 드로잉 코드", locked: true, guide: "브라우저 마이크에 목소리를 내면 둥근 구체가 요동치며 커지는 HTML5 Canvas 코드를 요청합니다.", placeholder: "드로잉 코드 요구사항을 입력하세요." },
+          { num: "Step 03", title: "실시간 오디오 FFT 파싱 코드 작성", locked: true, guide: "Web Audio API를 활용해 오디오 스펙트럼 데이터를 실시간 수집하는 JS 코드를 만듭니다.", placeholder: "FFT 파싱 코드 프롬프트를 작성하세요." },
+          { num: "Step 04", title: "캔버스 그래픽 그라데이션 및 입체 특수효과", locked: true, guide: "미디어아트 다운 깊이감을 내기 위한 네온 글로우(Glow) 효과 코딩 설정을 묻습니다.", placeholder: "네온 효과 코딩 지시를 적으세요." },
+          { num: "Step 05", title: "종합: 반응형 소리 스펙트럼 아트 월(Art Wall) 완성", locked: true, guide: "내 마이크 입력 소리에 동적으로 반응해 춤추는 최종 미디어아트 그래픽 소스코드를 생성합니다.", placeholder: "최종 아트월 코딩 지시를 작성하세요." }
         ]
       },
       automation: {
         unlocked: false,
-        title: "⚙️ AI 비즈니스 자동화 학과",
-        chapters: [
-          {
-            name: "Chapter 1: 엑셀 함수 및 VBA 오피스 자동화",
-            missions: [
-              { num: "Step 61", title: "초보자용 엑셀 복잡한 수식 자동 작성", locked: true, guide: "VLOOKUP, INDEX/MATCH 등 머리아픈 다중 조건부 합계 수식을 AI에게 작성해 달라고 요청합니다.", placeholder: "엑셀 수식 요구안을 입력하세요." },
-              { num: "Step 62", title: "매달 반복되는 판매 정산 VBA 매크로 코드", locked: true, guide: "정산 엑셀 파일을 열어 한 번에 정산 합계를 내주는 매크로 코드를 요청합니다.", placeholder: "VBA 코드 요구안을 입력하세요." },
-              { num: "Step 63", title: "구글 시트 연동 스프레드시트 앱스크립트", locked: true, guide: "구글 설문지가 들어왔을 때 자동으로 카카오톡 알림을 날리게 하는 AppScript 코드를 작성합니다.", placeholder: "AppScript 작성 프롬프트를 입력하세요." },
-              { num: "Step 64", title: "PDF 보고서 내 엑셀 테이블 데이터 파싱", locked: true, guide: "PDF 텍스트 속에 박힌 복잡한 매출 표를 CSV/엑셀 데이터로 가공하도록 지시합니다.", placeholder: "표 파싱 프롬프트를 작성해 보세요." },
-              { num: "Step 65", title: "피벗 테이블 자동 생성 및 시각화 가이드", locked: true, guide: "원시 로우 데이터를 기반으로 AI에게 대시보드 피벗 테이블 구성 가이드를 요청합니다.", placeholder: "피벗 테이블 구성 지시를 적으세요." }
-            ]
-          },
-          {
-            name: "Chapter 2: 웹 정보 크롤링 파이썬 스크립팅",
-            missions: [
-              { num: "Step 66", title: "경쟁사 네이버 쇼핑 상품 가격 크롤러 제작", locked: true, guide: "경쟁사의 오늘의 상품 가격을 수집하는 파이썬 Beautifulsoup 코드 작성을 유도해 봅니다.", placeholder: "파이썬 크롤링 코드 지시를 입력하세요." },
-              { num: "Step 67", title: "구글 지도 로컬 매장 연락처/위치 크롤링", locked: true, guide: "로컬 오프라인 매장 지도를 긁어 영업 대상 주소록을 자동 추출하는 파이썬 코드를 짭니다.", placeholder: "여기에 파이썬 크롤러 지시를 입력하세요." },
-              { num: "Step 68", title: "네이버 뉴스 특정 키워드 실시간 수집기", locked: true, guide: "매일 아침 협동조합 소식이나 AI 융합 트렌드 뉴스를 긁어오는 파이썬 스크립트를 짭니다.", placeholder: "뉴스 수집기 파이썬 코드를 요청하세요." },
-              { num: "Step 69", title: "크롤러 IP 차단 우회 및 User-Agent 설정", locked: true, guide: "수집 도중 서버로부터 IP 차단을 방지하기 위해 헤더를 설정하는 회피 코드를 요청해 봅니다.", placeholder: "여기에 회피 코드 프롬프트를 입력하세요." },
-              { num: "Step 70", title: "수집된 데이터 SQLite DB 자동 저장 코드", locked: true, guide: "크롤링한 결과를 파일이 아닌 로컬 DB인 SQLite 테이블에 적재하는 코드를 완성해 봅니다.", placeholder: "SQLite 적재 파이썬 코드를 요청하세요." }
-            ]
-          },
-          {
-            name: "Chapter 3: Gmail/API 연동 발송 자동화",
-            missions: [
-              { num: "Step 71", title: "Gmail API 연동 맞춤 이메일 대량 발송", locked: true, guide: "엑셀 고객 명단을 읽어 이름과 단골 혜택을 1:1로 맞춤 매핑해 메일을 뿌려주는 파이썬 코드를 짭니다.", placeholder: "대량 이메일 파이썬 코드를 요청하세요." },
-              { num: "Step 72", title: "슬랙(Slack) / 디스코드 봇 실시간 연동", locked: true, guide: "구글 폼 신규 입력 완료 알림을 슬랙 채널로 바로 쏴주는 웹훅 파이썬 코드를 만듭니다.", placeholder: "슬랙 봇 연동 코드를 요청하세요." },
-              { num: "Step 73", title: "네이버 플레이스 예약 완료 안내 문자 연동", locked: true, guide: "외부 SMS API를 물려 수강생들에게 알림 문자를 자동 발송하는 코드를 짭니다.", placeholder: "SMS 문자 자동화 코드를 요청하세요." },
-              { num: "Step 74", title: "노션(Notion) 데이터베이스 API 실시간 기록", locked: true, guide: "작업 진행도를 AI가 노션 페이지 DB의 특정 컬럼에 자동으로 업데이트하게 하는 노션 API 코드를 짭니다.", placeholder: "노션 API 코드를 요청해 보세요." },
-              { num: "Step 75", title: "자동 보고서 PDF 인코딩 및 메일 첨부 자동화", locked: true, guide: "텍스트 리포트를 생성해 PDF 파일로 인쇄한 후, 고객 메일에 첨부 발송하는 파이썬 파이프라인을 짭니다.", placeholder: "PDF 첨부 자동화 코드를 요청하세요." }
-            ]
-          },
-          {
-            name: "Chapter 4: MCP 서버 및 커스텀 에이전트 설계",
-            missions: [
-              { num: "Step 76", title: "모델 컨텍스트 프로토콜(MCP) 개념 마스터", locked: true, guide: "LLM이 내 로컬 OS의 파일 시스템을 직접 만지게 하는 MCP 작동 원리를 파악합니다.", placeholder: "MCP 원리 설명 요청을 작성하세요." },
-              { num: "Step 77", title: "나만의 맞춤형 로컬 파일 시스템 MCP 서버 구축", locked: true, guide: "파이썬으로 내 로컬의 텍스트 파일을 AI가 읽고 수정하도록 허용하는 커스텀 MCP 코드를 짭니다.", placeholder: "로컬 MCP 서버 소스 코드를 요청하세요." },
-              { num: "Step 78", title: "CrewAI 기반 멀티 에이전트 워크플로우 기획", locked: true, guide: "마케터 에이전트, 번역가 에이전트, 개발자 에이전트가 협업해 결과물을 내는 Crew 구성을 짭니다.", placeholder: "CrewAI 구성 파이썬 코드를 요청하세요." },
-              { num: "Step 79", title: "LangFlow 기반 노코드 AI 자동화 앱 설계", locked: true, guide: "노코드 화면에서 박스를 이어붙여 나만의 AI 챗봇을 빌딩하는 플로우 가이드를 작성 요청해 봅니다.", placeholder: "LangFlow 구성 가이드를 요청하세요." },
-              { num: "Step 80", title: "종합 실습: B2B 영업 마케팅 자동화 앱 완성", locked: true, guide: "정보 수집, 카피 생성, 메일 발송까지 원클릭으로 구동하는 캡스톤 시스템을 빌드합니다.", placeholder: "원클릭 자동화 시스템 기획안을 작성하세요." }
-            ]
-          }
+        track: "engineer",
+        trackTitle: "⚙️ AI 자동화 & 엔지니어 코스",
+        title: "⚙️ AI 비즈니스 자동화",
+        missions: [
+          { num: "Step 01", title: "엑셀 수식 및 VBA 매크로 코드 자동 작성", locked: true, guide: "매달 반복되는 판매 정산 데이터를 자동으로 분류하고 계산해 주는 VBA 매크로 코드를 요청합니다.", placeholder: "VBA 코드 요구안을 입력하세요." },
+          { num: "Step 02", title: "파이썬 경쟁사 네이버 쇼핑 상품 가격 크롤러", locked: true, guide: "경쟁 점포의 오늘 날짜 기준 가격 데이터를 수집하는 BeautifulSoup 파이썬 스크립트를 짭니다.", placeholder: "파이썬 크롤링 코드 지시를 입력하세요." },
+          { num: "Step 03", title: "Gmail API 연동 맞춤 이메일 대량 발송", locked: true, guide: "엑셀 고객 명단을 읽어 이름과 단골 혜택을 매핑해 개별 메일을 쏴주는 파이썬 코드를 만듭니다.", placeholder: "이메일 자동화 코드를 요청하세요." },
+          { num: "Step 04", title: "슬랙(Slack) 웹훅 알림 실시간 연동", locked: true, guide: "구글 폼 신규 접수 완료 시 슬랙 채널로 즉시 알림이 발송되는 파이썬 웹훅 코드를 짭니다.", placeholder: "웹훅 코드를 요청해 보세요." },
+          { num: "Step 05", title: "자동 보고서 PDF 변환 및 첨부 자동화", locked: true, guide: "텍스트 리포트를 PDF 파일로 자동 인코딩해 메일에 첨부 발송하는 파이썬 파이프라인을 구축합니다.", placeholder: "PDF 첨부 자동화 코드를 요청하세요." }
         ]
       },
-      exclusive: {
+      digitaltwin: {
         unlocked: false,
-        title: "🤝 KACEC 조합원 실무 학과",
-        chapters: [
-          {
-            name: "Chapter 1: 조합 표준 정관 분석 및 리스크 진단",
-            missions: [
-              { num: "Step 81", title: "협동조합 표준 정관 조항 분석", locked: true, guide: "KACEC 조합원으로서 협동조합 정관 문서를 읽고 핵심 권리 의무 조항을 요약 분석해 봅니다.", placeholder: "조합 정관 분석 지시를 입력하세요." },
-              { num: "Step 82", title: "이사회/총회 의결 정족수 계산 및 리스크 진단", locked: true, guide: "특정 의안 상정 시 참석 인원에 따른 의결 가능 여부 및 법적 분쟁 리스크를 자문받아 봅니다.", placeholder: "의결 정족수 자문 프롬프트를 입력하세요." },
-              { num: "Step 83", title: "조합 탈퇴/지분 환급 법적 보장 한도 분석", locked: true, guide: "조합원의 탈퇴 시 출자금 반환 청구권 및 환급 조건 조항의 유효성을 정밀 검토합니다.", placeholder: "출자금 반환 검토 지시를 입력하세요." },
-              { num: "Step 84", title: "조합 표준 사업계획서 예산안 리스크 진단", locked: true, guide: "사업계획서의 자금 조달 및 집행 지출 비용 항목에 세법상 리스크가 없는지 검증합니다.", placeholder: "예산안 리스크 진단 지시를 입력하세요." },
-              { num: "Step 85", title: "조합 정관 독소 조항 방지 대안 가이드라인 도출", locked: true, guide: "일반 조합원에게 일방적으로 불리한 독소 조항이 있는지 찾아내고 예방하는 계약 가이드를 작성합니다.", placeholder: "독소조항 대안 가이드 작성을 요청하세요." }
-            ]
-          },
-          {
-            name: "Chapter 2: 정부/지자체 출강 교육 제안서 집필",
-            missions: [
-              { num: "Step 86", title: "지자체 소상공인 교육 출강 제안서 개요 기획", locked: true, guide: "지자체 예산 지원 및 소상공인/예비창업자 타겟 맞춤형 교육 제안서의 개요를 잡습니다.", placeholder: "제안서 기획 프롬프트를 작성하세요." },
-              { num: "Step 87", title: "예산 기획: 강사료, 교구비, 대관료 예산 편성", locked: true, guide: "정부 보조금 예산 편성 규칙(기재부 지침)에 딱 맞는 강사료 및 교구 조달 단가 테이블을 요청합니다.", placeholder: "예산 편성 프롬프트를 입력하세요." },
-              { num: "Step 88", title: "교육 기대효과 및 수치화된 성과 관리 방안 작성", locked: true, guide: "수강 완료율, 만족도, 실제 창업 성공률 등 바이어의 마음을 훔칠 성과 지표 작성법을 배웁니다.", placeholder: "기대효과 작성 프롬프트를 입력하세요." },
-              { num: "Step 89", title: "강사 이력서 및 조합 포트폴리오 가독성 요약", locked: true, guide: "제안서 부록에 들어갈 소속 강사들의 이력을 보기 쉽고 전문적인 형태로 재포장해 봅니다.", placeholder: "강사 이력 요약 프롬프트를 적어보세요." },
-              { num: "Step 90", title: "조합 특화 제안서 캡스톤 최종 초안 빌딩", locked: true, guide: "실제 지자체에 제출할 수 있는 수준의 'KACEC AI 리터러시 4주 과정 제안서' 전체 초안을 뽑아봅니다.", placeholder: "제안서 최종 완성 초안 지시를 적어보세요." }
-            ]
-          },
-          {
-            name: "Chapter 3: 서브도메인 분산 스토리지 아키텍처",
-            missions: [
-              { num: "Step 91", title: "1인 1도메인 분산 스토리지(CDN) 작동 개념", locked: true, guide: "서브도메인(j., s., w.)을 각각 독립된 레포지토리에 물려 CNAME 매핑을 하는 아키텍처를 분석합니다.", placeholder: "분산 스토리지 개념 설명을 요청해 보세요." },
-              { num: "Step 92", title: "깃허브 레포지토리 연동 절대주소 호출법", locked: true, guide: "A 레포지토리의 HTML에서 B 레포지토리의 PDF나 고화질 이미지를 절대 주소로 물려 로딩 속도를 올리는 팁을 구합니다.", placeholder: "절대주소 호출 팁을 요청하세요." },
-              { num: "Step 93", title: "Github Pages CNAME 서브도메인 매핑 자동화", locked: true, guide: "CNAME 파일을 깃에 반영하고 도메인 DNS 레코드에서 A레코드와 CNAME을 올바르게 세팅하는 법을 묻습니다.", placeholder: "CNAME 매핑 가이드를 요청하세요." },
-              { num: "Step 94", title: "대용량 이미지 WebP 압축 및 분산 업로드 스크립트", locked: true, guide: "로컬 파이썬으로 PNG 이미지를 초경량 WebP로 압축해 지정 서브도메인 깃허브에 푸시하는 스크립트를 유도합니다.", placeholder: "WebP 압축 파이썬 코드를 요청해 보세요." },
-              { num: "Step 95", title: "서브도메인 간 CORS 에러 방지 해결책 수립", locked: true, guide: "서브도메인에서 API나 폰트 호출 시 발생하는 CORS 오류를 방지하는 설정을 배웁니다.", placeholder: "CORS 에러 방지 가이드를 요청해 보세요." }
-            ]
-          },
-          {
-            name: "Chapter 4: 조합원 정산 및 자동화 자격증 관리",
-            missions: [
-              { num: "Step 96", title: "분기별 조합원 실적 기반 배당금 정산 보고서", locked: true, guide: "각 조합원이 기여한 강의 실적 및 출자 비율을 기초로 정산 보고서 엑셀 포맷을 AI에게 설계해 달라고 합니다.", placeholder: "정산 보고서 포맷 작성을 지시하세요." },
-              { num: "Step 97", title: "AI 활용 조합용 교재/교구 가이드북 파트 집필", locked: true, guide: "수강생용 교재 3장 '스마트폰으로 인공지능 시작하기' 파트 원고의 뼈대를 자동 생성해 달라고 지시합니다.", placeholder: "교재 가이드북 원고 작성을 지시하세요." },
-              { num: "Step 98", title: "KACEC 공인 자격증 자동 생성용 PDF 표 작성", locked: true, guide: "자격 시험 통과자의 정보와 날짜를 넣으면 자동으로 수료증 PDF 캔버스를 그리는 HTML 표 작성을 지시합니다.", placeholder: "PDF 표 템플릿 작성을 지시해 보세요." },
-              { num: "Step 99", title: "수강생 시험 답안지 및 자동 피드백 리포트 작성", locked: true, guide: "학생이 제출한 프롬프트의 오류 원인을 진단하여 인쇄용 A4 규격의 리포트 형태로 가공 요청해 봅니다.", placeholder: "피드백 리포트 지시를 적으세요." },
-              { num: "Step 100", title: "종합 실습: KACEC 조합원 통합 관리 시스템 설계", locked: true, guide: "정관, 출강 제안서, 분산 정산, 자격증 발급까지 하나로 관장하는 KACEC 통합 관리 시스템 구조도를 AI와 설계합니다.", placeholder: "통합 관리 시스템 기획안을 최종 작성하세요." }
-            ]
-          }
+        track: "engineer",
+        trackTitle: "⚙️ AI 자동화 & 엔지니어 코스",
+        title: "🏙️ 디지털 트윈 R&D 및 시뮬레이션",
+        missions: [
+          { num: "Step 01", title: "디지털 트윈 작동 개념과 가상 시뮬레이션", locked: true, guide: "물리 세계의 객체를 가상 3D 공간에 복제하고 실시간 센서 데이터를 매핑하는 원리를 배웁니다.", placeholder: "개념 요약을 지시하세요." },
+          { num: "Step 02", title: "가상 물리 엔진 매개변수 설정 가이드", locked: true, guide: "중력, 풍속, 물성 등 가상 시뮬레이터 속 환경 변수들의 영향도를 분석해 봅니다.", placeholder: "매개변수 리포트를 요청해 보세요." },
+          { num: "Step 03", title: "센서 데이터 스트리밍 가공용 파이썬 스크립트", locked: true, guide: "IoT 온도/습도 센서 로그를 수집해 실시간 JSON 파일로 덤프하는 파이썬 코드를 짭니다.", placeholder: "스트리밍 파이썬 코드를 짭니다." },
+          { num: "Step 04", title: "3D 공간 노드 좌표계 변환 및 매핑 기술", locked: true, guide: "가상 카메라 뷰포트 행렬을 기준으로 객체의 x, y, z 공간 좌표를 자동 변환하는 코드를 구합니다.", placeholder: "좌표 변환 코드를 요청해 보세요." },
+          { num: "Step 05", title: "종합: 공장 모형 실시간 모니터링 시뮬레이션", locked: true, guide: "3D 디지털 공장 안에서 불량 발생 시 이상 경고를 시각화해 주는 웹 대시보드 코드를 기획합니다.", placeholder: "시뮬레이션 대시보드 기획안을 작성하세요." }
+        ]
+      },
+      commissioned: {
+        unlocked: false,
+        track: "instructor",
+        trackTitle: "🤝 KACEC 자격 검정 & 강사 코스",
+        title: "🏢 지자체/정부 위탁 교육 & 제안서",
+        missions: [
+          { num: "Step 01", title: "지자체 교육 제안서 개요 기획", locked: true, guide: "지자체 평생교육 또는 청소년 메이커 교육 수주를 위한 제안서 핵심 목적과 차별성을 작성합니다.", placeholder: "제안서 개요 프롬프트를 작성하세요." },
+          { num: "Step 02", title: "예산 기획: 강사료, 교구비, 대관료 편성", locked: true, guide: "보조금 편성 기준(기재부 예산 지침)을 준수하는 정교한 사업 예산 산출 내역 테이블을 요청합니다.", placeholder: "예산 편성 프롬프트를 입력하세요." },
+          { num: "Step 03", title: "기대효과 및 수치화된 성과 관리 지표 작성", locked: true, guide: "교육 만족도 95% 달성, 실무 활용률 등 정량/정성 성과 검증 방안을 구체적으로 도출합니다.", placeholder: "기대효과 작성 프롬프트를 입력하세요." },
+          { num: "Step 04", title: "소속 강사 이력서 포트폴리오 가공", locked: true, guide: "공공기관 제출용 강사 풀의 경력 및 논문 실적을 직관적인 그리드 디자인 표로 변환합니다.", placeholder: "강사 이력 요약 프롬프트를 적어보세요." },
+          { num: "Step 05", title: "종합: KACEC 4주 교육제안서 캡스톤 최종본", locked: true, guide: "정부 지원 위탁사업 신규 제안서 전체 아웃라인을 하나의 완성된 한글/워드 서식 텍스트로 뽑아냅니다.", placeholder: "제안서 최종 완성 초안 지시를 적어보세요." }
+        ]
+      },
+      certification: {
+        unlocked: false,
+        track: "instructor",
+        trackTitle: "🤝 KACEC 자격 검정 & 강사 코스",
+        title: "🤝 KACEC 공인 강사 자격 검정",
+        missions: [
+          { num: "Step 01", title: "KACEC 강사 헌장 및 교수법 가이드라인", locked: true, guide: "한국 AI 융합 교육원 소속 공식 강사가 준수해야 할 교육 윤리와 교수법 가이드를 배웁니다.", placeholder: "교수법 가이드 설명을 요청하세요." },
+          { num: "Step 02", title: "수강생 제출 답안지 자동 평가 프롬프트 튜닝", locked: true, guide: "학생들의 실습 답변 유효성을 검사해 100점 만점으로 자동 환산해 주는 강사용 프롬프트를 설계합니다.", placeholder: "자동 평가 프롬프트를 튜닝하세요." },
+          { num: "Step 03", title: "KACEC 공인 1급/2급 자격시험 문제 출제", locked: true, guide: "AI 기초 분야 자격 시험을 위한 난이도 상/중/하 사지선다 및 실기 시험 문항 5종을 출제합니다.", placeholder: "시험 문제 출제 프롬프트를 작성하세요." },
+          { num: "Step 04", title: "학생 개인별 성적 피드백 리포트 작성", locked: true, guide: "특정 학생의 점수 분포를 읽어 향후 학습 보강이 필요한 분야를 3문장으로 조언해 주는 편지를 작성합니다.", placeholder: "피드백 리포트 지시를 적으세요." },
+          { num: "Step 05", title: "종합: KACEC 공인 강사 임용 모의강의 교안 완성", locked: true, guide: "면접 및 모의 수업 평가를 위한 15분 압축 수업 실천 계획안 최종 초안을 짭니다.", placeholder: "모의강의 계획안 프롬프트를 완성해 보세요." }
         ]
       }
     };
 
-    let activeCourse = 'basics';
+    let activeCourse = 'beginner';
     let activeMissionIndex = 0;
 
     function initCampus() {
+      renderDropdownOptions();
       renderMissionsList();
       selectMission(0);
+    }
+
+    function renderDropdownOptions() {
+      const optionsContainer = document.getElementById('dropdownOptions');
+      if (!optionsContainer) return;
+      optionsContainer.innerHTML = '';
+      
+      const passcode = document.getElementById('passcodeInput') ? document.getElementById('passcodeInput').value.trim() : '';
+      const isPasscodeValid = (passcode === 'kacec2026');
+      
+      const tracks = {};
+      Object.keys(coursesData).forEach(key => {
+        const course = coursesData[key];
+        if (!tracks[course.track]) {
+          tracks[course.track] = {
+            title: course.trackTitle,
+            courses: []
+          };
+        }
+        tracks[course.track].courses.push({ key, ...course });
+      });
+      
+      Object.keys(tracks).forEach(trackKey => {
+        const track = tracks[trackKey];
+        const header = document.createElement('div');
+        header.className = 'dropdown-track-header';
+        header.style.cssText = 'font-size: 0.65rem; font-weight: 800; color: var(--teal); padding: 0.5rem 0.8rem 0.2rem 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.7; pointer-events: none; border-top: 1px solid rgba(255,255,255,0.03); margin-top: 0.3rem;';
+        header.innerText = track.title;
+        optionsContainer.appendChild(header);
+        
+        track.courses.forEach(c => {
+          const opt = document.createElement('div');
+          let isLocked = !c.unlocked && !isPasscodeValid;
+          if (c.key === 'beginner') isLocked = false;
+          
+          opt.className = `dropdown-option ${c.key === activeCourse ? 'active' : ''}`;
+          opt.id = `opt-${c.key}`;
+          opt.setAttribute('data-value', c.key);
+          opt.onclick = (e) => selectCourseOption(c.key, e);
+          
+          let displayTitle = c.title;
+          if (isLocked) {
+            displayTitle += ' 🔒';
+          }
+          opt.innerText = displayTitle;
+          optionsContainer.appendChild(opt);
+        });
+      });
     }
 
     function renderMissionsList() {
@@ -4553,43 +4554,31 @@
       list.innerHTML = '';
       const course = coursesData[activeCourse];
       
-      let overallIndex = 0;
-      course.chapters.forEach((chapter, chapIdx) => {
-        // Create Chapter Header Item
-        const chapHeader = document.createElement('li');
-        chapHeader.className = 'chapter-header';
-        chapHeader.style.cssText = 'font-size: 0.72rem; font-weight: 800; color: var(--teal); padding: 0.8rem 0.5rem 0.3rem 0.5rem; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.05); margin-top: 0.6rem; letter-spacing: 0.5px; pointer-events: none;';
-        chapHeader.innerText = chapter.name;
-        list.appendChild(chapHeader);
+      course.missions.forEach((m, idx) => {
+        const li = document.createElement('li');
         
-        chapter.missions.forEach((m) => {
-          const currentIndex = overallIndex;
-          const li = document.createElement('li');
-          
-          let isLocked = m.locked;
-          if (activeCourse === 'basics') isLocked = false;
-          if (coursesData[activeCourse].unlocked) isLocked = false;
-          
-          li.className = `mission-item ${currentIndex === activeMissionIndex ? 'active' : ''} ${isLocked ? 'locked' : ''}`;
-          
-          if (!isLocked) {
-            li.onclick = () => selectMission(currentIndex);
-          } else {
-            li.onclick = () => {
-              alert("🔒 이 단계는 '정식 수강생 라이센스 잠금' 상태입니다.\n\n하단의 [🔑 클래스 인증 코드]에 올바른 비밀코드를 입력하고 과정을 다시 선택하면 잠금이 해제됩니다!");
-            };
-          }
-          
-          li.innerHTML = `
-            <span class="mission-item-num">${m.num}</span>
-            <span class="mission-item-title" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
-              <span>${m.title}</span>
-              ${isLocked ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>' : ''}
-            </span>
-          `;
-          list.appendChild(li);
-          overallIndex++;
-        });
+        let isLocked = m.locked;
+        if (activeCourse === 'beginner' || activeCourse === 'smartphone' || activeCourse === 'docimg') isLocked = false;
+        if (coursesData[activeCourse].unlocked) isLocked = false;
+        
+        li.className = `mission-item ${idx === activeMissionIndex ? 'active' : ''} ${isLocked ? 'locked' : ''}`;
+        
+        if (!isLocked) {
+          li.onclick = () => selectMission(idx);
+        } else {
+          li.onclick = () => {
+            alert("🔒 이 단계는 '정식 수강생 라이센스 잠금' 상태입니다.\n\n하단의 [🔑 클래스 인증 코드]에 올바른 비밀코드를 입력하고 과정을 다시 선택하면 잠금이 해제됩니다!");
+          };
+        }
+        
+        li.innerHTML = `
+          <span class="mission-item-num">${m.num}</span>
+          <span class="mission-item-title" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+            <span>${m.title}</span>
+            \${isLocked ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>' : ''}
+          </span>
+        `;
+        list.appendChild(li);
       });
     }
 
@@ -4603,12 +4592,7 @@
       });
       
       const course = coursesData[activeCourse];
-      const flatMissions = [];
-      course.chapters.forEach(ch => {
-        ch.missions.forEach(m => flatMissions.push(m));
-      });
-      
-      const mission = flatMissions[idx];
+      const mission = course.missions[idx];
       if (mission) {
         document.getElementById('missionBadge').innerText = mission.num;
         document.getElementById('missionTitle').innerText = mission.title;
@@ -4635,7 +4619,11 @@
       const passcode = document.getElementById('passcodeInput').value.trim();
       const isPasscodeValid = (passcode === 'kacec2026');
       
-      if (!coursesData[targetCourse].unlocked && !isPasscodeValid) {
+      const course = coursesData[targetCourse];
+      let isLocked = !course.unlocked && !isPasscodeValid;
+      if (targetCourse === 'beginner') isLocked = false;
+      
+      if (isLocked) {
         alert("🔒 선택하신 과정은 '정식 수강생 전용 자격 검정 코스'입니다.\n\n정식 등급으로 참여하시려면 하단의 [🔑 클래스 인증 코드]에 올바른 비밀코드를 입력하고 과정을 다시 선택해 주세요.");
         const dropdown = document.getElementById('customCourseDropdown');
         const options = document.getElementById('dropdownOptions');
@@ -4647,22 +4635,23 @@
       if (isPasscodeValid) {
         Object.keys(coursesData).forEach(key => {
           coursesData[key].unlocked = true;
-          const optEl = document.getElementById(`opt-${key}`);
-          if (optEl && optEl.innerText.includes('🔒')) {
-            optEl.innerText = optEl.innerText.replace(' 🔒', '');
-          }
-          
-          coursesData[key].chapters.forEach(ch => {
-            ch.missions.forEach(m => {
-              m.locked = false;
-            });
+          coursesData[key].missions.forEach(m => {
+            m.locked = false;
           });
         });
         
-        // Render Mindmap again to remove locks in the home tree!
+        // Redraw mindmap and dropdown to remove locks!
         renderMindmap();
+        renderDropdownOptions();
       }
       
+      activeCourse = targetCourse;
+      activeMissionIndex = 0;
+      
+      // Update selected trigger text
+      document.getElementById('selectedCourseText').innerText = course.title;
+      
+      // Update active class in dropdown options
       const options = document.querySelectorAll('.dropdown-option');
       options.forEach(opt => {
         if (opt.getAttribute('data-value') === targetCourse) {
@@ -4672,12 +4661,6 @@
         }
       });
       
-      activeCourse = targetCourse;
-      activeMissionIndex = 0;
-      
-      const selectedText = coursesData[targetCourse].title;
-      document.getElementById('selectedCourseText').innerText = selectedText.replace(' 🔒', '');
-      
       const dropdown = document.getElementById('customCourseDropdown');
       const optionsContainer = document.getElementById('dropdownOptions');
       if (dropdown) dropdown.classList.remove('open');
@@ -4686,9 +4669,9 @@
       initCampus();
     }
 
-    function openCampusToCourse(courseId) {
+    function openCampusToCourse(courseKey) {
       toggleCampusModal(true);
-      selectCourseOption(courseId);
+      selectCourseOption(courseKey);
     }
 
     function renderMindmap() {
@@ -4697,47 +4680,59 @@
       container.innerHTML = '';
       
       const colors = {
-        basics: 'basics-color',
-        marketing: 'marketing-color',
-        video: 'video-color',
-        automation: 'automation-color',
-        exclusive: 'exclusive-color'
+        intro: 'basics-color',
+        practical: 'marketing-color',
+        creator: 'video-color',
+        maker: 'exclusive-color',
+        builder: 'basics-color',
+        engineer: 'automation-color',
+        instructor: 'exclusive-color'
       };
       
       const passcode = document.getElementById('passcodeInput') ? document.getElementById('passcodeInput').value.trim() : '';
       const isPasscodeValid = (passcode === 'kacec2026');
       
+      const tracks = {};
       Object.keys(coursesData).forEach(key => {
         const course = coursesData[key];
+        if (!tracks[course.track]) {
+          tracks[course.track] = {
+            title: course.trackTitle,
+            courses: []
+          };
+        }
+        tracks[course.track].courses.push({ key, ...course });
+      });
+      
+      Object.keys(tracks).forEach(trackKey => {
+        const track = tracks[trackKey];
         const group = document.createElement('div');
         group.className = 'mindmap-branch-group';
         
         const branch = document.createElement('div');
-        branch.className = `mindmap-node branch-node ${colors[key]}`;
-        branch.style.cursor = 'pointer';
-        branch.onclick = () => openCampusToCourse(key);
-        
-        let displayTitle = course.title;
-        if (isPasscodeValid || key === 'basics' || course.unlocked) {
-          displayTitle = displayTitle.replace(' 🔒', '');
-        }
-        
-        branch.innerHTML = `<span>${displayTitle}</span>`;
+        branch.className = `mindmap-node branch-node \${colors[trackKey]}`;
+        branch.innerHTML = `<span>\${track.title}</span>`;
         group.appendChild(branch);
         
         const leaves = document.createElement('div');
         leaves.className = 'mindmap-leaves';
         
-        course.chapters.forEach(ch => {
-          ch.missions.forEach(m => {
+        track.courses.forEach(c => {
+          const courseHeader = document.createElement('div');
+          courseHeader.style.cssText = 'font-size: 0.72rem; font-weight: 800; color: #ffffff; margin-top: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.2rem; cursor: pointer;';
+          courseHeader.onclick = () => openCampusToCourse(c.key);
+          
+          let isLocked = !c.unlocked && !isPasscodeValid;
+          if (c.key === 'beginner') isLocked = false;
+          
+          courseHeader.innerText = `\${c.title} \${isLocked ? '🔒' : '✨'}`;
+          leaves.appendChild(courseHeader);
+          
+          c.missions.forEach(m => {
             const leaf = document.createElement('div');
             leaf.className = 'mindmap-node leaf-node';
-            leaf.onclick = () => openCampusToCourse(key);
-            
-            let isLocked = m.locked;
-            if (key === 'basics' || isPasscodeValid || course.unlocked) isLocked = false;
-            
-            leaf.innerHTML = `▪ ${m.title} ${isLocked ? '🔑' : '✨'}`;
+            leaf.onclick = () => openCampusToCourse(c.key);
+            leaf.innerHTML = `▪ \${m.title}`;
             leaves.appendChild(leaf);
           });
         });
