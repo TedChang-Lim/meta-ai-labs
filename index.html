@@ -1658,6 +1658,11 @@
       font-weight: 600;
       color: var(--text-muted);
     }
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.2); }
+      50% { box-shadow: 0 0 15px rgba(139, 92, 246, 0.3); border-color: rgba(139, 92, 246, 0.5); }
+      100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.2); }
+    }
     .mission-input {
       width: 100%;
       height: 120px;
@@ -1671,11 +1676,13 @@
       resize: vertical;
       font-family: inherit;
       transition: var(--transition-smooth);
+      animation: pulseGlow 3s infinite ease-in-out;
     }
     .mission-input:focus {
       outline: none;
       border-color: var(--primary);
-      box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+      animation: none;
     }
     .result-box {
       margin-top: 2rem;
