@@ -243,49 +243,134 @@ async def mark_as_read(filename: str):
 class GradeRequest(BaseModel):
     prompt: str
     passcode: str = ""
+    course: str = "basics"
+    mission: int = 0
 
 
-def local_grading(prompt: str) -> dict:
+def local_grading(course: str, mission: int, prompt: str) -> dict:
     prompt_content = prompt.strip()
     passed = 0
     feedback_items = []
     
-    # 🎭 역할 부여 검사 (Role check)
-    has_role = any(word in prompt_content for word in ["로서", "처럼", "전문가", "감독", "강사", "교수", "선생님", "의사", "바리스타", "작가", "컨설턴트", "너는", "당신은"])
-    if has_role:
-        passed += 1
-        feedback_items.append("✓ <strong>역할 부여 성공:</strong> 인공지능에게 구체적인 페르소나를 성공적으로 부여하셨습니다.")
-    else:
-        feedback_items.append("✗ <strong>역할 누락:</strong> 인공지능에게 아무런 역할을 지정하지 않았습니다. <em>예: '너는 30년 경력의 베테랑 사진감독이야'</em>와 같이 역할을 지정해 보세요.")
-        
-    # 🎯 구체적 요청 검사 (Task check)
-    has_task = any(word in prompt_content for word in ["해줘", "알려줘", "작성해줘", "설명해줘", "가르쳐줘", "정리해줘", "추천해줘", "제안해줘"])
-    if has_task:
-        passed += 1
-        feedback_items.append("✓ <strong>구체적 지시 성공:</strong> AI가 무엇을 해야 하는지 명확한 명령어가 포함되었습니다.")
-    else:
-        feedback_items.append("✗ <strong>임무 누락:</strong> 인공지능이 수행할 명령어가 모호합니다. <em>예: '야경 사진을 촬영하기 위한 3대 핵심 팁을 친절하게 설명해줘'</em>와 같이 구체적으로 지시해 보세요.")
-        
-    # 📏 최소 길이 검사 (Length check)
-    has_length = len(prompt_content) >= 20
-    if has_length:
-        passed += 1
-        feedback_items.append("✓ <strong>최소 분량 충족:</strong> AI가 맥락을 파악할 수 있는 최소 20자 이상의 내용이 기술되었습니다.")
-    else:
-        feedback_items.append("✗ <strong>분량 부족:</strong> 지시문이 너무 짧습니다. (현재 20자 미만) AI가 풍부한 답을 낼 수 있도록 상황이나 조건을 20자 이상으로 덧붙여 보세요.")
+    if course == "basics":
+        if mission == 0:  # Mission 01: 3요소 마스터
+            has_role = any(word in prompt_content for word in ["로서", "전문가", "마케터", "감독", "강사", "교수", "선생님", "의사", "바리스타", "작가", "컨설턴트", "너는", "당신은"])
+            has_task = any(word in prompt_content for word in ["작성", "해줘", "알려줘", "만들어줘", "설명해줘", "가르쳐줘", "정리해줘"])
+            has_context = any(word in prompt_content for word in ["치킨", "프로모션", "주말", "세일", "할인", "이벤트", "가게"])
+            
+            if has_role:
+                passed += 1
+                feedback_items.append("✓ <strong>역할 부여 성공:</strong> 인공지능에게 구체적인 페르소나를 성공적으로 부여하셨습니다.")
+            else:
+                feedback_items.append("✗ <strong>역할 누락:</strong> 인공지능에게 아무런 역할을 지정하지 않았습니다. <em>예: '마케팅 전문가로서'</em>와 같이 역할을 지정해 보세요.")
+                
+            if has_task:
+                passed += 1
+                feedback_items.append("✓ <strong>구체적 요청 성공:</strong> 공지글 작성을 요청하는 명확한 요청 동사가 포함되었습니다.")
+            else:
+                feedback_items.append("✗ <strong>요청 누락:</strong> 인공지능이 무엇을 해야 하는지 명령어가 모호합니다. <em>예: 'SNS 공지글을 작성해줘'</em>와 같이 지시해 보세요.")
+                
+            if has_context:
+                passed += 1
+                feedback_items.append("✓ <strong>맥락 포함 성공:</strong> 치킨집 프로모션 배경 정보를 적절히 포함하셨습니다.")
+            else:
+                feedback_items.append("✗ <strong>맥락 부족:</strong> 치킨집이나 주말 할인 등의 핵심 배경 정보가 부족합니다. 지문에 제시된 상황을 덧붙여 주세요.")
 
-    if passed == 3:
+        elif mission == 1:  # Mission 02: 문서 요약
+            has_length = any(word in prompt_content for word in ["문장", "줄", "글자", "간단히", "요약"])
+            has_target = any(word in prompt_content for word in ["초등학생", "쉽게", "어린이", "초보자", "이해"])
+            has_format = any(word in prompt_content for word in ["키워드", "따로", "별도", "추출", "뽑아"])
+            
+            if has_length:
+                passed += 1
+                feedback_items.append("✓ <strong>분량 지정 성공:</strong> 3문장 이내 요약 등의 분량 조건이 명시되었습니다.")
+            else:
+                feedback_items.append("✗ <strong>분량 누락:</strong> 요약 결과물의 분량 제한 조건이 빠져 있습니다. <em>예: '3문장 이내로 요약해줘'</em>")
+                
+            if has_target:
+                passed += 1
+                feedback_items.append("✓ <strong>난이도/대상 지정 성공:</strong> 초등학생 기준 등의 눈높이 조건이 포함되었습니다.")
+            else:
+                feedback_items.append("✗ <strong>대상 누락:</strong> 이해 대상(초등학생 등)이나 쉽게 설명해 달라는 조건이 누락되었습니다.")
+                
+            if has_format:
+                passed += 1
+                feedback_items.append("✓ <strong>출력 형식 지정 성공:</strong> 키워드 3개 별도 추출 조건이 반영되었습니다.")
+            else:
+                feedback_items.append("✗ <strong>형식 누락:</strong> '핵심 키워드 3개 추출'과 같은 출력 형식을 명시해 보세요.")
+
+        else:  # Mission 03: 이미지 프롬프트
+            has_subject = any(word in prompt_content for word in ["여성", "사람", "공원", "벤치", "책", "가을"])
+            has_style = any(word in prompt_content for word in ["수채화", "유화", "사진", "일러스트", "스타일", "화풍"])
+            has_mood = any(word in prompt_content for word in ["따뜻", "아늑", "평화", "쓸쓸", "가을", "분위기"])
+            has_composition = any(word in prompt_content for word in ["클로즈업", "배경", "구도", "앵글", "배치", "줌"])
+            
+            if has_subject: passed += 1
+            if has_style: passed += 1
+            if has_mood: passed += 1
+            if has_composition: passed += 1
+            
+            feedback_items.append(f"✓ <strong>조건 매칭:</strong> 이미지 4대 요소 중 {passed}개 요소를 매핑하셨습니다.")
+            if not has_subject: feedback_items.append("✗ <strong>주제 누락:</strong> 그릴 대상을 묘사해 주세요.")
+            if not has_style: feedback_items.append("✗ <strong>스타일 누락:</strong> 화풍(예: 수채화 스타일)을 지정해 주세요.")
+            if not has_mood: feedback_items.append("✗ <strong>분위기 누락:</strong> 느낌(예: 따뜻한 분위기)을 추가해 주세요.")
+            if not has_composition: feedback_items.append("✗ <strong>구도 누락:</strong> 카메라 앵글(예: 클로즈업)을 덧붙여 보세요.")
+
+    elif course == "marketing":
+        if mission == 0:  # Mission 01: 상품 카피라이팅
+            has_role = any(word in prompt_content for word in ["카피라이터", "마케터", "전문가", "작가", "너는"])
+            has_product = any(word in prompt_content for word in ["비누", "라벤더", "꿀", "올리브"])
+            has_target = any(word in prompt_content for word in ["여성", "피부", "건성", "민감성", "타겟", "고객", "감성"])
+            has_price = any(word in prompt_content for word in ["12,000", "12000", "만원"])
+            
+            if has_role: passed += 1
+            if has_product: passed += 1
+            if has_target: passed += 1
+            if has_price: passed += 1
+            
+            feedback_items.append(f"✓ <strong>조건 매칭:</strong> 마케팅 필수 조건 중 {passed}/4개를 포함하셨습니다.")
+            if not has_role: feedback_items.append("✗ <strong>역할 누락:</strong> 카피라이터/마케터 역할을 지정하세요.")
+            if not has_product: feedback_items.append("✗ <strong>제품 정보 누락:</strong> 제품 성분 정보가 필요합니다.")
+            if not has_target: feedback_items.append("✗ <strong>타겟/톤 누락:</strong> 고객군이나 감성 톤을 추가해 보세요.")
+            if not has_price: feedback_items.append("✗ <strong>가격 누락:</strong> 가격(12,000원)을 반드시 지시문에 넣어야 합니다.")
+            
+        else:  # Mission 02: SNS 홍보 문구
+            has_sns = any(word in prompt_content for word in ["인스타", "SNS", "게시물", "피드", "홍보"])
+            has_season = any(word in prompt_content for word in ["가을", "겨울", "따뜻", "아늑", "계절"])
+            has_tag = "#" in prompt_content
+            has_visit = any(word in prompt_content for word in ["방문", "오세요", "놀러", "맛보", "추천", "카페"])
+            
+            if has_sns: passed += 1
+            if has_season: passed += 1
+            if has_tag: passed += 1
+            if has_visit: passed += 1
+            
+            feedback_items.append(f"✓ <strong>조건 매칭:</strong> SNS 기획 필수 조건 중 {passed}/4개를 포함하셨습니다.")
+            if not has_sns: feedback_items.append("✗ <strong>매체 누락:</strong> 인스타그램 게시물 형식 임을 알려주세요.")
+            if not has_season: feedback_items.append("✗ <strong>계절감 누락:</strong> 가을/겨울 신메뉴임을 드러내 주세요.")
+            if not has_tag: feedback_items.append("✗ <strong>해시태그 누락:</strong> '#' 기호가 포함된 태그 지시가 없습니다.")
+            if not has_visit: feedback_items.append("✗ <strong>행동 유도 누락:</strong> 방문 유도 멘트 작성을 요청하세요.")
+            
+    else:
+        # Fallback placeholder for other courses
+        passed = 3
+        feedback_items.append("✓ 임시 로컬 채점을 성공적으로 완료했습니다.")
+
+    # Calculate score based on passed conditions
+    total_checks = 4 if (course == "basics" and mission == 2) or (course == "marketing") else 3
+    success_ratio = passed / total_checks
+    
+    if success_ratio >= 0.75:
         score = 80
-        status_feedback = "<strong>[일반 체험 모드 - 합격]</strong> 일반 체험 미션의 3대 핵심 규칙을 모두 통과하셨습니다! 🥳<br><br>"
-    elif passed == 2:
+        status_feedback = "<strong>[일반 체험 모드 - 합격]</strong> 체험 미션 조건을 훌륭하게 통과하셨습니다! 🥳<br><br>"
+    elif success_ratio >= 0.5:
         score = 50
-        status_feedback = "<strong>[일반 체험 모드 - 보완 필요]</strong> 한 가지 조건이 더 필요합니다. 아래의 조언을 참고하여 지시문을 다시 수정해 보세요!<br><br>"
+        status_feedback = "<strong>[일반 체험 모드 - 보완 필요]</strong> 약간의 조건이 누락되었습니다. 아래 팁을 보고 보완해 보세요!<br><br>"
     else:
         score = 20
-        status_feedback = "<strong>[일반 체험 모드 - 재도전]</strong> 프롬프트의 기본 요소를 더 작성해 주세요. 아래 예시를 참고하여 다시 작성해 보실 수 있습니다.<br><br>"
+        status_feedback = "<strong>[일반 체험 모드 - 재도전]</strong> 프롬프트 요소를 더 채워서 다시 작성해 보세요.<br><br>"
         
-    final_feedback = status_feedback + "<br>".join(feedback_items)
-    return {"score": score, "feedback": final_feedback, "mode": "sandbox"}
+    return {"score": score, "feedback": status_feedback + "<br>".join(feedback_items), "mode": "sandbox"}
 
 
 @app.post("/api/grade")
@@ -307,35 +392,59 @@ async def grade_prompt(request: GradeRequest):
 
     # 2. 체험 모드(인증코드가 없거나 틀렸을 때) -> 로컬 채점 실행
     if not is_valid_passcode:
-        return local_grading(prompt_content)
+        return local_grading(request.course, request.mission, prompt_content)
 
     # 3. 정식 수강생 모드 -> DeepSeek API 호출
     api_key = os.environ.get("DEEPSEEK_API_KEY")
     if not api_key:
-        # 인증코드는 맞지만 API Key 세팅 대기 상태일 때 예외 처리
-        res = local_grading(prompt_content)
+        res = local_grading(request.course, request.mission, prompt_content)
         res["feedback"] = "<strong>[정식 수강생 모드 - API 설정 대기]</strong> 인증 코드가 확인되었으나 서버의 DEEPSEEK_API_KEY가 활성화되지 않아 로컬 채점을 임시 작동했습니다.<br><br>" + res["feedback"]
         res["mode"] = "exam"
         return res
 
-    system_instruction = """
-    당신은 대한민국 최고의 프롬프트 엔지니어링 교육 전문가입니다.
-    수강생(시니어 및 초보자)이 작성한 AI 지시문(프롬프트)을 평가하고 피드백을 주어야 합니다.
+    # Dynamic System Instruction mapping
+    system_instructions = {
+        ("basics", 0): """
+        [역할]: 대한민국 최고의 프롬프트 엔지니어링 전문가.
+        [미션]: 3대 요소(역할, 맥락, 요청)를 포함해 '주말 프로모션 치킨집 공지글' 프롬프트 채점.
+        [채점 기준]: 역할 부여(40점), 구체적 요청(40점), 맥락/배경 설명(20점).
+        """,
+        ("basics", 1): """
+        [역할]: 요약 및 정보 가공 전문가.
+        [미션]: 뉴스 기사를 '3문장 이내', '초등학생 눈높이', '핵심 키워드 3개 별도 추출' 하도록 지시하는 프롬프트 채점.
+        [채점 기준]: 분량 지정(30점), 난이도 조절(30점), 출력 형식 제어(40점).
+        """,
+        ("basics", 2): """
+        [역할]: AI 이미지 생성 프롬프트 전문가.
+        [미션]: 가을 단풍 공원 책 읽는 여성을 그리기 위한 4대 요소(주제, 스타일, 분위기, 구도)를 포함한 프롬프트 채점.
+        [채점 기준]: 주제(25점), 스타일(25점), 분위기(25점), 구도(25점).
+        """,
+        ("marketing", 0): """
+        [역할]: 소상공인 마케팅 카피라이팅 전문가.
+        [미션]: '라벤더 꿀 비누' 신제품 온라인 스토어 소개글 프롬프트 채점.
+        [채점 기준]: 전문가 역할(20점), 제품 성분 정보(30점), 타겟/감성 톤 지정(30점), 가격 명시(20점).
+        """,
+        ("marketing", 1): """
+        [역할]: 소상공인 SNS 마케팅 전문가.
+        [미션]: 카페 가을 신메뉴 '고구마 라떼' 인스타그램 홍보 피드 프롬프트 채점.
+        [채점 기준]: 매체 명시(25점), 계절감 표현(25점), 해시태그 3개 조건(25점), 방문 유도 멘트(25점).
+        """
+    }
     
-    [미션 목표]: 인공지능에게 구체적인 '역할(페르소나)'을 명시하고, 원하는 '임무와 조건'을 3문장 이상 구체적으로 지시하는 것.
+    key = (request.course, request.mission)
+    selected_instruction = system_instructions.get(key, """
+    당신은 프롬프트 채점 전문가입니다. 학생의 프롬프트를 성의 있게 평가하고 피드백을 주세요.
+    """)
     
-    [채점 기준]:
-    1. 역할 부여 여부 (40점): 챗GPT에게 명확한 직업, 경력, 태도를 부여했는가?
-    2. 구체적 임무 (40점): 알려달라고 하는 질문이나 결과물 형식이 명확하고 3문장 이상으로 서술되었는가?
-    3. 문맥과 톤앤매너 (20점): 한국어 문맥이 자연스럽고 명확한가?
+    system_instruction = f"""
+    {selected_instruction}
     
     [반환 형식]:
     반드시 아래와 같은 JSON 구조로만 답변해야 합니다. 다른 사족이나 마크다운 펜스(```) 없이 순수 JSON만 반환하세요:
-    {
+    {{
       "score": 85,
-      "feedback": "역할을 아주 구체적으로 잘 부여하셨습니다! 스마트폰 카메라의 하이라이트 노출 조절 팁을 추가하라는 임무도 명확합니다. 여기에 '답변은 친절하고 격려하는 말투로 해달라'는 출력 형식 제어까지 추가되면 100점짜리 프롬프트가 됩니다."
-    }
-    피드백은 한국어로 작성하며, 줄바꿈은 <br> 태그를 사용해 웹 화면에서 예쁘게 보이도록 하세요.
+      "feedback": "피드백 내용을 한국어로 구체적이고 부드러운 어조로 적어주세요. 줄바꿈은 <br> 태그를 사용하세요."
+    }}
     """
 
     try:
@@ -371,7 +480,7 @@ async def grade_prompt(request: GradeRequest):
             
     except Exception as e:
         print(f"Error during AI grading: {e}")
-        res = local_grading(prompt_content)
+        res = local_grading(request.course, request.mission, prompt_content)
         res["feedback"] = "<strong>[정식 수강생 모드 - API 오류 임시 우회]</strong> AI 응답이 지연되어 로컬 규칙 기반 평가를 임시 수행했습니다.<br><br>" + res["feedback"]
         res["mode"] = "exam"
         return res

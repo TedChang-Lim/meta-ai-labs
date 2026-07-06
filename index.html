@@ -4251,7 +4251,10 @@
         return;
       }
       
-      const text = "미션 지시사항. 인공지능에게 단순한 질문 대신 구체적인 역할을 부여하고 지시를 내려보세요. 예를 들어, 너는 삼십년 경력의 베테랑 사진감독이야. 스마트폰 카메라로 눈이 번쩍 뜨이는 아름다운 야경 사진을 촬영하기 위한 삼대 핵심 팁을 친절하고 상세하게 설명해줘, 라고 입력창에 적고 제출해 보세요.";
+      const guideEl = document.getElementById('missionGuide');
+      if (!guideEl) return;
+      const text = guideEl.innerText || guideEl.textContent;
+      
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'ko-KR';
       
@@ -4294,7 +4297,7 @@
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ prompt: input, passcode: passcode })
+          body: JSON.stringify({ prompt: input, passcode: passcode, course: activeCourse, mission: activeMissionIndex })
         });
         
         if (!response.ok) {
