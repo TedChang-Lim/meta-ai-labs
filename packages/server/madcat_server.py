@@ -9,6 +9,7 @@ from fastapi.responses import StreamingResponse, HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
+from collections import defaultdict
 import uvicorn
 from watchfiles import awatch
 import httpx
@@ -247,6 +248,21 @@ class GradeRequest(BaseModel):
     mission: int = 0
 
 
+# Simple memory-based rate limiter (IP -> timestamps)
+RATE_LIMIT_STRIKES = defaultdict(list)
+
+def check_rate_limit(ip: str, limit: int = 5, window: int = 60) -> bool:
+    current_time = time.time()
+    # Filter out timestamps older than the window
+    RATE_LIMIT_STRIKES[ip] = [t for t in RATE_LIMIT_STRIKES[ip] if current_time - t < window]
+    
+    if len(RATE_LIMIT_STRIKES[ip]) >= limit:
+        return False
+        
+    RATE_LIMIT_STRIKES[ip].append(current_time)
+    return True
+
+
 def local_grading(course: str, mission: int, prompt: str) -> dict:
     prompt_content = prompt.strip()
     passed = 0
@@ -374,10 +390,15 @@ def local_grading(course: str, mission: int, prompt: str) -> dict:
 
 
 @app.post("/api/grade")
-async def grade_prompt(request: GradeRequest):
+async def grade_prompt(request: GradeRequest, fastapi_request: Request):
     prompt_content = request.prompt.strip()
     if not prompt_content:
         raise HTTPException(status_code=400, detail="프롬프트 내용을 입력하세요.")
+        
+    # Rate Limit Check (5 requests per minute)
+    client_ip = fastapi_request.client.host if fastapi_request.client else "127.0.0.1"
+    if not check_rate_limit(client_ip, limit=5, window=60):
+        raise HTTPException(status_code=429, detail="요청이 너무 빈번합니다. 1분 후에 다시 시도해 주세요.")
         
     # 1. 인증코드 검증
     configured_passcode = os.environ.get("KACEC_PASSCODE", "kacec2026").strip()
