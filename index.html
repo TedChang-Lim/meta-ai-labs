@@ -3509,7 +3509,7 @@
               <span class="result-score-num" id="resultScore">0</span>
               <span class="result-score-total">/ 100 점</span>
             </div>
-            <span class="result-badge" id="resultBadge">PASS</span>
+            <span class="result-badge" id="resultBadge" style="display: none;">PASS</span>
           </div>
           <div class="progress-bar-bg">
             <div class="progress-bar-fill" id="progressBarFill"></div>
@@ -3999,6 +3999,8 @@
       resultBox.classList.add('show');
       scoreNum.innerText = '0';
       barFill.style.width = '0%';
+      const badge = document.getElementById('resultBadge');
+      badge.style.display = 'none';
       feedback.innerHTML = '<span style="color:var(--text-muted)">프롬프트 구조를 정밀 평가하고 있습니다. 잠시만 기다려주세요...</span>';
       
       try {
@@ -4024,7 +4026,7 @@
           barFill.style.width = score + '%';
           feedback.innerHTML = comment;
           
-          const badge = document.getElementById('resultBadge');
+          badge.style.display = 'inline-block';
           if (score >= 70) {
             badge.innerText = 'PASS (합격)';
             badge.className = 'result-badge pass';
@@ -4041,6 +4043,8 @@
         
       } catch (error) {
         console.error(error);
+        const badge = document.getElementById('resultBadge');
+        badge.style.display = 'none';
         scoreNum.innerText = '--';
         feedback.innerHTML = '<span style="color:#ef4444">⚠️ 채점 과정에서 오류가 발생했습니다. 잠시 후 다시 시도해 주세요. (로컬 서버 상태 확인 필요)</span>';
         btn.disabled = false;
