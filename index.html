@@ -1618,6 +1618,72 @@
       transform: rotate(90deg);
     }
 
+    /* Custom Dropdown Styling to prevent ugly native OS select options */
+    .custom-dropdown {
+      position: relative;
+      width: 100%;
+      user-select: none;
+    }
+    .dropdown-trigger {
+      background: rgba(3, 7, 18, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition-smooth);
+    }
+    .dropdown-trigger:hover {
+      border-color: var(--teal);
+      box-shadow: 0 0 8px rgba(20, 184, 166, 0.2);
+    }
+    .dropdown-options {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(10, 15, 30, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      margin-top: 0.4rem;
+      z-index: 100;
+      display: none;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      max-height: 250px;
+      overflow-y: auto;
+    }
+    .dropdown-options.show {
+      display: block;
+    }
+    .dropdown-option {
+      padding: 0.6rem 0.8rem;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .dropdown-option:hover {
+      background: rgba(20, 184, 166, 0.15);
+      color: #fff;
+    }
+    .dropdown-option.active {
+      background: rgba(20, 184, 166, 0.25);
+      color: var(--teal);
+      font-weight: bold;
+    }
+    .dropdown-arrow {
+      transition: transform 0.3s ease;
+    }
+    .custom-dropdown.open .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
     /* Left Sidebar: Mission Directory */
     .campus-sidebar {
       border-right: 1px solid rgba(255, 255, 255, 0.06);
@@ -3583,13 +3649,19 @@
         <!-- Course Selection Dropdown -->
         <div style="display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 0.5rem; width: 100%;">
           <label style="font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.5px;">학과 과정 선택</label>
-          <select id="courseSelect" onchange="changeCourse()" style="background: rgba(3, 7, 18, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 0.6rem 0.8rem; color: #fff; font-size: 0.85rem; font-weight: 700; cursor: pointer; outline: none; transition: var(--transition-smooth); width: 100%;">
-            <option value="basics">📚 AI 기초 & 프롬프트 학과</option>
-            <option value="marketing">📢 소상공인 마케팅 학과 🔒</option>
-            <option value="video">🎬 AI 영상 크리에이터 학과 🔒</option>
-            <option value="automation">⚙️ AI 비즈니스 자동화 학과 🔒</option>
-            <option value="exclusive">🤝 KACEC 조합원 실무 학과 🔒</option>
-          </select>
+          <div class="custom-dropdown" id="customCourseDropdown">
+            <div class="dropdown-trigger" onclick="toggleCustomDropdown(event)">
+              <span id="selectedCourseText">📚 AI 기초 & 프롬프트 학과</span>
+              <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="dropdown-options" id="dropdownOptions">
+              <div class="dropdown-option active" data-value="basics" onclick="selectCourseOption('basics', event)">📚 AI 기초 & 프롬프트 학과</div>
+              <div class="dropdown-option" id="opt-marketing" data-value="marketing" onclick="selectCourseOption('marketing', event)">📢 소상공인 마케팅 학과 🔒</div>
+              <div class="dropdown-option" id="opt-video" data-value="video" onclick="selectCourseOption('video', event)">🎬 AI 영상 크리에이터 학과 🔒</div>
+              <div class="dropdown-option" id="opt-automation" data-value="automation" onclick="selectCourseOption('automation', event)">⚙️ AI 비즈니스 자동화 학과 🔒</div>
+              <div class="dropdown-option" id="opt-exclusive" data-value="exclusive" onclick="selectCourseOption('exclusive', event)">🤝 KACEC 조합원 실무 학과 🔒</div>
+            </div>
+          </div>
         </div>
 
         <ul class="mission-list" id="missionList">
@@ -4204,34 +4276,72 @@
       document.getElementById('resultBox').classList.remove('show');
     }
 
-    function changeCourse() {
-      const select = document.getElementById('courseSelect');
-      if (!select) return;
-      const targetCourse = select.value;
+    function toggleCustomDropdown(event) {
+      if (event) event.stopPropagation();
+      const dropdown = document.getElementById('customCourseDropdown');
+      const options = document.getElementById('dropdownOptions');
+      if (!dropdown || !options) return;
+      dropdown.classList.toggle('open');
+      options.classList.toggle('show');
+    }
+
+    function selectCourseOption(targetCourse, event) {
+      if (event) event.stopPropagation();
       
       const passcode = document.getElementById('passcodeInput').value.trim();
       const isPasscodeValid = (passcode === 'kacec2026');
       
       if (!coursesData[targetCourse].unlocked && !isPasscodeValid) {
-        alert("🔒 선택하신 과정은 '정식 수강생 전용 자격 검정 코스'입니다.\n\n정식 등급으로 참여하시려면 상단의 [🔑 클래스 인증 코드]에 올바른 비밀코드를 입력하고 과정을 다시 선택해 주세요.");
-        select.value = activeCourse;
+        alert("🔒 선택하신 과정은 '정식 수강생 전용 자격 검정 코스'입니다.\n\n정식 등급으로 참여하시려면 하단의 [🔑 클래스 인증 코드]에 올바른 비밀코드를 입력하고 과정을 다시 선택해 주세요.");
+        const dropdown = document.getElementById('customCourseDropdown');
+        const options = document.getElementById('dropdownOptions');
+        if (dropdown) dropdown.classList.remove('open');
+        if (options) options.classList.remove('show');
         return;
       }
       
       if (isPasscodeValid) {
         Object.keys(coursesData).forEach(key => {
           coursesData[key].unlocked = true;
-          const option = select.querySelector(`option[value="${key}"]`);
-          if (option && option.text.includes('🔒')) {
-            option.text = option.text.replace(' 🔒', '');
+          const optEl = document.getElementById(`opt-${key}`);
+          if (optEl && optEl.innerText.includes('🔒')) {
+            optEl.innerText = optEl.innerText.replace(' 🔒', '');
           }
         });
       }
       
+      const options = document.querySelectorAll('.dropdown-option');
+      options.forEach(opt => {
+        if (opt.getAttribute('data-value') === targetCourse) {
+          opt.classList.add('active');
+        } else {
+          opt.classList.remove('active');
+        }
+      });
+      
       activeCourse = targetCourse;
       activeMissionIndex = 0;
+      
+      const selectedText = coursesData[targetCourse].title;
+      document.getElementById('selectedCourseText').innerText = selectedText.replace(' 🔒', '');
+      
+      const dropdown = document.getElementById('customCourseDropdown');
+      const optionsContainer = document.getElementById('dropdownOptions');
+      if (dropdown) dropdown.classList.remove('open');
+      if (optionsContainer) optionsContainer.classList.remove('show');
+      
       initCampus();
     }
+
+    // Close dropdown on click outside
+    document.addEventListener('click', function(e) {
+      const dropdown = document.getElementById('customCourseDropdown');
+      const options = document.getElementById('dropdownOptions');
+      if (dropdown && !dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+        if (options) options.classList.remove('show');
+      }
+    });
     function toggleLargeTextMode() {
       const campus = document.getElementById('campus');
       const btn = document.getElementById('largeTextBtn');
