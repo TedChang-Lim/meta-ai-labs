@@ -523,20 +523,21 @@
     
     /* Members Section */
     .members-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 3.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: start;
     }
     
     .member-card {
       display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 4rem;
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
       background: var(--bg-card);
       backdrop-filter: var(--glass-filter);
       -webkit-backdrop-filter: var(--glass-filter);
       border-radius: 20px;
-      padding: 4rem;
+      padding: 2.5rem;
       border: 1px solid var(--border-card);
       transition: var(--transition-smooth);
       position: relative;
@@ -567,8 +568,9 @@
     }
     
     .member-photo {
-      width: 280px;
-      height: 350px;
+      width: 200px;
+      height: 260px;
+      margin: 0 auto 1.5rem auto;
       border-radius: 12px;
       overflow: hidden;
       background: rgba(3, 7, 18, 0.8);
@@ -641,8 +643,16 @@
     
     .member-bio {
       color: var(--text-muted);
-      font-size: 1rem;
+      font-size: 0.95rem;
       line-height: 1.85;
+      max-height: 0;
+      overflow: hidden;
+      margin-bottom: 0;
+      transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), margin-bottom 0.5s ease;
+    }
+    
+    .member-bio.show {
+      max-height: 1200px;
       margin-bottom: 2rem;
     }
     
@@ -1445,7 +1455,7 @@
     
     /* Mobile Board Bio Toggle Button */
     .member-bio-toggle-btn {
-      display: none;
+      display: block;
       width: 100%;
       text-align: center;
       background: rgba(255, 255, 255, 0.03);
@@ -1501,6 +1511,7 @@
       header { padding: 0 2rem; }
       nav { gap: 1.5rem; }
       .synergy-container { grid-template-columns: 1fr; gap: 3rem; }
+      .members-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .member-card { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem; }
       .member-photo { width: 200px; height: 250px; margin: 0 auto; }
       .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 2rem; padding: 2rem; }
@@ -1600,7 +1611,7 @@
       <a href="#services">사업 영역</a>
       <a href="#bylaws">공식 문서</a>
       <a href="#contact">문의</a>
-      <a href="./proposal/KACEC_proposal.html" target="_blank" style="color: var(--teal); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">📄 제안서 보기</a>
+      <a href="./proposal/KACEC_proposal.html" target="_blank" style="color: var(--teal); font-weight: 700; display: inline-flex; align-items: center; gap: 0.4rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; filter: drop-shadow(0 0 3px var(--teal-glow));"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>제안서 보기</a>
     </nav>
   </header>
 
@@ -1609,7 +1620,7 @@
     <div class="hero-content">
       <div class="badge">AI &amp; XR 융합 교육 연구소</div>
       <h1>기술과 사람 사이<br><em>배움의 새 차원</em>을 열다</h1>
-      <p class="subtitle">인공지능과 확장현실로 세대와 지역을 잇는 디지털 혁신 배움터.<br>각 분야의 최고 전문가 5인이 뜻을 모아 대한민국 AI 교육의 새로운 기준을 세웁니다.</p>
+      <p class="subtitle">인공지능과 확장현실로 세대와 지역을 잇는 디지털 혁신 배움터.<br>각 분야의 최고 전문가 6인이 뜻을 모아 대한민국 AI 교육의 새로운 기준을 세웁니다.</p>
       <div class="hero-buttons">
         <a href="#members" class="btn btn-primary">이사진 프로필</a>
         <a href="#contact" class="btn btn-outline">협업 문의하기</a>
@@ -1622,7 +1633,7 @@
     <div class="container">
       <div class="stats-bar">
         <div class="stat-item">
-          <div class="stat-num" data-target="5" data-suffix="">5</div>
+          <div class="stat-num" data-target="6" data-suffix="">6</div>
           <div class="stat-label">이사진 인원</div>
         </div>
         <div class="stat-item">
@@ -1711,23 +1722,24 @@
       <div class="synergy-desc">
         <div class="section-label">SYNERGY PIPELINE</div>
         <h3>협동조합원 기술 시너지</h3>
-        <p>한국 AI 융합 교육원 협동조합은 5인의 교육학자, 사진·영상 감독, 미디어 센터장, R&D 기업 대표, 디자인학 교수가 하나의 유기적인 파이프라인을 이루고 있습니다.</p>
-        <p>인문학적 어학/코칭 콘텐츠를 시작으로 디지털 미디어 가공, R&D 입체 가상 물리 모델 설계, 학술 연구 검증을 거쳐 최종 실감콘텐츠로 상용화하는 완결형 시너지를 보여줍니다.</p>
+        <p>한국 AI 융합 교육원 협동조합은 6인의 교육학자, 사진·영상 감독, 미디어 전문가, R&D 기업 대표, 시각디자인 교수들이 하나의 유기적인 파이프라인을 이루고 있습니다.</p>
+        <p>인문학적 어학/코칭 콘텐츠를 시작으로 디지털 미디어 가공, R&D 입체 가상 물리 모델 설계, 학술 연구 검증 및 뉴 미디어 시각 시스템 디자인을 거쳐 최종 실감콘텐츠로 상용화하는 완결형 시너지를 보여줍니다.</p>
       </div>
       
       <div class="synergy-canvas-wrapper reveal">
         <svg class="synergy-canvas" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
           <!-- Connection Lines -->
           <line x1="250" y1="250" x2="250" y2="90" stroke="rgba(139, 92, 246, 0.4)" stroke-width="2" />
-          <line x1="250" y1="250" x2="400" y2="200" stroke="rgba(59, 130, 246, 0.4)" stroke-width="2" />
-          <line x1="250" y1="250" x2="340" y2="380" stroke="rgba(6, 182, 212, 0.4)" stroke-width="2" />
-          <line x1="250" y1="250" x2="160" y2="380" stroke="rgba(16, 185, 129, 0.4)" stroke-width="2" />
-          <line x1="250" y1="250" x2="100" y2="200" stroke="rgba(245, 158, 11, 0.4)" stroke-width="2" />
+          <line x1="250" y1="250" x2="388.5" y2="170" stroke="rgba(59, 130, 246, 0.4)" stroke-width="2" />
+          <line x1="250" y1="250" x2="388.5" y2="330" stroke="rgba(6, 182, 212, 0.4)" stroke-width="2" />
+          <line x1="250" y1="250" x2="250" y2="410" stroke="rgba(16, 185, 129, 0.4)" stroke-width="2" />
+          <line x1="250" y1="250" x2="111.5" y2="330" stroke="rgba(245, 158, 11, 0.4)" stroke-width="2" />
+          <line x1="250" y1="250" x2="111.5" y2="170" stroke="rgba(236, 72, 153, 0.4)" stroke-width="2" />
           
-          <polygon points="250,90 400,200 340,380 160,380 100,200" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.5" stroke-dasharray="4" />
+          <polygon points="250,90 388.5,170 388.5,330 250,410 111.5,330 111.5,170" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.5" stroke-dasharray="4" />
           
           <!-- Outer Connection Loops for extra synergy look -->
-          <path d="M 250,90 Q 325,145 400,200 Q 370,290 340,380 Q 250,380 160,380 Q 130,290 100,200 Q 175,145 250,90" fill="none" stroke="rgba(139, 92, 246, 0.15)" stroke-width="1" />
+          <path d="M 250,90 Q 319.25,130 388.5,170 Q 388.5,250 388.5,330 Q 319.25,370 250,410 Q 180.75,370 111.5,330 Q 111.5,250 111.5,170 Q 180.75,130 250,90" fill="none" stroke="rgba(139, 92, 246, 0.15)" stroke-width="1" />
 
           <!-- Center Node -->
           <circle cx="250" cy="250" r="40" fill="#0b1329" stroke="url(#rainbow-grad-svg)" stroke-width="3" class="node-glow" />
@@ -1741,31 +1753,38 @@
           </g>
 
           <!-- Node 2: 임창식 -->
-          <g transform="translate(400, 200)">
+          <g transform="translate(388.5, 170)">
             <circle cx="0" cy="0" r="28" fill="#1e293b" stroke="#3b82f6" stroke-width="2" />
             <text x="0" y="4" font-family="sans-serif" font-size="10" font-weight="bold" fill="#f3f4f6" text-anchor="middle">임창식</text>
             <text x="40" y="-10" font-family="sans-serif" font-size="9" fill="#9ca3af" text-anchor="start">교육·콘텐츠 총괄</text>
           </g>
 
           <!-- Node 3: 한기열 -->
-          <g transform="translate(340, 380)">
+          <g transform="translate(388.5, 330)">
             <circle cx="0" cy="0" r="28" fill="#162e35" stroke="#06b6d4" stroke-width="2" />
             <text x="0" y="4" font-family="sans-serif" font-size="10" font-weight="bold" fill="#f3f4f6" text-anchor="middle">한기열</text>
-            <text x="0" y="42" font-family="sans-serif" font-size="9" fill="#9ca3af" text-anchor="middle">대학·미디어 연계</text>
+            <text x="40" y="10" font-family="sans-serif" font-size="9" fill="#9ca3af" text-anchor="start">대학·미디어 연계</text>
           </g>
 
           <!-- Node 4: 김봉수 -->
-          <g transform="translate(160, 380)">
+          <g transform="translate(250, 410)">
             <circle cx="0" cy="0" r="28" fill="#064e3b" stroke="#10b981" stroke-width="2" />
             <text x="0" y="4" font-family="sans-serif" font-size="10" font-weight="bold" fill="#f3f4f6" text-anchor="middle">김봉수</text>
             <text x="0" y="42" font-family="sans-serif" font-size="9" fill="#9ca3af" text-anchor="middle">R&amp;D·시뮬레이터</text>
           </g>
 
           <!-- Node 5: 김태완 -->
-          <g transform="translate(100, 200)">
+          <g transform="translate(111.5, 330)">
             <circle cx="0" cy="0" r="28" fill="#7c2d12" stroke="#f59e0b" stroke-width="2" />
             <text x="0" y="4" font-family="sans-serif" font-size="10" font-weight="bold" fill="#f3f4f6" text-anchor="middle">김태완</text>
-            <text x="-40" y="-10" font-family="sans-serif" font-size="9" fill="#9ca3af" text-anchor="end">학술·연구 자문</text>
+            <text x="-40" y="10" font-family="sans-serif" font-size="9" fill="#9ca3af" text-anchor="end">감사 / 학술·연구 자문</text>
+          </g>
+
+          <!-- Node 6: 조안나 -->
+          <g transform="translate(111.5, 170)">
+            <circle cx="0" cy="0" r="28" fill="#581c87" stroke="#ec4899" stroke-width="2" />
+            <text x="0" y="4" font-family="sans-serif" font-size="10" font-weight="bold" fill="#f3f4f6" text-anchor="middle">조안나</text>
+            <text x="-40" y="-10" font-family="sans-serif" font-size="9" fill="#9ca3af" text-anchor="end">디자인·UX/UI</text>
           </g>
           
           <defs>
@@ -2199,7 +2218,7 @@
     <div class="container">
       <div class="section-label">BOARD MEMBERS</div>
       <h2 class="section-title">조합 이사진 프로필</h2>
-      <p class="section-desc">AI, XR 실감콘텐츠, 영어교육, 미디어, 엔지니어링, 시각디자인 — 각 분야 최고 전문가 5인이 모였습니다.</p>
+      <p class="section-desc">AI, XR 실감콘텐츠, 영어교육, 미디어, 엔지니어링, 시각디자인 — 각 분야 최고 전문가 6인이 모였습니다.</p>
       
       <div class="members-grid">
         
@@ -2236,7 +2255,7 @@
         <!-- Member 2: 임창식 -->
         <div class="member-card reveal">
           <div class="member-photo">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWMeyBj2jMcifzTPnpBYQfJBGmLw_kC55hEYzdAPolb-bOkzk1_1Kvwg2gXTATDMeTYvQeTdngQvx2MSUFkUs7Ln-MZDLnCu1VaVifK3Asfdh-4e_OmDEW2cXZyuorTyfo7UZ56peaxtPMVlJquQhB_83eyJS69fEHOSUrwk1unaRJ5JFodKu43D9hwtGp/s320/%E1%84%82%E1%85%A1_%E1%84%8C%E1%85%B3%E1%86%BC%E1%84%86%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.jpg" alt="임창식 교육·콘텐츠 총괄">
+            <img src="chang-sik.png" alt="임창식 교육·콘텐츠 총괄">
           </div>
           <div class="member-info">
             <div class="member-header">
@@ -2288,7 +2307,7 @@
             <div class="member-tags">
               <span>🏫 경복대학교 겸임교수</span>
               <span>🎬 前 화성ICT센터장</span>
-              <span>🎵 컴퓨터음악 박사 수료</span>
+              <span>🎵 컴퓨터 음악 전문가</span>
               <span>🎛️ 3D 사운드아트 &amp; XR 전문가</span>
               <span>🖥️ 실감콘텐츠 · VR/AR</span>
               <span>🏢 ㈜메이브 대표이사</span>
@@ -2336,7 +2355,7 @@
           <div class="member-info">
             <div class="member-header">
               <h3>김태완 <span>Kim Tae-wan</span></h3>
-              <div class="role">학술·연구 자문 이사</div>
+              <div class="role">감사 / 학술·연구 자문 이사</div>
             </div>
             <div class="member-bio">
               <p>• 현재 <span class="hl">경복대학교 시각디자인학과 전임교수</span>로 재직하며 인터랙티브 영상 및 그래픽 디자인 방법론을 연구하고 지도하고 있습니다.</p>
@@ -2350,6 +2369,35 @@
               <span>🏙️ 스마트시티 &amp; 디지털트윈 학술</span>
               <span>🪐 메타버스 그래픽스</span>
               <span>🤝 제주뮤지엄아이바가든 산학협력</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 6: 조안나 -->
+        <div class="member-card reveal">
+          <div class="member-photo">
+            <img src="jo-anna.jpg" alt="조안나 이사">
+          </div>
+          <div class="member-info">
+            <div class="member-header">
+              <h3>조안나 <span>Anna Jo</span></h3>
+              <div class="role">디자인·UX/UI 이사</div>
+            </div>
+            <div class="member-bio">
+              <p>• 현재 <span class="hl">경복대학교 영상미디어콘텐츠학과 교수</span>로 재직하며 타이포그래피, 브랜딩, UX/UI 및 실감콘텐츠 융합 디자인을 가르치고 연구하고 있습니다.</p>
+              <p>• 국민대학교 디자인대학원 시각디자인 전공으로 디자인학 박사 학위(2022)를 취득하였으며, 타이포그래피와 서체디자인을 기반으로 한 시각커뮤니케이션 연구의 권위자입니다.</p>
+              <p>• 느린학습자를 위한 기능성 서체인 “Peachmarket”을 개발하여 세계 최고 권위의 Red Dot Design Award(2022) 및 iF Design Award(2023)를 수상하였습니다.</p>
+              <p>• 윤디자인그룹 기획·디자이너, 사회문화디자인연구소 선임연구원을 거쳤으며, 현재 사단법인 한국커뮤니케이션디자인협회 편집위원으로 활발한 학술 연구를 이어가고 있습니다.</p>
+            </div>
+            <button class="member-bio-toggle-btn" onclick="toggleMemberBio(this)">▼ 상세 약력 보기</button>
+            <div class="member-tags">
+              <span>🏫 경복대 영상미디어과 교수</span>
+              <span>🎓 국민대 디자인학 박사</span>
+              <span>🏆 Red Dot &amp; iF 디자인어워드 수상</span>
+              <span>✍️ 서체 "Peachmarket" 개발자</span>
+              <span>🎨 타이포그래피 &amp; 브랜딩 전문가</span>
+              <span>📱 UX/UI &amp; AI·XR 콘텐츠 연구</span>
+              <span>📑 한국커뮤니케이션디자인협회 편집위원</span>
             </div>
           </div>
         </div>
@@ -2583,7 +2631,7 @@
         <div class="doc-tabs-nav" style="display: flex; gap: 10px; width: 100%; border-bottom: 1px solid var(--border-card); padding-bottom: 0.5rem; flex-wrap: wrap;">
           <button class="doc-tab-btn" id="tabBtnBylaws" onclick="switchDocTab('bylaws')" style="background: none; border: none; color: var(--primary); font-size: 1.05rem; font-weight: 700; padding: 0.5rem 1rem; cursor: pointer; border-bottom: 2px solid var(--primary); transition: var(--transition-smooth);">조합 정관 (Bylaws)</button>
           <button class="doc-tab-btn" id="tabBtnMinutes" onclick="switchDocTab('minutes')" style="background: none; border: none; color: var(--text-muted); font-size: 1.05rem; font-weight: 600; padding: 0.5rem 1rem; cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-smooth);">창립총회 의사록 (Minutes)</button>
-          <a href="./proposal/KACEC_proposal.html" target="_blank" class="doc-tab-btn" style="text-decoration: none; background: none; border: none; color: var(--text-muted); font-size: 1.05rem; font-weight: 600; padding: 0.5rem 1rem; cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-smooth); display: inline-flex; align-items: center; gap: 0.3rem;">📄 공식 제안서 (Proposal)</a>
+          <a href="./proposal/KACEC_proposal.html" target="_blank" class="doc-tab-btn" style="text-decoration: none; background: none; border: none; color: var(--text-muted); font-size: 1.05rem; font-weight: 600; padding: 0.5rem 1rem; cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-smooth); display: inline-flex; align-items: center; gap: 0.4rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg> 공식 제안서 (Proposal)</a>
         </div>
       </div>
       <div class="bylaws-modal-content">
@@ -2749,7 +2797,7 @@
             <div class="accordion-content">
               <pre>제20조 (기관) 이 조합은 총회, 이사회, 감사를 둔다.
 
-제21조 (임원) ① 이 조합은 이사장 1인, 이사 3인 이상 10인 이하(이사장 포함), 감사 1인 이상을 둔다. ② 임원의 임기는 2년으로 하되 연임할 수 있다.
+제21조 (임원) ① 이 조합은 이사장 1인, 이사 3인 이상 10인 이하(이사장 포함), 감사 1인 이상을 둔다. ② 임원의 임기는 4년으로 하되 연임할 수 있다.
 
 제22조 (총회) ① 정기총회는 매 사업연도 종료 후 3개월 이내에 개최한다. ② 임시총회는 이사장이 필요하다고 인정하거나 조합원 3분의 1 이상의 소집 요구 시 개최한다. ③ 의결권은 조합원 1인당 1표로 한다. ④ 총회는 조합원 과반수 출석, 출석 과반수 찬성으로 의결. 정관 변경·해산·합병은 출석 3분의 2 이상.
 
@@ -2778,7 +2826,7 @@
 부칙
 제1조 (시행일) 이 정관은 설립등기일부터 시행한다.
 
-제2조 (설립 당시 임원) 이사장: 김소영 / 이사: 임창식, 한기열, 김봉수, 김태완 / 감사: (창립총회에서 선출)
+제2조 (설립 당시 임원) 이사장: 김소영 / 이사: 임창식, 한기열 / 감사: 김태완
 
 제3조 (업무인계) 발기인은 이 정관 시행과 동시에 이사장에게 사무를 인계한다.
 
@@ -2795,7 +2843,7 @@
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem; font-size: 0.95rem;">
               <tr>
                 <td style="padding: 10px 0; font-weight: bold; width: 130px; color: var(--teal);">일 시</td>
-                <td style="padding: 10px 0; color: var(--text-main);">2026년 6월 11일(목) 오전 10시 00분</td>
+                <td style="padding: 10px 0; color: var(--text-main);">2026년 6월 25일(목) 오전 10시 00분</td>
               </tr>
               <tr>
                 <td style="padding: 10px 0; font-weight: bold; color: var(--teal);">장 소</td>
@@ -2803,21 +2851,21 @@
               </tr>
               <tr>
                 <td style="padding: 10px 0; font-weight: bold; color: var(--teal);">출석 발기인</td>
-                <td style="padding: 10px 0; color: var(--text-main);">총 5명 중 5명 전원 참석 (김소영, 임창식, 한기열, 김봉수, 김태완)</td>
+                <td style="padding: 10px 0; color: var(--text-main);">총 5명 중 5명 전원 참석 (임창식, 김소영, 한기열, 김태완, 김봉수)</td>
               </tr>
               <tr>
                 <td style="padding: 10px 0; font-weight: bold; color: var(--teal);">의 장</td>
-                <td style="padding: 10px 0; color: var(--text-main);">김소영 (이사장 내정자)</td>
+                <td style="padding: 10px 0; color: var(--text-main);">임창식 (발기인 대표)</td>
               </tr>
               <tr>
                 <td style="padding: 10px 0; font-weight: bold; color: var(--teal);">서 기</td>
-                <td style="padding: 10px 0; color: var(--text-main);">임창식 (교육·콘텐츠 총괄 이사 내정자)</td>
+                <td style="padding: 10px 0; color: var(--text-main);">김소영 (이사 내정자)</td>
               </tr>
             </table>
 
             <h4 style="color: var(--primary); font-weight: 700; margin: 2rem 0 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; font-size: 1.1rem;">[회의 경과 및 심의 안건]</h4>
             
-            <p style="margin-bottom: 1.5rem; text-indent: 12px; color: var(--text-muted);">의장 김소영은 발기인 5인 전원이 출석하여 성원이 되었음을 보고하고 본 총회가 적법하게 성립되었음을 선언한 뒤, 본 조합 설립에 필요한 아래 안건들의 상정과 심의를 진행하다.</p>
+            <p style="margin-bottom: 1.5rem; text-indent: 12px; color: var(--text-muted);">의장 임창식은 발기인 5인 전원이 출석하여 성원이 되었음을 보고하고 본 총회가 적법하게 성립되었음을 선언한 뒤, 본 조합 설립에 필요한 아래 안건들의 상정과 심의를 진행하다.</p>
 
             <div style="margin-bottom: 2rem;">
               <strong style="color: #ffffff; font-size: 1.05rem; display: block; border-left: 3px solid var(--secondary); padding-left: 8px; margin-bottom: 0.5rem;">제1호 안건: 정관(안) 승인의 건</strong>
@@ -2826,12 +2874,12 @@
 
             <div style="margin-bottom: 2rem;">
               <strong style="color: #ffffff; font-size: 1.05rem; display: block; border-left: 3px solid var(--secondary); padding-left: 8px; margin-bottom: 0.5rem;">제2호 안건: 초대 임원(이사장, 이사, 감사) 선출의 건</strong>
-              <p style="color: var(--text-muted); text-indent: 12px; margin-top: 0.3rem;">초대 임원으로 조합의 법정 대표권과 총괄 책임을 수행할 이사장에 김소영을 만장일치로 선출하다. 아울러 등기 이사로 임창식, 한기열, 김봉수, 김태완을 선출하고, 감사는 총회 참석 멤버 외 외부 세무/회계 대리인을 추후 이사회에서 선임하기로 결의하여 만장일치로 임원 구성을 의결하다. (임원 임기 2년)</p>
+              <p style="color: var(--text-muted); text-indent: 12px; margin-top: 0.3rem;">초대 임원으로 조합의 법정 대표권과 총괄 책임을 수행할 이사장에 김소영을 만장일치로 선출하다. 아울러 등기 이사로 임창식, 한기열을 선출하고, 감사로 김태완을 만장일치로 선출하여 임원 구성을 의결하다. (임원 임기 4년)</p>
             </div>
 
             <div style="margin-bottom: 2rem;">
               <strong style="color: #ffffff; font-size: 1.05rem; display: block; border-left: 3px solid var(--secondary); padding-left: 8px; margin-bottom: 0.5rem;">제3호 안건: 2026년도 사업계획 및 세입·세출 예산안 승인의 건</strong>
-              <p style="color: var(--text-muted); text-indent: 12px; margin-top: 0.3rem;">교육·콘텐츠 총괄 이사 임창식이 10대 사업 영역(AI 교육 사업, 실감형 미디어 파사드 및 3D 프로젝션 맵핑 개발)을 주축으로 구성한 2026년도 연간 세부 사업계획서와 총 세입·세출 예산안(5천만 원 규모)을 보고하다. 이에 발기인 전원이 심도 깊게 검토하여 원안대로 승인 의결하다.</p>
+              <p style="color: var(--text-muted); text-indent: 12px; margin-top: 0.3rem;">이사 임창식이 10대 사업 영역(AI 교육 사업, 실감형 미디어 파사드 및 3D 프로젝션 맵핑 개발)을 주축으로 구성한 2026년도 연간 세부 사업계획서와 총 세입·세출 예산안(5천만 원 규모)을 보고하다. 이에 발기인 전원이 심도 깊게 검토하여 원안대로 승인 의결하다.</p>
             </div>
 
             <div style="margin-bottom: 2rem;">
@@ -2846,19 +2894,19 @@
               
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; font-size: 0.9rem; color: var(--text-main);">
                 <div style="border: 1px dashed rgba(255,255,255,0.08); padding: 1.2rem; border-radius: 8px; background: rgba(255, 255, 255, 0.01);">
-                  <strong>의장 (이사장):</strong> 김 소 영 (서명/인)
+                  <strong>의장 (발기인대표):</strong> 임 창 식 (서명/인)
                 </div>
                 <div style="border: 1px dashed rgba(255,255,255,0.08); padding: 1.2rem; border-radius: 8px; background: rgba(255, 255, 255, 0.01);">
-                  <strong>발기인 (이 사):</strong> 임 창 식 (서명/인)
+                  <strong>발기인 (이사장):</strong> 김 소 영 (서명/인)
                 </div>
                 <div style="border: 1px dashed rgba(255,255,255,0.08); padding: 1.2rem; border-radius: 8px; background: rgba(255, 255, 255, 0.01);">
                   <strong>발기인 (이 사):</strong> 한 기 열 (서명/인)
                 </div>
                 <div style="border: 1px dashed rgba(255,255,255,0.08); padding: 1.2rem; border-radius: 8px; background: rgba(255, 255, 255, 0.01);">
-                  <strong>발기인 (이 사):</strong> 김 봉 수 (서명/인)
+                  <strong>설립동의자 (감 사):</strong> 김 태 완 (서명/인)
                 </div>
                 <div style="border: 1px dashed rgba(255,255,255,0.08); padding: 1.2rem; border-radius: 8px; background: rgba(255, 255, 255, 0.01); grid-column: span 2; max-width: 50%; justify-self: center; width: 100%;">
-                  <strong>발기인 (이 사):</strong> 김 태 완 (서명/인)
+                  <strong>설립동의자 (조합원):</strong> 김 봉 수 (서명/인)
                 </div>
               </div>
             </div>
