@@ -3677,8 +3677,8 @@
     <div class="bylaws-modal" style="max-width: 95%; width: 1400px; height: 90vh; display: flex; flex-direction: column;">
       <div class="bylaws-modal-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 1px solid var(--border-card);">
         <div>
-          <h2 style="font-size: 1.5rem; font-weight: 800; background: var(--rainbow-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">📋 KACEC AI 융합 교육 100선 그랜드 로드맵</h2>
-          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem;">협동조합 10대 핵심 사업과 이사진 전공 분야를 초급(2급) ➔ 중급(1급) ➔ 고급(전문가) 과정으로 연계한 통합 교육 설계도입니다.</p>
+          <h2 style="font-size: 1.5rem; font-weight: 800; background: var(--rainbow-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">📋 KACEC AI 융합 아카데미 종합 교육 안내서</h2>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem;">맞춤 추천 트랙부터 12대 세부 과정, 7대 성장 트랙(70선 로드맵) 및 공식 자격 체계까지 담은 통합 교수계획서입니다.</p>
         </div>
         <div style="display: flex; gap: 0.8rem; align-items: center;">
           <button onclick="window.print()" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem; background: var(--teal); border-color: var(--teal); font-weight: 700;">
@@ -3688,8 +3688,145 @@
           <button class="bylaws-close" onclick="toggleCurriculumModal(false)" style="position: static; font-size: 1.5rem;">✕</button>
         </div>
       </div>
-      <div class="bylaws-modal-content" style="padding: 2rem 2.5rem; flex: 1; overflow-y: auto;" id="grandCurriculumContainer">
-        <!-- Dynamic grid populated via JS -->
+      <div class="bylaws-modal-content" style="padding: 2.5rem 3rem; flex: 1; overflow-y: auto;">
+        
+        <!-- SECTION 1: 3대 맞춤형 추천 교육 트랙 (Track A, B, C) -->
+        <div style="margin-bottom: 3.5rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--secondary); border-bottom: 2px solid var(--secondary); padding-bottom: 0.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🎯 1. 대상별 3대 추천 패키지 트랙</span>
+          </h3>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+            <!-- Track A -->
+            <div style="background: rgba(139, 92, 246, 0.04); border: 1px solid rgba(139, 92, 246, 0.15); padding: 1.5rem; border-radius: 12px;">
+              <h4 style="color: var(--secondary); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">Track A (시니어/왕초보 실용 패키지)</h4>
+              <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">가장 쉬운 스마트폰 조작부터 가사 대필, 구글 MusicFX 음악 편곡, 자작 시 디지털 시화집 출판까지 연결하는 평생교육 패키지.</p>
+              <ul style="font-size: 0.78rem; color: var(--text-main); list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.3rem;">
+                <li>• 1주: 챗GPT 첫 대화 및 음성 대화 설정</li>
+                <li>• 2주: 스마트폰 사진 검색 및 요리 레시피</li>
+                <li>• 3주: 생활 편지 작성 및 서식 대행</li>
+                <li>• 4주: 시/음악 예술 창작 및 시집 출판</li>
+              </ul>
+            </div>
+            <!-- Track B -->
+            <div style="background: rgba(6, 182, 212, 0.04); border: 1px solid rgba(6, 182, 212, 0.15); padding: 1.5rem; border-radius: 12px;">
+              <h4 style="color: var(--teal); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">Track B (청소년 메이커 융합 패키지)</h4>
+              <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">스토리 작성을 시작으로 종이회로(LED) 브레드보드 설계, 3D펜 피규어 입체 가공, 숏폼 애니메이션을 융합하는 메이커 코스.</p>
+              <ul style="font-size: 0.78rem; color: var(--text-main); list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.3rem;">
+                <li>• 1주: AI 리터러시 & 스토리 구성</li>
+                <li>• 2주: 종이회로 캐릭터 팝업 카드 메이커</li>
+                <li>• 3주: 3D펜 피규어 입체 실물화 작업</li>
+                <li>• 4주: TTS 목소리 및 숏폼 영상 완성</li>
+              </ul>
+            </div>
+            <!-- Track C -->
+            <div style="background: rgba(245, 158, 11, 0.04); border: 1px solid rgba(245, 158, 11, 0.15); padding: 1.5rem; border-radius: 12px;">
+              <h4 style="color: var(--gold); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">Track C (교사 역량강화 생성형 AI 교수법)</h4>
+              <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">초중고 교사단 및 공공기관 강사를 대상으로 맞춤 교안 자동 설계, 피지컬 교재 에러 디버깅, 지자체 제안 공모 실무를 전수.</p>
+              <ul style="font-size: 0.78rem; color: var(--text-main); list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.3rem;">
+                <li>• 1주: 생성형 AI 기본 윤리 및 교수 가이드</li>
+                <li>• 2주: AI 기반 수준별 교안/학습지 자동 생성</li>
+                <li>• 3주: 피지컬 교구 연계 트러블슈팅 교육</li>
+                <li>• 4주: 지자체 위탁교육 제안서 및 문제 출제</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 2: KACEC 12대 세부 교과 과정 -->
+        <div style="margin-bottom: 3.5rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--teal); border-bottom: 2px solid var(--teal); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
+            📂 2. KACEC 12대 세부 교과과정 프로그램
+          </h3>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1rem; border-radius: 8px;">
+              <h5 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.3rem;">01. 왕초보 AI 활용법</h5>
+              <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">챗GPT 회원가입부터 대화 화면 조작, 음성 비서 세팅법 전수.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1rem; border-radius: 8px;">
+              <h5 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.3rem;">02. 채집비트 문서 작성</h5>
+              <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">각종 기획 보고서, 메일 요약, 엑셀 표 가공 자동화 스크립팅.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1rem; border-radius: 8px;">
+              <h5 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.3rem;">03. AI 이미지 만들기</h5>
+              <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">주제, 화풍, 구도, 카메라 렌즈 설정 기반 브랜드 포스터 드로잉.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1rem; border-radius: 8px;">
+              <h5 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.3rem;">04. AI 동화책 그림책 작가</h5>
+              <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">줄거리 빌딩, 인물 캐릭터 시각 일관화, 시화집 독립출판 연계.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1rem; border-radius: 8px;">
+              <h5 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.3rem;">05. 스마트폰 AI 100% 활용</h5>
+              <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">구글렌즈 사물 검색, 실시간 번역, 모바일 음성 비서 비즈니스 극대화.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1rem; border-radius: 8px;">
+              <h5 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.3rem;">06. 유튜브 크리에이터 & AI 영상</h5>
+              <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">쇼츠 60초 대본 기획, 연출 지시문 추출, 컷 분할 및 자막 동영상.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1rem; border-radius: 8px;">
+              <h5 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.3rem;">07. 소상공인 B2B 마케팅</h5>
+              <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">블로그 SEO, 인스타 카드뉴스, 알림톡 카피라이팅, 리뷰 대응 템플릿.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1rem; border-radius: 8px;">
+              <h5 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.3rem;">08. AI 비즈니스 자동화</h5>
+              <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">엑셀 VBA, 파이썬 가격 크롤러, Gmail 대량 발송, Slack 연동 자동화.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1rem; border-radius: 8px;">
+              <h5 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.3rem;">09. 바이브 코딩 입문</h5>
+              <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">자연어 명령 초단기 웹앱 제작, JS 동적 화면 코딩 및 배포 캡스톤.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1rem; border-radius: 8px;">
+              <h5 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.3rem;">10. AI 작곡 & 음악 창작</h5>
+              <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">구글 MusicFX 편곡 매칭, 나레이션 오디오-비디오 믹싱 기획.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1rem; border-radius: 8px;">
+              <h5 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.3rem;">11. AI & 3D 입체 융합 메이커</h5>
+              <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">3D펜 안전수칙 수립, 분할 드로잉 캐릭터 조립 설명서 설계.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1rem; border-radius: 8px;">
+              <h5 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.3rem;">12. 청소년 종이회로 메이커</h5>
+              <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">전도성 구리선 배치, 직/병렬 스위치 연결 및 단선 자가진단.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 3: 7대 직관적 성장 트랙 & 14대 단과 체계 (그랜드 로드맵) -->
+        <div style="margin-bottom: 3.5rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--gold); border-bottom: 2px solid var(--gold); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
+            🗺️ 3. 7대 코스 트랙 & 14대 단과 체계 (그랜드 로드맵 70선)
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">각 코스를 초급(2급), 중급(1급), 고급(전문가) 단계별로 한눈에 훑어보는 세부 설계도입니다.</p>
+          <div id="grandCurriculumContainer">
+            <!-- Dynamic grid populated via JS -->
+          </div>
+        </div>
+
+        <!-- SECTION 4: KACEC 인공지능 교육 자격 인증 체계 -->
+        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 2rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff; padding-bottom: 0.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+            🏆 4. KACEC 인공지능 교육자격 인증체계 (Certification Levels)
+          </h3>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; font-size: 0.85rem; line-height: 1.7; color: var(--text-main);">
+            <div style="background: rgba(16, 185, 129, 0.03); border: 1px solid rgba(16, 185, 129, 0.15); padding: 1.2rem; border-radius: 8px;">
+              <strong style="color: #10b981; display: block; font-size: 0.95rem; margin-bottom: 0.4rem;">🥈 AI 융합 교육 2급 (초급)</strong>
+              • **대상**: 생성형 AI 초급 사용자<br>
+              • **요건**: 14대 교과 중 입문/실무 분야 5개 이상 미션 PASS 완료<br>
+              • **역량**: 기본적인 프롬프트 구성(Persona, Context, Format) 제어 및 비서 업무 보조
+            </div>
+            <div style="background: rgba(245, 158, 11, 0.03); border: 1px solid rgba(245, 158, 11, 0.15); padding: 1.2rem; border-radius: 8px;">
+              <strong style="color: #fbbf24; display: block; font-size: 0.95rem; margin-bottom: 0.4rem;">🥇 AI 융합 교육 1급 (중급)</strong>
+              • **대상**: 기업 및 학교 강사 활동 예정자<br>
+              • **요건**: 미디어 크리에이티브, 메이커, 바이브코딩 분야 10개 이상 미션 PASS 완료<br>
+              • **역량**: 교안 자동화 도구 조작, 피지컬 컴퓨터 트러블슈팅, 간이 코딩 앱 빌드
+            </div>
+            <div style="background: rgba(239, 68, 68, 0.03); border: 1px solid rgba(239, 68, 68, 0.15); padding: 1.2rem; border-radius: 8px;">
+              <strong style="color: #f87171; display: block; font-size: 0.95rem; margin-bottom: 0.4rem;">👑 수석 AI 융합 강사 (고급)</strong>
+              • **대상**: 위탁 교육 주관 및 R&D 연구원급<br>
+              • **요건**: 자동화, 디지털 트윈 R&D, 자격 출제 전과정 이수 및 조합 총회 승인 자격 검정 최종 합격<br>
+              • **역량**: 복합 자동화 파이프라인 설계, 공간 미디어 파사드 연출 감독, 정부 위탁 과제 수주 및 사업비 편성
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -4571,7 +4708,7 @@
           <span class="mission-item-num">${m.num}</span>
           <span class="mission-item-title" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
             <span>${m.title}</span>
-            \${isLocked ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>' : ''}
+            ${isLocked ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>' : ''}
           </span>
         `;
         list.appendChild(li);
@@ -4706,8 +4843,8 @@
         group.className = 'mindmap-branch-group';
         
         const branch = document.createElement('div');
-        branch.className = `mindmap-node branch-node \${colors[trackKey]}`;
-        branch.innerHTML = `<span>\${track.title}</span>`;
+        branch.className = `mindmap-node branch-node ${colors[trackKey]}`;
+        branch.innerHTML = `<span>${track.title}</span>`;
         group.appendChild(branch);
         
         const leaves = document.createElement('div');
@@ -4721,14 +4858,14 @@
           let isLocked = !c.unlocked && !isPasscodeValid;
           if (c.key === 'beginner') isLocked = false;
           
-          courseHeader.innerText = `\${c.title} \${isLocked ? '🔒' : '✨'}`;
+          courseHeader.innerText = `${c.title} ${isLocked ? '🔒' : '✨'}`;
           leaves.appendChild(courseHeader);
           
           c.missions.forEach(m => {
             const leaf = document.createElement('div');
             leaf.className = 'mindmap-node leaf-node';
             leaf.onclick = () => openCampusToCourse(c.key);
-            leaf.innerHTML = `▪ \${m.title}`;
+            leaf.innerHTML = `▪ ${m.title}`;
             leaves.appendChild(leaf);
           });
         });
