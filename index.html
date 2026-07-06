@@ -3634,6 +3634,12 @@
         </div>
         
         <div class="mission-prompt-area">
+          <div style="display: flex; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; width: 100%;">
+            <div style="flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 0.4rem;">
+              <label for="passcodeInput" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">🔑 클래스 인증 코드 (일반 체험은 비워두세요):</label>
+              <input type="text" id="passcodeInput" placeholder="예: kacec2026" style="background: rgba(3, 7, 18, 0.6); border: 1px solid var(--border-card); border-radius: 8px; padding: 0.6rem 1rem; color: #fff; font-size: 0.95rem; transition: var(--transition-smooth); width: 100%; max-width: 320px;">
+            </div>
+          </div>
           <label for="promptInput">✍️ 여기에 본인만의 지시문(프롬프트)을 입력해 보세요:</label>
           <textarea id="promptInput" class="mission-input" placeholder="너는 [역할]이야. [임무]를 [출력 형식]으로 설명해줘."></textarea>
         </div>
@@ -3662,6 +3668,10 @@
           <div class="feedback-content" id="resultFeedback">
             로딩 중...
           </div>
+
+          <button id="retryBtn" class="btn btn-outline" style="width: 100%; justify-content: center; margin-top: 1rem; display: none; background: rgba(245, 158, 11, 0.1); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);" onclick="retryMission()">
+            🔄 피드백 반영하여 다시 도전하기
+          </button>
           
           <!-- Certificate Card Preview -->
           <div id="certificateContainer" style="display: none; margin-top: 1rem; padding: 2rem; border-radius: 16px; background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%); color: #000; text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.5); position: relative; overflow: hidden; animation: fadeIn 0.8s ease forwards;">
@@ -4145,11 +4155,13 @@
 
     async function submitPrompt() {
       const input = document.getElementById('promptInput').value.trim();
+      const passcode = document.getElementById('passcodeInput').value.trim();
       const btn = document.getElementById('submitPromptBtn');
       const resultBox = document.getElementById('resultBox');
       const scoreNum = document.getElementById('resultScore');
       const barFill = document.getElementById('progressBarFill');
       const feedback = document.getElementById('resultFeedback');
+      const retryBtn = document.getElementById('retryBtn');
       
       if (!input) {
         alert('지시문을 입력해 주세요.');
@@ -4161,6 +4173,7 @@
       resultBox.classList.add('show');
       scoreNum.innerText = '0';
       barFill.style.width = '0%';
+      retryBtn.style.display = 'none';
       const badge = document.getElementById('resultBadge');
       badge.style.display = 'none';
       feedback.innerHTML = '<span style="color:var(--text-muted)">프롬프트 구조를 정밀 평가하고 있습니다. 잠시만 기다려주세요...</span>';
@@ -4171,7 +4184,7 @@
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ prompt: input })
+          body: JSON.stringify({ prompt: input, passcode: passcode })
         });
         
         if (!response.ok) {
@@ -4193,10 +4206,12 @@
             badge.innerText = 'PASS (합격)';
             badge.className = 'result-badge pass';
             document.getElementById('certBtn').style.display = 'block';
+            retryBtn.style.display = 'none';
           } else {
             badge.innerText = 'RETRY (보완)';
             badge.className = 'result-badge retry';
             document.getElementById('certBtn').style.display = 'none';
+            retryBtn.style.display = 'block';
           }
           
           btn.disabled = false;
@@ -4214,6 +4229,21 @@
       }
     }
 
+    function retryMission() {
+      const modal = document.getElementById('campus');
+      if (modal) {
+        modal.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      const input = document.getElementById('promptInput');
+      if (input) {
+        input.focus();
+        input.style.boxShadow = '0 0 25px rgba(139, 92, 246, 0.8)';
+        setTimeout(() => {
+          input.style.boxShadow = '';
+        }, 1000);
+      }
+    }
+
     function showCertificateCard() {
       const name = prompt('수료증에 표기될 성함을 입력하세요 (예: 홍길동):');
       if (!name) return;
@@ -4224,7 +4254,8 @@
       
       // Scroll to certificate smoothly
       setTimeout(() => {
-        document.getElementById('certificateContainer').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        const container = document.getElementById('certificateContainer');
+        container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }, 200);
     }
   </script>

@@ -29,6 +29,18 @@ ARCHIVE_DIR = SHARED_DIR / "archive"
 MESSAGES_DIR.mkdir(parents=True, exist_ok=True)
 ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
 
+def load_env_file():
+    env_path = BASE_DIR.parent.parent / ".env"
+    if env_path.exists():
+        with open(env_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    key, val = line.split("=", 1)
+                    os.environ[key.strip()] = val.strip()
+
+load_env_file()
+
 agents_state = {
     "Hena": {"status": "idle", "file": "-", "cost": 0.0},
     "AG": {"status": "idle", "file": "-", "cost": 0.0},
@@ -183,6 +195,7 @@ async def list_messages():
                 "size": stat.st_size,
                 "modified": datetime.fromtimestamp(stat.st_mtime).isoformat(),
             })
+        messages.sort(key=lambda x: x["modified"], reverse=True)
     return {"messages": messages, "count": len(messages)}
 
 
@@ -229,6 +242,50 @@ async def mark_as_read(filename: str):
 
 class GradeRequest(BaseModel):
     prompt: str
+    passcode: str = ""
+
+
+def local_grading(prompt: str) -> dict:
+    prompt_content = prompt.strip()
+    passed = 0
+    feedback_items = []
+    
+    # 🎭 역할 부여 검사 (Role check)
+    has_role = any(word in prompt_content for word in ["로서", "처럼", "전문가", "감독", "강사", "교수", "선생님", "의사", "바리스타", "작가", "컨설턴트", "너는", "당신은"])
+    if has_role:
+        passed += 1
+        feedback_items.append("✓ <strong>역할 부여 성공:</strong> 인공지능에게 구체적인 페르소나를 성공적으로 부여하셨습니다.")
+    else:
+        feedback_items.append("✗ <strong>역할 누락:</strong> 인공지능에게 아무런 역할을 지정하지 않았습니다. <em>예: '너는 30년 경력의 베테랑 사진감독이야'</em>와 같이 역할을 지정해 보세요.")
+        
+    # 🎯 구체적 요청 검사 (Task check)
+    has_task = any(word in prompt_content for word in ["해줘", "알려줘", "작성해줘", "설명해줘", "가르쳐줘", "정리해줘", "추천해줘", "제안해줘"])
+    if has_task:
+        passed += 1
+        feedback_items.append("✓ <strong>구체적 지시 성공:</strong> AI가 무엇을 해야 하는지 명확한 명령어가 포함되었습니다.")
+    else:
+        feedback_items.append("✗ <strong>임무 누락:</strong> 인공지능이 수행할 명령어가 모호합니다. <em>예: '야경 사진을 촬영하기 위한 3대 핵심 팁을 친절하게 설명해줘'</em>와 같이 구체적으로 지시해 보세요.")
+        
+    # 📏 최소 길이 검사 (Length check)
+    has_length = len(prompt_content) >= 20
+    if has_length:
+        passed += 1
+        feedback_items.append("✓ <strong>최소 분량 충족:</strong> AI가 맥락을 파악할 수 있는 최소 20자 이상의 내용이 기술되었습니다.")
+    else:
+        feedback_items.append("✗ <strong>분량 부족:</strong> 지시문이 너무 짧습니다. (현재 20자 미만) AI가 풍부한 답을 낼 수 있도록 상황이나 조건을 20자 이상으로 덧붙여 보세요.")
+
+    if passed == 3:
+        score = 80
+        status_feedback = "<strong>[일반 체험 모드 - 합격]</strong> 일반 체험 미션의 3대 핵심 규칙을 모두 통과하셨습니다! 🥳<br><br>"
+    elif passed == 2:
+        score = 50
+        status_feedback = "<strong>[일반 체험 모드 - 보완 필요]</strong> 한 가지 조건이 더 필요합니다. 아래의 조언을 참고하여 지시문을 다시 수정해 보세요!<br><br>"
+    else:
+        score = 20
+        status_feedback = "<strong>[일반 체험 모드 - 재도전]</strong> 프롬프트의 기본 요소를 더 작성해 주세요. 아래 예시를 참고하여 다시 작성해 보실 수 있습니다.<br><br>"
+        
+    final_feedback = status_feedback + "<br>".join(feedback_items)
+    return {"score": score, "feedback": final_feedback, "mode": "sandbox"}
 
 
 @app.post("/api/grade")
@@ -237,25 +294,29 @@ async def grade_prompt(request: GradeRequest):
     if not prompt_content:
         raise HTTPException(status_code=400, detail="프롬프트 내용을 입력하세요.")
         
+    # 1. 인증코드 검증
+    configured_passcode = os.environ.get("KACEC_PASSCODE", "kacec2026").strip()
+    is_valid_passcode = False
+    
+    if configured_passcode.lower() == "auto_date":
+        today_str = datetime.now().strftime("%m%d")
+        today_code = f"kacec{today_str}"
+        is_valid_passcode = (request.passcode.strip() == today_code)
+    else:
+        is_valid_passcode = (request.passcode.strip() == configured_passcode)
+
+    # 2. 체험 모드(인증코드가 없거나 틀렸을 때) -> 로컬 채점 실행
+    if not is_valid_passcode:
+        return local_grading(prompt_content)
+
+    # 3. 정식 수강생 모드 -> DeepSeek API 호출
     api_key = os.environ.get("DEEPSEEK_API_KEY")
     if not api_key:
-        # Fallback Mock Grading Logic to prevent hard crash if keys are not set yet in local dev
-        score = 60
-        feedback = "<strong>[시뮬레이션 모드]</strong> 로컬 환경에 DEEPSEEK_API_KEY가 등록되어 있지 않아 자체 규칙 기반 채점을 실행했습니다.<br><br>"
-        
-        has_role = any(word in prompt_content for word in ["감독", "강사", "전문가", "교수", "너는", "의사", "역할", "선생님"])
-        has_tips = any(word in prompt_content for word in ["팁", "방법", "노하우", "핵심", "설명", "알려줘", "조언"])
-        
-        if has_role and has_tips:
-            score = 85
-            feedback += "✓ <strong>역할 부여 성공:</strong> 인공지능에게 구체적인 페르소나를 성공적으로 부여하셨습니다.<br>✓ <strong>임무 구체성 성공:</strong> 스마트폰 카메라 팁을 알려달라는 지시가 명확합니다.<br><br>💡 <strong>팁:</strong> 여기에 '친절한 말투로 작성해줘' 같은 출력 스타일(톤앤매너)까지 추가해 보시면 100점에 도달할 수 있습니다!"
-        elif has_role:
-            score = 70
-            feedback += "✓ <strong>역할 부여 성공:</strong> 역할을 지정하셨으나, 어떤 구체적 정보(예: 야경 촬영 3대 팁)를 원하는지 임무가 조금 모호합니다. 질문을 좀 더 구체적으로 작성해 보세요."
-        else:
-            feedback += "✗ <strong>보완 필요:</strong> 인공지능에게 아무런 역할을 부여하지 않은 일반적인 질문입니다. '너는 30년 경력의 베테랑 사진감독이야'와 같이 역할을 명시하는 것부터 시작해 보세요."
-            
-        return {"score": score, "feedback": feedback}
+        # 인증코드는 맞지만 API Key 세팅 대기 상태일 때 예외 처리
+        res = local_grading(prompt_content)
+        res["feedback"] = "<strong>[정식 수강생 모드 - API 설정 대기]</strong> 인증 코드가 확인되었으나 서버의 DEEPSEEK_API_KEY가 활성화되지 않아 로컬 채점을 임시 작동했습니다.<br><br>" + res["feedback"]
+        res["mode"] = "exam"
+        return res
 
     system_instruction = """
     당신은 대한민국 최고의 프롬프트 엔지니어링 교육 전문가입니다.
@@ -304,15 +365,16 @@ async def grade_prompt(request: GradeRequest):
             result = json.loads(content)
             return {
                 "score": int(result.get("score", 70)),
-                "feedback": result.get("feedback", "채점을 완료했습니다.")
+                "feedback": result.get("feedback", "채점을 완료했습니다."),
+                "mode": "exam"
             }
             
     except Exception as e:
         print(f"Error during AI grading: {e}")
-        return {
-            "score": 75,
-            "feedback": f"<strong>[안내] AI API가 일시적으로 지연되어 기본 규칙 기반 평가를 수행했습니다.</strong><br><br>작성하신 프롬프트: \"{prompt_content}\"<br><br>역할 부여와 질문 구조가 무난합니다. 구체적인 조건과 친절한 답변 요청 문구를 추가하여 한 단계 더 실무적인 지시를 내려보세요."
-        }
+        res = local_grading(prompt_content)
+        res["feedback"] = "<strong>[정식 수강생 모드 - API 오류 임시 우회]</strong> AI 응답이 지연되어 로컬 규칙 기반 평가를 임시 수행했습니다.<br><br>" + res["feedback"]
+        res["mode"] = "exam"
+        return res
 
 
 
