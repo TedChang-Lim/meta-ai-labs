@@ -2270,6 +2270,83 @@
         </div>
       </div>
 
+      <!-- KACEC Online Academy Roadmap Map -->
+      <div class="reveal" style="margin-top: 3.5rem; margin-bottom: 2.5rem;">
+        <div style="background: rgba(10, 15, 30, 0.6); border: 1px solid rgba(20, 184, 166, 0.15); border-radius: 20px; padding: 2.5rem 2rem; backdrop-filter: blur(12px); box-shadow: var(--shadow-neon-teal);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px dashed rgba(255,255,255,0.15); padding-bottom: 1.2rem; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 800; color: var(--teal); letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.4rem;">Learning Map</span>
+              <h3 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0; letter-spacing: -1px;">🎓 KACEC AI 융합 교육 맵 (Curriculum Map)</h3>
+            </div>
+            <button onclick="toggleCampusModal(true)" class="btn btn-primary" style="padding: 0.6rem 1.4rem; font-size: 0.85rem; border-radius: 8px;">
+              ⚡ 실시간 AI 캠퍼스 실습기 열기
+            </button>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem;">
+            <!-- Card 1 -->
+            <div style="background: rgba(3, 7, 18, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.5rem; transition: var(--transition-smooth);" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+              <div style="font-size: 0.72rem; font-weight: 700; color: var(--teal); margin-bottom: 0.6rem; text-transform: uppercase;">01. 프롬프트 기초</div>
+              <h4 style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem;">📚 AI 기초 & 프롬프트 학과</h4>
+              <ul style="font-size: 0.78rem; color: var(--text-muted); padding-left: 1.2rem; margin: 0 0 1.2rem 0; line-height: 1.6;">
+                <li>프롬프트 3대 핵심 요소</li>
+                <li>문서 요약 및 내용 추출</li>
+                <li>이미지 생성 프롬프트 설계</li>
+              </ul>
+              <button onclick="openCampusToCourse('basics')" style="width:100%; padding:0.5rem; font-size:0.75rem; background:rgba(20, 184, 166, 0.1); border:1px solid rgba(20, 184, 166, 0.2); color:var(--teal); border-radius:6px; cursor:pointer; font-weight:bold; transition:var(--transition-smooth);" onmouseover="this.style.background='var(--teal)'; this.style.color='#000'">바로 학습하기 ➔</button>
+            </div>
+            
+            <!-- Card 2 -->
+            <div style="background: rgba(3, 7, 18, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.5rem; transition: var(--transition-smooth);" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+              <div style="font-size: 0.72rem; font-weight: 700; color: var(--teal); margin-bottom: 0.6rem; text-transform: uppercase;">02. 마케팅 실무</div>
+              <h4 style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem;">📢 소상공인 마케팅 학과 🔒</h4>
+              <ul style="font-size: 0.78rem; color: var(--text-muted); padding-left: 1.2rem; margin: 0 0 1.2rem 0; line-height: 1.6;">
+                <li>스토어 상품 카피라이팅</li>
+                <li>블로그/SNS 콘텐츠 원고</li>
+                <li>리뷰 컴플레인 응대 스크립트</li>
+              </ul>
+              <button onclick="openCampusToCourse('marketing')" style="width:100%; padding:0.5rem; font-size:0.75rem; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:6px; cursor:pointer; font-weight:bold; transition:var(--transition-smooth);" onmouseover="this.style.background='rgba(255,255,255,0.1)'">인증 후 학습하기 ➔</button>
+            </div>
+            
+            <!-- Card 3 -->
+            <div style="background: rgba(3, 7, 18, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.5rem; transition: var(--transition-smooth);" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+              <div style="font-size: 0.72rem; font-weight: 700; color: var(--teal); margin-bottom: 0.6rem; text-transform: uppercase;">03. 멀티미디어</div>
+              <h4 style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem;">🎬 AI 영상 크리에이터 학과 🔒</h4>
+              <ul style="font-size: 0.78rem; color: var(--text-muted); padding-left: 1.2rem; margin: 0 0 1.2rem 0; line-height: 1.6;">
+                <li>숏폼 60초 광고 대본 기획</li>
+                <li>스토리보드 시나리오 컷 분할</li>
+                <li>TTS 성우 목소리 합성 실습</li>
+              </ul>
+              <button onclick="openCampusToCourse('video')" style="width:100%; padding:0.5rem; font-size:0.75rem; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:6px; cursor:pointer; font-weight:bold; transition:var(--transition-smooth);" onmouseover="this.style.background='rgba(255,255,255,0.1)'">인증 후 학습하기 ➔</button>
+            </div>
+            
+            <!-- Card 4 -->
+            <div style="background: rgba(3, 7, 18, 0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.5rem; transition: var(--transition-smooth);" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+              <div style="font-size: 0.72rem; font-weight: 700; color: var(--teal); margin-bottom: 0.6rem; text-transform: uppercase;">04. 사무 자동화</div>
+              <h4 style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem;">⚙️ AI 비즈니스 자동화 학과 🔒</h4>
+              <ul style="font-size: 0.78rem; color: var(--text-muted); padding-left: 1.2rem; margin: 0 0 1.2rem 0; line-height: 1.6;">
+                <li>엑셀 수식 및 VBA 매크로</li>
+                <li>인터넷 정보 크롤링 파이썬</li>
+                <li>이메일 대량 발송 업무 자동화</li>
+              </ul>
+              <button onclick="openCampusToCourse('automation')" style="width:100%; padding:0.5rem; font-size:0.75rem; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:6px; cursor:pointer; font-weight:bold; transition:var(--transition-smooth);" onmouseover="this.style.background='rgba(255,255,255,0.1)'">인증 후 학습하기 ➔</button>
+            </div>
+            
+            <!-- Card 5 -->
+            <div style="background: rgba(3, 7, 18, 0.4); border: 1px solid rgba(20, 184, 166, 0.15); border-radius: 12px; padding: 1.5rem; transition: var(--transition-smooth);" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='rgba(20, 184, 166, 0.15)'">
+              <div style="font-size: 0.72rem; font-weight: 700; color: var(--teal); margin-bottom: 0.6rem; text-transform: uppercase;">05. 조합원 특화</div>
+              <h4 style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem;">🤝 KACEC 조합원 실무 학과 🔒</h4>
+              <ul style="font-size: 0.78rem; color: var(--text-muted); padding-left: 1.2rem; margin: 0 0 1.2rem 0; line-height: 1.6;">
+                <li>표준 조합 정관 정밀 분석</li>
+                <li>지자체 지원 교육 제안서 기획</li>
+                <li>분산 서브도메인 인프라 활용</li>
+              </ul>
+              <button onclick="openCampusToCourse('exclusive')" style="width:100%; padding:0.5rem; font-size:0.75rem; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:6px; cursor:pointer; font-weight:bold; transition:var(--transition-smooth);" onmouseover="this.style.background='rgba(255,255,255,0.1)'">인증 후 학습하기 ➔</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- KACEC 자격 인증 및 교육 운영 모델 -->
       <div class="certification-box reveal">
         <div class="certification-grid">
@@ -4331,6 +4408,11 @@
       if (optionsContainer) optionsContainer.classList.remove('show');
       
       initCampus();
+    }
+
+    function openCampusToCourse(courseId) {
+      toggleCampusModal(true);
+      selectCourseOption(courseId);
     }
 
     // Close dropdown on click outside
