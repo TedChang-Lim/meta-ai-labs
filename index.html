@@ -4264,55 +4264,56 @@
       
       const grid = document.createElement('div');
       grid.className = 'grand-curriculum-grid';
+      grid.style.cssText = 'display: grid; grid-template-columns: repeat(7, 1fr); gap: 1rem; width: 100%; align-items: start;';
       
+      // Group by track
+      const tracks = {};
       Object.keys(coursesData).forEach(key => {
         const course = coursesData[key];
+        if (!tracks[course.track]) {
+          tracks[course.track] = {
+            title: course.trackTitle,
+            courses: []
+          };
+        }
+        tracks[course.track].courses.push({ key, ...course });
+      });
+      
+      Object.keys(tracks).forEach(trackKey => {
+        const track = tracks[trackKey];
         const card = document.createElement('div');
         card.className = 'grand-course-card';
+        card.style.cssText = 'padding: 0.8rem; border-radius: 10px; display: flex; flex-direction: column; gap: 0.8rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);';
         
-        // Course Title
+        // Track Title
         const titleEl = document.createElement('div');
         titleEl.className = 'grand-course-title';
-        titleEl.innerText = course.title;
+        titleEl.style.cssText = 'font-size: 0.8rem; font-weight: 800; color: var(--teal); border-bottom: 2px solid var(--teal); padding-bottom: 0.3rem; margin-bottom: 0.4rem;';
+        titleEl.innerText = track.title;
         card.appendChild(titleEl);
         
-        // Difficulty-based containers
-        const beginnerSec = document.createElement('div');
-        beginnerSec.className = 'grand-level-section beginner';
-        beginnerSec.innerHTML = '<div class="grand-level-header beginner"><span>🟢 초급 코스 (2급 취득)</span><span>Step 01-05</span></div>';
-        
-        const intermediateSec = document.createElement('div');
-        intermediateSec.className = 'grand-level-section intermediate';
-        intermediateSec.innerHTML = '<div class="grand-level-header intermediate"><span>🟡 중급 코스 (1급 취득)</span><span>Step 06-15</span></div>';
-        
-        const advancedSec = document.createElement('div');
-        advancedSec.className = 'grand-level-section advanced';
-        advancedSec.innerHTML = '<div class="grand-level-header advanced"><span>🔴 고급 전문가 (수석 강사)</span><span>Step 16-20</span></div>';
-        
-        let flatIndex = 1;
-        course.chapters.forEach(chap => {
-          chap.missions.forEach(m => {
+        track.courses.forEach(c => {
+          // Program Header
+          const progHeader = document.createElement('div');
+          progHeader.style.cssText = 'font-size: 0.75rem; font-weight: 800; color: #ffffff; margin-top: 0.4rem; padding-bottom: 0.2rem; border-bottom: 1px solid rgba(255,255,255,0.1);';
+          progHeader.innerText = c.title;
+          card.appendChild(progHeader);
+          
+          const levelSec = document.createElement('div');
+          levelSec.style.cssText = 'background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.05); padding: 0.4rem; border-radius: 6px; display: flex; flex-direction: column; gap: 0.3rem;';
+          
+          c.missions.forEach(m => {
             const stepItem = document.createElement('div');
             stepItem.className = 'grand-step-item';
-            
-            // Extract title before colon for a cleaner print view
+            stepItem.style.cssText = 'font-size: 0.65rem; padding: 0.2rem 0; line-height: 1.3; border-bottom: 1px solid rgba(255,255,255,0.03); color: var(--text-muted);';
             const cleanTitle = m.title.includes(':') ? m.title.split(':')[1].trim() : m.title;
             stepItem.innerText = `${m.num}. ${cleanTitle}`;
-            
-            if (flatIndex <= 5) {
-              beginnerSec.appendChild(stepItem);
-            } else if (flatIndex <= 15) {
-              intermediateSec.appendChild(stepItem);
-            } else {
-              advancedSec.appendChild(stepItem);
-            }
-            flatIndex++;
+            levelSec.appendChild(stepItem);
           });
+          
+          card.appendChild(levelSec);
         });
         
-        card.appendChild(beginnerSec);
-        card.appendChild(intermediateSec);
-        card.appendChild(advancedSec);
         grid.appendChild(card);
       });
       
