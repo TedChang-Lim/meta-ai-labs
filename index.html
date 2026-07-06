@@ -3577,34 +3577,23 @@
       <div class="campus-sidebar">
         <div class="campus-academy-title">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; filter: drop-shadow(0 0 3px var(--teal-glow));"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
-          <span>KACEC 온라인 코스</span>
+          <span>KACEC 온라인 아카데미</span>
         </div>
-        <ul class="mission-list">
-          <li class="mission-item active">
-            <span class="mission-item-num">Mission 01</span>
-            <span class="mission-item-title">왕초보 AI 첫걸음: 페르소나 설정</span>
-          </li>
-          <li class="mission-item locked">
-            <span class="mission-item-num" style="color:var(--text-muted)">Mission 02</span>
-            <span class="mission-item-title" style="display:flex; justify-content:space-between; align-items:center;">
-              <span>이미지 프롬프트 설계</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-            </span>
-          </li>
-          <li class="mission-item locked">
-            <span class="mission-item-num" style="color:var(--text-muted)">Mission 03</span>
-            <span class="mission-item-title" style="display:flex; justify-content:space-between; align-items:center;">
-              <span>AI 영상 제작 컷 분할</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-            </span>
-          </li>
-          <li class="mission-item locked">
-            <span class="mission-item-num" style="color:var(--text-muted)">Mission 04</span>
-            <span class="mission-item-title" style="display:flex; justify-content:space-between; align-items:center;">
-              <span>엑셀 매크로 한 방 정복</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-            </span>
-          </li>
+        
+        <!-- Course Selection Dropdown -->
+        <div style="display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 0.5rem; width: 100%;">
+          <label style="font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.5px;">학과 과정 선택</label>
+          <select id="courseSelect" onchange="changeCourse()" style="background: rgba(3, 7, 18, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 0.6rem 0.8rem; color: #fff; font-size: 0.85rem; font-weight: 700; cursor: pointer; outline: none; transition: var(--transition-smooth); width: 100%;">
+            <option value="basics">📚 AI 기초 & 프롬프트 학과</option>
+            <option value="marketing">📢 소상공인 마케팅 학과 🔒</option>
+            <option value="video">🎬 AI 영상 크리에이터 학과 🔒</option>
+            <option value="automation">⚙️ AI 비즈니스 자동화 학과 🔒</option>
+            <option value="exclusive">🤝 KACEC 조합원 실무 학과 🔒</option>
+          </select>
+        </div>
+
+        <ul class="mission-list" id="missionList">
+          <!-- Dynamically populated via JS -->
         </ul>
       </div>
       
@@ -3622,11 +3611,11 @@
         </div>
         
         <div class="mission-header">
-          <span class="mission-badge">Mission 01</span>
-          <h3 class="mission-title">왕초보 AI 첫걸음: 챗GPT에게 역할 부여하여 지시하기</h3>
+          <span class="mission-badge" id="missionBadge">Mission 01</span>
+          <h3 class="mission-title" id="missionTitle">왕초보 AI 첫걸음: 챗GPT에게 역할 부여하여 지시하기</h3>
         </div>
         
-        <div class="mission-guide">
+        <div class="mission-guide" id="missionGuide">
           <strong>📝 실습 지시사항:</strong><br>
           인공지능에게 단순한 질문대신 구체적인 <strong>역할(페르소나)</strong>을 부여하고 지시를 내려보세요.<br>
           아래의 프롬프트 예시처럼 역할과 알고 싶은 정보를 작성해 제출하시면 AI가 실용성을 실시간 평가합니다.<br><br>
@@ -4105,6 +4094,7 @@
       if (show) {
         overlay.classList.add('show');
         document.body.style.overflow = 'hidden';
+        initCampus();
       } else {
         overlay.classList.remove('show');
         document.body.style.overflow = '';
@@ -4121,6 +4111,126 @@
       if (event.target === overlay) {
         toggleCampusModal(false);
       }
+    }
+
+    // Course & Mission Data Schema
+    const coursesData = {
+      basics: {
+        unlocked: true,
+        title: "📚 AI 기초 & 프롬프트 학과",
+        missions: [
+          { num: "Mission 01", title: "왕초보 AI 첫걸음: 페르소나 설정", guide: "<strong>📝 실습 지시사항:</strong><br>인공지능에게 단순한 질문대신 구체적인 <strong>역할(페르소나)</strong>을 부여하고 지시를 내려보세요.<br><br><em>예시: '너는 30년 경력의 베테랑 사진감독이야. 스마트폰 카메라로 아름다운 야경 사진을 촬영하기 위한 3대 핵심 팁을 친절하게 설명해줘.'</em>", placeholder: "너는 [역할]이야. [임무]를 [출력 형식]으로 설명해줘." },
+          { num: "Mission 02", title: "문서 요약 및 정보 추출", guide: "<strong>📝 실습 지시사항:</strong><br>제공된 텍스트에서 <strong>주요 핵심 내용 3문장</strong>을 요약하고 중요 일정을 정확히 찾아내도록 지시해 보세요.<br><br><em>예시: '아래 텍스트를 읽고 소상공인 지원금 접수 일정과 지원 자격을 3줄로 알기 쉽게 정리해줘. [텍스트내용]'</em>", placeholder: "여기에 문서 요약 지시문을 입력하세요." },
+          { num: "Mission 03", title: "출력 형식 제어 (표/JSON)", guide: "<strong>📝 실습 지시사항:</strong><br>AI의 답변 결과를 가독성 높은 <strong>표(Table) 또는 특정 형식</strong>으로 정렬하여 출력하도록 상세 조건을 작성해 보세요.<br><br><em>예시: '주요 마케팅 채널별 장단점과 권장 예산을 비교 분석해서 표 형식으로 그려줘.'</em>", placeholder: "여기에 표 형식 출력 지시문을 입력하세요." }
+        ]
+      },
+      marketing: {
+        unlocked: false,
+        title: "📢 소상공인 B2B 마케팅 학과",
+        missions: [
+          { num: "Mission 01", title: "카피라이팅 및 광고 문구 생성", guide: "<strong>📝 실습 지시사항:</strong><br>내 가게나 상품을 홍보하기 위해, 타겟 고객의 눈길을 사로잡을 <strong>광고 카피 3가지 버전</strong>을 조건에 맞게 작성 요청하세요.<br><br><em>예시: '너는 10년 차 베테랑 카피라이터야. 30대 직장인을 타겟으로 한 유기농 수제 쿠키 온라인 쇼핑몰 광고 카피 3가지를 후크(Hook)가 있게 작성해줘.'</em>", placeholder: "너는 [역할]이야. [상품명]을 홍보하기 위한 광고 카피를 작성해줘." },
+          { num: "Mission 02", title: "블로그 홍보용 마케팅 원고 작성", guide: "<strong>📝 실습 지시사항:</strong><br>인스타그램 피드 또는 네이버 블로그에 포스팅할 <strong>SEO(검색최적화) 키워드를 포함한 친절한 안내 글</strong>을 만들어 보세요.", placeholder: "여기에 블로그 마케팅용 지시문을 입력하세요." }
+        ]
+      },
+      video: {
+        unlocked: false,
+        title: "🎬 AI 영상 크리에이터 학과",
+        missions: [
+          { num: "Mission 01", title: "숏폼 60초 대본 설계", guide: "<strong>📝 실습 지시사항:</strong><br>유튜브 쇼츠, 인스타그램 릴스에 올릴 <strong>60초 분량의 강렬한 자막 대본</strong>을 초안으로 뽑아보세요.<br><br><em>예시: '너는 백만 유튜버 영상 기획자야. 인공지능을 활용해 매출을 2배 올리는 꿀팁을 주제로, 3초 이내에 시선을 사로잡는 오프닝 후크가 들어간 60초 쇼츠 대본을 작성해줘.'</em>", placeholder: "여기에 60초 숏폼 대본 지시문을 입력하세요." },
+          { num: "Mission 02", title: "스토리보드 시나리오 컷 분할", guide: "<strong>📝 실습 지시사항:</strong><br>대본을 토대로 촬영용 <strong>화면 연출 지시 및 자막, 대사를 나타내는 컷 분할 테이블</strong>을 표로 요약하게 지시해 보세요.", placeholder: "여기에 컷 분할 스토리보드 지시문을 입력하세요." }
+        ]
+      },
+      automation: {
+        unlocked: false,
+        title: "⚙️ AI 비즈니스 자동화 학과",
+        missions: [
+          { num: "Mission 01", title: "엑셀 수식 및 VBA 매크로 코드", guide: "<strong>📝 실습 지시사항:</strong><br>매달 반복되는 판매 정산 데이터를 자동으로 분류하고 계산해 주는 <strong>VBA 매크로 엑셀 코드</strong> 작성을 유도해 보세요.<br><br><em>예시: '엑셀 A열의 상품명과 B열의 가격을 읽어 분류별 합계를 C열에 자동으로 기록해 주는 VBA 매크로 코드를 작성하고 사용법을 알려줘.'</em>", placeholder: "여기에 엑셀 자동화 매크로 지시문을 입력하세요." }
+        ]
+      },
+      exclusive: {
+        unlocked: false,
+        title: "🤝 KACEC 조합원 실무 학과",
+        missions: [
+          { num: "Mission 01", title: "조합 정관 핵심 조항 추출", guide: "<strong>📝 실습 지시사항:</strong><br>한국 AI 융합 교육원 협동조합 정관 텍스트에서 <strong>총회 의결 및 조합원의 권리 조항</strong>을 요약하여 분석해 보도록 지시해 보세요.", placeholder: "여기에 정관 분석 지시문을 입력하세요." }
+        ]
+      }
+    };
+
+    let activeCourse = 'basics';
+    let activeMissionIndex = 0;
+
+    function initCampus() {
+      renderMissionsList();
+      selectMission(0);
+    }
+
+    function renderMissionsList() {
+      const list = document.getElementById('missionList');
+      if (!list) return;
+      list.innerHTML = '';
+      const course = coursesData[activeCourse];
+      
+      course.missions.forEach((m, idx) => {
+        const li = document.createElement('li');
+        li.className = `mission-item ${idx === activeMissionIndex ? 'active' : ''}`;
+        li.onclick = () => selectMission(idx);
+        
+        li.innerHTML = `
+          <span class="mission-item-num">${m.num}</span>
+          <span class="mission-item-title">${m.title}</span>
+        `;
+        list.appendChild(li);
+      });
+    }
+
+    function selectMission(idx) {
+      activeMissionIndex = idx;
+      
+      const items = document.querySelectorAll('#missionList .mission-item');
+      items.forEach((item, i) => {
+        if (i === idx) item.classList.add('active');
+        else item.classList.remove('active');
+      });
+      
+      const mission = coursesData[activeCourse].missions[idx];
+      if (mission) {
+        document.getElementById('missionBadge').innerText = mission.num;
+        document.getElementById('missionTitle').innerText = mission.title;
+        document.getElementById('missionGuide').innerHTML = mission.guide;
+        document.getElementById('promptInput').placeholder = mission.placeholder;
+        document.getElementById('promptInput').value = '';
+      }
+      
+      document.getElementById('resultBox').classList.remove('show');
+    }
+
+    function changeCourse() {
+      const select = document.getElementById('courseSelect');
+      if (!select) return;
+      const targetCourse = select.value;
+      
+      const passcode = document.getElementById('passcodeInput').value.trim();
+      const isPasscodeValid = (passcode === 'kacec2026');
+      
+      if (!coursesData[targetCourse].unlocked && !isPasscodeValid) {
+        alert("🔒 선택하신 과정은 '정식 수강생 전용 자격 검정 코스'입니다.\n\n정식 등급으로 참여하시려면 상단의 [🔑 클래스 인증 코드]에 올바른 비밀코드를 입력하고 과정을 다시 선택해 주세요.");
+        select.value = activeCourse;
+        return;
+      }
+      
+      if (isPasscodeValid) {
+        Object.keys(coursesData).forEach(key => {
+          coursesData[key].unlocked = true;
+          const option = select.querySelector(`option[value="${key}"]`);
+          if (option && option.text.includes('🔒')) {
+            option.text = option.text.replace(' 🔒', '');
+          }
+        });
+      }
+      
+      activeCourse = targetCourse;
+      activeMissionIndex = 0;
+      initCampus();
     }
     function toggleLargeTextMode() {
       const campus = document.getElementById('campus');
