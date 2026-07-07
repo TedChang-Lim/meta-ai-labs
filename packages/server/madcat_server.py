@@ -509,4 +509,4 @@ async def grade_prompt(request: GradeRequest, fastapi_request: Request):
 
 
 if __name__ == "__main__":
-    uvicorn.run("madcat_server:app", host="0.0.0.0", port=1984, reload=True)
+    uvicorn.run("madcat_server:app", host="0.0.0.0", port=1984, reload=True, reload_dirs=[str(BASE_DIR)])
