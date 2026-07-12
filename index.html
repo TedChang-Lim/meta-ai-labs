@@ -3953,124 +3953,120 @@
 
   <!-- Online Campus Modal Overlay -->
   <div class="campus-overlay" id="campusOverlay" onclick="closeCampusOverlay(event)">
-    <div class="campus-modal" id="campus">
+    <div class="campus-modal" id="campus" style="display: flex; flex-direction: column; width: 100%; max-width: 1080px; max-height: 85vh; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: #060912; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6); position: relative;">
       <button class="campus-close-btn" onclick="toggleCampusModal(false)">&times;</button>
       
-      <!-- Left Sidebar: Course Directory -->
-      <div class="campus-sidebar">
-        <div class="campus-academy-title">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; filter: drop-shadow(0 0 3px var(--teal-glow));"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
-          <span>KACEC 온라인 아카데미</span>
-        </div>
-        
-        <!-- 필터 탭 (미모 추가) -->
-        <div class="filter-tabs">
-          <button class="filter-tab active" onclick="filterCourses('all', this)">전체</button>
-          <button class="filter-tab" onclick="filterCourses('free', this)">무료</button>
-          <button class="filter-tab" onclick="filterCourses('paid', this)">유료</button>
-          <button class="filter-tab" onclick="filterCourses('cert', this)">자격증</button>
+      <!-- Lobby View -->
+      <div id="campusLobby" style="display: block; width: 100%; box-sizing: border-box; overflow-y: auto; max-height: 85vh; padding: 2rem 2.5rem;">
+        <div style="text-align: center; margin-bottom: 2rem; padding-top: 1rem;">
+          <h2 style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; background: linear-gradient(135deg, #14b8a6, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#lobbyGlow)" stroke-width="2.5" style="filter: drop-shadow(0 0 4px rgba(20,184,166,0.5));"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path><defs><linearGradient id="lobbyGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#14b8a6"></stop><stop offset="100%" stop-color="#6366f1"></stop></linearGradient></defs></svg>
+            <span>KACEC 온라인 캠퍼스</span>
+          </h2>
+          
+          <!-- Faculty Avatars Row -->
+          <div style="display: flex; justify-content: center; align-items: center; margin: 1rem 0 1.2rem 0; flex-direction: column; gap: 0.6rem;">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap;">
+              <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <img src="julia.jpg" style="width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--teal); object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" title="김소영 이사장">
+                <span style="font-size: 0.68rem; color: rgba(255,255,255,0.7); margin-top: 4px; font-weight: 600;">김소영</span>
+              </div>
+              <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <img src="chang-sik.png?v=1" style="width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--teal); object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" title="임창식 교육·콘텐츠 총괄">
+                <span style="font-size: 0.68rem; color: rgba(255,255,255,0.7); margin-top: 4px; font-weight: 600;">임창식</span>
+              </div>
+              <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <img src="https://info.kbu.ac.kr/attach/IMAGE/ProfessorMgr/ProfessorUpload/2025/3/2XZzoGUXlfWPvwCL.PNG" style="width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--teal); object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" title="한기열 이사">
+                <span style="font-size: 0.68rem; color: rgba(255,255,255,0.7); margin-top: 4px; font-weight: 600;">한기열</span>
+              </div>
+              <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <img src="kim-bongsoo.jpg" style="width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--teal); object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" title="김봉수 대표">
+                <span style="font-size: 0.68rem; color: rgba(255,255,255,0.7); margin-top: 4px; font-weight: 600;">김봉수</span>
+              </div>
+              <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <img src="https://info.kbu.ac.kr/attach/IMAGE/ProfessorMgr/ProfessorUpload/2025/3/H2bYE81ZUbYbeOWW.PNG" style="width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--teal); object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" title="김태완 이사">
+                <span style="font-size: 0.68rem; color: rgba(255,255,255,0.7); margin-top: 4px; font-weight: 600;">김태완</span>
+              </div>
+              <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <img src="jo-anna.jpg" style="width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--teal); object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" title="조안나 이사">
+                <span style="font-size: 0.68rem; color: rgba(255,255,255,0.7); margin-top: 4px; font-weight: 600;">조안나</span>
+              </div>
+            </div>
+            <span style="font-size: 0.72rem; color: rgba(255,255,255,0.4); font-weight: 500; margin-top: 2px;">KACEC 6인 교수진 직강</span>
+          </div>
+
+          <p style="font-size: 0.88rem; color: var(--text-muted); max-width: 550px; margin: 0 auto; line-height: 1.6;">
+            대학원 교수진이 직접 설계한 실시간 AI·XR 실습 플랫폼입니다.<br>
+            원하는 교육 과정을 선택하여 <strong style="color: #fff; font-weight: 700;">실시간 AI 채점</strong>과<br><strong style="color: var(--teal); font-weight: 700;">정밀 피드백</strong>을 직접 경험해보세요.
+          </p>
         </div>
 
-        <!-- Course Selection Dropdown -->
-        <div style="display: flex; flex-direction: column; gap: 0.5rem; width: 100%;">
-          <label style="font-size: 0.85rem; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 0.3px;">📚 교육 패키지 코스 선택</label>
-          <div class="custom-dropdown" id="customCourseDropdown">
-            <div class="dropdown-trigger" onclick="toggleCustomDropdown(event)">
-              <span id="selectedCourseText">📚 왕초보 AI 첫걸음</span>
-              <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </div>
-            <div class="dropdown-options" id="dropdownOptions">
-              <!-- Dynamically populated via JS -->
-            </div>
+        <!-- Course Cards Grid -->
+        <div style="margin-bottom: 3rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; border-left: 3px solid var(--teal); padding-left: 8px;">
+            <span>개설 교육 과정 (14대 단과)</span>
+          </h3>
+          <div id="lobbyCoursesGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; width: 100%;">
+            <!-- Dynamically populated via JS -->
           </div>
         </div>
 
-        <ul class="mission-list" id="missionList">
-          <!-- Dynamically populated via JS -->
-        </ul>
+        <!-- AI 실전 퀵스타트 -->
+        <div style="margin-bottom: 3rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem; border-left: 3px solid #f59e0b; padding-left: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" style="vertical-align: middle;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <span>AI 실전 퀵스타트</span>
+          </h3>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.2rem; padding-left: 11px;">배운 내용을 바로 실무에 적용해 보는 실전 연습 액션 리스트입니다.</p>
+          <div id="lobbyQuickGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; width: 100%;">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+
+        <!-- 이번 주 새 AI 실전 레슨 -->
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem; border-left: 3px solid #818cf8; padding-left: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2.5" style="vertical-align: middle;"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 6v6l4 2"></path></svg>
+            <span>이번 주 새 AI 실전 레슨</span>
+          </h3>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.2rem; padding-left: 11px;">매주 업데이트되는 최신 콘텐츠와 직무별 심화 학습 레슨입니다.</p>
+          <div id="lobbyWeeklyGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; width: 100%;">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
       </div>
-      
-      <!-- Right Pane: Active Workspace -->
-      <div class="campus-workspace">
-        <div class="campus-controls">
-          <button class="campus-btn" id="ttsBtn" onclick="speakMissionInstructions()">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-            <span>음성 안내</span>
+
+      <!-- Classroom View (Split Pane) -->
+      <div id="campusClassroom" style="display: none; flex-direction: row; width: 100%; max-height: 85vh; height: 100%;">
+        <!-- Left Sidebar: Course Directory -->
+        <div class="campus-sidebar" style="width: 320px; display: flex; flex-direction: column; border-right: 1px solid rgba(255, 255, 255, 0.08); background: #0a101d; padding: 1.5rem; flex-shrink: 0; box-sizing: border-box; overflow-y: auto;">
+          <button onclick="showLobby()" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px; margin-bottom: 1rem; width: 100%; justify-content: center; transition: all 0.2s;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>◀ 전체 코스 보기 (로비)</span>
           </button>
-          <button class="campus-btn" id="largeTextBtn" onclick="toggleLargeTextMode()">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
-            <span>큰 글씨 모드</span>
-          </button>
-        </div>
-        
-        <div class="mission-header">
-          <span class="mission-badge" id="missionBadge">Mission 01</span>
-          <h3 class="mission-title" id="missionTitle">왕초보 AI 첫걸음: 챗GPT에게 역할 부여하여 지시하기</h3>
-        </div>
-        
-        <div class="mission-guide" id="missionGuide">
-          <strong>📝 실습 지시사항:</strong><br>
-          인공지능에게 단순한 질문대신 구체적인 <strong>역할(페르소나)</strong>을 부여하고 지시를 내려보세요.<br>
-          아래의 프롬프트 예시처럼 역할과 알고 싶은 정보를 작성해 제출하시면 AI가 실용성을 실시간 평가합니다.<br><br>
-          <em>예시: "너는 30년 경력의 베테랑 사진감독이야. 스마트폰 카메라로 아름다운 야경 사진을 촬영하기 위한 3대 핵심 팁을 친절하게 설명해줘."</em>
-        </div>
-        
-        <div class="mission-prompt-area">
-          <div style="display: flex; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; width: 100%;">
-            <div style="flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 0.4rem;">
-              <label for="passcodeInput" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">🔑 클래스 인증 코드 (일반 체험은 비워두세요):</label>
-              <input type="text" id="passcodeInput" placeholder="예: kacec2026" style="background: rgba(3, 7, 18, 0.6); border: 1px solid var(--border-card); border-radius: 8px; padding: 0.6rem 1rem; color: #fff; font-size: 0.95rem; transition: var(--transition-smooth); width: 100%; max-width: 320px;">
-            </div>
-          </div>
-          <label for="promptInput">✍️ 여기에 본인만의 지시문(프롬프트)을 입력해 보세요:</label>
-          <textarea id="promptInput" class="mission-input" placeholder="너는 [역할]이야. [임무]를 [출력 형식]으로 설명해줘."></textarea>
-        </div>
-        
-        <button onclick="submitPrompt()" class="btn btn-primary" id="submitPromptBtn" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 1rem 2rem;">
-          🚀 미션 제출 및 실시간 AI 채점하기
-        </button>
-        
-        <!-- Grading Result (Hidden by Default) -->
-        <div class="result-box" id="resultBox">
-          <div class="result-header">
-            <div class="result-score-container">
-              <span class="result-score-num" id="resultScore">0</span>
-              <span class="result-score-total">/ 100 점</span>
-            </div>
-            <span class="result-badge" id="resultBadge" style="display: none;">PASS</span>
-          </div>
-          <div class="progress-bar-bg">
-            <div class="progress-bar-fill" id="progressBarFill"></div>
+          
+          <div class="campus-academy-title" style="display: flex; align-items: center; gap: 10px; padding-bottom: 1rem; border-bottom: 1px dashed rgba(255,255,255,0.15); margin-bottom: 1rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 3px var(--teal-glow));"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+            <span style="font-weight: 800; font-size: 1.1rem; color: #fff; letter-spacing: -0.5px;">KACEC Campus</span>
           </div>
           
-          <div class="feedback-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
-            <span>AI 채점 분석 및 피드백</span>
-          </div>
-          <div class="feedback-content" id="resultFeedback">
-            로딩 중...
+          <!-- Filter Tabs -->
+          <div class="filter-tabs" style="display: flex; gap: 6px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 1rem; width: 100%;">
+            <button class="filter-tab active" onclick="filterCourses('all', this)" style="flex: 1; text-align: center; padding: 6px 0;">전체</button>
+            <button class="filter-tab" onclick="filterCourses('free', this)" style="flex: 1; text-align: center; padding: 6px 0;">무료</button>
+            <button class="filter-tab" onclick="filterCourses('paid', this)" style="flex: 1; text-align: center; padding: 6px 0;">유료</button>
+            <button class="filter-tab" onclick="filterCourses('cert', this)" style="flex: 1; text-align: center; padding: 6px 0;">자격</button>
           </div>
 
-          <button id="retryBtn" class="btn btn-outline" style="width: 100%; justify-content: center; margin-top: 1rem; display: none; background: rgba(245, 158, 11, 0.1); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);" onclick="retryMission()">
-            🔄 피드백 반영하여 다시 도전하기
-          </button>
-          
-          <!-- Certificate Card Preview -->
-          <div id="certificateContainer" style="display: none; margin-top: 1rem; padding: 2rem; border-radius: 16px; background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%); color: #000; text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.5); position: relative; overflow: hidden; animation: fadeIn 0.8s ease forwards;">
-            <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; border-radius: 50%; background: rgba(255,255,255,0.1); pointer-events: none;"></div>
-            <h4 style="font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 0.5rem; text-transform: uppercase;">Certificate of Completion</h4>
-            <p style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 1px;">KACEC ONLINE CAMPUS</p>
-            <h2 id="certStudentName" style="font-size: 1.8rem; font-weight: 800; margin-bottom: 0.8rem; font-family: sans-serif;">홍 길 동</h2>
-            <p style="font-size: 0.9rem; font-weight: 500; line-height: 1.6; margin-bottom: 1.5rem; max-width: 450px; margin-left: auto; margin-right: auto;">위 사람은 한국 AI 융합 교육원 협동조합의 실시간 실습 미션을 성공적으로 수행하고 AI 활용 역량을 검증받았음을 보증합니다.</p>
-            <div style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; font-weight: 700;">
-              <div>NO. KACEC-2026-0001</div>
-              <div>한국 AI 융합 교육원 협동조합</div>
-            </div>
+          <!-- Course List -->
+          <div class="mission-list" id="courseList" style="display: flex; flex-direction: column; gap: 0.5rem; overflow-y: auto; flex: 1;">
+            <!-- Dynamically populated via JS -->
           </div>
-          
-          <button id="certBtn" class="btn btn-outline" style="width: 100%; justify-content: center; margin-top: 1rem; display: none; background: rgba(255,255,255,0.05); color: #fff; border-color: rgba(255,255,255,0.2);" onclick="showCertificateCard()">
-            🎓 나만의 디지털 수료증 발급받기
-          </button>
+        </div>
+        
+        <!-- Right Pane: Active Workspace -->
+        <div class="campus-workspace" id="campusWorkspace" style="flex: 1; padding: 2rem; overflow-y: auto; display: flex; flex-direction: column; box-sizing: border-box; background: #060912; position: relative; max-height: 85vh;">
+          <!-- Dynamically populated via JS -->
         </div>
       </div>
     </div>
@@ -4514,8 +4510,6 @@
         document.body.style.overflow = '';
         if (window.speechSynthesis.speaking) {
           window.speechSynthesis.cancel();
-          const btn = document.getElementById('ttsBtn');
-          if (btn) btn.classList.remove('active');
         }
       }
     }
@@ -4529,49 +4523,9 @@
 
     // 필터 탭 함수 (미모 추가)
     function filterCourses(filter, btn) {
-      // 탭 활성화
       document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
       btn.classList.add('active');
-      
-      // 필터 매핑: 탭 → 트랙
-      const filterMap = {
-        'all': ['intro', 'practical', 'creator', 'maker', 'builder', 'engineer', 'instructor'],
-        'free': ['intro'],
-        'paid': ['practical', 'creator', 'maker', 'builder'],
-        'cert': ['engineer', 'instructor']
-      };
-      
-      const allowedTracks = filterMap[filter] || [];
-      
-      // 드롭다운 옵션 필터링
-      const options = document.querySelectorAll('#dropdownOptions .dropdown-option');
-      const headers = document.querySelectorAll('#dropdownOptions .dropdown-track-header');
-      
-      // 모든 옵션과 헤더 숨기기
-      options.forEach(opt => opt.style.display = 'none');
-      headers.forEach(h => h.style.display = 'none');
-      
-      // 헤더 먼저 숨기고, 해당되는 것만 표시
-      headers.forEach(h => {
-        const trackKey = h.dataset.track;
-        if (allowedTracks.includes(trackKey)) {
-          h.style.display = '';
-        }
-      });
-      
-      // 옵션도 필터링
-      options.forEach(opt => {
-        const trackKey = opt.dataset.track;
-        if (allowedTracks.includes(trackKey)) {
-          opt.style.display = '';
-        }
-      });
-      
-      // 드롭다운 자동 오픈
-      const dropdown = document.getElementById('customCourseDropdown');
-      if (dropdown && !dropdown.classList.contains('open')) {
-        toggleCustomDropdown(new Event('click'));
-      }
+      renderCoursesList(filter);
     }
 
     // Course & Mission Data Schema
@@ -4763,214 +4717,561 @@
     let activeCourse = 'beginner';
     let activeMissionIndex = 0;
 
-    function initCampus() {
-      renderDropdownOptions();
-      renderMissionsList();
-      selectMission(0);
+    const LOBBY_QUICK = [
+      {t:'AI로 업무 이메일 초안 30초에 뽑기',track:'docimg'},
+      {t:'긴 문서 1개를 AI에 붙여넣어 핵심 요약 뽑기',track:'docimg'},
+      {t:'AI로 첫 이미지 한 장 만들기',track:'cultural'},
+      {t:'낯선 주제를 AI에게 물어 빠르게 이해하기',track:'beginner'},
+      {t:'명령(프롬프트)이 무엇인지 이해하기',track:'beginner'},
+      {t:'AI도 틀린다 — AI 답을 무조건 믿지 않기',track:'beginner'},
+      {t:'분명하고 친절한 한 문장 명령 쓰기',track:'beginner'},
+      {t:'AI 부업 시작하기 — 첫 1만원 버는 길',track:'commissioned'}
+    ];
+    const LOBBY_WEEKLY = [
+      {t:'에이전트 기억 설계 — Mem0·Zep',track:'automation'},
+      {t:'검색·AI답변 노출(SEO·GEO) 기초',track:'commissioned'},
+      {t:'콘텐츠 재활용·배포 엔진',track:'commissioned'},
+      {t:'오픈소스 프론티어 LLM 고르기 (Kimi K2·DS V4·Qwen 3·GLM-5)',track:'vibecoding'},
+      {t:'즉석 앱 생성 — v0·Bolt·Lovable로 말로 앱 만들기',track:'vibecoding'},
+      {t:'내 업무용 커스텀 GPT/Claude Project 직접 만들기',track:'vibecoding'},
+      {t:'Gamma로 발표 슬라이드 초안 10분 만에 만들기',track:'docimg'},
+      {t:'트리거→AI→액션 자동화 파이프라인 (Zapier/Make)',track:'automation'},
+      {t:'내 자료만 근거로 답하는 AI 노트북 만들기',track:'vibecoding'},
+      {t:'Canva AI로 SNS 게시물 세트 디자인하기',track:'youtube'},
+      {t:'MCP로 AI를 Notion·Drive·DB에 양방향 연결하기',track:'automation'}
+    ];
+
+    function showLobby() {
+      const lobby = document.getElementById('campusLobby');
+      const classroom = document.getElementById('campusClassroom');
+      if (lobby && classroom) {
+        lobby.style.display = 'block';
+        classroom.style.display = 'none';
+        renderLobby();
+      }
     }
 
-    function renderDropdownOptions() {
-      const optionsContainer = document.getElementById('dropdownOptions');
-      if (!optionsContainer) return;
-      optionsContainer.innerHTML = '';
-      
-      const passcode = document.getElementById('passcodeInput') ? document.getElementById('passcodeInput').value.trim() : '';
-      const isPasscodeValid = (passcode === 'kacec2026');
-      
-      const tracks = {};
+    function showClassroom() {
+      const lobby = document.getElementById('campusLobby');
+      const classroom = document.getElementById('campusClassroom');
+      if (lobby && classroom) {
+        lobby.style.display = 'none';
+        classroom.style.display = 'flex';
+      }
+    }
+
+    function renderLobby() {
+      const coursesGrid = document.getElementById('lobbyCoursesGrid');
+      const quickGrid = document.getElementById('lobbyQuickGrid');
+      const weeklyGrid = document.getElementById('lobbyWeeklyGrid');
+      if (!coursesGrid || !quickGrid || !weeklyGrid) return;
+
+      const isPasscodeValid = coursesData.cultural.unlocked;
+
+      // 1. Render all courses cards
+      coursesGrid.innerHTML = '';
       Object.keys(coursesData).forEach(key => {
-        const course = coursesData[key];
-        if (!tracks[course.track]) {
-          tracks[course.track] = {
-            title: course.trackTitle,
-            courses: []
-          };
+        const c = coursesData[key];
+        let typeClass = 'paid';
+        let typeLabel = '유료';
+        if (c.track === 'intro') {
+          typeClass = 'free';
+          typeLabel = '무료';
+        } else if (c.track === 'engineer' || c.track === 'instructor') {
+          typeClass = 'cert';
+          typeLabel = '자격증';
         }
-        tracks[course.track].courses.push({ key, ...course });
+        let isLocked = !c.unlocked && !isPasscodeValid;
+        if (key === 'beginner') isLocked = false;
+
+        const card = document.createElement('div');
+        card.style.cssText = 'background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.2rem; cursor: pointer; transition: all 0.2s; display: flex; flex-direction: column; height: 160px; justify-content: space-between; position: relative; box-sizing: border-box;';
+        card.onmouseover = () => { card.style.background = 'rgba(255,255,255,0.04)'; card.style.borderColor = 'var(--teal)'; };
+        card.onmouseout = () => { card.style.background = 'rgba(255,255,255,0.02)'; card.style.borderColor = 'rgba(255,255,255,0.06)'; };
+        card.onclick = () => { selectCourse(key); showClassroom(); };
+
+        card.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(20,184,166,0.1); display: flex; align-items: center; justify-content: center; color: var(--teal);">${getCourseIcon(key, 20)}</div>
+            <span class="course-card-badge ${typeClass === 'free' ? 'badge-free' : typeClass === 'cert' ? 'badge-cert' : 'badge-paid'}" style="padding: 2px 8px; font-size: 0.7rem; border-radius: 99px;">${typeLabel}</span>
+          </div>
+          <div style="font-size: 0.92rem; font-weight: 700; color: #fff; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">
+            <span>${cleanTitle(c.title)}</span>
+            <span>${isLocked ? '🔒' : ''}</span>
+          </div>
+          <div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; margin-top: 4px;">${cleanTitle(c.trackTitle)} 과정의 전용 실습실입니다.</div>
+        `;
+        coursesGrid.appendChild(card);
       });
-      
-      Object.keys(tracks).forEach(trackKey => {
-        const track = tracks[trackKey];
-        const header = document.createElement('div');
-        header.className = 'dropdown-track-header';
-        header.setAttribute('data-track', trackKey);
-        header.innerText = track.title;
-        optionsContainer.appendChild(header);
-        
-        track.courses.forEach(c => {
-          const opt = document.createElement('div');
-          let isLocked = !c.unlocked && !isPasscodeValid;
-          if (c.key === 'beginner') isLocked = false;
-          
-          opt.className = `dropdown-option ${c.key === activeCourse ? 'active' : ''}`;
-          opt.id = `opt-${c.key}`;
-          opt.setAttribute('data-value', c.key);
-          opt.setAttribute('data-track', c.track);
-          opt.setAttribute('data-type', c.track === 'intro' ? 'free' : (c.track === 'engineer' || c.track === 'instructor') ? 'cert' : 'paid');
-          opt.onclick = (e) => selectCourseOption(c.key, e);
-          
-          let displayTitle = c.title;
-          if (isLocked) {
-            displayTitle += ' 🔒';
-          }
-          opt.innerText = displayTitle;
-          optionsContainer.appendChild(opt);
-        });
-      });
+
+      // 2. Render AI 실전 퀵스타트
+      quickGrid.innerHTML = LOBBY_QUICK.map((q, i) => {
+        const c = coursesData[q.track];
+        const svgIcon = getCourseIcon(q.track, 14);
+        return `
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.2rem; display: flex; flex-direction: column; height: 160px; box-sizing: border-box; justify-content: space-between; transition: all 0.2s;" 
+               onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='#f59e0b';" 
+               onmouseout="this.style.background='rgba(255,255,255,0.02)'; this.style.borderColor='rgba(255,255,255,0.06)';">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span style="width: 22px; height: 22px; border-radius: 6px; background: rgba(245, 158, 11, 0.15); color: #f59e0b; font-weight: 800; font-size: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">${i+1}</span>
+              <span style="font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 99px; background: rgba(20, 184, 166, 0.1); color: var(--teal); margin-left: auto; display: inline-flex; align-items: center; gap: 4px;">${svgIcon}${cleanTitle(c ? c.title : q.track)}</span>
+            </div>
+            <div style="font-size: 13px; font-weight: 600; color: #fff; line-height: 1.4; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">${q.t}</div>
+            <div style="display: flex; gap: 6px; margin-top: auto; justify-content: center; width: 100%;">
+              <button class="campus-btn" style="padding: 0.4rem 0.8rem !important; font-size: 0.75rem; border-radius: 6px; cursor: pointer; background: rgba(20, 184, 166, 0.05); border: 1px solid rgba(20, 184, 166, 0.3); color: var(--teal); font-weight: 700; width: 90%; margin: 0 auto; display: flex !important; justify-content: center !important; align-items: center !important; text-align: center !important; transition: all 0.2s; box-shadow: 0 0 5px rgba(20, 184, 166, 0.1);" 
+                      onmouseover="this.style.background='rgba(20, 184, 166, 0.15)'; this.style.borderColor='var(--teal)'; this.style.boxShadow='0 0 10px rgba(20, 184, 166, 0.4)';" 
+                      onmouseout="this.style.background='rgba(20, 184, 166, 0.05)'; this.style.borderColor='rgba(20, 184, 166, 0.3)'; this.style.boxShadow='0 0 5px rgba(20, 184, 166, 0.1)';"
+                      onclick="selectCourse('${q.track}'); showClassroom();">🚀 실습 개시</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // 3. Render 이번 주 새 AI 실전 레슨
+      weeklyGrid.innerHTML = LOBBY_WEEKLY.map(w => {
+        const c = coursesData[w.track];
+        const svgIcon = getCourseIcon(w.track, 14);
+        return `
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.2rem; display: flex; flex-direction: column; height: 160px; box-sizing: border-box; justify-content: space-between; transition: all 0.2s;"
+               onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='#818cf8';" 
+               onmouseout="this.style.background='rgba(255,255,255,0.02)'; this.style.borderColor='rgba(255,255,255,0.06)';">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span style="color: #818cf8; display: inline-flex; align-items: center;">${svgIcon}</span>
+              <span style="font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 99px; background: rgba(129, 140, 248, 0.1); color: #818cf8; margin-left: auto;">${cleanTitle(c ? c.title : w.track)}</span>
+            </div>
+            <div style="font-size: 13px; font-weight: 600; color: #fff; line-height: 1.4; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">${w.t}</div>
+            <div style="display: flex; gap: 6px; margin-top: auto; justify-content: center; width: 100%;">
+              <button class="campus-btn" style="padding: 0.4rem 0.8rem !important; font-size: 0.75rem; border-radius: 6px; cursor: pointer; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 90%; margin: 0 auto; display: flex !important; justify-content: center !important; align-items: center !important; text-align: center !important; transition: all 0.2s;" 
+                      onmouseover="this.style.background='rgba(255,255,255,0.15)'; this.style.borderColor='rgba(255,255,255,0.3)';" 
+                      onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.borderColor='rgba(255,255,255,0.1)';"
+                      onclick="selectCourse('${w.track}'); showClassroom();">📖 강의 및 실습</button>
+            </div>
+          </div>
+        `;
+      }).join('');
     }
 
-    function renderMissionsList() {
-      const list = document.getElementById('missionList');
+    function initCampus() {
+      showLobby();
+    }
+
+    function getCourseIcon(key, size = 18) {
+      const paths = {
+        beginner: `<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>`,
+        smartphone: `<rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line>`,
+        docimg: `<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>`,
+        cultural: `<path d="M12 22C17.52 22 22 17.52 22 12S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10z"></path><circle cx="7.5" cy="10.5" r="1" fill="currentColor"></circle><circle cx="11.5" cy="7.5" r="1" fill="currentColor"></circle><circle cx="16.5" cy="9.5" r="1" fill="currentColor"></circle>`,
+        youtube: `<polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>`,
+        music: `<path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle>`,
+        circuit: `<rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line>`,
+        maker3d: `<polyline points="21 8 21 16 12 21 3 16 3 8 12 3 21 8"></polyline><polyline points="3 8 12 13 21 8"></polyline><line x1="12" y1="13" x2="12" y2="21"></line>`,
+        vibecoding: `<polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>`,
+        mediaart: `<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>`,
+        automation: `<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>`,
+        digitaltwin: `<polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line>`,
+        commissioned: `<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>`,
+        certification: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>`
+      };
+      const p = paths[key] || `<circle cx="12" cy="12" r="10"></circle>`;
+      return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; filter: drop-shadow(0 0 2px rgba(20,184,166,0.35));">${p}</svg>`;
+    }
+
+    function cleanTitle(title) {
+      return title.replace(/[\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDC00-\uDFFF]/g, '').trim();
+    }
+
+    function renderCoursesList(filter = 'all') {
+      const list = document.getElementById('courseList');
       if (!list) return;
       list.innerHTML = '';
-      const course = coursesData[activeCourse];
       
-      course.missions.forEach((m, idx) => {
-        const li = document.createElement('li');
+      const filterMap = {
+        'all': ['intro', 'practical', 'creator', 'maker', 'builder', 'engineer', 'instructor'],
+        'free': ['intro'],
+        'paid': ['practical', 'creator', 'maker', 'builder'],
+        'cert': ['engineer', 'instructor']
+      };
+      const allowedTracks = filterMap[filter] || [];
+      const isPasscodeValid = coursesData.cultural.unlocked;
+      
+      Object.keys(coursesData).forEach(key => {
+        const c = coursesData[key];
+        if (!allowedTracks.includes(c.track)) return;
         
-        let isLocked = m.locked;
-        if (activeCourse === 'beginner' || activeCourse === 'smartphone' || activeCourse === 'docimg') isLocked = false;
-        if (coursesData[activeCourse].unlocked) isLocked = false;
+        const el = document.createElement('div');
+        el.className = `course-card-item ${activeCourse === key ? 'active' : ''}`;
+        el.onclick = () => selectCourse(key);
         
-        li.className = `mission-item ${idx === activeMissionIndex ? 'active' : ''} ${isLocked ? 'locked' : ''}`;
-        
-        if (!isLocked) {
-          li.onclick = () => selectMission(idx);
-        } else {
-          li.onclick = () => {
-            alert("🔒 이 단계는 '정식 수강생 라이센스 잠금' 상태입니다.\n\n하단의 [🔑 클래스 인증 코드]에 올바른 비밀코드를 입력하고 과정을 다시 선택하면 잠금이 해제됩니다!");
-          };
+        let typeClass = 'paid';
+        let typeLabel = '유료';
+        if (c.track === 'intro') {
+          typeClass = 'free';
+          typeLabel = '무료';
+        } else if (c.track === 'engineer' || c.track === 'instructor') {
+          typeClass = 'cert';
+          typeLabel = '자격증';
         }
         
-        li.innerHTML = `
-          <span class="mission-item-num">${m.num}</span>
-          <span class="mission-item-title" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
-            <span>${m.title}</span>
-            ${isLocked ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>' : ''}
-          </span>
+        let isLocked = !c.unlocked && !isPasscodeValid;
+        if (key === 'beginner') isLocked = false;
+        
+        el.innerHTML = `
+          <div class="course-card-icon ${typeClass}">${getCourseIcon(key, 16)}</div>
+          <div class="course-card-name" style="font-size: 13px; font-weight: 500; color: #fff; flex: 1;">${cleanTitle(c.title)} ${isLocked ? '🔒' : ''}</div>
+          <span class="course-card-badge ${typeClass === 'free' ? 'badge-free' : typeClass === 'cert' ? 'badge-cert' : 'badge-paid'}">${typeLabel}</span>
         `;
-        list.appendChild(li);
+        list.appendChild(el);
       });
     }
 
-    function selectMission(idx) {
-      activeMissionIndex = idx;
+    function selectCourse(courseKey) {
+      activeCourse = courseKey;
+      activeMissionIndex = 0;
       
-      const items = document.querySelectorAll('#missionList .mission-item');
-      items.forEach((item, i) => {
-        if (i === idx) item.classList.add('active');
-        else item.classList.remove('active');
+      const activeTab = document.querySelector('.filter-tab.active');
+      const filter = activeTab ? (activeTab.textContent.trim() === '무료' ? 'free' : activeTab.textContent.trim() === '유료' ? 'paid' : activeTab.textContent.trim() === '자격' ? 'cert' : 'all') : 'all';
+      renderCoursesList(filter);
+      renderCourseDetail();
+    }
+
+    function renderCourseDetail() {
+      const workspace = document.getElementById('campusWorkspace');
+      if (!workspace) return;
+      
+      const c = coursesData[activeCourse];
+      if (!c) return;
+      const typeLabel = (c.track === 'intro') ? '무료' : (c.track === 'engineer' || c.track === 'instructor') ? '자격증' : '유료';
+      const icon = getCourseIcon(activeCourse, 26);
+      const isPasscodeValid = coursesData.cultural.unlocked;
+      
+      const tagsMap = {
+        beginner: ['왕초보', '시니어', '일반인'],
+        smartphone: ['시니어', '스마트폰 초보'],
+        docimg: ['직장인', '자영업자', '학생'],
+        cultural: ['시니어', '일반인', '문화인'],
+        youtube: ['크리에이터', '소상공인', '일반인'],
+        music: ['일반인', '시니어', '음악 초보'],
+        circuit: ['청소년', '방과후 강사'],
+        maker3d: ['청소년', '메이커 입문'],
+        vibecoding: ['비개발자', '직장인', '창업자'],
+        mediaart: ['아티스트', '일반인', '청소년'],
+        automation: ['직장인', '소상공인', '엔지니어'],
+        digitaltwin: ['대학교', '기업', '정부기관'],
+        commissioned: ['교육기관', '지자체'],
+        certification: ['교사', '강사', '전문가']
+      };
+      const tags = tagsMap[activeCourse] || ['일반인'];
+      
+      const curriculumHTML = c.missions.map((m, idx) => {
+        let isStepLocked = m.locked && !isPasscodeValid;
+        if (activeCourse === 'beginner' || activeCourse === 'smartphone' || activeCourse === 'docimg') isStepLocked = false;
+        
+        return `
+          <div class="curr-item-wrapper" style="margin-bottom: 0.8rem; display: flex; flex-direction: column; width: 100%;">
+            <div class="curr-item" onclick="toggleStepPractice(${idx})" style="display: flex; gap: 12px; align-items: center; padding: 12px 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; cursor: pointer; transition: all 0.2s; justify-content: space-between;">
+              <div style="display: flex; gap: 12px; align-items: center;">
+                <div class="curr-num" style="font-size: 14px; font-weight: 800; color: var(--teal);">${String(idx+1).padStart(2,'0')}</div>
+                <div class="curr-text" style="font-size: 13.5px; color: var(--text-main); font-weight: 500;">${m.title}</div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span id="stepStatus-${idx}" style="font-size: 0.75rem; font-weight: 600; color: var(--text-muted);">실습 대기</span>
+                ${isStepLocked ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>' : '<svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="transition: transform 0.2s;"><polyline points="6 9 12 15 18 9"></polyline></svg>'}
+              </div>
+            </div>
+            
+            <div class="step-practice-drawer" id="practice-drawer-${idx}" style="background: rgba(10, 15, 30, 0.4); border: 1px solid rgba(20, 184, 166, 0.1); border-top: none; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; padding: 1.5rem; display: none; flex-direction: column; gap: 1rem; width: 100%; box-sizing: border-box; transition: all 0.3s ease;">
+              <div class="mission-guide" style="font-size: 0.9rem; line-height: 1.7; color: var(--text-muted); padding: 1rem; background: rgba(3, 7, 18, 0.6); border-left: 3px solid var(--teal); border-radius: 4px;">
+                ${m.guide}
+              </div>
+              
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem;">
+                <div style="font-size: 0.82rem; color: var(--text-muted);">💡 프롬프트를 조건에 맞춰 작성해 주세요.</div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <button class="campus-btn" id="ttsBtn-${idx}" onclick="speakStepInstructions(${idx})" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; display: flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; color: rgba(255,255,255,0.6); cursor: pointer;">🔊 읽기</button>
+                  <button class="campus-btn" id="largeTextBtn-${idx}" onclick="toggleStepLargeText(${idx})" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; display: flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; color: rgba(255,255,255,0.6); cursor: pointer;">Aa 크게</button>
+                </div>
+              </div>
+
+              ${isStepLocked ? `
+              <div class="passcode-container" style="background: rgba(245, 158, 11, 0.05); border: 1px dashed rgba(245, 158, 11, 0.2); border-radius: 8px; padding: 1.2rem; text-align: center;">
+                <div style="font-size: 0.85rem; color: #fbbf24; margin-bottom: 0.8rem; font-weight: 700;">🔒 이 단계는 인증코드가 필요합니다.</div>
+                <div style="display: flex; gap: 0.5rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+                  <input type="text" id="passcodeInput-${idx}" placeholder="인증코드를 입력하세요 (예: kacec2026)" style="background: rgba(3, 7, 18, 0.6); border: 1px solid rgba(245,158,11,0.3); border-radius: 6px; padding: 0.5rem 1rem; color: #fff; font-size: 0.85rem; width: 240px; outline: none;">
+                  <button class="btn btn-primary" onclick="verifyStepPasscode(${idx})" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; border-radius: 6px; height: 35px;">해제</button>
+                </div>
+              </div>
+              ` : `
+              <div class="prompt-input-wrapper" style="display: flex; flex-direction: column; gap: 0.5rem; width: 100%;">
+                <textarea id="promptInput-${idx}" class="mission-input" style="width: 100%; min-height: 110px; resize: vertical; background: rgba(3, 7, 18, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; padding: 0.8rem; font-size: 0.9rem; line-height: 1.6; outline: none;" placeholder="${m.placeholder}"></textarea>
+                <button onclick="submitStepPrompt(${idx})" class="btn btn-primary" id="submitPromptBtn-${idx}" style="width: 100%; padding: 0.8rem; justify-content: center; font-size: 0.95rem; font-weight: 700;">🚀 미션 제출 및 AI 채점</button>
+              </div>
+              `}
+
+              <div class="result-box" id="resultBox-${idx}" style="display: none; background: rgba(3, 7, 18, 0.5); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.2rem;">
+                <div class="result-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+                  <div class="result-score-container" style="display: flex; align-items: baseline; gap: 2px;">
+                    <span class="result-score-num" id="resultScore-${idx}" style="font-size: 1.8rem; font-weight: 800; color: var(--teal);">0</span>
+                    <span class="result-score-total" style="font-size: 0.85rem; color: var(--text-muted);">/ 100 점</span>
+                  </div>
+                  <span class="result-badge" id="resultBadge-${idx}" style="font-size: 0.8rem; font-weight: 800; padding: 3px 12px; border-radius: 99px;">PASS</span>
+                </div>
+                <div class="progress-bar-bg" style="width: 100%; height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden; margin-bottom: 1rem;">
+                  <div class="progress-bar-fill" id="progressBarFill-${idx}" style="height: 100%; width: 0; background: var(--teal); transition: width 0.6s ease;"></div>
+                </div>
+                <div class="feedback-title" style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">AI 피드백 상세</div>
+                <div class="feedback-content" id="resultFeedback-${idx}" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; padding-left: 10px; border-left: 2px solid var(--teal); margin-bottom: 1rem;">평가 중...</div>
+                
+                <button id="retryBtn-${idx}" class="btn btn-outline" style="width: 100%; justify-content: center; display: none; background: rgba(245, 158, 11, 0.1); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3); padding: 0.5rem; font-size: 0.85rem;" onclick="retryStep(${idx})">🔄 다시 도전하기</button>
+                
+                <div id="certificateContainer-${idx}" style="display: none; margin-top: 1rem; padding: 1.5rem; border-radius: 12px; background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%); color: #000; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+                  <h4 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.3rem;">Certificate of Completion</h4>
+                  <h2 id="certStudentName-${idx}" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">홍길동</h2>
+                  <p style="font-size: 0.75rem; line-height: 1.5; margin-bottom: 1rem;">위 사람은 한국 AI 융합 교육원 협동조합의 실시간 실습 미션을 완수하였음을 인증합니다.</p>
+                  <div style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 0.6rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; font-weight: 700;">
+                    <div id="certNo-${idx}">NO. KACEC-2026-0001</div>
+                    <div>KACEC 협동조합</div>
+                  </div>
+                </div>
+                <button id="certBtn-${idx}" class="btn btn-outline" style="width: 100%; justify-content: center; margin-top: 0.8rem; display: none; background: rgba(255,255,255,0.05); color: #fff; border-color: rgba(255,255,255,0.2); padding: 0.5rem; font-size: 0.85rem;" onclick="showStepCertificateCard(${idx})">🎓 디지털 수료증 발급</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+      
+      workspace.innerHTML = `
+        <div class="content-hero" style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1.5rem; margin-bottom: 1.5rem; background: linear-gradient(180deg, rgba(99,102,241,0.04), transparent); padding-top: 1rem; border-radius: 12px; padding-left: 1rem; padding-right: 1rem;">
+          <div class="breadcrumb" style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.8rem;">홈 &gt; <span style="color: var(--teal); font-weight: bold;">${typeLabel}</span> &gt; <span style="color: #fff;">${cleanTitle(c.title)}</span></div>
+          <div class="hero-title" style="font-size: 1.6rem; font-weight: 800; color: #fff; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>${icon}</span>
+            <span>${cleanTitle(c.title)}</span>
+          </div>
+          <div class="hero-desc" style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">${cleanTitle(c.trackTitle)} 과정의 온·오프라인 실시간 하이브리드 실습 워크스페이스입니다.</div>
+        </div>
+        
+        <div class="content-body" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="section-block">
+            <h4 style="font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem;">📚 커리큘럼 실습 단계 선택</h4>
+            <div class="curr-list" style="display: flex; flex-direction: column; width: 100%;">
+              ${curriculumHTML}
+            </div>
+          </div>
+          
+          <div class="section-block">
+            <h4 style="font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem;">🎯 추천 학습 대상</h4>
+            <div class="tags" style="display: flex; gap: 6px; flex-wrap: wrap;">
+              ${tags.map(t => `<span class="tag" style="padding: 5px 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; font-size: 0.8rem; color: var(--text-muted);">${t}</span>`).join('')}
+            </div>
+          </div>
+          
+          <div class="cta-row" style="display: flex; gap: 10px; margin-top: 1rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.08);">
+            <button class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;" onclick="alert('정식 공공/위탁 신청 포털 연계 준비 중입니다. 문의 메일: office@kacec.kr')">수강 신청하기</button>
+            <button class="btn btn-secondary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;" onclick="alert('이메일 문의: office@kacec.kr')">문의하기</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function toggleStepPractice(idx) {
+      const drawer = document.getElementById(`practice-drawer-${idx}`);
+      const item = drawer.previousElementSibling;
+      const chevron = item.querySelector('.chevron');
+      const isOpen = drawer.style.display === 'flex';
+      
+      document.querySelectorAll('.step-practice-drawer').forEach(d => {
+        d.style.display = 'none';
+        const ch = d.previousElementSibling.querySelector('.chevron');
+        if (ch) ch.style.transform = '';
       });
       
-      const course = coursesData[activeCourse];
-      const mission = course.missions[idx];
-      if (mission) {
-        document.getElementById('missionBadge').innerText = mission.num;
-        document.getElementById('missionTitle').innerText = mission.title;
-        document.getElementById('missionGuide').innerHTML = mission.guide;
-        document.getElementById('promptInput').placeholder = mission.placeholder;
-        document.getElementById('promptInput').value = '';
+      if (!isOpen) {
+        drawer.style.display = 'flex';
+        if (chevron) chevron.style.transform = 'rotate(180deg)';
+        activeMissionIndex = idx;
+      } else {
+        drawer.style.display = 'none';
+        if (chevron) chevron.style.transform = '';
       }
-      
-      document.getElementById('resultBox').classList.remove('show');
     }
 
-    function toggleCustomDropdown(event) {
-      if (event) event.stopPropagation();
-      const dropdown = document.getElementById('customCourseDropdown');
-      const options = document.getElementById('dropdownOptions');
-      if (!dropdown || !options) return;
-      dropdown.classList.toggle('open');
-      options.classList.toggle('show');
+    function verifyStepPasscode(idx) {
+      const code = document.getElementById(`passcodeInput-${idx}`).value.trim();
+      if (code === 'kacec2026') {
+        Object.keys(coursesData).forEach(key => {
+          coursesData[key].unlocked = true;
+          coursesData[key].missions.forEach(m => m.locked = false);
+        });
+        alert('🔑 모든 과정의 잠금이 성공적으로 해제되었습니다!');
+        renderCoursesList();
+        renderCourseDetail();
+        toggleStepPractice(idx);
+        renderMindmap();
+      } else {
+        alert('❌ 인증코드가 올바르지 않습니다.');
+      }
     }
 
-    function selectCourseOption(targetCourse, event) {
-      if (event) event.stopPropagation();
+    async function submitStepPrompt(idx) {
+      const input = document.getElementById(`promptInput-${idx}`).value.trim();
+      const btn = document.getElementById(`submitPromptBtn-${idx}`);
+      const resultBox = document.getElementById(`resultBox-${idx}`);
+      const scoreNum = document.getElementById(`resultScore-${idx}`);
+      const barFill = document.getElementById(`progressBarFill-${idx}`);
+      const feedback = document.getElementById(`resultFeedback-${idx}`);
+      const retryBtn = document.getElementById(`retryBtn-${idx}`);
+      const certBtn = document.getElementById(`certBtn-${idx}`);
+      const badge = document.getElementById(`resultBadge-${idx}`);
       
-      const passcode = document.getElementById('passcodeInput').value.trim();
-      const isPasscodeValid = (passcode === 'kacec2026');
-      
-      const course = coursesData[targetCourse];
-      let isLocked = !course.unlocked && !isPasscodeValid;
-      if (targetCourse === 'beginner') isLocked = false;
-      
-      if (isLocked) {
-        alert("🔒 선택하신 과정은 '정식 수강생 전용 자격 검정 코스'입니다.\n\n정식 등급으로 참여하시려면 하단의 [🔑 클래스 인증 코드]에 올바른 비밀코드를 입력하고 과정을 다시 선택해 주세요.");
-        const dropdown = document.getElementById('customCourseDropdown');
-        const options = document.getElementById('dropdownOptions');
-        if (dropdown) dropdown.classList.remove('open');
-        if (options) options.classList.remove('show');
+      if (!input) {
+        alert('지시문을 입력해 주세요.');
         return;
       }
       
-      if (isPasscodeValid) {
-        Object.keys(coursesData).forEach(key => {
-          coursesData[key].unlocked = true;
-          coursesData[key].missions.forEach(m => {
-            m.locked = false;
-          });
+      btn.disabled = true;
+      btn.innerText = '⚙️ AI가 입력값을 분석하여 실시간 채점 중...';
+      resultBox.style.display = 'block';
+      scoreNum.innerText = '0';
+      barFill.style.width = '0%';
+      retryBtn.style.display = 'none';
+      if (certBtn) certBtn.style.display = 'none';
+      badge.style.display = 'none';
+      feedback.innerHTML = '프롬프트 구조를 정밀 평가하고 있습니다. 잠시만 기다려주세요...';
+      
+      try {
+        const response = await fetch('http://localhost:1984/api/grade', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt: input, passcode: 'kacec2026', course: activeCourse, mission: idx })
         });
         
-        // Redraw mindmap and dropdown to remove locks!
-        renderMindmap();
-        renderDropdownOptions();
+        if (!response.ok) throw new Error('서버 통신 실패');
+        
+        const data = await response.json();
+        const score = data.score || 0;
+        const comment = data.feedback || '평가를 완료했습니다.';
+        
+        setTimeout(() => {
+          scoreNum.innerText = score;
+          barFill.style.width = score + '%';
+          feedback.innerHTML = comment;
+          badge.style.display = 'inline-block';
+          
+          if (score >= 70) {
+            badge.innerText = 'PASS (합격)';
+            badge.style.background = 'rgba(16, 185, 129, 0.15)';
+            badge.style.color = '#10b981';
+            if (certBtn) certBtn.style.display = 'block';
+            retryBtn.style.display = 'none';
+            const statusLabel = document.getElementById(`stepStatus-${idx}`);
+            if (statusLabel) {
+              statusLabel.innerHTML = '✅ 통과';
+              statusLabel.style.color = '#10b981';
+            }
+          } else {
+            badge.innerText = 'RETRY (보완)';
+            badge.style.background = 'rgba(239, 68, 68, 0.15)';
+            badge.style.color = '#ef4444';
+            if (certBtn) certBtn.style.display = 'none';
+            retryBtn.style.display = 'block';
+            const statusLabel = document.getElementById(`stepStatus-${idx}`);
+            if (statusLabel) {
+              statusLabel.innerHTML = '❌ 보완';
+              statusLabel.style.color = '#ef4444';
+            }
+          }
+          btn.disabled = false;
+          btn.innerText = '🚀 미션 제출 및 실시간 AI 채점하기';
+        }, 800);
+      } catch (error) {
+        console.error(error);
+        scoreNum.innerText = '--';
+        feedback.innerHTML = '<span style="color:#ef4444">⚠️ 채점 과정에서 오류가 발생했습니다. (로컬 서버 상태 확인 필요)</span>';
+        btn.disabled = false;
+        btn.innerText = '🚀 미션 제출 및 실시간 AI 채점하기';
       }
+    }
+
+    function speakStepInstructions(idx) {
+      const btn = document.getElementById(`ttsBtn-${idx}`);
+      if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+        btn.classList.remove('active');
+        return;
+      }
+      const course = coursesData[activeCourse];
+      const mission = course.missions[idx];
+      if (!mission) return;
       
-      activeCourse = targetCourse;
-      activeMissionIndex = 0;
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = mission.guide;
+      const text = tempDiv.innerText || tempDiv.textContent;
       
-      // Update selected trigger text
-      document.getElementById('selectedCourseText').innerText = course.title;
-      
-      // Update active class in dropdown options
-      const options = document.querySelectorAll('.dropdown-option');
-      options.forEach(opt => {
-        if (opt.getAttribute('data-value') === targetCourse) {
-          opt.classList.add('active');
-        } else {
-          opt.classList.remove('active');
-        }
-      });
-      
-      const dropdown = document.getElementById('customCourseDropdown');
-      const optionsContainer = document.getElementById('dropdownOptions');
-      if (dropdown) dropdown.classList.remove('open');
-      if (optionsContainer) optionsContainer.classList.remove('show');
-      
-      initCampus();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'ko-KR';
+      utterance.onend = () => btn.classList.remove('active');
+      btn.classList.add('active');
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function toggleStepLargeText(idx) {
+      const drawer = document.getElementById(`practice-drawer-${idx}`);
+      const btn = document.getElementById(`largeTextBtn-${idx}`);
+      const isLarge = drawer.classList.toggle('large-text-mode');
+      if (isLarge) {
+        btn.classList.add('active');
+        drawer.style.fontSize = '1.15rem';
+        const t = document.getElementById(`promptInput-${idx}`);
+        if (t) t.style.fontSize = '1.1rem';
+      } else {
+        btn.classList.remove('active');
+        drawer.style.fontSize = '';
+        const t = document.getElementById(`promptInput-${idx}`);
+        if (t) t.style.fontSize = '';
+      }
+    }
+
+    function showStepCertificateCard(idx) {
+      const name = prompt('수료증에 표기될 성함을 입력하세요 (예: 홍길동):');
+      if (!name) return;
+      document.getElementById(`certStudentName-${idx}`).innerText = name;
+      document.getElementById(`certNo-${idx}`).innerText = `NO. KACEC-2026-${Math.floor(Math.random()*9000)+1000}`;
+      document.getElementById(`certificateContainer-${idx}`).style.display = 'block';
+      document.getElementById(`certBtn-${idx}`).style.display = 'none';
+      setTimeout(() => {
+        const container = document.getElementById(`certificateContainer-${idx}`);
+        if (container) container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 200);
+    }
+
+    function retryStep(idx) {
+      const t = document.getElementById(`promptInput-${idx}`);
+      if (t) {
+        t.focus();
+        t.style.boxShadow = '0 0 25px rgba(20, 184, 166, 0.8)';
+        setTimeout(() => t.style.boxShadow = '', 1000);
+      }
     }
 
     function openCampusToCourse(courseKey) {
       toggleCampusModal(true);
-      selectCourseOption(courseKey);
+      selectCourse(courseKey);
     }
 
     function renderMindmap() {
       const container = document.querySelector('.mindmap-branches');
       if (!container) return;
       container.innerHTML = '';
-      
       const colors = {
-        intro: 'basics-color',
-        practical: 'marketing-color',
-        creator: 'video-color',
-        maker: 'exclusive-color',
-        builder: 'basics-color',
-        engineer: 'automation-color',
+        intro: 'basics-color', practical: 'marketing-color', creator: 'video-color',
+        maker: 'exclusive-color', builder: 'basics-color', engineer: 'automation-color',
         instructor: 'exclusive-color'
       };
-      
-      const passcode = document.getElementById('passcodeInput') ? document.getElementById('passcodeInput').value.trim() : '';
-      const isPasscodeValid = (passcode === 'kacec2026');
-      
+      const isPasscodeValid = coursesData.cultural.unlocked;
       const tracks = {};
       Object.keys(coursesData).forEach(key => {
         const course = coursesData[key];
         if (!tracks[course.track]) {
-          tracks[course.track] = {
-            title: course.trackTitle,
-            courses: []
-          };
+          tracks[course.track] = { title: course.trackTitle, courses: [] };
         }
         tracks[course.track].courses.push({ key, ...course });
       });
@@ -4979,7 +5280,6 @@
         const track = tracks[trackKey];
         const group = document.createElement('div');
         group.className = 'mindmap-branch-group';
-        
         const branch = document.createElement('div');
         branch.className = `mindmap-node branch-node ${colors[trackKey]}`;
         branch.innerHTML = `<span>${track.title}</span>`;
@@ -4992,10 +5292,8 @@
           const courseHeader = document.createElement('div');
           courseHeader.style.cssText = 'font-size: 0.72rem; font-weight: 800; color: #ffffff; margin-top: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.2rem; cursor: pointer;';
           courseHeader.onclick = () => openCampusToCourse(c.key);
-          
           let isLocked = !c.unlocked && !isPasscodeValid;
           if (c.key === 'beginner') isLocked = false;
-          
           courseHeader.innerText = `${c.title} ${isLocked ? '🔒' : '✨'}`;
           leaves.appendChild(courseHeader);
           
@@ -5007,159 +5305,9 @@
             leaves.appendChild(leaf);
           });
         });
-        
         group.appendChild(leaves);
         container.appendChild(group);
       });
-    }
-
-    // Close dropdown on click outside
-    document.addEventListener('click', function(e) {
-      const dropdown = document.getElementById('customCourseDropdown');
-      const options = document.getElementById('dropdownOptions');
-      if (dropdown && !dropdown.contains(e.target)) {
-        dropdown.classList.remove('open');
-        if (options) options.classList.remove('show');
-      }
-    });
-    function toggleLargeTextMode() {
-      const campus = document.getElementById('campus');
-      const btn = document.getElementById('largeTextBtn');
-      const isLarge = campus.classList.toggle('large-text-mode');
-      if (isLarge) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
-    }
-
-    function speakMissionInstructions() {
-      const btn = document.getElementById('ttsBtn');
-      if (window.speechSynthesis.speaking) {
-        window.speechSynthesis.cancel();
-        btn.classList.remove('active');
-        return;
-      }
-      
-      const guideEl = document.getElementById('missionGuide');
-      if (!guideEl) return;
-      const text = guideEl.innerText || guideEl.textContent;
-      
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ko-KR';
-      
-      utterance.onend = function() {
-        btn.classList.remove('active');
-      };
-      
-      btn.classList.add('active');
-      window.speechSynthesis.speak(utterance);
-    }
-
-    async function submitPrompt() {
-      const input = document.getElementById('promptInput').value.trim();
-      const passcode = document.getElementById('passcodeInput').value.trim();
-      const btn = document.getElementById('submitPromptBtn');
-      const resultBox = document.getElementById('resultBox');
-      const scoreNum = document.getElementById('resultScore');
-      const barFill = document.getElementById('progressBarFill');
-      const feedback = document.getElementById('resultFeedback');
-      const retryBtn = document.getElementById('retryBtn');
-      
-      if (!input) {
-        alert('지시문을 입력해 주세요.');
-        return;
-      }
-      
-      btn.disabled = true;
-      btn.innerText = '⚙️ AI가 입력값을 분석하여 실시간 채점 중...';
-      resultBox.classList.add('show');
-      scoreNum.innerText = '0';
-      barFill.style.width = '0%';
-      retryBtn.style.display = 'none';
-      const badge = document.getElementById('resultBadge');
-      badge.style.display = 'none';
-      feedback.innerHTML = '<span style="color:var(--text-muted)">프롬프트 구조를 정밀 평가하고 있습니다. 잠시만 기다려주세요...</span>';
-      
-      try {
-        const response = await fetch('http://localhost:1984/api/grade', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ prompt: input, passcode: passcode, course: activeCourse, mission: activeMissionIndex })
-        });
-        
-        if (!response.ok) {
-          throw new Error('서버 통신 실패');
-        }
-        
-        const data = await response.json();
-        const score = data.score || 0;
-        const comment = data.feedback || '평가를 완료했습니다.';
-        
-        // Animating score and progress bar
-        setTimeout(() => {
-          scoreNum.innerText = score;
-          barFill.style.width = score + '%';
-          feedback.innerHTML = comment;
-          
-          badge.style.display = 'inline-block';
-          if (score >= 70) {
-            badge.innerText = 'PASS (합격)';
-            badge.className = 'result-badge pass';
-            document.getElementById('certBtn').style.display = 'block';
-            retryBtn.style.display = 'none';
-          } else {
-            badge.innerText = 'RETRY (보완)';
-            badge.className = 'result-badge retry';
-            document.getElementById('certBtn').style.display = 'none';
-            retryBtn.style.display = 'block';
-          }
-          
-          btn.disabled = false;
-          btn.innerText = '🚀 미션 제출 및 실시간 AI 채점하기';
-        }, 800);
-        
-      } catch (error) {
-        console.error(error);
-        const badge = document.getElementById('resultBadge');
-        badge.style.display = 'none';
-        scoreNum.innerText = '--';
-        feedback.innerHTML = '<span style="color:#ef4444">⚠️ 채점 과정에서 오류가 발생했습니다. 잠시 후 다시 시도해 주세요. (로컬 서버 상태 확인 필요)</span>';
-        btn.disabled = false;
-        btn.innerText = '🚀 미션 제출 및 실시간 AI 채점하기';
-      }
-    }
-
-    function retryMission() {
-      const modal = document.getElementById('campus');
-      if (modal) {
-        modal.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-      const input = document.getElementById('promptInput');
-      if (input) {
-        input.focus();
-        input.style.boxShadow = '0 0 25px rgba(139, 92, 246, 0.8)';
-        setTimeout(() => {
-          input.style.boxShadow = '';
-        }, 1000);
-      }
-    }
-
-    function showCertificateCard() {
-      const name = prompt('수료증에 표기될 성함을 입력하세요 (예: 홍길동):');
-      if (!name) return;
-      
-      document.getElementById('certStudentName').innerText = name;
-      document.getElementById('certificateContainer').style.display = 'block';
-      document.getElementById('certBtn').style.display = 'none';
-      
-      // Scroll to certificate smoothly
-      setTimeout(() => {
-        const container = document.getElementById('certificateContainer');
-        container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 200);
     }
   </script>
 </body>
