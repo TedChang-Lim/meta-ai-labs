@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>모아(MoA) 3D 지식 그래프</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #050510; overflow: hidden; font-family: 'Noto Sans KR', sans-serif; }
+  #graph { width: 100vw; height: 100vh; }
+  .info {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: rgba(5,5,16,0.85); backdrop-filter: blur(12px);
+    border: 1px solid rgba(100,200,255,0.2); border-radius: 12px;
+    padding: 12px 24px; z-index: 100;
+    color: rgba(255,255,255,0.6); font-size: 12px; text-align: center;
+    pointer-events: none;
+    box-shadow: 0 0 30px rgba(100,200,255,0.1);
+  }
+  .title {
+    position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+    z-index: 100;
+    color: #fff; font-size: 20px; font-weight: 700;
+    text-align: center; pointer-events: none;
+    text-shadow: 0 0 30px rgba(100,200,255,0.5), 0 0 60px rgba(100,200,255,0.2);
+    letter-spacing: 2px;
+  }
+  .title span {
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcbff, #51cf66);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s ease infinite;
+  }
+  @keyframes gradientShift {
+    0%, 100% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(30deg); }
+  }
+  .search-box {
+    position: fixed; top: 60px; left: 50%; transform: translateX(-50%);
+    z-index: 100;
+  }
+  .search-box input {
+    background: rgba(5,5,16,0.9); border: 1px solid rgba(100,200,255,0.3);
+    border-radius: 20px; padding: 8px 20px; color: #fff; font-size: 14px;
+    width: 250px; outline: none; transition: all 0.3s;
+  }
+  .search-box input:focus {
+    border-color: rgba(100,200,255,0.6);
+    box-shadow: 0 0 20px rgba(100,200,255,0.2);
+    width: 300px;
+  }
+  .search-box input::placeholder { color: rgba(255,255,255,0.3); }
+  .tooltip {
+    position: fixed; display: none; z-index: 200;
+    background: rgba(5,5,16,0.95); border: 1px solid rgba(100,200,255,0.4);
+    border-radius: 10px; padding: 12px 16px;
+    color: #fff; font-size: 13px; max-width: 250px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(100,200,255,0.2);
+    pointer-events: none;
+  }
+  .tooltip .node-name { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  .tooltip .node-group { font-size: 11px; color: rgba(255,255,255,0.5); }
+  .stars {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: -1;
+    background: radial-gradient(ellipse at center, #0a0a2e 0%, #050510 100%);
+  }
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<div class="title">🌱 <span>모아 (MoA)</span> 지식 그래프</div>
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="노드 검색...">
+</div>
+<div class="tooltip" id="tooltip">
+  <div class="node-name" id="tooltipName"></div>
+  <div class="node-group" id="tooltipGroup"></div>
+</div>
+<div class="info">🖱 드래그로 회전 · 휠로 확대/축소 · 노드 클릭시 상세 정보 · 검색으로 노드 찾기</div>
+<div id="graph"></div>
+
+<script src="https://unpkg.com/3d-force-graph@1.74/dist/3d-force-graph.min.js"></script>
+<script>
+// 별 배경 생성
+const starsEl = document.getElementById('stars');
+for(let i = 0; i < 200; i++) {
+  const star = document.createElement('div');
+  star.style.cssText = `
+    position: absolute;
+    width: ${Math.random() * 2 + 1}px;
+    height: ${Math.random() * 2 + 1}px;
+    background: white;
+    border-radius: 50%;
+    left: ${Math.random() * 100}%;
+    top: ${Math.random() * 100}%;
+    opacity: ${Math.random() * 0.8 + 0.2};
+    animation: twinkle ${Math.random() * 3 + 2}s ease-in-out infinite;
+  `;
+  starsEl.appendChild(star);
+}
+
+// 별 반짝임 애니메이션
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+  }
+`;
+document.head.appendChild(style);
+
+// 노드 색상 팔레트 (네온 테마)
+const colors = {
+  center: '#ffd93d',
+  master: '#ff6b6b',
+  haena: '#00d4ff',
+  mimo: '#00ff88',
+  ag: '#bf5fff',
+  julia: '#ff6eb4',
+  qjan: '#ff922b',
+  project: '#00ffa3',
+  tools: '#ff4757',
+  repo: '#7c8cff'
+};
+
+// 노드 설명 데이터
+const nodeDescriptions = {
+  '모아 (MoA)': '우리 팀의 지식 공유 시스템. knot 기반.',
+  '마스터님': '테드창. 30년 사진작가, AI/XR 석사.',
+  '해나 (Hermes)': 'DeepSeek 기반 일상 대화/콘텐츠 전담.',
+  '미모 (MiMo Code)': 'MiMo V2.5 기반 코딩 전담. 제드 연결.',
+  'AG (Antigravity)': 'Gemini 기반 시스템 기획/인프라 전담.',
+  'Julia (김소영)': '영어교육 21년, VoiceFlow 앱 개발.',
+  'DeepSeek V4 Flash': '해나의 일상 대화용 모델.',
+  'DeepSeek V4 Pro': '해나의 복잡 추론용 모델.',
+  'GLM-4.6V-Flash': '무료 멀티모달 모델. 이미지 분석용.',
+  'MiMo V2.5 / Pro': '미모의 코딩 특화 모델.',
+  'Zed Editor + ACP': '미모가 사용하는 에디터.',
+  'Gemini 3.5 Flash': 'AG의 기본 모델.',
+  'Sonnet 4.6': 'AG의 대안 모델.',
+  '모아(knot)': '지식 저장소. MD 기반.',
+  'Kling AI Pro': 'AI 영상 생성 도구.',
+  'Veo 3.1': '구글 AI 영상 생성 도구.',
+  '원주시 AI 강의': '왕초보 대상 AI 교육.',
+  'AI 영화 제작': 'AI 활용 영상 콘텐츠.',
+  '바이브코딩': '음성으로 코딩하는 기법.',
+};
+
+// 데이터 구성
+const data = {
+  nodes: [
+    { id: '모아 (MoA)', group: 'center', val: 25, color: colors.center },
+    { id: '마스터님', group: 'master', val: 14, color: colors.master },
+    { id: 'AI·XR 석사 2년', group: 'master', val: 5, color: colors.master },
+    { id: '30년차 사진작가', group: 'master', val: 5, color: colors.master },
+    { id: 'AI 강의', group: 'master', val: 6, color: colors.master },
+    { id: '협동조합 메타AI교육원', group: 'master', val: 7, color: colors.master },
+    { id: '2027 겸임교수', group: 'master', val: 4, color: colors.master },
+    { id: '해나 (Hermes)', group: 'haena', val: 12, color: colors.haena },
+    { id: 'DeepSeek V4 Flash', group: 'haena', val: 6, color: colors.haena },
+    { id: 'DeepSeek V4 Pro', group: 'haena', val: 6, color: colors.haena },
+    { id: 'GLM-4.6V-Flash', group: 'haena', val: 5, color: colors.haena },
+    { id: 'Web UI (8648)', group: 'haena', val: 5, color: colors.haena },
+    { id: '미모 (MiMo Code)', group: 'mimo', val: 12, color: colors.mimo },
+    { id: 'Zed Editor + ACP', group: 'mimo', val: 6, color: colors.mimo },
+    { id: 'MiMo V2.5 / Pro', group: 'mimo', val: 6, color: colors.mimo },
+    { id: '한·영·중 다국어', group: 'mimo', val: 4, color: colors.mimo },
+    { id: 'AG (Antigravity)', group: 'ag', val: 12, color: colors.ag },
+    { id: 'Gemini 3.5 Flash', group: 'ag', val: 6, color: colors.ag },
+    { id: 'Sonnet 4.6', group: 'ag', val: 6, color: colors.ag },
+    { id: '읽기 전용 모드', group: 'ag', val: 3, color: colors.ag },
+    { id: 'Julia (김소영)', group: 'julia', val: 10, color: colors.julia },
+    { id: '영어교육 21년', group: 'julia', val: 5, color: colors.julia },
+    { id: 'VoiceFlow 앱', group: 'julia', val: 5, color: colors.julia },
+    { id: 'AI·XR 석사 1년', group: 'julia', val: 4, color: colors.julia },
+    { id: 'Q (Qwen)', group: 'qjan', val: 7, color: colors.qjan },
+    { id: 'Jan.ai + GGUF', group: 'qjan', val: 7, color: colors.qjan },
+    { id: '원주시 AI 강의', group: 'project', val: 6, color: colors.project },
+    { id: 'AI 영화 제작', group: 'project', val: 6, color: colors.project },
+    { id: '바이브코딩', group: 'project', val: 5, color: colors.project },
+    { id: 'Zero-G Barista', group: 'project', val: 4, color: colors.project },
+    { id: 'Kling AI Pro', group: 'tools', val: 5, color: colors.tools },
+    { id: 'Veo 3.1', group: 'tools', val: 5, color: colors.tools },
+    { id: '모아(knot)', group: 'repo', val: 8, color: colors.repo },
+    { id: 'hermes-ag-shared', group: 'repo', val: 5, color: colors.repo },
+  ],
+  links: [
+    { source: '모아 (MoA)', target: '마스터님', strength: 1 },
+    { source: '모아 (MoA)', target: '해나 (Hermes)', strength: 1 },
+    { source: '모아 (MoA)', target: '미모 (MiMo Code)', strength: 1 },
+    { source: '모아 (MoA)', target: 'AG (Antigravity)', strength: 1 },
+    { source: '모아 (MoA)', target: 'Julia (김소영)', strength: 1 },
+    { source: '모아 (MoA)', target: 'Q (Qwen)', strength: 0.7 },
+    { source: '모아 (MoA)', target: 'Jan.ai + GGUF', strength: 0.7 },
+    { source: '모아 (MoA)', target: '모아(knot)', strength: 1 },
+    { source: '마스터님', target: 'AI·XR 석사 2년', strength: 0.8 },
+    { source: '마스터님', target: '30년차 사진작가', strength: 0.8 },
+    { source: '마스터님', target: 'AI 강의', strength: 0.9 },
+    { source: '마스터님', target: '협동조합 메타AI교육원', strength: 0.9 },
+    { source: '마스터님', target: '2027 겸임교수', strength: 0.6 },
+    { source: '해나 (Hermes)', target: 'DeepSeek V4 Flash', strength: 0.9 },
+    { source: '해나 (Hermes)', target: 'DeepSeek V4 Pro', strength: 0.9 },
+    { source: '해나 (Hermes)', target: 'GLM-4.6V-Flash', strength: 0.8 },
+    { source: '해나 (Hermes)', target: 'Web UI (8648)', strength: 0.7 },
+    { source: '해나 (Hermes)', target: '모아(knot)', strength: 0.8 },
+    { source: '미모 (MiMo Code)', target: 'Zed Editor + ACP', strength: 0.9 },
+    { source: '미모 (MiMo Code)', target: 'MiMo V2.5 / Pro', strength: 0.9 },
+    { source: '미모 (MiMo Code)', target: '한·영·중 다국어', strength: 0.6 },
+    { source: 'AG (Antigravity)', target: 'Gemini 3.5 Flash', strength: 0.9 },
+    { source: 'AG (Antigravity)', target: 'Sonnet 4.6', strength: 0.8 },
+    { source: 'AG (Antigravity)', target: '읽기 전용 모드', strength: 0.5 },
+    { source: 'Julia (김소영)', target: '영어교육 21년', strength: 0.9 },
+    { source: 'Julia (김소영)', target: 'VoiceFlow 앱', strength: 0.8 },
+    { source: 'Julia (김소영)', target: 'AI·XR 석사 1년', strength: 0.7 },
+    { source: '협동조합 메타AI교육원', target: '원주시 AI 강의', strength: 0.9 },
+    { source: '협동조합 메타AI교육원', target: 'AI 영화 제작', strength: 0.8 },
+    { source: '협동조합 메타AI교육원', target: '바이브코딩', strength: 0.7 },
+    { source: 'AI 영화 제작', target: 'Zero-G Barista', strength: 0.6 },
+    { source: 'DeepSeek V4 Flash', target: 'DeepSeek V4 Pro', strength: 0.5 },
+    { source: '모아(knot)', target: 'hermes-ag-shared', strength: 0.8 },
+    { source: '모아(knot)', target: '원주시 AI 강의', strength: 0.7 },
+  ]
+};
+
+// 3D 그래프 초기화
+const Graph = ForceGraph3D()(document.getElementById('graph'))
+  .graphData(data)
+  .nodeLabel(node => {
+    const desc = nodeDescriptions[node.id] || '';
+    return `<div style="text-align:center"><b>${node.id}</b><br><span style="font-size:11px;color:rgba(255,255,255,0.7)">${desc}</span></div>`;
+  })
+  .nodeColor(node => node.color)
+  .nodeVal(node => node.val || 5)
+  .nodeResolution(16)
+  .nodeOpacity(0.95)
+  .linkColor(link => {
+    const opacity = 0.1 + (link.strength || 0.5) * 0.3;
+    return `rgba(100,200,255,${opacity})`;
+  })
+  .linkWidth(link => 0.3 + (link.strength || 0.5) * 1.5)
+  .linkOpacity(0.6)
+  .linkCurvature(0.1)
+  .backgroundColor('#050510')
+  .d3AlphaDecay(0.015)
+  .d3VelocityDecay(0.08)
+  .warmupTicks(150)
+  .cooldownTicks(0)
+  .enableNodeDrag(true)
+  .enableNavigationControls(true)
+  .showNavInfo(false)
+  .onNodeClick(node => {
+    // 노드 클릭시 카메라 이동
+    const distance = 120;
+    const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
+    Graph.cameraPosition(
+      { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio },
+      node,
+      1000
+    );
+  });
+
+// 자동 회전
+let autoRotate = true;
+let rotationAngle = 0;
+
+function rotateCamera() {
+  if(autoRotate) {
+    rotationAngle += 0.002;
+    const camera = Graph.cameraPosition();
+    const radius = Math.hypot(camera.x, camera.y, camera.z);
+    Graph.cameraPosition({
+      x: radius * Math.sin(rotationAngle),
+      y: camera.y * 0.5,
+      z: radius * Math.cos(rotationAngle)
+    });
+  }
+  requestAnimationFrame(rotateCamera);
+}
+rotateCamera();
+
+// 마우스 움직이면 자동 회전 일시정지
+document.addEventListener('mousedown', () => { autoRotate = false; });
+document.addEventListener('mouseup', () => { 
+  setTimeout(() => { autoRotate = true; }, 3000);
+});
+
+// 검색 기능
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', (e) => {
+  const query = e.target.value.toLowerCase();
+  if(!query) {
+    // 전체 복원
+    data.nodes.forEach(n => { n.__threeObj && (n.__threeObj.scale.set(1,1,1)); });
+    Graph.nodeColor(node => node.color);
+    return;
+  }
+  
+  data.nodes.forEach(node => {
+    const match = node.id.toLowerCase().includes(query);
+    if(node.__threeObj) {
+      node.__threeObj.scale.set(match ? 1.5 : 0.5, match ? 1.5 : 0.5, match ? 1.5 : 0.5);
+    }
+  });
+});
+
+// 카메라 초기 위치
+Graph.cameraPosition({ z: 400, y: 100 });
+</script>
+</body>
+</html>

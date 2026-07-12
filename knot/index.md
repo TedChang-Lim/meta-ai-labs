@@ -35,6 +35,7 @@
 - [[ebook-publishing-standards]] — 📖 지식 상품 및 전자책(eBook) 출판 표준 강령 (2026-06-28)
 - [[ai-agent-hijacking-security]] — AI 에이전트 하이재킹(Hijacking) 위협 분석 및 아키텍처 다중 방어 전략 (2026-07-02)
 - [[kacec-campus-update-20260707]] — KACEC 온라인 캠퍼스 & MadCat v2 업데이트 (2026-07-07)
+- [[kacec-campus-card-fix-20260711]] — KACEC 캠퍼스 카드 겹침 수정: 인라인 스타일 grid 적용 (2026-07-11)
 
 ## domain
 - [[kacec-domain]] — kacec.kr: 한국 AI 융합 교육원 공식 도메인 (2026-06-21)
