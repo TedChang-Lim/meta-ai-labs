@@ -1,8 +1,8 @@
 ---
 type: entity
-name: Hermes Studio (Web UI)
+name: Hermes Studio (Desktop App)
 created: 2026-06-18
-updated: 2026-06-18
+updated: 2026-07-17
 sources:
   - haena (direct knowledge)
 ---
@@ -14,11 +14,9 @@ sources:
 | 항목 | 내용 |
 |:----|:------|
 | **역할** | 헤나(해나)의 메인 인터페이스 — AI 대화, 파일 관리, 이미지 첨부, 세션 관리 |
-| **URL** | `http://localhost:8648` |
-| **실행 명령어** | `npx hermes-web-ui start` |
+| **플랫폼** | 데스크톱 앱 (Desktop App) 메인 사용 |
 | **버전** | v0.6.12 (2026.06 기준) |
-| **자동 실행** | Antigravity가 재부팅 시 자동 재시작 (무료 플랜으로 충분) |
-| **호스트** | MacBook M3 Max (태장동 테드창 스튜디오) |
+| **호스트** | MacBook M3 Max |
 
 ## 실행 환경
 
@@ -45,8 +43,7 @@ sources:
 - 에이전트 간 협업 조율
 
 ## 참고
-
-- Hermes Studio는 Desktop 앱보다 Web UI가 기능이 더 풍부함
+ 
+- 현재는 Web UI 대신 데스크톱 앱(Desktop App)을 주력으로 사용합니다.
 - VS Code Hermes 확장은 ACP 버그로 제거 권장 (제거 완료)
-- CSS 커스터마이징은 브라우저 콘솔에서 동적 주입 방식만 가능 (SPA head 교체 문제)
 - Hermes CLI: `hermes chat -q "prompt"`, `hermes skills install`, `hermes cron`
