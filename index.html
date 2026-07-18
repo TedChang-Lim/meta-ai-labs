@@ -4228,8 +4228,8 @@
               <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">3D펜 안전수칙 수립, 분할 드로잉 캐릭터 조립 설명서 설계.</p>
             </div>
             <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1rem; border-radius: 8px;">
-              <h5 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.3rem;">12. 청소년 종이회로 메이커</h5>
-              <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">전도성 구리선 배치, 직/병렬 스위치 연결 및 단선 자가진단.</p>
+              <h5 style="font-size: 0.85rem; color: #fff; margin-bottom: 0.3rem;">12. 청소년 종이회로 메이커 (이론/실무)</h5>
+              <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">전도체 물성 분석 및 8주차 설계 이론부터 실무 실습 교구 연동 교육.</p>
             </div>
           </div>
         </div>
@@ -4974,16 +4974,19 @@
         ]
       },
       circuit: {
-        unlocked: false,
+        unlocked: true,
         track: "maker",
         trackTitle: "🧱 AI & 피지컬 메이커 코스",
-        title: "🔌 청소년 종이회로 메이커",
+        title: "🔌 청소년 종이회로 메이커 (이론)",
         missions: [
-          { num: "Step 01", title: "종이회로 작동 개념 및 회로 기호 파악", locked: true, guide: "전도성 구리선, LED, 코인 전지를 이용해 종이 위에 회로를 그리는 원리를 배웁니다.", placeholder: "종이회로 기본 개념 설명을 요청하세요." },
-          { num: "Step 02", title: "스마트 팝업 카드 설계 도안 레이아웃", locked: true, guide: "카드를 열었을 때 입체 캐릭터 부분에 불이 켜지게 하는 회로 도안 배치를 지시합니다.", placeholder: "회로 도안 설계 프롬프트를 작성하세요." },
-          { num: "Step 03", title: "직렬/병렬 회로 배치 및 전압 디버깅", locked: true, guide: "LED 전구 개수에 따라 밝기를 조절하기 위한 직/병렬 스위치 연결 가이드를 얻어냅니다.", placeholder: "회로 디버깅 지시를 적으세요." },
-          { num: "Step 04", title: "회로 단선 및 합선 에러 극복 트러블슈팅", locked: true, guide: "동작 불능 상태의 원인을 분석해 고치기 위한 3대 자가진단 항목을 요청해 봅니다.", placeholder: "자가진단 항목 프롬프트를 입력하세요." },
-          { num: "Step 05", title: "종합: 크리스마스 카드 LED 메이커 설계 완성", locked: true, guide: "트리에 불이 들어오는 카드 외관 도안 및 회로 연결 최종 명세서를 완성합니다.", placeholder: "최종 카드 명세서 프롬프트를 적어보세요." }
+          { num: "Step 01", title: "종이회로 작동 개념 및 회로 기호 파악", locked: false, guide: "전도성 구리선, LED, 코인 전지를 이용해 종이 위에 회로를 그리는 원리를 배웁니다.", placeholder: "종이회로 기본 개념 설명을 요청하세요." },
+          { num: "Step 02", title: "전도성 테이프 물성 및 전선 저항 이론", locked: false, guide: "구리 테이프와 전도성 잉크 펜의 저항 차이에 따른 옴의 법칙을 탐구합니다.", placeholder: "전도체 물성 분석 요약을 요청하세요." },
+          { num: "Step 03", title: "스마트 팝업 카드 설계 도안 레이아웃", locked: false, guide: "카드를 열었을 때 입체 캐릭터 부분에 불이 켜지게 하는 회로 도안 배치를 지시합니다.", placeholder: "회로 도안 설계 프롬프트를 작성하세요." },
+          { num: "Step 04", title: "직렬 회로와 병렬 회로의 전류 전압 분석", locked: false, guide: "LED 전구 개수에 따라 밝기를 조절하기 위한 직/병렬 스위치 연결 가이드를 얻어냅니다.", placeholder: "직/병렬 특징 분석 프롬프트를 입력해 보세요." },
+          { num: "Step 05", title: "다중 스위치 및 교차 배선 회로도 설계", locked: false, guide: "하나의 전원으로 여러 개의 스위치를 통제하는 단극쌍투(SPDT) 형태의 회로 구조를 설계합니다.", placeholder: "교차 배선 회로 구조를 요청해 보세요." },
+          { num: "Step 06", title: "회로 단선 및 합선 에러 극복 트러블슈팅", locked: false, guide: "동작 불능 상태의 원인을 분석해 고치기 위한 3대 자가진단 항목을 요청해 봅니다.", placeholder: "자가진단 항목 프롬프트를 입력하세요." },
+          { num: "Step 07", title: "피지컬 교재 기반 교수학습 지도안 설계", locked: false, guide: "초중고 학생 대상 종이회로 만들기 수업을 위한 8차시 분량의 강의 계획서 초안을 구성합니다.", placeholder: "강의 계획서 프롬프트를 입력하세요." },
+          { num: "Step 08", title: "종합: 크리스마스 카드 LED 메이커 설계 완성", locked: false, guide: "트리에 불이 들어오는 카드 외관 도안 및 회로 연결 최종 명세서를 완성합니다.", placeholder: "최종 카드 명세서 프롬프트를 적어보세요." }
         ]
       },
       maker3d: {
@@ -5029,7 +5032,7 @@
         unlocked: true,
         track: "practical",
         trackTitle: "💼 AI 실무 및 메이커 코스",
-        title: "🔌 청소년 종이회로 메이커",
+        title: "🔌 청소년 종이회로 메이커 (실무·실습)",
         missions: [
           { num: "Step 01", title: "LED를 활용한 종이회로 만들기", locked: false, guide: "<strong>🔌 실습 개요:</strong><br>전도성 테이프와 LED를 이용해 종이 위에 불빛이 들어오는 기초적인 전기 회로를 구성해 봅니다.", placeholder: "종이회로 첫 실습에 성공했거나 궁금한 점을 적어보세요." },
           { num: "Step 02", title: "리드 스위치를 이용한 종이회로 만들기", locked: false, guide: "자석의 유무에 따라 전류의 흐름을 차단하거나 연결해 주는 리드 스위치의 원리를 종이 위에서 실험합니다.", placeholder: "리드 스위치 작동 소감을 입력해 보세요." },
