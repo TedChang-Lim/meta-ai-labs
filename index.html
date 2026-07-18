@@ -1510,6 +1510,80 @@
       display: inline-block;
       margin-right: 0.3rem;
     }
+
+    /* Mobile Sidebar Styling */
+    .mobile-sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .mobile-sidebar-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    .mobile-sidebar-content {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 280px;
+      height: 100%;
+      background: rgba(10, 11, 12, 0.98);
+      backdrop-filter: blur(20px);
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 2.5rem 2rem;
+      box-sizing: border-box;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .mobile-sidebar-overlay.show .mobile-sidebar-content {
+      transform: translateX(0);
+    }
+    .mobile-sidebar-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+    .mobile-sidebar-brand {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .mobile-sidebar-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .mobile-sidebar-links a {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .mobile-sidebar-links a:hover {
+      color: var(--teal);
+    }
     
     /* Responsive Breakpoints */
     @media (max-width: 1024px) {
@@ -1530,6 +1604,7 @@
     
     @media (max-width: 768px) {
       header nav { display: none; }
+      .mobile-menu-toggle { display: block !important; }
       .hero h1 { font-size: 2.5rem; }
       .hero .subtitle { font-size: 1rem; }
       .vision-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2366,6 +2441,7 @@
       <a href="javascript:void(0)" onclick="toggleCampusModal(true)" style="color: #38bdf8; font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>온라인 캠퍼스</a>
       <a href="./proposal/KACEC_proposal.html" target="_blank" style="color: var(--teal); font-weight: 700; display: inline-flex; align-items: center; gap: 0.4rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; filter: drop-shadow(0 0 3px var(--teal-glow));"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>제안서 보기</a>
     </nav>
+    <button class="mobile-menu-toggle" onclick="toggleMobileSidebar(true)" style="display: none; background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; padding: 0.5rem; margin-left: auto; line-height: 1;">☰</button>
   </header>
 
   <!-- Hero Section -->
@@ -5592,6 +5668,44 @@
         container.appendChild(group);
       });
     }
+
+    function toggleMobileSidebar(show) {
+      const sidebar = document.getElementById('mobileSidebarOverlay');
+      if (!sidebar) return;
+      if (show) {
+        sidebar.classList.add('show');
+      } else {
+        sidebar.classList.remove('show');
+      }
+    }
+
+    function handleSidebarOverlayClick(event) {
+      if (event.target === document.getElementById('mobileSidebarOverlay')) {
+        toggleMobileSidebar(false);
+      }
+    }
   </script>
+
+  <!-- Mobile Sidebar Drawer -->
+  <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="handleSidebarOverlayClick(event)">
+    <div class="mobile-sidebar-content">
+      <button class="mobile-sidebar-close" onclick="toggleMobileSidebar(false)">✕</button>
+      <div class="mobile-sidebar-brand">한국 AI 융합 교육원</div>
+      <div class="mobile-sidebar-links">
+        <a href="#about" onclick="toggleMobileSidebar(false)">소개</a>
+        <a href="#programs" onclick="toggleMobileSidebar(false)">교육 과정</a>
+        <a href="#members" onclick="toggleMobileSidebar(false)">이사진</a>
+        <a href="#services" onclick="toggleMobileSidebar(false)">사업 영역</a>
+        <a href="#bylaws" onclick="toggleMobileSidebar(false)">공식 문서</a>
+        <a href="#contact" onclick="toggleMobileSidebar(false)">문의</a>
+        <a href="javascript:void(0)" onclick="toggleMobileSidebar(false); toggleCampusModal(true);" style="color: #38bdf8; font-weight: 700; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.2rem; margin-top: 0.5rem;">
+          ⚡ 온라인 캠퍼스
+        </a>
+        <a href="./proposal/KACEC_proposal.html" target="_blank" style="color: var(--teal); font-weight: 700;">
+          📄 제안서 보기
+        </a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
