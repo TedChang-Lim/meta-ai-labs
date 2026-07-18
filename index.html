@@ -70,12 +70,13 @@
     .campus-modal ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 99px; }
     .campus-modal ::-webkit-scrollbar-thumb:hover { background: var(--teal); }
     
-    body {
+    html, body {
       font-family: 'Pretendard', 'Inter', -apple-system, sans-serif;
       background-color: var(--bg-dark);
       color: var(--text-main);
       line-height: 1.7;
       overflow-x: hidden;
+      width: 100%;
       position: relative;
     }
     
@@ -1603,13 +1604,26 @@
     }
     
     @media (max-width: 768px) {
-      header { padding: 0 1rem !important; }
-      .logo { gap: 0.4rem; }
-      .logo-text-3d { width: 145px !important; }
-      .logo-text-front { font-size: 0.95rem !important; }
-      .logo-text-back { font-size: 1.1rem !important; }
+      header { padding: 0 1.5rem !important; }
+      .logo { gap: 0.6rem; }
+      .logo-text-3d { width: 190px !important; }
+      .logo-text-front { font-size: 1.15rem !important; }
+      .logo-text-back { font-size: 1.3rem !important; }
       header nav { display: none; }
       .mobile-menu-toggle { display: block !important; }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+      }
       .hero h1 { font-size: 2.5rem; }
       .hero .subtitle { font-size: 1rem; }
       .vision-grid { grid-template-columns: repeat(2, 1fr); }
