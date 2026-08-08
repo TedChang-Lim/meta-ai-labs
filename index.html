@@ -302,6 +302,50 @@
       width: 100%;
     }
     
+    /* Hero Logo 3D Entrance & Hover Interaction */
+    .hero-logo-container {
+      perspective: 1200px;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      opacity: 0;
+      transform: translateX(-350px) rotateY(-180deg) rotateZ(-25deg) scale(0.3);
+      animation: logo3DSpinEntrance 2.2s cubic-bezier(0.15, 0.85, 0.3, 1) forwards;
+    }
+
+    @keyframes logo3DSpinEntrance {
+      0% {
+        opacity: 0;
+        transform: translateX(-350px) rotateY(-180deg) rotateZ(-25deg) scale(0.3);
+      }
+      60% {
+        opacity: 0.95;
+        transform: translateX(40px) rotateY(40deg) rotateZ(5deg) scale(1.08);
+      }
+      80% {
+        transform: translateX(-10px) rotateY(-10deg) rotateZ(-2deg) scale(0.97);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0) rotateY(0deg) rotateZ(0deg) scale(1);
+      }
+    }
+
+    .hero-logo-img {
+      max-width: 420px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 30px rgba(59, 130, 246, 0.15));
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s ease;
+      cursor: pointer;
+      transform-style: preserve-3d;
+    }
+
+    .hero-logo-img:hover {
+      transform: rotateY(18deg) rotateX(-12deg) scale(1.05) translateZ(30px);
+      filter: drop-shadow(0 25px 45px rgba(59, 130, 246, 0.35));
+    }
+
     /* Hero Section */
     .hero {
       min-height: 100vh;
@@ -2501,36 +2545,8 @@
 
   <!-- Header -->
   <header id="header">
-    <a href="#" class="logo">
-      <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="svg-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#BF953F" />
-            <stop offset="25%" stop-color="#FCF6BA" />
-            <stop offset="50%" stop-color="#B38728" />
-            <stop offset="75%" stop-color="#FBF5B7" />
-            <stop offset="100%" stop-color="#AA771C" />
-          </linearGradient>
-        </defs>
-        <!-- Triangular Roof (Pediment) -->
-        <polygon points="50,15 15,35 85,35" fill="url(#svg-gold-grad)" />
-        <!-- Horizontal Architrave beam -->
-        <rect x="18" y="38" width="64" height="5" rx="1" fill="url(#svg-gold-grad)" />
-        <!-- 3 Bold pillars -->
-        <rect x="25" y="47" width="7" height="29" rx="1.5" fill="url(#svg-gold-grad)" />
-        <rect x="46.5" y="47" width="7" height="29" rx="1.5" fill="url(#svg-gold-grad)" />
-        <rect x="68" y="47" width="7" height="29" rx="1.5" fill="url(#svg-gold-grad)" />
-        <!-- Base -->
-        <rect x="12" y="79" width="76" height="6" rx="2" fill="url(#svg-gold-grad)" />
-        <!-- AI Core in Center -->
-        <circle cx="50" cy="27" r="4.5" fill="#ffffff" />
-      </svg>
-      <div class="logo-text-3d">
-        <div class="logo-text-inner">
-          <div class="logo-text-front">한국 AI 융합 교육원</div>
-          <div class="logo-text-back">KACEC</div>
-        </div>
-      </div>
+    <a href="#" class="logo" style="gap: 0.6rem;">
+      <img src="semiseron_logo.png" alt="새미새론 AI 교육원 로고" class="logo-img" style="height: 38px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3)); transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);">
     </a>
     <nav>
       <a href="#about">소개</a>
@@ -2548,6 +2564,9 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
+      <div class="hero-logo-container">
+        <img src="semiseron_logo.png" alt="새미새론 AI 교육원 로고" class="hero-logo-img">
+      </div>
       <div class="badge">AI &amp; XR 융합 교육 연구소</div>
       <h1>기술과 사람 사이<br><em>배움의 새 차원</em>을 열다</h1>
       <p class="subtitle">인공지능과 확장현실로 세대와 지역을 잇는 디지털 혁신 배움터.<br>각 분야의 최고 전문가 6인이 뜻을 모아 대한민국 AI 교육의 새로운 기준을 세웁니다.</p>
