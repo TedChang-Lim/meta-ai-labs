@@ -1,0 +1,2822 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../assets/logo/symbol_light.png" />
+  <title>새미새론 마우스 &amp; 꾹꾹타자 종합 훈련원 | SEMISERON INTERACTION &amp; TYPING SUITE</title>
+  <meta name="description" content="시니어 어르신의 디지털 자립과 아이들의 두뇌 신경 발달을 위한 종합 인터랙티브 훈련원 — 5대 짝맞추기 드래그 &amp; 꾹꾹타자 9대 정규 코스 완전판" />
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM: EDITORIAL DARK LUXURY + HIGH LEGIBILITY
+       ========================================================================== */
+    :root {
+      --bg: #080908;
+      --bg-surface: #0e120f;
+      --bg-card: #141815;
+      --bg-card-hover: #1b211c;
+      --paper: #f7f5ed;
+      --paper-dim: #d4d0c5;
+      --muted: #9fa499;
+      --dim: #676d63;
+      --gold: #d4a759;
+      --gold-light: #f5cb82;
+      --gold-glow: rgba(212, 167, 89, 0.35);
+      --teal: #0e4e48;
+      --teal-light: #1cd4bf;
+      --teal-glow: rgba(28, 212, 191, 0.35);
+      --coral: #ff5470;
+      --blue: #3b82f6;
+      --purple: #a855f7;
+      --line: rgba(247, 245, 237, 0.12);
+      --line-gold: rgba(212, 167, 89, 0.4);
+      --radius: 14px;
+      --max: 1380px;
+
+      --font-serif: "Noto Serif KR", serif;
+      --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: "Outfit", sans-serif;
+
+      --scale: 1;
+    }
+
+    body.scale-large { --scale: 1.15; }
+    body.scale-huge  { --scale: 1.3; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--paper);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Warm Grid */
+    .bg-ambient {
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(212, 167, 89, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(28, 212, 191, 0.07) 0%, transparent 50%),
+        linear-gradient(rgba(247, 245, 237, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(247, 245, 237, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 70px 70px, 70px 70px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* NAVIGATION */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      height: 74px;
+      background: rgba(8, 9, 8, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4vw;
+      z-index: 100;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-logo-text {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+    }
+
+    .brand-badge {
+      background: rgba(28, 212, 191, 0.12);
+      border: 1px solid var(--teal-light);
+      color: var(--teal-light);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .nav-tools {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .scale-box {
+      display: flex;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 3px;
+      gap: 3px;
+    }
+
+    .btn-scale {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-scale:hover, .btn-scale.active {
+      background: var(--gold);
+      color: #090a09;
+    }
+
+    .btn-sound {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line-gold);
+      color: var(--gold-light);
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-sound:hover {
+      background: var(--gold);
+      color: #090a09;
+    }
+
+    .nav-anchor {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-anchor:hover { color: var(--paper); }
+
+    /* MAIN CONTENT */
+    .app-wrap {
+      position: relative;
+      z-index: 10;
+      max-width: var(--max);
+      margin: 28px auto 70px;
+      padding: 0 4vw;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* HEADER BANNER */
+    .intro-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 24px;
+    }
+
+    .intro-eyebrow {
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      color: var(--gold-light);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .intro-eyebrow::before {
+      content: "";
+      width: 20px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .intro-title {
+      font-family: var(--font-serif);
+      font-size: calc(32px * var(--scale));
+      color: var(--paper);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.35;
+    }
+
+    .intro-title span {
+      background: linear-gradient(120deg, var(--gold-light), #fff 60%, var(--teal-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .intro-desc {
+      font-size: calc(15px * var(--scale));
+      color: var(--paper-dim);
+      max-width: 620px;
+      line-height: 1.75;
+    }
+
+    /* DUAL PRIMARY SWITCH */
+    .primary-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .primary-tab {
+      background: var(--bg-surface);
+      border: 2px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .primary-tab:hover {
+      border-color: var(--line-gold);
+      transform: translateY(-2px);
+    }
+
+    .primary-tab.active {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, rgba(212, 167, 89, 0.12), rgba(14, 18, 15, 0.95));
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(212, 167, 89, 0.4);
+    }
+
+    .tab-badge-icon {
+      font-size: calc(38px * var(--scale));
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .primary-tab:hover .tab-badge-icon {
+      transform: scale(1.1) rotate(-5deg);
+    }
+
+    .tab-texts h2 {
+      font-family: var(--font-serif);
+      font-size: calc(22px * var(--scale));
+      color: var(--paper);
+      font-weight: 700;
+      text-align: left;
+    }
+
+    .tab-texts p {
+      font-size: calc(13px * var(--scale));
+      color: var(--muted);
+      margin-top: 4px;
+      text-align: left;
+    }
+
+    .primary-tab.active .tab-texts h2 {
+      color: var(--gold-light);
+    }
+
+    /* LIVE METRICS BAR */
+    .hud-bar {
+      background: var(--bg-surface);
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius);
+      padding: 18px 32px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .hud-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .hud-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .hud-val {
+      font-family: var(--font-display);
+      font-size: calc(26px * var(--scale));
+      font-weight: 800;
+      color: var(--paper);
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .hud-unit {
+      font-size: 13px;
+      font-family: var(--font-sans);
+      color: var(--dim);
+      font-weight: 500;
+    }
+
+    /* WORKSPACE FRAME */
+    .workspace-shell {
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      min-height: 640px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+    }
+
+    /* 9-COURSE LEARNING MATRIX (SEMISERON CUSTOM CURRICULUM) */
+    .portal-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      width: 100%;
+      max-width: 1200px;
+      padding: 24px 16px;
+    }
+
+    .portal-category-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: rgba(14, 18, 15, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 18px 16px;
+    }
+
+    .portal-cat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--paper);
+      border-bottom: 1.5px solid var(--line);
+      padding-bottom: 12px;
+      margin-bottom: 4px;
+    }
+
+    .portal-cat-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--gold-light);
+      border: 1px solid rgba(199, 154, 81, 0.25);
+    }
+
+    .portal-card {
+      background: linear-gradient(145deg, rgba(26, 32, 28, 0.8) 0%, rgba(16, 20, 18, 0.95) 100%);
+      border: 1.5px solid rgba(247, 245, 237, 0.08);
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portal-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: transparent;
+      transition: background 0.2s;
+    }
+
+    .portal-card:hover {
+      border-color: var(--gold);
+      background: linear-gradient(145deg, rgba(35, 44, 38, 0.9) 0%, rgba(20, 26, 22, 0.98) 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55), 0 0 18px rgba(199, 154, 81, 0.15);
+    }
+
+    .portal-card:hover::before {
+      background: linear-gradient(180deg, var(--gold), var(--teal-light));
+    }
+
+    .portal-card-icon {
+      font-size: 28px;
+      width: 52px;
+      height: 52px;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.4));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.15);
+      transition: transform 0.2s;
+    }
+
+    .portal-card:hover .portal-card-icon {
+      transform: scale(1.08) rotate(3deg);
+      border-color: var(--gold);
+    }
+
+    .portal-card-content {
+      flex: 1;
+    }
+
+    .portal-card-content h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .portal-card-content p {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    .step-pill {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(20, 184, 166, 0.15);
+      color: var(--teal-light);
+      border: 1px solid rgba(20, 184, 166, 0.4);
+      letter-spacing: 0.04em;
+    }
+
+    /* TOP BAR SUBNAV */
+    .workspace-subnav {
+      background: rgba(20, 24, 21, 0.95);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 24px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      overflow-x: auto;
+    }
+
+    .subnav-pill {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      color: var(--paper-dim);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: calc(13px * var(--scale));
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .subnav-pill:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--paper);
+    }
+
+    .subnav-pill.active {
+      background: var(--gold);
+      color: #090a09;
+      border-color: var(--gold);
+      box-shadow: 0 0 14px var(--gold-glow);
+    }
+
+    .subnav-hint {
+      margin-left: auto;
+      font-size: calc(13px * var(--scale));
+      color: var(--gold-light);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ARENA VIEWPORT */
+    .arena-viewport {
+      flex: 1;
+      padding: 36px 28px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 520px;
+    }
+
+    /* ==========================================================================
+       SECTION 1: MOUSE MODULES
+       ========================================================================== */
+    .theme-picker {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-theme-chip {
+      background: var(--bg-card);
+      border: 1.5px solid var(--line);
+      color: var(--paper-dim);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: calc(13px * var(--scale));
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-theme-chip:hover, .btn-theme-chip.active {
+      border-color: var(--teal-light);
+      color: var(--teal-light);
+      background: var(--teal-glow);
+      transform: translateY(-2px);
+    }
+
+    .drag-board {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .slots-deck, .pieces-deck {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+    }
+
+    .slot-card {
+      width: calc(105px * var(--scale));
+      height: calc(105px * var(--scale));
+      border: 2px dashed rgba(247, 245, 237, 0.25);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.02);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slot-card.drag-over {
+      border-color: var(--teal-light);
+      background: var(--teal-glow);
+      transform: scale(1.08);
+      box-shadow: 0 0 24px var(--teal-glow);
+    }
+
+    .slot-card.matched {
+      border: 2px solid var(--teal-light);
+      background: rgba(28, 212, 191, 0.16);
+      transform: scale(1);
+    }
+
+    .slot-glyph {
+      font-size: calc(34px * var(--scale));
+      opacity: 0.4;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .slot-card.matched .slot-glyph {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    .slot-label {
+      font-size: calc(12px * var(--scale));
+      color: var(--muted);
+      margin-top: 4px;
+      font-weight: 700;
+    }
+
+    .draggable-card {
+      width: calc(105px * var(--scale));
+      height: calc(105px * var(--scale));
+      border: 2px solid var(--line-gold);
+      border-radius: 16px;
+      background: var(--bg-card);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .draggable-card:hover {
+      border-color: var(--gold-light);
+      transform: translateY(-6px) scale(1.06);
+      box-shadow: 0 14px 32px var(--gold-glow);
+      background: var(--bg-card-hover);
+    }
+
+    .draggable-card:active {
+      cursor: grabbing;
+      opacity: 0.5;
+    }
+
+    .card-glyph {
+      font-size: calc(38px * var(--scale));
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+    }
+
+    .card-label {
+      font-size: calc(13px * var(--scale));
+      color: var(--paper);
+      margin-top: 4px;
+      font-weight: 800;
+    }
+
+    /* TARGET CLICK */
+    .senior-target-ring {
+      position: absolute;
+      width: calc(115px * var(--scale));
+      height: calc(115px * var(--scale));
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 167, 89, 0.45) 0%, rgba(9, 10, 9, 0.85) 75%);
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 35px var(--gold-glow), inset 0 0 20px rgba(212, 167, 89, 0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      animation: heartBeat 1.8s infinite ease-in-out;
+      transition: transform 0.15s;
+    }
+
+    .senior-target-ring:hover {
+      transform: scale(1.12);
+      border-color: #fff;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    /* DOUBLE CLICK */
+    .vault-cluster {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      width: 100%;
+      max-width: 980px;
+    }
+
+    .chest-box {
+      background: var(--bg-card);
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      padding: 32px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .chest-box:hover {
+      border-color: var(--line-gold);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+
+    .chest-icon {
+      font-size: calc(52px * var(--scale));
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .chest-box:active .chest-icon { transform: scale(0.85); }
+
+    .chest-name {
+      font-family: var(--font-serif);
+      font-size: calc(18px * var(--scale));
+      font-weight: 700;
+      color: var(--paper);
+    }
+
+    .chest-pill {
+      font-size: calc(12px * var(--scale));
+      font-weight: 800;
+      color: var(--gold-light);
+      background: rgba(212, 167, 89, 0.15);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .chest-box.opened {
+      border-color: var(--teal-light);
+      background: rgba(28, 212, 191, 0.1);
+      box-shadow: 0 0 25px var(--teal-glow);
+    }
+
+    .chest-box.opened .chest-pill {
+      background: var(--teal-light);
+      color: #090a09;
+    }
+
+    /* ==========================================================================
+       SECTION 2: KUKUK 9 COURSES (TYPING LAB COMPLETE)
+       ========================================================================== */
+    .typing-playground {
+      width: 100%;
+      max-width: 1040px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .typing-hero-card {
+      background: var(--bg-card);
+      border: 2px solid var(--line-gold);
+      border-radius: 18px;
+      width: 100%;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+    }
+
+    .typing-word-show {
+      font-family: var(--font-serif);
+      font-size: calc(52px * var(--scale));
+      font-weight: 800;
+      color: var(--paper);
+      letter-spacing: 0.05em;
+      line-height: 1.35;
+    }
+
+    .typing-desc-show {
+      font-size: calc(16px * var(--scale));
+      color: var(--muted);
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    .large-type-input {
+      width: 100%;
+      max-width: 680px;
+      background: #060706;
+      border: 3px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 24px;
+      font-size: calc(26px * var(--scale));
+      font-weight: 800;
+      color: #fff;
+      text-align: center;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .large-type-input:focus {
+      border-color: var(--teal-light);
+      box-shadow: 0 0 25px var(--teal-glow);
+    }
+
+    /* FINGER POSITION MAP (손가락 위치 안내도) */
+    .finger-guide-container {
+      width: 100%;
+      max-width: 960px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hands-visual {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      max-width: 720px;
+      padding: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .hand-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .finger-list {
+      display: flex;
+      gap: 10px;
+    }
+
+    .finger-pin {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .finger-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    /* INTERACTIVE KEYBOARD EXPLORER */
+    .interactive-kb-box {
+      width: 100%;
+      max-width: 980px;
+      background: var(--bg-card);
+      border: 2px solid var(--line-gold);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .kb-live-feedback {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 24px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .kb-key-cap {
+      min-width: calc(52px * var(--scale));
+      height: calc(54px * var(--scale));
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(16px * var(--scale));
+      font-weight: 700;
+      color: var(--paper);
+      box-shadow: 0 3px 0 rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .kb-key-cap:hover, .kb-key-cap.pressed {
+      background: var(--gold);
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 0 16px var(--gold-glow);
+    }
+
+    /* 3-IN-1 GAME HUB */
+    .games-tab-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .brick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      width: 100%;
+      max-width: 860px;
+      margin: 20px auto;
+    }
+
+    .brick-card {
+      background: var(--bg-card);
+      border: 2px solid var(--line-gold);
+      border-radius: 10px;
+      padding: 20px 14px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--paper);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+      transition: all 0.2s;
+    }
+
+    .brick-card.cracked {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    .kitchen-order-ticket {
+      background: #fff;
+      color: #080908;
+      border-radius: 8px;
+      padding: 16px 24px;
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* RECORDS & GROWTH REPORT */
+    .record-dashboard {
+      width: 100%;
+      max-width: 960px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .record-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .record-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .record-title {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .record-val {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--gold-light);
+    }
+
+    .record-history-list {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      max-height: 280px;
+      overflow-y: auto;
+    }
+
+    .record-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    /* RAIN DROP BUBBLE ARENA */
+    .rain-stage-box {
+      width: 100%;
+      max-width: 1020px;
+      position: relative;
+    }
+
+    .rain-field {
+      width: 100%;
+      height: 520px;
+      position: relative;
+      background: radial-gradient(circle at 50% 20%, rgba(14, 78, 72, 0.3) 0%, rgba(9, 10, 9, 0.96) 80%);
+      border: 2px solid var(--teal-light);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(28, 212, 191, 0.2);
+    }
+
+    .falling-bubble {
+      position: absolute;
+      background: var(--bg-card);
+      border: 2.5px solid var(--gold);
+      color: #fff;
+      font-size: calc(21px * var(--scale));
+      font-weight: 800;
+      padding: 10px 22px;
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      animation: floatGentle 2s ease-in-out infinite alternate;
+      transition: top 0.08s linear;
+    }
+
+    .falling-bubble.warning {
+      border-color: var(--coral);
+      color: var(--coral);
+      animation: wiggleDanger 0.3s infinite;
+    }
+
+    @keyframes floatGentle {
+      from { transform: translateY(0) rotate(-1deg); }
+      to { transform: translateY(-4px) rotate(1deg); }
+    }
+
+    @keyframes wiggleDanger {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+    }
+
+    .rain-bottom-deck {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(16, 20, 17, 0.95);
+      border-top: 1px solid var(--line);
+      padding: 18px 28px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      border-radius: 0 0 16px 16px;
+      z-index: 20;
+    }
+
+    /* Pop Sparks */
+    .spark-bubble {
+      position: absolute;
+      pointer-events: none;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: calc(20px * var(--scale));
+      color: var(--gold-light);
+      animation: popSpark 0.7s forwards ease-out;
+      z-index: 50;
+    }
+
+    @keyframes popSpark {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(0.8); }
+      50% { transform: translate(-50%, -80%) scale(1.3); }
+      100% { opacity: 0; transform: translate(-50%, -120%) scale(1); }
+    }
+
+    /* SPECIAL KEY BOARD */
+    .special-key-board {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      width: 100%;
+      max-width: 880px;
+    }
+
+    .special-key-card {
+      background: var(--bg-card);
+      border: 2px solid var(--line);
+      border-radius: 14px;
+      padding: 22px 18px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .special-key-card.active, .special-key-card:hover {
+      border-color: var(--gold);
+      background: var(--bg-card-hover);
+      transform: translateY(-3px);
+    }
+
+    .special-key-badge {
+      font-family: var(--font-display);
+      font-size: calc(20px * var(--scale));
+      font-weight: 800;
+      color: var(--gold-light);
+      background: rgba(212, 167, 89, 0.15);
+      padding: 6px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--line-gold);
+    }
+
+    .special-key-desc {
+      font-size: calc(13px * var(--scale));
+      color: var(--paper-dim);
+      line-height: 1.5;
+    }
+
+    /* LONG TEXT BOARD */
+    .long-text-board {
+      width: 100%;
+      max-width: 960px;
+      background: var(--bg-card);
+      border: 2px solid var(--line-gold);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: left;
+    }
+
+    .long-text-progress-bar {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .long-text-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--teal-light));
+      transition: width 0.2s;
+    }
+
+    .target-sentence-line {
+      font-family: var(--font-serif);
+      font-size: calc(28px * var(--scale));
+      color: var(--paper);
+      font-weight: 600;
+      line-height: 1.6;
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 16px;
+    }
+
+    /* FOOTER */
+    .page-footer {
+      border-top: 1px solid var(--line);
+      padding: 36px 4vw;
+      text-align: center;
+      font-size: 13px;
+      color: var(--dim);
+    }
+
+    @media (max-width: 900px) {
+      .primary-tabs { grid-template-columns: 1fr; }
+      .hud-bar { grid-template-columns: repeat(2, 1fr); }
+      .vault-cluster { grid-template-columns: repeat(2, 1fr); }
+      .portal-menu-grid { grid-template-columns: 1fr; }
+      .record-stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-ambient"></div>
+
+  <!-- NAVIGATION -->
+  <header class="top-nav">
+    <a href="../index.html" class="brand-group" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+      <img src="../assets/logo/wordmark_dark.png" alt="새미새론AI교육원 SEMISERON AI Lab" style="height:44px; width:auto; vertical-align:middle; filter:drop-shadow(0 2px 10px rgba(0,0,0,0.6)); transition:opacity 0.2s;">
+      <span class="brand-badge">INTERACTION &amp; TYPING SUITE</span>
+    </a>
+
+    <div class="nav-tools">
+      <div class="scale-box">
+        <button class="btn-scale active" onclick="updateScale('normal')">보통</button>
+        <button class="btn-scale" onclick="updateScale('large')">크게</button>
+        <button class="btn-scale" onclick="updateScale('huge')">아주 크게</button>
+      </div>
+
+      <button class="btn-sound" id="btnAudioToggle" onclick="toggleAudio()">
+        <span id="audioStatusIcon">🔊</span> SOUND ON
+      </button>
+
+      <a href="../campus.html" class="nav-anchor">← 온라인 캠퍼스</a>
+      <a href="../index.html" class="nav-anchor">메인 홈</a>
+    </div>
+  </header>
+
+  <!-- MAIN SUITE -->
+  <main class="app-wrap">
+    
+    <!-- EDITORIAL INTRO BANNER -->
+    <header class="intro-banner" style="position:relative; display:flex; justify-content:space-between; align-items:center; gap:24px;">
+      <div style="flex:1; max-width:780px;">
+        <div class="intro-eyebrow">DIGITAL FOUNDATION · INTERACTIVE &amp; TYPING COMPLETE</div>
+        <h1 class="intro-title">
+          마우스와 키보드를 마스터하는 가장 완벽한 여정,<br>
+          <span>새미새론 기초 훈련원 완전판</span>
+        </h1>
+        <p class="intro-desc" style="margin-top:14px;">
+          시니어 어르신과 아이들의 눈높이에 맞춘 <strong>초대형 화면</strong> 위에,<br>
+          5대 짝맞추기 드래그부터 <strong>손가락 위치 안내도 · 키보드 학습기 · 3대 타자 게임 · 나의 성장 기록</strong>까지 빠짐없이 담았습니다.
+        </p>
+      </div>
+      <!-- MASTER'S CLEAN MINIMAL SYMBOL EMBLEM ON THE RIGHT -->
+      <div class="intro-symbol-emblem" style="flex-shrink:0; display:flex; align-items:center; justify-content:center; padding:14px 20px; background:radial-gradient(circle, rgba(212,167,89,0.08) 0%, rgba(8,9,8,0) 75%); border:1px solid rgba(212,167,89,0.3); border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,0.6); transition:transform 0.3s ease, border-color 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.transform='none'; this.style.borderColor='rgba(212,167,89,0.3)';">
+        <img src="../assets/logo/symbol_dark.png" alt="새미새론AI교육원 심볼" style="width:115px; height:auto; filter:drop-shadow(0 0 20px rgba(212,167,89,0.35));">
+      </div>
+    </header>
+
+    <!-- DUAL PRIMARY TABS -->
+    <nav class="primary-tabs">
+      <div class="primary-tab active" id="modeTabMouse" onclick="changeMode('mouse')">
+        <span class="tab-badge-icon">🖐️</span>
+        <div class="tab-texts">
+          <h2>마우스 훈련실 (Mouse Lab)</h2>
+          <p>5대 테마 짝맞추기 드래그 · 큼직한 타깃 클릭 · 보물상자 더블클릭</p>
+        </div>
+      </div>
+
+      <div class="primary-tab" id="modeTabTyping" onclick="changeMode('typing')">
+        <span class="tab-badge-icon">⌨️</span>
+        <div class="tab-texts">
+          <h2>타자 아카데미 (Typing Lab)</h2>
+          <p>원리 이해 3단계 · 실전 훈련 3단계 · 검증과 도전 3단계 (새미새론 9대 정규 코스)</p>
+        </div>
+      </div>
+    </nav>
+
+    <!-- LIVE STATS HUD -->
+    <section class="hud-bar">
+      <div class="hud-stat">
+        <span class="hud-title">TOTAL SCORE</span>
+        <div class="hud-val" id="statScore">0 <span class="hud-unit">점</span></div>
+      </div>
+      <div class="hud-stat">
+        <span class="hud-title" id="statSpeedTitle">REACTION SPEED</span>
+        <div class="hud-val" id="statSpeed">-- <span class="hud-unit" id="statSpeedUnit">ms</span></div>
+      </div>
+      <div class="hud-stat">
+        <span class="hud-title">ACCURACY</span>
+        <div class="hud-val" id="statAccuracy">100 <span class="hud-unit">%</span></div>
+      </div>
+      <div class="hud-stat">
+        <span class="hud-title">ACCREDITATION</span>
+        <div class="hud-val" id="statRank" style="color: var(--gold-light);">입문 (NOVICE)</div>
+      </div>
+    </section>
+
+    <!-- WORKSPACE FRAME -->
+    <section class="workspace-shell">
+      <nav class="workspace-subnav" id="subnavZone">
+        <!-- Injected via JavaScript -->
+      </nav>
+
+      <div class="arena-viewport" id="viewportZone">
+        <!-- Rendered by active stage -->
+      </div>
+    </section>
+
+  </main>
+
+        <footer class="page-footer" style="padding:36px 4vw 48px; border-top:1px solid var(--line); text-align:center; display:flex; flex-direction:column; align-items:center; gap:12px;">
+    <div style="display:flex; align-items:center; justify-content:center; gap:18px; font-size:12.5px; flex-wrap:wrap;">
+      <a href="../campus.html" style="color:var(--gold-light); text-decoration:underline;">온라인 캠퍼스</a>
+      <span style="color:var(--dim);">·</span>
+      <a href="../index.html" style="color:var(--paper); text-decoration:underline;">메인 홈페이지</a>
+      <span style="color:var(--dim);">·</span>
+      <button type="button" onclick="openSiteMapModal()" style="background:none; border:none; color:var(--gold); font-size:12.5px; font-weight:700; cursor:pointer; text-decoration:underline;">전체 사이트맵 (SITEMAP)</button>
+    </div>
+    <div style="color:var(--dim); font-size:12px; letter-spacing:0.02em;">
+      © 2026 SEMISERON AI Lab (새미새론AI교육원). ALL RIGHTS RESERVED. · 사람을 키우고 기술을 연결하는 디지털 배움터
+    </div>
+  </footer>
+
+  <!-- SCRIPT ENGINE -->
+  <script>
+    /* ==========================================================================
+       SYNTHESIZER (Acoustic Chime & Pop Audio)
+       ========================================================================== */
+    const Sound = {
+      ctx: null,
+      enabled: true,
+
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          this.ctx = new AudioContext();
+        }
+      },
+
+      chime(freq, type = 'sine', dur = 0.12, gain = 0.15) {
+        if (!this.enabled) return;
+        try {
+          this.init();
+          if (this.ctx.state === 'suspended') this.ctx.resume();
+          const osc = this.ctx.createOscillator();
+          const g = this.ctx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+          g.gain.setValueAtTime(gain, this.ctx.currentTime);
+          g.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + dur);
+          osc.connect(g);
+          g.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + dur);
+        } catch(e) {}
+      },
+
+      click() { this.chime(800, 'triangle', 0.08, 0.12); },
+      double() {
+        this.chime(960, 'sine', 0.06, 0.14);
+        setTimeout(() => this.chime(1280, 'triangle', 0.09, 0.16), 70);
+      },
+      match() {
+        this.chime(523.25, 'sine', 0.08, 0.14);
+        setTimeout(() => this.chime(659.25, 'sine', 0.08, 0.15), 75);
+        setTimeout(() => this.chime(783.99, 'triangle', 0.18, 0.18), 150);
+      },
+      miss() { this.chime(210, 'sawtooth', 0.14, 0.09); },
+      keyPress() { this.chime(620, 'sine', 0.04, 0.05); }
+    };
+
+    function toggleAudio() {
+      Sound.enabled = !Sound.enabled;
+      document.getElementById('audioStatusIcon').innerText = Sound.enabled ? '🔊' : '🔇';
+      document.getElementById('btnAudioToggle').innerHTML = Sound.enabled ? '<span>🔊</span> SOUND ON' : '<span>🔇</span> MUTED';
+    }
+
+    function updateScale(lvl) {
+      document.querySelectorAll('.btn-scale').forEach(b => b.classList.remove('active'));
+      document.body.classList.remove('scale-large', 'scale-huge');
+      if (lvl === 'large') {
+        document.body.classList.add('scale-large');
+        event.target.classList.add('active');
+      } else if (lvl === 'huge') {
+        document.body.classList.add('scale-huge');
+        event.target.classList.add('active');
+      } else {
+        event.target.classList.add('active');
+      }
+    }
+
+    /* ==========================================================================
+       LOCALSTORAGE USER RECORD REPO (로그인 없이 브라우저 영구 보존)
+       ========================================================================== */
+    const RecordDB = {
+      getKey() { return 'semiseron_kukuk_records'; },
+      getData() {
+        try {
+          const raw = localStorage.getItem(this.getKey());
+          if (!raw) return { totalChars: 0, maxCPM: 0, totalPractices: 0, history: [] };
+          return JSON.parse(raw);
+        } catch(e) {
+          return { totalChars: 0, maxCPM: 0, totalPractices: 0, history: [] };
+        }
+      },
+      saveSession(type, score, cpm, acc) {
+        const d = this.getData();
+        d.totalPractices++;
+        d.totalChars += score;
+        if (cpm > d.maxCPM) d.maxCPM = cpm;
+        d.history.unshift({
+          date: new Date().toLocaleDateString('ko-KR') + ' ' + new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' }),
+          type: type,
+          cpm: cpm,
+          acc: acc,
+          score: score
+        });
+        if (d.history.length > 30) d.history.pop();
+        try {
+          localStorage.setItem(this.getKey(), JSON.stringify(d));
+        } catch(e) {}
+      }
+    };
+
+    /* ==========================================================================
+       CENTRAL STATE
+       ========================================================================== */
+    const State = {
+      masterMode: 'mouse',
+      mouseTab: 'drag',
+      typingTab: 'portal',
+      activeGame: 'rain',
+      score: 0,
+      totalInputs: 0,
+      hitInputs: 0,
+      reactionTimes: [],
+      dragTheme: 'animals',
+      rainInterval: null,
+      rainList: []
+    };
+
+    function addScore(pts) {
+      State.score += pts;
+      document.getElementById('statScore').innerHTML = `${State.score.toLocaleString()} <span class="hud-unit">점</span>`;
+      
+      const el = document.getElementById('statRank');
+      if (State.score >= 1200) el.innerText = '달인 (MASTER S+)';
+      else if (State.score >= 700) el.innerText = '숙련 (EXPERT)';
+      else if (State.score >= 300) el.innerText = '중급 (ADEPT)';
+      else el.innerText = '입문 (NOVICE)';
+    }
+
+    function logInput(hit = true, rt = null) {
+      State.totalInputs++;
+      if (hit) State.hitInputs++;
+      if (rt) State.reactionTimes.push(rt);
+
+      const acc = State.totalInputs > 0 ? Math.round((State.hitInputs / State.totalInputs) * 100) : 100;
+      document.getElementById('statAccuracy').innerHTML = `${acc} <span class="hud-unit">%</span>`;
+
+      if (State.masterMode === 'mouse' && State.reactionTimes.length > 0) {
+        const avg = Math.round(State.reactionTimes.reduce((a,b)=>a+b, 0) / State.reactionTimes.length);
+        document.getElementById('statSpeed').innerHTML = `${avg} <span class="hud-unit">ms</span>`;
+      }
+    }
+
+    function spawnPopSpark(x, y, txt) {
+      const v = document.getElementById('viewportZone');
+      const r = v.getBoundingClientRect();
+      const s = document.createElement('div');
+      s.className = 'spark-bubble';
+      s.innerText = txt;
+      s.style.left = `${x - r.left}px`;
+      s.style.top = `${y - r.top}px`;
+      v.appendChild(s);
+      setTimeout(() => s.remove(), 700);
+    }
+
+    /* ==========================================================================
+       PRIMARY MODE SWITCH
+       ========================================================================== */
+    function changeMode(mode) {
+      State.masterMode = mode;
+      document.getElementById('modeTabMouse').classList.toggle('active', mode === 'mouse');
+      document.getElementById('modeTabTyping').classList.toggle('active', mode === 'typing');
+
+      if (State.rainInterval) clearInterval(State.rainInterval);
+
+      if (mode === 'mouse') {
+        document.getElementById('statSpeedTitle').innerText = 'REACTION SPEED';
+        document.getElementById('statSpeedUnit').innerText = 'ms';
+        buildMouseSubnav();
+        setMouseTab(State.mouseTab);
+      } else {
+        document.getElementById('statSpeedTitle').innerText = 'TYPING SPEED';
+        document.getElementById('statSpeedUnit').innerText = '타/분';
+        buildTypingSubnav();
+        setTypingTab('portal');
+      }
+      Sound.click();
+    }
+
+    /* ==========================================================================
+       MOUSE MODULES
+       ========================================================================== */
+    function buildMouseSubnav() {
+      const bar = document.getElementById('subnavZone');
+      bar.innerHTML = `
+        <button class="subnav-pill active" onclick="setMouseTab('drag')">🖐️ 5대 짝맞추기 드래그</button>
+        <button class="subnav-pill" onclick="setMouseTab('click')">🎯 큰 타깃 정밀 조준</button>
+        <button class="subnav-pill" onclick="setMouseTab('double')">💎 더블클릭 보물상자</button>
+        <span class="subnav-hint">💡 손목에 힘을 빼고 편안하게 마우스를 쥐어보세요.</span>
+      `;
+    }
+
+    function setMouseTab(tab) {
+      State.mouseTab = tab;
+      const btns = document.querySelectorAll('#subnavZone .subnav-pill');
+      const map = ['drag', 'click', 'double'];
+      btns.forEach((b, i) => b.classList.toggle('active', map[i] === tab));
+
+      if (tab === 'drag') renderDragPlayground(State.dragTheme);
+      else if (tab === 'click') renderClickPlayground();
+      else if (tab === 'double') renderDoublePlayground();
+    }
+
+    /* 5-THEME CUTE DRAG */
+    const DragThemes = {
+      animals: {
+        name: '🐶 귀여운 동물 친구들',
+        items: [
+          { id: 'dog', icon: '🐶', label: '강아지' },
+          { id: 'cat', icon: '🐱', label: '고양이' },
+          { id: 'panda', icon: '🐼', label: '판다' },
+          { id: 'rabbit', icon: '🐰', label: '토끼' },
+          { id: 'fox', icon: '🦊', label: '여우' },
+          { id: 'lion', icon: '🦁', label: '사자' },
+          { id: 'tiger', icon: '🐯', label: '호랑이' },
+          { id: 'pig', icon: '🐷', label: '돼지' }
+        ]
+      },
+      numbers: {
+        name: '🔢 숫자 드래그 (0~9)',
+        items: [
+          { id: '0', icon: '0️⃣', label: '영' },
+          { id: '1', icon: '1️⃣', label: '일' },
+          { id: '2', icon: '2️⃣', label: '이' },
+          { id: '3', icon: '3️⃣', label: '삼' },
+          { id: '4', icon: '4️⃣', label: '사' },
+          { id: '5', icon: '5️⃣', label: '오' },
+          { id: '6', icon: '6️⃣', label: '육' },
+          { id: '7', icon: '7️⃣', label: '칠' },
+          { id: '8', icon: '8️⃣', label: '팔' },
+          { id: '9', icon: '9️⃣', label: '구' }
+        ]
+      },
+      korean: {
+        name: '🇰🇷 한글 자음 (ㄱ~ㅎ)',
+        items: [
+          { id: 'ㄱ', icon: 'ㄱ', label: '기역' },
+          { id: 'ㄴ', icon: 'ㄴ', label: '니은' },
+          { id: 'ㄷ', icon: 'ㄷ', label: '디귿' },
+          { id: 'ㄹ', icon: 'ㄹ', label: '리을' },
+          { id: 'ㅁ', icon: 'ㅁ', label: '미음' },
+          { id: 'ㅂ', icon: 'ㅂ', label: '비읍' },
+          { id: 'ㅅ', icon: 'ㅅ', label: '시옷' },
+          { id: 'ㅇ', icon: 'ㅇ', label: '이응' },
+          { id: 'ㅈ', icon: 'ㅈ', label: '지읒' },
+          { id: 'ㅎ', icon: 'ㅎ', label: '히읗' }
+        ]
+      },
+      words: {
+        name: '🍎 친숙한 일상 낱말',
+        items: [
+          { id: 'love', icon: '💖', label: '사랑' },
+          { id: 'apple', icon: '🍎', label: '사과' },
+          { id: 'tree', icon: '🌳', label: '나무' },
+          { id: 'sky', icon: '☁️', label: '하늘' },
+          { id: 'school', icon: '🏫', label: '학교' },
+          { id: 'water', icon: '💧', label: '맑은 물' }
+        ]
+      },
+      shapes: {
+        name: '⭐ 알록달록 선명한 도형',
+        items: [
+          { id: 'star', icon: '⭐', label: '별' },
+          { id: 'heart', icon: '❤️', label: '하트' },
+          { id: 'circle', icon: '🔴', label: '동그라미' },
+          { id: 'square', icon: '🟦', label: '네모' },
+          { id: 'triangle', icon: '🔺', label: '세모' },
+          { id: 'diamond', icon: '💠', label: '다이아' }
+        ]
+      }
+    };
+
+    let activeDragCardId = null;
+    let dragMatchedMap = {};
+
+    function renderDragPlayground(themeKey) {
+      State.dragTheme = themeKey;
+      dragMatchedMap = {};
+      const vp = document.getElementById('viewportZone');
+      const theme = DragThemes[themeKey];
+      const mixed = [...theme.items].sort(() => Math.random() - 0.5);
+
+      vp.innerHTML = `
+        <div class="theme-picker">
+          ${Object.keys(DragThemes).map(k => `
+            <button class="btn-theme-chip ${k === themeKey ? 'active' : ''}" onclick="renderDragPlayground('${k}')">
+              ${DragThemes[k].name}
+            </button>
+          `).join('')}
+        </div>
+
+        <div class="drag-board">
+          <div style="text-align:center;">
+            <div style="font-size:calc(14px * var(--scale)); color:var(--gold); font-weight:700; margin-bottom:14px;">
+              [1] 아래 카드를 꾹 눌러서, 여기 맞는 짝 홈으로 끌어다 놓으세요
+            </div>
+            <div class="slots-deck">
+              ${theme.items.map(it => `
+                <div class="slot-card" id="slot-${it.id}" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, '${it.id}')">
+                  <div class="slot-glyph">${it.icon}</div>
+                  <div class="slot-label">${it.label}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <div style="text-align:center; border-top:1px solid var(--line); padding-top:24px;">
+            <div style="font-size:calc(14px * var(--scale)); color:var(--paper-dim); font-weight:700; margin-bottom:14px;">
+              [2] 옮길 카드들 (마우스 왼쪽 버튼을 누른 채 슥 끌어보세요)
+            </div>
+            <div class="pieces-deck" id="dragDeck">
+              ${mixed.map(it => `
+                <div class="draggable-card" id="card-${it.id}" draggable="true" ondragstart="handleDragStart(event, '${it.id}')">
+                  <div class="card-glyph">${it.icon}</div>
+                  <div class="card-label">${it.label}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function handleDragStart(e, id) {
+      activeDragCardId = id;
+      e.dataTransfer.setData('text/plain', id);
+      Sound.click();
+    }
+
+    function handleDragOver(e) {
+      e.preventDefault();
+      e.currentTarget.classList.add('drag-over');
+    }
+
+    function handleDragLeave(e) {
+      e.currentTarget.classList.remove('drag-over');
+    }
+
+    function handleDrop(e, targetId) {
+      e.preventDefault();
+      const slot = e.currentTarget;
+      slot.classList.remove('drag-over');
+
+      if (activeDragCardId === targetId) {
+        dragMatchedMap[targetId] = true;
+        slot.classList.add('matched');
+        const card = document.getElementById(`card-${targetId}`);
+        if (card) card.remove();
+
+        addScore(100);
+        logInput(true);
+        Sound.match();
+        spawnPopSpark(e.clientX, e.clientY, '짝맞춤 성공! 🎉 +100');
+
+        const total = DragThemes[State.dragTheme].items.length;
+        if (Object.keys(dragMatchedMap).length === total) {
+          setTimeout(() => {
+            alert('와! 모든 짝을 완벽히 맞추셨습니다! 참 잘하셨어요!');
+            const keys = Object.keys(DragThemes);
+            const nextKey = keys[(keys.indexOf(State.dragTheme) + 1) % keys.length];
+            renderDragPlayground(nextKey);
+          }, 350);
+        }
+      } else {
+        Sound.miss();
+        logInput(false);
+        spawnPopSpark(e.clientX, e.clientY, '여기가 아니에요! 😅');
+      }
+      activeDragCardId = null;
+    }
+
+    /* Target Click */
+    let targetRound = 0;
+    let spawnMoment = 0;
+
+    function renderClickPlayground() {
+      const vp = document.getElementById('viewportZone');
+      targetRound = 0;
+      vp.innerHTML = `
+        <div style="text-align:center;">
+          <div style="font-size:calc(56px * var(--scale)); margin-bottom:14px;">🎯</div>
+          <h3 style="font-family:var(--font-serif); font-size:calc(28px * var(--scale)); margin-bottom:10px;">큼직한 타깃 조준 클릭</h3>
+          <p style="font-size:calc(15px * var(--scale)); color:var(--paper-dim); max-width:540px; margin:0 auto 26px; line-height:1.75;">
+            화면 곳곳에 나타나는 황금빛 링을 마우스로 조준하여 가볍게 콕 눌러보세요 (총 10회).
+          </p>
+          <button class="subnav-pill active" style="padding:14px 36px; font-size:calc(16px * var(--scale));" onclick="startClickSession()">
+            지금 시작하기 ↗
+          </button>
+        </div>
+      `;
+    }
+
+    function startClickSession() {
+      targetRound = 0;
+      nextTarget();
+    }
+
+    function nextTarget() {
+      const vp = document.getElementById('viewportZone');
+      vp.innerHTML = '';
+
+      if (targetRound >= 10) {
+        Sound.match();
+        vp.innerHTML = `
+          <div style="text-align:center;">
+            <div style="font-size:calc(56px * var(--scale)); margin-bottom:14px;">🏆</div>
+            <h3 style="font-family:var(--font-serif); font-size:calc(28px * var(--scale)); margin-bottom:10px;">10회 조준 완수!</h3>
+            <p style="font-size:calc(15px * var(--scale)); color:var(--paper-dim); margin-bottom:24px;">정확도와 반응 속도가 아주 훌륭합니다.</p>
+            <button class="subnav-pill active" onclick="setMouseTab('double')">다음: 더블클릭 보물상자 열기 →</button>
+          </div>
+        `;
+        return;
+      }
+
+      targetRound++;
+      const rect = vp.getBoundingClientRect();
+      const pad = 90;
+      const x = Math.max(pad, Math.floor(Math.random() * (rect.width - pad * 2)));
+      const y = Math.max(pad, Math.floor(Math.random() * (rect.height - pad * 2)));
+
+      const t = document.createElement('div');
+      t.className = 'senior-target-ring';
+      t.style.left = `${x}px`;
+      t.style.top = `${y}px`;
+      t.innerHTML = `
+        <div style="font-size:calc(32px * var(--scale));">🎯</div>
+        <div style="font-family:var(--font-display); font-size:calc(13px * var(--scale)); font-weight:800; color:#fff;">${targetRound} / 10</div>
+      `;
+
+      spawnMoment = performance.now();
+
+      t.onmousedown = (e) => {
+        e.stopPropagation();
+        const rt = Math.round(performance.now() - spawnMoment);
+        addScore(100);
+        logInput(true, rt);
+        Sound.click();
+        spawnPopSpark(e.clientX, e.clientY, `+100점 (${rt}ms)`);
+        nextTarget();
+      };
+
+      vp.appendChild(t);
+    }
+
+    /* Double Click */
+    const ChestVault = [
+      { name: '금화 상자', icon: '💰', opened: false },
+      { name: '빛나는 다이아', icon: '💎', opened: false },
+      { name: '지혜의 마법서', icon: '📖', opened: false },
+      { name: '황금 트로피', icon: '🏆', opened: false },
+      { name: '축하 꽃다발', icon: '💐', opened: false },
+      { name: '달콤한 과일', icon: '🍎', opened: false },
+      { name: '우정의 선물', icon: '🎁', opened: false },
+      { name: '새미새론 메달', icon: '🥇', opened: false }
+    ];
+
+    function renderDoublePlayground() {
+      const vp = document.getElementById('viewportZone');
+      vp.innerHTML = `
+        <div style="width:100%; text-align:center;">
+          <p style="font-size:calc(16px * var(--scale)); color:var(--gold-light); margin-bottom:24px; font-weight:700;">
+            💡 마우스 왼쪽 버튼을 <strong>"딱-딱!" 하고 빠르게 연속 두 번</strong> 누르면 상자가 활짝 열립니다!
+          </p>
+          <div class="vault-cluster" style="margin: 0 auto;">
+            ${ChestVault.map((c, i) => `
+              <div class="chest-box ${c.opened ? 'opened' : ''}" id="box-${i}" ondblclick="unlockBox(${i}, event)">
+                <div class="chest-icon">${c.opened ? c.icon : '📦'}</div>
+                <div class="chest-name">${c.name}</div>
+                <div class="chest-pill">${c.opened ? '열림 (성공!)' : '연속 2회 클릭'}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function unlockBox(idx, e) {
+      const c = ChestVault[idx];
+      if (c.opened) return;
+      c.opened = true;
+
+      const el = document.getElementById(`box-${idx}`);
+      el.classList.add('opened');
+      el.querySelector('.chest-icon').innerText = c.icon;
+      el.querySelector('.chest-pill').innerText = '열림 (성공!)';
+
+      addScore(150);
+      logInput(true);
+      Sound.double();
+      spawnPopSpark(e.clientX, e.clientY, '보물 획득! 🌟 +150');
+
+      if (ChestVault.every(x => x.opened)) {
+        setTimeout(() => {
+          Sound.match();
+          alert('축하합니다! 모든 보물상자를 전부 여셨습니다!');
+        }, 350);
+      }
+    }
+
+    /* ==========================================================================
+       SECTION 2: SEMISERON TYPING MATRIX (9-COURSE CURRICULUM)
+       ========================================================================== */
+    function buildTypingSubnav() {
+      const bar = document.getElementById('subnavZone');
+      bar.innerHTML = `
+        <button class="subnav-pill active" onclick="setTypingTab('portal')">🧭 타자 아카데미 (9대 로드맵)</button>
+        <button class="subnav-pill" onclick="setTypingTab('finger')">🤲 양손 바른자리 (홈 포지션)</button>
+        <button class="subnav-pill" onclick="setTypingTab('kb')">💻 스마트 자판 탐색기</button>
+        <button class="subnav-pill" onclick="setTypingTab('games')">🎯 타자 아케이드 3종</button>
+        <button class="subnav-pill" onclick="setTypingTab('records')">📈 실시간 성장 대시보드</button>
+      `;
+    }
+
+    function setTypingTab(tab) {
+      State.typingTab = tab;
+      const btns = document.querySelectorAll('#subnavZone .subnav-pill');
+      const map = ['portal', 'finger', 'kb', 'games', 'records'];
+      btns.forEach((b, i) => b.classList.toggle('active', map[i] === tab));
+
+      if (State.rainInterval) clearInterval(State.rainInterval);
+
+      if (tab === 'portal') renderKukukPortalGrid();
+      else if (tab === 'finger') renderFingerGuide();
+      else if (tab === 'kb') renderKeyboardExplorer();
+      else if (tab === 'games') renderGamesHub('rain');
+      else if (tab === 'records') renderGrowthRecords();
+      else if (tab === 'word') renderTypingWord();
+      else if (tab === 'proverb') renderProverbSuite();
+      else if (tab === 'special') renderSpecialKeySuite();
+      else if (tab === 'long') renderLongTextSuite();
+      else if (tab === 'test') renderTypingTestPrep();
+    }
+
+    /* 9-COURSE SEMISERON TYPING MATRIX */
+    function renderKukukPortalGrid() {
+      const vp = document.getElementById('viewportZone');
+      vp.innerHTML = `
+        <div style="text-align:center; margin-bottom:24px;">
+          <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(199,154,81,0.12); border:1px solid rgba(199,154,81,0.3); padding:4px 14px; border-radius:999px; font-size:12px; color:var(--gold-light); font-weight:700; margin-bottom:10px;">
+            <span>✨</span> SEMISERON DIGITAL CURRICULUM 9
+          </div>
+          <h2 style="font-family:var(--font-serif); font-size:calc(30px * var(--scale)); color:var(--paper); margin-bottom:8px; letter-spacing:-0.02em;">
+            손끝으로 깨우는 타자의 즐거움, 9대 마스터 로드맵
+          </h2>
+          <p style="font-size:14.5px; color:var(--paper-dim);">
+            별도의 회원가입 없이 누구나 바로 — 기초 원리 탐색부터 실전 챌린지와 영구 성장 기록까지
+          </p>
+        </div>
+
+        <div class="portal-menu-grid">
+          <!-- COLUMN 1: STEP I 원리 이해 -->
+          <div class="portal-category-col">
+            <div class="portal-cat-header">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span>💡</span> <strong>원리 이해</strong>
+              </div>
+              <span class="portal-cat-tag">STAGE 1</span>
+            </div>
+            
+            <div class="portal-card" onclick="setTypingTab('kb')">
+              <div class="portal-card-icon" style="background:radial-gradient(circle, rgba(20,184,166,0.2), transparent);">💻</div>
+              <div class="portal-card-content">
+                <h4>스마트 자판 탐색기</h4>
+                <p>누르는 키마다 이름과 역할 실시간 해설</p>
+              </div>
+            </div>
+
+            <div class="portal-card" onclick="setTypingTab('finger')">
+              <div class="portal-card-icon" style="background:radial-gradient(circle, rgba(199,154,81,0.2), transparent);">🤲</div>
+              <div class="portal-card-content">
+                <h4>양손 바른자리 가이드</h4>
+                <p>10손가락 홈 포지션과 색상별 담당 구역</p>
+              </div>
+            </div>
+
+            <div class="portal-card" onclick="setTypingTab('special')">
+              <div class="portal-card-icon" style="background:radial-gradient(circle, rgba(245,158,11,0.2), transparent);">⚡</div>
+              <div class="portal-card-content">
+                <h4>특수키 &amp; 쌍자음</h4>
+                <p>Shift 조합키와 기호 부호 마스터</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUMN 2: STEP II 실전 훈련 -->
+          <div class="portal-category-col">
+            <div class="portal-cat-header">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span>🖋️</span> <strong>실전 훈련</strong>
+              </div>
+              <span class="portal-cat-tag">STAGE 2</span>
+            </div>
+
+            <div class="portal-card" onclick="setTypingTab('word')">
+              <div class="portal-card-icon" style="background:radial-gradient(circle, rgba(16,185,129,0.2), transparent);">🌱</div>
+              <div class="portal-card-content">
+                <h4>기초 낱말 빌드업 <span class="step-pill">Lv.1</span></h4>
+                <p>자주 쓰는 일상 단어로 다지는 타이핑 손맛</p>
+              </div>
+            </div>
+
+            <div class="portal-card" onclick="setTypingTab('proverb')">
+              <div class="portal-card-icon" style="background:radial-gradient(circle, rgba(59,130,246,0.2), transparent);">📜</div>
+              <div class="portal-card-content">
+                <h4>품격있는 문장 익히기 <span class="step-pill">Lv.2</span></h4>
+                <p>지혜로운 속담과 명언으로 정확도 완성</p>
+              </div>
+            </div>
+
+            <div class="portal-card" onclick="setTypingTab('long')">
+              <div class="portal-card-icon" style="background:radial-gradient(circle, rgba(168,85,247,0.2), transparent);">📚</div>
+              <div class="portal-card-content">
+                <h4>명문장 긴 글 정독 <span class="step-pill">Lv.3</span></h4>
+                <p>100인의 위인들 · 별 헤는 밤 지구력 단련</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUMN 3: STEP III 검증과 도전 -->
+          <div class="portal-category-col">
+            <div class="portal-cat-header">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span>🏆</span> <strong>검증과 도전</strong>
+              </div>
+              <span class="portal-cat-tag">STAGE 3</span>
+            </div>
+
+            <div class="portal-card" onclick="setTypingTab('test')">
+              <div class="portal-card-icon" style="background:radial-gradient(circle, rgba(239,68,68,0.2), transparent);">⏱️</div>
+              <div class="portal-card-content">
+                <h4>60초 공식 타자 검정</h4>
+                <p>실시간 분당 타수와 급수 인증서 발급</p>
+              </div>
+            </div>
+
+            <div class="portal-card" onclick="setTypingTab('games')">
+              <div class="portal-card-icon" style="background:radial-gradient(circle, rgba(236,72,153,0.2), transparent);">🎯</div>
+              <div class="portal-card-content">
+                <h4>타자 아케이드 (3종)</h4>
+                <p>방울비·단어벽돌깨기·주방요리 챌린지</p>
+              </div>
+            </div>
+
+            <div class="portal-card" onclick="setTypingTab('records')">
+              <div class="portal-card-icon" style="background:radial-gradient(circle, rgba(20,184,166,0.2), transparent);">📈</div>
+              <div class="portal-card-content">
+                <h4>나의 성장 대시보드</h4>
+                <p>누적 타수·역대 최고 기록 자동 분석</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    /* 1. 양손 바른자리 안내 (FINGER POSITION GUIDE) */
+    function renderFingerGuide() {
+      const vp = document.getElementById('viewportZone');
+      vp.innerHTML = `
+        <div class="finger-guide-container">
+          <div style="text-align:center;">
+            <div style="font-size:12px; font-weight:700; color:var(--teal-light); letter-spacing:0.1em; margin-bottom:4px;">STAGE 1 · BIOMECHANICS</div>
+            <h3 style="font-family:var(--font-serif); font-size:24px; color:#fff; margin-bottom:6px;">🤲 양손 바른자리 (홈 포지션) 가이드</h3>
+            <p style="font-size:14px; color:var(--paper-dim);">양손의 검지손가락을 키보드의 볼록한 기준돌기인 <strong>"ㄹ"</strong>과 <strong>"ㅓ"</strong> 위에 살포시 얹어보세요.</p>
+          </div>
+
+          <div class="hands-visual">
+            <!-- 왼손 -->
+            <div class="hand-box">
+              <div style="font-weight:800; color:var(--teal-light);">왼손 (LEFT HAND)</div>
+              <div class="finger-list">
+                <div class="finger-pin"><div class="finger-circle" style="background:#f87171;">ㅁ</div><span>새끼</span></div>
+                <div class="finger-pin"><div class="finger-circle" style="background:#fb923c;">ㄴ</div><span>약지</span></div>
+                <div class="finger-pin"><div class="finger-circle" style="background:#facc15;">ㅇ</div><span>중지</span></div>
+                <div class="finger-pin"><div class="finger-circle" style="background:#4ade80;">ㄹ</div><span>검지★</span></div>
+                <div class="finger-pin"><div class="finger-circle" style="background:#60a5fa;">␣</div><span>엄지</span></div>
+              </div>
+            </div>
+
+            <!-- 오른손 -->
+            <div class="hand-box">
+              <div style="font-weight:800; color:var(--gold-light);">오른손 (RIGHT HAND)</div>
+              <div class="finger-list">
+                <div class="finger-pin"><div class="finger-circle" style="background:#60a5fa;">␣</div><span>엄지</span></div>
+                <div class="finger-pin"><div class="finger-circle" style="background:#4ade80;">ㅓ</div><span>검지★</span></div>
+                <div class="finger-pin"><div class="finger-circle" style="background:#facc15;">ㅏ</div><span>중지</span></div>
+                <div class="finger-pin"><div class="finger-circle" style="background:#fb923c;">ㅣ</div><span>약지</span></div>
+                <div class="finger-pin"><div class="finger-circle" style="background:#f87171;">;</div><span>새끼</span></div>
+              </div>
+            </div>
+          </div>
+
+          <button class="subnav-pill active" onclick="setTypingTab('word')">기본자리 익히고 낱말 빌드업으로 이동 ↗</button>
+        </div>
+      `;
+    }
+
+    /* 2. 스마트 자판 탐색기 (INTERACTIVE EXPLORER) */
+    function renderKeyboardExplorer() {
+      const vp = document.getElementById('viewportZone');
+      vp.innerHTML = `
+        <div class="interactive-kb-box">
+          <div style="text-align:center;">
+            <div style="font-size:12px; font-weight:700; color:var(--gold-light); letter-spacing:0.1em; margin-bottom:4px;">STAGE 1 · KEYBOARD LAB</div>
+            <h3 style="font-family:var(--font-serif); font-size:24px; color:#fff; margin-bottom:4px;">💻 스마트 자판 인터랙티브 탐색기</h3>
+            <p style="font-size:13.5px; color:var(--paper-dim);">컴퓨터 키보드의 아무 키나 자유롭게 눌러보세요. 누르는 즉시 해당 키의 명칭과 역할을 친절히 안내합니다.</p>
+          </div>
+
+          <div class="kb-live-feedback">
+            <div style="font-size:14px; color:var(--gold); font-weight:700;" id="kbKeyName">키보드의 아무 키나 눌러보세요</div>
+            <div style="font-size:16px; color:#fff; font-weight:600; margin-top:4px;" id="kbKeyDesc">실제 키보드를 누르면 화면의 키가 반응합니다.</div>
+          </div>
+
+          <!-- Interactive Keyboard Grid -->
+          <div style="display:flex; flex-direction:column; gap:6px; width:100%; max-width:820px;" id="kbGridContainer">
+            <div style="display:flex; gap:6px; justify-content:center;">
+              <div class="kb-key-cap" data-key="q">ㅂ</div><div class="kb-key-cap" data-key="w">ㅈ</div><div class="kb-key-cap" data-key="e">ㄷ</div><div class="kb-key-cap" data-key="r">ㄱ</div><div class="kb-key-cap" data-key="t">ㅅ</div>
+              <div class="kb-key-cap" data-key="y">ㅛ</div><div class="kb-key-cap" data-key="u">ㅕ</div><div class="kb-key-cap" data-key="i">ㅑ</div><div class="kb-key-cap" data-key="o">ㅐ</div><div class="kb-key-cap" data-key="p">ㅔ</div>
+            </div>
+            <div style="display:flex; gap:6px; justify-content:center;">
+              <div class="kb-key-cap" data-key="a">ㅁ</div><div class="kb-key-cap" data-key="s">ㄴ</div><div class="kb-key-cap" data-key="d">ㅇ</div><div class="kb-key-cap" data-key="f">ㄹ</div>
+              <div class="kb-key-cap" data-key="g">ㅎ</div><div class="kb-key-cap" data-key="h">ㅗ</div><div class="kb-key-cap" data-key="j">ㅓ</div><div class="kb-key-cap" data-key="k">ㅏ</div><div class="kb-key-cap" data-key="l">ㅣ</div>
+            </div>
+            <div style="display:flex; gap:6px; justify-content:center;">
+              <div class="kb-key-cap" data-key="z">ㅋ</div><div class="kb-key-cap" data-key="x">ㅌ</div><div class="kb-key-cap" data-key="c">ㅊ</div><div class="kb-key-cap" data-key="v">ㅍ</div>
+              <div class="kb-key-cap" data-key="b">ㅠ</div><div class="kb-key-cap" data-key="n">ㅜ</div><div class="kb-key-cap" data-key="m">ㅡ</div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      window.onkeydown = (e) => {
+        if (State.typingTab !== 'kb') return;
+        Sound.keyPress();
+        const k = e.key.toLowerCase();
+        const cap = document.querySelector(`.kb-key-cap[data-key="${k}"]`);
+        if (cap) {
+          cap.classList.add('pressed');
+          setTimeout(() => cap.classList.remove('pressed'), 200);
+        }
+        document.getElementById('kbKeyName').innerText = `누른 키: [ ${e.key.toUpperCase()} ]`;
+        document.getElementById('kbKeyDesc').innerText = `코드: ${e.code} · 한글/영어 입력키입니다.`;
+      };
+    }
+
+    /* 3. 타자 아케이드 3-IN-1 (방울비, 벽돌깨기, 주방요리) */
+    function renderGamesHub(gameMode = 'rain') {
+      State.activeGame = gameMode;
+      const vp = document.getElementById('viewportZone');
+
+      vp.innerHTML = `
+        <div class="games-tab-bar">
+          <button class="btn-theme-chip ${gameMode === 'rain' ? 'active' : ''}" onclick="renderGamesHub('rain')">🌧️ 방울비 슈팅 챌린지</button>
+          <button class="btn-theme-chip ${gameMode === 'brick' ? 'active' : ''}" onclick="renderGamesHub('brick')">🧱 단어 블록 브레이커</button>
+          <button class="btn-theme-chip ${gameMode === 'cook' ? 'active' : ''}" onclick="renderGamesHub('cook')">🍳 레스토랑 주문 키친</button>
+        </div>
+
+        <div id="gameArenaSubZone" style="width:100%; display:flex; justify-content:center;"></div>
+      `;
+
+      if (gameMode === 'rain') renderTypingRainGame();
+      else if (gameMode === 'brick') renderBrickGame();
+      else if (gameMode === 'cook') renderCookingGame();
+    }
+
+    /* BRICK GAME (단어 블록 브레이커) */
+    const BrickWords = ['사과', '바다', '하늘', '사랑', '학교', '미래', '배움', '행복', '우정', '햇살', '구름', '별빛'];
+    let remainingBricks = [];
+
+    function renderBrickGame() {
+      const zone = document.getElementById('gameArenaSubZone');
+      remainingBricks = [...BrickWords];
+
+      zone.innerHTML = `
+        <div style="width:100%; max-width:880px; text-align:center;">
+          <p style="font-size:15px; color:var(--gold-light); margin-bottom:16px; font-weight:700;">
+            블록에 적힌 단어를 하단 입력창에 치고 <strong>Enter</strong>를 누르면 블록이 산산조각 깨집니다!
+          </p>
+          <div class="brick-grid" id="brickGrid">
+            ${remainingBricks.map((w, i) => `
+              <div class="brick-card" id="brick-${w}">${w}</div>
+            `).join('')}
+          </div>
+          <input type="text" class="large-type-input" style="max-width:400px; margin-top:20px;" id="brickInput" placeholder="단어를 타이핑하세요!" autofocus onkeydown="handleBrickKey(event)" />
+        </div>
+      `;
+
+      setTimeout(() => document.getElementById('brickInput')?.focus(), 100);
+    }
+
+    function handleBrickKey(e) {
+      if (e.key === 'Enter') {
+        const val = e.target.value.trim();
+        e.target.value = '';
+        const idx = remainingBricks.indexOf(val);
+        if (idx !== -1) {
+          const el = document.getElementById(`brick-${val}`);
+          if (el) el.classList.add('cracked');
+          remainingBricks.splice(idx, 1);
+          addScore(100);
+          logInput(true);
+          Sound.match();
+          spawnPopSpark(window.innerWidth / 2, window.innerHeight / 2, '블록 격파! 🧱 +100');
+
+          if (remainingBricks.length === 0) {
+            alert('축하합니다! 모든 단어 블록을 완벽하게 격파하셨습니다!');
+            RecordDB.saveSession('블록브레이커', 1200, 320, 100);
+            renderBrickGame();
+          }
+        } else {
+          Sound.miss();
+        }
+      }
+    }
+
+    /* COOKING GAME (레스토랑 주문 키친) */
+    const CookingOrders = ['김치찌개', '비빔밥', '된장찌개', '불고기', '떡볶이', '김밥', '삼계탕', '냉면'];
+    let cookIdx = 0;
+
+    function renderCookingGame() {
+      const zone = document.getElementById('gameArenaSubZone');
+      cookIdx = 0;
+
+      zone.innerHTML = `
+        <div style="width:100%; max-width:880px; text-align:center;">
+          <div style="font-size:15px; color:var(--gold-light); margin-bottom:16px; font-weight:700;">
+            🍳 손님들의 주문서가 밀려듭니다! 요리명을 신속히 입력하여 서빙을 완료하세요!
+          </div>
+          <div class="kitchen-order-ticket" id="orderTicket">
+            <span>🛎️ 실시간 주문서:</span> <span style="color:var(--coral);" id="dishName">${CookingOrders[cookIdx]}</span>
+          </div>
+          <div>
+            <input type="text" class="large-type-input" style="max-width:440px;" id="cookInput" placeholder="요리명을 치고 Enter!" autofocus onkeydown="handleCookKey(event)" />
+          </div>
+        </div>
+      `;
+
+      setTimeout(() => document.getElementById('cookInput')?.focus(), 100);
+    }
+
+    function handleCookKey(e) {
+      if (e.key === 'Enter') {
+        const val = e.target.value.trim();
+        e.target.value = '';
+        if (val === CookingOrders[cookIdx]) {
+          addScore(150);
+          logInput(true);
+          Sound.match();
+          spawnPopSpark(window.innerWidth / 2, window.innerHeight / 2, '요리 완성! 서빙 완료 🍲 +150');
+
+          cookIdx = (cookIdx + 1) % CookingOrders.length;
+          document.getElementById('dishName').innerText = CookingOrders[cookIdx];
+        } else {
+          Sound.miss();
+        }
+      }
+    }
+
+    /* 4. 실시간 성장 대시보드 (ANALYTICS & RECORDS) */
+    function renderGrowthRecords() {
+      const vp = document.getElementById('viewportZone');
+      const data = RecordDB.getData();
+
+      vp.innerHTML = `
+        <div class="record-dashboard">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <div>
+              <div style="font-size:12px; font-weight:700; color:var(--gold-light); letter-spacing:0.1em; margin-bottom:4px;">SEMISERON LEARNING ANALYTICS</div>
+              <h3 style="font-family:var(--font-serif); font-size:26px; color:#fff;">📈 실시간 성장 대시보드 &amp; 리포트</h3>
+              <p style="font-size:13.5px; color:var(--paper-dim);">별도 로그인 없이도 이 브라우저에 마스터님의 소중한 타자 성장 궤적이 평생 영구 보존됩니다.</p>
+            </div>
+            <button class="subnav-pill" onclick="clearRecords()">데이터 초기화</button>
+          </div>
+
+          <div class="record-stats-grid">
+            <div class="record-card">
+              <span class="record-title">총 누적 타수</span>
+              <span class="record-val">${(data.totalChars || State.score).toLocaleString()} 타</span>
+            </div>
+            <div class="record-card">
+              <span class="record-title">나의 최고 속도</span>
+              <span class="record-val">${data.maxCPM || 320} 타/분</span>
+            </div>
+            <div class="record-card">
+              <span class="record-title">총 연습 횟수</span>
+              <span class="record-val">${data.totalPractices || 12} 회</span>
+            </div>
+            <div class="record-card">
+              <span class="record-title">현재 공인 등급</span>
+              <span class="record-val" style="color:var(--teal-light);">공인 1급</span>
+            </div>
+          </div>
+
+          <div class="record-history-list">
+            <div style="font-weight:800; font-size:14px; margin-bottom:12px; color:var(--gold);">최근 실습 이력 타임라인</div>
+            ${data.history.length > 0 ? data.history.map(h => `
+              <div class="record-row">
+                <span>[${h.date}] ${h.type}</span>
+                <span><strong>${h.cpm}</strong> 타/분 (정확도 ${h.acc}%)</span>
+              </div>
+            `).join('') : `
+              <div class="record-row" style="color:var(--muted);">
+                <span>[오늘] 낱말 연습 &amp; 방울비 산성비 게임 완수</span>
+                <span>340 타/분 (정확도 98%)</span>
+              </div>
+            `}
+          </div>
+
+          <button class="subnav-pill active" style="margin:0 auto;" onclick="setTypingTab('portal')">← 꾹꾹타자 홈으로 돌아가기</button>
+        </div>
+      `;
+    }
+
+    function clearRecords() {
+      if (confirm('모든 연습 기록을 초기화하시겠습니까?')) {
+        localStorage.removeItem(RecordDB.getKey());
+        renderGrowthRecords();
+      }
+    }
+
+    /* WORD PRACTICE */
+    const WordVocab = [
+      { w: '사과', d: '빨갛고 달콤한 사과 🍎' },
+      { w: '하늘', d: '맑고 푸른 가을 하늘 ☁️' },
+      { w: '바다', d: '시원한 파도가 치는 바다 🌊' },
+      { w: '사랑', d: '서로를 아껴주는 따뜻한 마음 💖' },
+      { w: '학교', d: '친구들과 함께 배우는 학교 🏫' },
+      { w: '행복', d: '기쁨과 웃음이 가득한 날 😊' }
+    ];
+    let vIdx = 0;
+    let typeStart = 0;
+
+    function renderTypingWord() {
+      vIdx = 0;
+      const vp = document.getElementById('viewportZone');
+      const item = WordVocab[vIdx];
+
+      vp.innerHTML = `
+        <div class="typing-playground">
+          <div class="typing-hero-card">
+            <div style="font-size:calc(14px * var(--scale)); color:var(--gold); font-weight:700;">따라 칠 낱말</div>
+            <div class="typing-word-show" id="promptWord">${item.w}</div>
+            <div class="typing-desc-show" id="promptDesc">${item.d}</div>
+          </div>
+
+          <input type="text" class="large-type-input" id="wordBox" placeholder="여기를 누르고 글자를 치세요" autofocus oninput="checkWordInput(event)" />
+
+          <button class="subnav-pill" onclick="setTypingTab('portal')">← 목록으로</button>
+        </div>
+      `;
+
+      typeStart = performance.now();
+      setTimeout(() => document.getElementById('wordBox')?.focus(), 80);
+    }
+
+    function checkWordInput(e) {
+      const val = e.target.value.trim();
+      const target = WordVocab[vIdx].w;
+      Sound.keyPress();
+
+      if (val === target) {
+        const sec = (performance.now() - typeStart) / 1000;
+        const cpm = Math.round((target.length / sec) * 60 * 2.5);
+        document.getElementById('statSpeed').innerHTML = `${cpm} <span class="hud-unit">타/분</span>`;
+
+        addScore(50);
+        logInput(true);
+        RecordDB.saveSession('낱말연습', 50, cpm, 100);
+        Sound.match();
+        spawnPopSpark(window.innerWidth / 2, window.innerHeight / 2, `성공! 🎉 (${cpm}타)`);
+
+        e.target.value = '';
+        vIdx = (vIdx + 1) % WordVocab.length;
+        const next = WordVocab[vIdx];
+        document.getElementById('promptWord').innerText = next.w;
+        document.getElementById('promptDesc').innerText = next.d;
+        typeStart = performance.now();
+      }
+    }
+
+    /* SPECIAL KEYS */
+    const SpecialKeys = [
+      { name: 'Shift 키', glyph: '⇧ Shift', desc: '누른 채로 자음을 치면 쌍자음(ㄲ, ㄸ, ㅃ, ㅆ, ㅉ)이 됩니다.' },
+      { name: 'Spacebar', glyph: '␣ Space', desc: '글자 사이를 띄어 쓸 때 엄지손가락으로 툭 누릅니다.' },
+      { name: 'Backspace', glyph: '⌫ 지우기', desc: '잘못 친 앞 글자를 하나씩 지울 때 사용합니다.' },
+      { name: 'Enter 키', glyph: '↵ Enter', desc: '글 입력을 끝마치거나 다음 줄로 넘어갈 때 칩니다.' },
+      { name: '한/영 변환', glyph: '한/영', desc: '한글과 영어 알파벳 입력을 바꿀 때 누릅니다.' },
+      { name: '쌍자음 실습', glyph: 'ㄲ ㄸ ㅃ ㅆ ㅉ', desc: 'Shift 키를 누른 상태에서 ㄱ, ㄷ, ㅂ, ㅅ, ㅈ를 쳐보세요.' },
+      { name: '문장 부호', glyph: '! ? . ,', desc: '느낌표(!), 물음표(?), 마침표(.), 쉼표(,)를 연습합니다.' },
+      { name: '골뱅이 & 기호', glyph: '@ # $ %', desc: '이메일 주소나 특수기호를 입력할 때 Shift와 숫자를 칩니다.' }
+    ];
+
+    let specialQuizIdx = 0;
+    const SpecialQuizzes = [
+      { target: '꽃', tip: 'Shift를 누른 채 "ㄱ"을 쳐서 "ㄲ"을 만들고, ㅗ, ㅊ을 치세요.' },
+      { target: '빵!', tip: 'Shift + ㅂ으로 "ㅃ", ㅏ, ㅇ, 그리고 Shift + 1로 느낌표(!)' },
+      { target: '쑥', tip: 'Shift + ㅅ으로 "ㅆ", ㅜ, ㄱ을 차례로 입력하세요.' },
+      { target: '꿈?', tip: 'Shift + ㄱ으로 "ㄲ", ㅜ, ㅁ, 그리고 Shift + /로 물음표(?)' }
+    ];
+
+    function renderSpecialKeySuite() {
+      const vp = document.getElementById('viewportZone');
+      specialQuizIdx = 0;
+      const q = SpecialQuizzes[specialQuizIdx];
+
+      vp.innerHTML = `
+        <div class="typing-playground">
+          <div class="typing-hero-card">
+            <div style="font-size:calc(13px * var(--scale)); color:var(--gold); font-weight:700;">특수키 &amp; 쌍자음 집중 실습</div>
+            <div class="typing-word-show" id="specialWord">${q.target}</div>
+            <div class="typing-desc-show" id="specialTip">${q.tip}</div>
+          </div>
+
+          <input type="text" class="large-type-input" id="specialInput" placeholder="여기에 입력하세요" autofocus oninput="checkSpecialInput(event)" />
+
+          <div class="special-key-board">
+            ${SpecialKeys.map(k => `
+              <div class="special-key-card" onclick="playKeyDemo('${k.glyph}')">
+                <div class="special-key-badge">${k.glyph}</div>
+                <div style="font-size:calc(14px * var(--scale)); font-weight:700; color:#fff;">${k.name}</div>
+                <div class="special-key-desc">${k.desc}</div>
+              </div>
+            `).join('')}
+          </div>
+
+          <button class="subnav-pill" onclick="setTypingTab('portal')">← 목록으로</button>
+        </div>
+      `;
+
+      setTimeout(() => document.getElementById('specialInput')?.focus(), 80);
+    }
+
+    function playKeyDemo(k) {
+      Sound.keyPress();
+      spawnPopSpark(window.innerWidth / 2, window.innerHeight / 2, `${k} 안내 확인`);
+    }
+
+    function checkSpecialInput(e) {
+      const val = e.target.value.trim();
+      const target = SpecialQuizzes[specialQuizIdx].target;
+      Sound.keyPress();
+
+      if (val === target) {
+        addScore(100);
+        logInput(true);
+        RecordDB.saveSession('특수키실습', 100, 240, 100);
+        Sound.match();
+        spawnPopSpark(window.innerWidth / 2, window.innerHeight / 2, `쌍자음 마스터! 🎉 +100`);
+
+        e.target.value = '';
+        specialQuizIdx = (specialQuizIdx + 1) % SpecialQuizzes.length;
+        const next = SpecialQuizzes[specialQuizIdx];
+        document.getElementById('specialWord').innerText = next.target;
+        document.getElementById('specialTip').innerText = next.tip;
+      }
+    }
+
+    /* LONG TEXT STORIES */
+    const LongStories = {
+      heroes: {
+        title: '한국을 빛낸 100명의 위인들',
+        lines: [
+          '아름다운 이 땅에 금수강산에 단군 할아버지가 터 잡으시고',
+          '홍익인간 뜻으로 나라 세우니 대대손손 훌륭한 인물도 많아',
+          '고구려 세운 동명왕, 백제 온조왕, 알에서 나온 혁거세',
+          '만주 벌판 달려라 광개토대왕, 신라 장군 이사부',
+          '말 목 자른 김유신, 통일 문무왕, 원효대사 해골물',
+          '바다의 왕자 장보고, 발해 대조영, 귀주대첩 강감찬'
+        ]
+      },
+      stars: {
+        title: '별 헤는 밤 (윤동주 시인)',
+        lines: [
+          '계절이 지나가는 하늘에는 가을로 가득 차 있습니다.',
+          '나는 아무 걱정도 없이 가을 속의 별들을 다 헤일 듯합니다.',
+          '가슴 속에 하나 둘 새겨지는 별을 이제 다 못 헤는 것은',
+          '쉬이 아침이 오는 까닭이요, 내일 밤이 남은 까닭입니다.',
+          '별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과',
+          '별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니'
+        ]
+      }
+    };
+
+    let activeStoryKey = 'heroes';
+    let lineIdx = 0;
+
+    function renderLongTextSuite(storyKey = 'heroes') {
+      activeStoryKey = storyKey;
+      lineIdx = 0;
+      const vp = document.getElementById('viewportZone');
+      const story = LongStories[storyKey];
+
+      vp.innerHTML = `
+        <div class="typing-playground">
+          <div class="theme-picker">
+            ${Object.keys(LongStories).map(k => `
+              <button class="btn-theme-chip ${k === storyKey ? 'active' : ''}" onclick="renderLongTextSuite('${k}')">
+                📜 ${LongStories[k].title}
+              </button>
+            `).join('')}
+          </div>
+
+          <div class="long-text-board">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-family:var(--font-display); font-size:13px; color:var(--gold); font-weight:700;">
+                PROGRESS: <span id="lineProgressText">1 / ${story.lines.length}</span>
+              </span>
+              <span style="font-size:12px; color:var(--muted);">문장을 치고 Enter를 누르세요.</span>
+            </div>
+
+            <div class="long-text-progress-bar">
+              <div class="long-text-progress-fill" id="longProgressFill" style="width:${(1 / story.lines.length) * 100}%;"></div>
+            </div>
+
+            <div class="target-sentence-line" id="longTargetLine">
+              ${story.lines[lineIdx]}
+            </div>
+
+            <input type="text" class="large-type-input" style="max-width:100%; text-align:left; font-size:calc(22px * var(--scale));" id="longInputBox" placeholder="위 문장을 그대로 따라 입력하세요" onkeydown="handleLongLineKey(event)" autofocus />
+          </div>
+
+          <button class="subnav-pill" onclick="setTypingTab('portal')">← 목록으로</button>
+        </div>
+      `;
+
+      typeStart = performance.now();
+      setTimeout(() => document.getElementById('longInputBox')?.focus(), 80);
+    }
+
+    function handleLongLineKey(e) {
+      Sound.keyPress();
+      if (e.key === 'Enter') {
+        const val = e.target.value.trim();
+        const story = LongStories[activeStoryKey];
+        const target = story.lines[lineIdx].trim();
+
+        if (val === target) {
+          const sec = (performance.now() - typeStart) / 1000;
+          const cpm = Math.round((target.length / sec) * 60 * 2.5);
+          document.getElementById('statSpeed').innerHTML = `${cpm} <span class="hud-unit">타/분</span>`;
+
+          addScore(150);
+          logInput(true);
+          RecordDB.saveSession('긴글연습', 150, cpm, 100);
+          Sound.match();
+          spawnPopSpark(window.innerWidth / 2, window.innerHeight / 2, `문장 완수! 🌟 +150`);
+
+          e.target.value = '';
+          lineIdx++;
+
+          if (lineIdx >= story.lines.length) {
+            alert(`축하합니다! "${story.title}" 긴 글 연습을 모두 마쳤습니다!`);
+            lineIdx = 0;
+          }
+
+          document.getElementById('longTargetLine').innerText = story.lines[lineIdx];
+          document.getElementById('lineProgressText').innerText = `${lineIdx + 1} / ${story.lines.length}`;
+          document.getElementById('longProgressFill').style.width = `${((lineIdx + 1) / story.lines.length) * 100}%`;
+          typeStart = performance.now();
+        } else {
+          Sound.miss();
+          logInput(false);
+          alert('문장의 오타나 띄어쓰기를 다시 확인해 보세요!');
+        }
+      }
+    }
+
+    /* 1-MINUTE TYPING TEST */
+    const TestQuotes = [
+      '인생은 자전거 타기와 같다. 균형을 잡으려면 계속 움직여야 한다.',
+      '천재는 1퍼센트의 영감과 99퍼센트의 노력으로 이루어진다.',
+      '꿈을 계속 간직하고 있으면 반드시 실현할 때가 온다.',
+      '지식에 투자하는 것이 가장 이자가 높다.'
+    ];
+    let testQuoteIdx = 0;
+    let testTimeLeft = 60;
+    let testTypedChars = 0;
+    let testErrors = 0;
+    let testTimer = null;
+
+    function renderTypingTestPrep() {
+      const vp = document.getElementById('viewportZone');
+      vp.innerHTML = `
+        <div style="text-align:center; max-width:600px;">
+          <div style="font-size:calc(64px * var(--scale)); margin-bottom:16px;">⏱️</div>
+          <h2 style="font-family:var(--font-serif); font-size:calc(30px * var(--scale)); margin-bottom:12px;">새미새론 공식 1분 타자 검정</h2>
+          <p style="font-size:calc(16px * var(--scale)); color:var(--paper-dim); line-height:1.8; margin-bottom:28px;">
+            제한 시간 <strong>60초</strong> 동안 명문장들을 빠르고 정확하게 입력하세요.<br>
+            검정이 끝나면 공식 타자 급수 인증서가 발급되며 나의 기록에 보관됩니다.
+          </p>
+          <button class="subnav-pill active" style="padding:16px 40px; font-size:calc(18px * var(--scale)); margin:0 auto;" onclick="startOfficialTest()">
+            검정 시작하기 (60초) ↗
+          </button>
+        </div>
+      `;
+    }
+
+    function startOfficialTest() {
+      testTimeLeft = 60;
+      testTypedChars = 0;
+      testErrors = 0;
+      testQuoteIdx = 0;
+
+      const vp = document.getElementById('viewportZone');
+      vp.innerHTML = `
+        <div class="typing-playground">
+          <div style="display:flex; justify-content:space-between; width:100%; max-width:880px; align-items:center;">
+            <div style="font-family:var(--font-display); font-size:20px; font-weight:800; color:var(--gold-light);">
+              남은 시간: <span id="testTimerVal" style="font-size:28px; color:var(--coral);">60</span> 초
+            </div>
+            <div style="font-size:13px; color:var(--muted);">문장을 치고 Enter를 누르세요!</div>
+          </div>
+
+          <div class="typing-hero-card" style="padding:28px;">
+            <div class="typing-word-show" style="font-size:calc(30px * var(--scale));" id="testQuoteBox">${TestQuotes[testQuoteIdx]}</div>
+          </div>
+
+          <input type="text" class="large-type-input" id="testInput" placeholder="여기 빠르게 입력하세요!" autofocus onkeydown="evalTestInput(event)" />
+        </div>
+      `;
+
+      setTimeout(() => document.getElementById('testInput')?.focus(), 100);
+
+      testTimer = setInterval(() => {
+        testTimeLeft--;
+        const tEl = document.getElementById('testTimerVal');
+        if (tEl) tEl.innerText = testTimeLeft;
+
+        if (testTimeLeft <= 0) {
+          clearInterval(testTimer);
+          finishTypingTest();
+        }
+      }, 1000);
+    }
+
+    function evalTestInput(e) {
+      Sound.keyPress();
+      if (e.key === 'Enter') {
+        const val = e.target.value.trim();
+        const target = TestQuotes[testQuoteIdx].trim();
+
+        if (val === target) {
+          testTypedChars += target.length;
+          addScore(100);
+          logInput(true);
+          Sound.match();
+          spawnPopSpark(window.innerWidth / 2, window.innerHeight / 2, `성공! 🌟`);
+
+          e.target.value = '';
+          testQuoteIdx = (testQuoteIdx + 1) % TestQuotes.length;
+          document.getElementById('testQuoteBox').innerText = TestQuotes[testQuoteIdx];
+        } else {
+          testErrors++;
+          Sound.miss();
+          logInput(false);
+        }
+      }
+    }
+
+    function finishTypingTest() {
+      Sound.match();
+      const cpm = Math.round(testTypedChars * 2.5);
+      const total = testTypedChars + testErrors;
+      const acc = total > 0 ? Math.round((testTypedChars / total) * 100) : 100;
+
+      RecordDB.saveSession('1분타자검정', testTypedChars, cpm, acc);
+
+      alert(`[타자 검정 완료!]\n\n평균 타수: ${cpm} 타/분\n정확도: ${acc}%\n입력 글자수: ${testTypedChars}자\n\n나의 성장 기록에 성공적으로 저장되었습니다!`);
+      setTypingTab('records');
+    }
+
+    /* RAIN DROP GAME */
+    let rainSpeedSetting = 'easy';
+    const SpeedProfiles = {
+      easy: { dropStep: 0.8, spawnInterval: 3200, label: '천천히 (느긋하게)' },
+      normal: { dropStep: 1.4, spawnInterval: 2400, label: '보통 속도' },
+      fast: { dropStep: 2.2, spawnInterval: 1800, label: '빠르게 (도전!)' }
+    };
+
+    const RainEmojis = {
+      '새미새론': '🌱', '인공지능': '🤖', '배움': '📖', '컴퓨터': '💻',
+      '마우스': '🖱️', '키보드': '⌨️', '행복': '😊', '미래': '🚀',
+      '선생님': '🧑‍🏫', '친구': '👫', '사랑': '💖', '도전': '🧗',
+      '희망': '🌈', '사과': '🍎', '하늘': '☁️'
+    };
+    let rainDrops = [];
+
+    function setRainSpeed(mode) {
+      rainSpeedSetting = mode;
+      bootRainLoop();
+    }
+
+    function renderTypingRainGame() {
+      const zone = document.getElementById('gameArenaSubZone') || document.getElementById('viewportZone');
+      zone.innerHTML = `
+        <div class="rain-stage-box">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; padding:0 8px; flex-wrap:wrap; gap:10px;">
+            <div style="font-size:calc(13px * var(--scale)); color:var(--gold-light); font-weight:700;">
+              🎈 속도 조절:
+              <button class="btn-scale ${rainSpeedSetting === 'easy' ? 'active' : ''}" onclick="setRainSpeed('easy')">🐢 천천히 (시니어·어린이 추천)</button>
+              <button class="btn-scale ${rainSpeedSetting === 'normal' ? 'active' : ''}" onclick="setRainSpeed('normal')">🚶 보통</button>
+              <button class="btn-scale ${rainSpeedSetting === 'fast' ? 'active' : ''}" onclick="setRainSpeed('fast')">🏃 빠르게</button>
+            </div>
+            <div style="font-size:calc(12px * var(--scale)); color:var(--muted);">
+              단어가 바닥에 닿기 전에 치고 <strong>Enter</strong>!
+            </div>
+          </div>
+
+          <div class="rain-field" id="rainCanvas"></div>
+
+          <div class="rain-bottom-deck">
+            <input type="text" class="large-type-input" style="max-width:440px; padding:12px 20px; font-size:calc(22px * var(--scale));" id="bubbleInput" placeholder="내려오는 단어를 치고 Enter!" onkeydown="handleRainBubbleKey(event)" autofocus />
+            <button class="subnav-pill active" onclick="bootRainLoop()">게임 다시 시작 🔄</button>
+          </div>
+        </div>
+      `;
+
+      bootRainLoop();
+    }
+
+    function bootRainLoop() {
+      const canvas = document.getElementById('rainCanvas');
+      if (!canvas) return;
+      canvas.innerHTML = '';
+      rainDrops = [];
+
+      if (State.rainInterval) clearInterval(State.rainInterval);
+
+      const profile = SpeedProfiles[rainSpeedSetting];
+      State.rainInterval = setInterval(() => {
+        spawnBubbleDrop();
+      }, profile.spawnInterval);
+
+      spawnBubbleDrop();
+      setTimeout(() => document.getElementById('bubbleInput')?.focus(), 100);
+    }
+
+    function spawnBubbleDrop() {
+      const canvas = document.getElementById('rainCanvas');
+      if (!canvas) return;
+
+      const words = Object.keys(RainEmojis);
+      const chosen = words[Math.floor(Math.random() * words.length)];
+      const emoji = RainEmojis[chosen];
+
+      const bubble = document.createElement('div');
+      bubble.className = 'falling-bubble';
+      bubble.innerHTML = `<span>${emoji}</span> <span>${chosen}</span>`;
+
+      const maxX = canvas.clientWidth - 190;
+      const x = Math.max(20, Math.floor(Math.random() * maxX));
+      bubble.style.left = `${x}px`;
+      bubble.style.top = '10px';
+
+      canvas.appendChild(bubble);
+      rainDrops.push({ el: bubble, word: chosen, top: 10 });
+    }
+
+    setInterval(() => {
+      const canvas = document.getElementById('rainCanvas');
+      if (!canvas) return;
+      const floorH = canvas.clientHeight - 85;
+      const profile = SpeedProfiles[rainSpeedSetting];
+
+      for (let i = rainDrops.length - 1; i >= 0; i--) {
+        const drop = rainDrops[i];
+        drop.top += profile.dropStep;
+        drop.el.style.top = `${drop.top}px`;
+
+        if (drop.top > floorH - 65) {
+          drop.el.classList.add('warning');
+        }
+
+        if (drop.top > floorH) {
+          drop.el.remove();
+          rainDrops.splice(i, 1);
+          Sound.miss();
+          logInput(false);
+        }
+      }
+    }, 50);
+
+    function handleRainBubbleKey(e) {
+      if (e.key === 'Enter') {
+        const val = e.target.value.trim();
+        e.target.value = '';
+
+        const foundIdx = rainDrops.findIndex(d => d.word === val);
+        if (foundIdx !== -1) {
+          const drop = rainDrops[foundIdx];
+          const rect = drop.el.getBoundingClientRect();
+          spawnPopSpark(rect.left + 60, rect.top, '팡! 격추 성공! 🎈 +80');
+          drop.el.remove();
+          rainDrops.splice(foundIdx, 1);
+
+          addScore(80);
+          logInput(true);
+          Sound.match();
+        } else {
+          Sound.miss();
+        }
+      }
+    }
+
+    // BOOTSTRAP DEFAULT
+    window.addEventListener('DOMContentLoaded', () => {
+      buildMouseSubnav();
+      setMouseTab('drag');
+    });
+  </script>
+<!-- UNIVERSAL SITEMAP MODAL -->
+  <div id="siteMapModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(8,9,8,0.85); backdrop-filter:blur(8px); align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#0e120f; border:1px solid var(--line-gold); max-width:820px; width:100%; max-height:85vh; overflow-y:auto; border-radius:8px; padding:32px; box-shadow:0 20px 60px rgba(0,0,0,0.8);">
+      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:16px; margin-bottom:24px;">
+        <div>
+          <span style="font-size:11px; color:var(--gold); letter-spacing:0.2em; font-family:var(--font-display);">SEMISERON ECOSYSTEM SITEMAP</span>
+          <h3 style="font-size:22px; color:#fff; font-family:var(--font-serif); margin:4px 0 0 0;">새미새론 전체 사이트맵</h3>
+        </div>
+        <button type="button" onclick="closeSiteMapModal()" style="background:none; border:none; color:var(--paper-dim); font-size:28px; cursor:pointer; line-height:1;">&times;</button>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:20px; font-size:13px; line-height:2.0;">
+        <div style="background:rgba(255,255,255,0.02); padding:16px; border:1px solid var(--line); border-radius:4px;">
+          <strong style="color:var(--gold); display:block; border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:10px;">01. 메인 포털</strong>
+          <ul style="list-style:none; padding:0; margin:0; color:var(--paper-dim);">
+            <li>• <a href="../index.html#top" style="color:var(--paper); text-decoration:none;">홈 (새로움이 샘처럼)</a></li>
+            <li>• <a href="../index.html#about" style="color:var(--paper); text-decoration:none;">ABOUT (미션과 철학)</a></li>
+            <li>• <a href="../index.html#people" style="color:var(--paper); text-decoration:none;">PEOPLE (6인 교수진)</a></li>
+            <li>• <a href="../index.html#network" style="color:var(--paper); text-decoration:none;">NETWORK (전국 R&amp;D 거점)</a></li>
+            <li>• <a href="../index.html#education" style="color:var(--paper); text-decoration:none;">EDUCATION (5대 마스터 트랙)</a></li>
+            <li>• <a href="../index.html#classroom" style="color:var(--paper); text-decoration:none;">CLASSROOM (실제 출강 아카이브)</a></li>
+            <li>• <a href="../index.html#lab" style="color:var(--paper); text-decoration:none;">AI LABS (3대 연구 &amp; 프롬프트 조합)</a></li>
+          </ul>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.02); padding:16px; border:1px solid var(--line); border-radius:4px;">
+          <strong style="color:var(--teal-light); display:block; border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:10px;">02. 실습 &amp; 온라인 캠퍼스</strong>
+          <ul style="list-style:none; padding:0; margin:0; color:var(--paper-dim);">
+            <li>• <a href="../campus.html" style="color:var(--gold-light); font-weight:700; text-decoration:none;">ONLINE CAMPUS (실시간 강의실) ↗</a></li>
+            <li>• <a href="../mouse_interactive/index.html" style="color:var(--teal-light); font-weight:700; text-decoration:none;">★ 타자·마우스 훈련원 ↗</a></li>
+            <li>• <a href="../ai_literacy_interactive/index.html" style="color:var(--gold); font-weight:700; text-decoration:none;">★ AI 리터러시 &amp; 윤리 실습실 ↗</a></li>
+            <li>• <a href="../campus.html#certifications" style="color:var(--paper); text-decoration:none;">- 공식 9대 자격검정 응시실</a></li>
+            <li>• <a href="../campus.html#courses" style="color:var(--paper); text-decoration:none;">- 개설 정규 실습 (14대 단과)</a></li>
+            <li>• <a href="../campus.html#quickstart" style="color:var(--paper); text-decoration:none;">- AI 실전 퀵스타트</a></li>
+          </ul>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.02); padding:16px; border:1px solid var(--line); border-radius:4px;">
+          <strong style="color:var(--gold-light); display:block; border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:10px;">03. 아카이브 &amp; 법적 공시</strong>
+          <ul style="list-style:none; padding:0; margin:0; color:var(--paper-dim);">
+            <li>• <a href="../saemisaeron_homepage_v1.html" target="_blank" style="color:var(--paper); text-decoration:none;">v1.0 창립총회 기획본 ↗</a></li>
+            <li>• <a href="../saemisaeron_v12.html" target="_blank" style="color:var(--paper); text-decoration:none;">v12 4자 융합 실증본 ↗</a></li>
+            <li>• <a href="../briefing.html" target="_blank" style="color:var(--paper); text-decoration:none;">브리핑 시안 원본 ↗</a></li>
+            <li>• <a href="../heroes-board.html" target="_blank" style="color:var(--paper); text-decoration:none;">헤나 영웅 보드 시안 ↗</a></li>
+            <li>• <a href="../proposal/KACEC_proposal.html" target="_blank" style="color:var(--gold); text-decoration:none; font-weight:600;">2026 교육 제안서 원본 (PDF) ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:24px; text-align:center; border-top:1px solid var(--line); padding-top:18px;">
+        <button type="button" onclick="closeSiteMapModal()" style="padding:8px 24px; background:var(--gold); color:#080908; font-weight:700; border:none; border-radius:2px; cursor:pointer; font-size:12px;">닫기 (CLOSE)</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openSiteMapModal() {
+      const m = document.getElementById('siteMapModal');
+      if (m) { m.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+    }
+    function closeSiteMapModal() {
+      const m = document.getElementById('siteMapModal');
+      if (m) { m.style.display = 'none'; document.body.style.overflow = ''; }
+    }
+    document.getElementById('siteMapModal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'siteMapModal') closeSiteMapModal();
+    });
+  </script>
+
+</body>
+</html>

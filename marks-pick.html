@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>모닝샘 로고 3종 품평판 (시안)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{--bg:#080908;--card:#121513;--paper:#ece8df;--dim:#c5c1b7;--mut:#969a91;--gold:#c79a51;--gold-l:#e5b974;--teal:#14b8a6;--line:rgba(236,232,223,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--paper);font-family:Pretendard,sans-serif;padding:40px 24px}
+.wrap{max-width:1200px;margin:0 auto}
+h1{font-family:"Noto Serif KR",serif;font-size:30px;margin-bottom:6px}
+.sub{color:var(--mut);font-size:14px;margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.card.pick{border:2px solid var(--gold)}
+.card img{width:100%;aspect-ratio:1;display:block;background:#000}
+.mock{padding:22px;text-align:center;border-top:1px solid var(--line)}
+.mock .combo{display:flex;align-items:center;justify-content:center;gap:12px}
+.mock .combo img{width:64px;height:64px;aspect-ratio:1;border-radius:12px}
+.mock .wm{font-family:"Noto Serif KR",serif;font-size:44px}
+.mock .wm .l{font-weight:300;letter-spacing:.12em}
+.mock .wm .r{font-weight:700;background:linear-gradient(135deg,var(--gold-l),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.verdict{padding:0 22px 22px;font-size:13.5px;color:var(--dim);line-height:1.7}
+.verdict b{color:var(--paper)}
+.verdict .score{font-family:Outfit;font-size:12px;letter-spacing:.2em;color:var(--gold-l);display:block;margin-bottom:8px}
+.note{margin-top:26px;font-size:13px;color:var(--mut);border:1px dashed rgba(199,154,81,.4);border-radius:10px;padding:18px 22px;line-height:1.8}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>모닝샘 로고 3종 품평판</h1>
+  <p class="sub">Muse Image 1.0 직결 생성 · 장당 $0.01 · 마크(심볼)만 AI, 글자는 HTML 활자 조합 — A·B·C 중 골라주시면 마스트헤드에 장착합니다</p>
+  <div class="grid">
+    <div class="card">
+      <img src="marks/mark_A.webp" alt="A안">
+      <div class="mock"><div class="combo"><img src="marks/mark_A.webp" alt=""><span class="wm"><span class="l">모닝</span><span class="r">샘</span></span></div></div>
+      <div class="verdict"><span class="score">HANA'S CALL · 탈락 의견</span><b>A안 · 바다 위 일출</b> — 깔끔하긴 한데 리조트·스파 느낌입니다. 뉴스 권위·시사성이 약해서 탈락 의견입니다.</div>
+    </div>
+    <div class="card pick">
+      <img src="marks/mark_B.webp" alt="B안">
+      <div class="mock"><div class="combo"><img src="marks/mark_B.webp" alt=""><span class="wm"><span class="l">모닝</span><span class="r">샘</span></span></div></div>
+      <div class="verdict"><span class="score">HANA'S CALL · 추천</span><b>B안 · 물방울 속 일출·눈동자</b> — "진실 한 방울 + 저널리즘의 눈"이라 상징이 뉴스에 맞습니다. 고급감 최상. 디테일이 많아 축소용 단순화는 필요합니다.</div>
+    </div>
+    <div class="card">
+      <img src="marks/mark_C.webp" alt="C안">
+      <div class="mock"><div class="combo"><img src="marks/mark_C.webp" alt=""><span class="wm"><span class="l">모닝</span><span class="r">샘</span></span></div></div>
+      <div class="verdict"><span class="score">HANA'S CALL · 차선</span><b>C안 · 아르데코 씰</b> — 권위·신뢰 느낌 최강, 뉴스 상징성 좋습니다. 다만 선이 가늘어 모바일에서 뭉개질 우려가 있습니다.</div>
+    </div>
+  </div>
+  <p class="note">제 의견은 <b>B안 추천, C안 차선, A안 탈락</b>입니다. "B", "C" 한 글자만 주시면 모닝샘 마스트헤드에 장착하고, 필터·서랍까지 얹힌 완성본으로 보여드립니다. 재생성 원하시면 방향(예: 더 단순하게)을 말씀해 주세요.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>모닝샘 · 새미새론 AI 교육원 오늘의 AI 브리핑 (시안 예시판)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --bg:#080908; --bg-surface:#0e110f; --bg-card:#121513; --bg-card-hover:#171b18;
+  --paper:#ece8df; --paper-dim:#c5c1b7; --muted:#969a91; --dim:#62665e;
+  --gold:#c79a51; --gold-light:#e5b974; --gold-dim:rgba(199,154,81,.22);
+  --teal:#0e4e48; --teal-light:#14b8a6;
+  --line:rgba(236,232,223,.1); --line-gold:rgba(199,154,81,.35);
+  --max:1080px;
+  --font-serif:"Noto Serif KR","Batang",serif;
+  --font-sans:"Pretendard","Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+  --font-display:"Outfit","Inter",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--paper);font-family:var(--font-sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+/* top nav */
+.topnav{border-bottom:1px solid var(--line);background:rgba(8,9,8,.9);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
+.topnav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{font-family:var(--font-display);font-size:13px;letter-spacing:.22em;color:var(--paper);text-decoration:none}
+.brand b{color:var(--gold-light)}
+.navlinks{display:flex;gap:22px;font-size:13px}
+.navlinks a{color:var(--paper-dim);text-decoration:none;letter-spacing:.04em}
+.navlinks a:hover{color:var(--gold-light)}
+.navlinks a.hot{color:var(--gold-light);font-weight:700}
+/* hero */
+.hero{padding:64px 0 30px;text-align:center}
+.kicker{display:inline-block;font-family:var(--font-display);font-size:11px;letter-spacing:.28em;color:var(--gold-light);border:1px solid var(--line-gold);border-radius:100px;padding:7px 20px;margin-bottom:22px}
+.kicker.sample{color:var(--teal-light);border-color:rgba(20,184,166,.4)}
+.hero h1{font-family:var(--font-serif);font-size:clamp(34px,5.4vw,58px);font-weight:700;line-height:1.25;margin-bottom:14px}
+.hero h1 .gold{color:var(--gold-light)}
+.hero .sub{color:var(--paper-dim);font-size:15.5px;max-width:640px;margin:0 auto 8px}
+.dateline{font-family:var(--font-display);font-size:12.5px;letter-spacing:.12em;color:var(--muted);margin-top:14px}
+.dateline b{color:var(--paper)}
+.saved-pill{font-family:var(--font-display);font-size:12px;color:var(--muted);margin-top:8px}
+.saved-pill b{color:var(--gold-light)}
+/* focus */
+.focus{margin:38px 0 8px;background:linear-gradient(135deg,rgba(199,154,81,.14),rgba(14,17,15,.9) 55%),var(--bg-card);border:1px solid var(--line-gold);border-radius:10px;padding:38px 36px;position:relative;overflow:hidden}
+.focus .tag{font-family:var(--font-display);font-size:11px;letter-spacing:.26em;color:var(--gold-light);margin-bottom:12px}
+.focus h2{font-family:var(--font-serif);font-size:clamp(24px,3.4vw,34px);line-height:1.4;margin-bottom:12px;font-weight:700}
+.focus p{color:var(--paper-dim);font-size:15px;max-width:760px}
+.sowhat{margin-top:16px;background:rgba(20,184,166,.08);border-left:3px solid var(--teal-light);padding:12px 18px;border-radius:0 6px 6px 0;font-size:14px;color:var(--paper)}
+.sowhat b{color:var(--teal-light)}
+.srcrow{margin-top:14px;font-size:12.5px;color:var(--muted)}
+.srcrow a{color:var(--gold-light);text-decoration:none;border-bottom:1px solid var(--line-gold)}
+.srcrow a:hover{color:#fff}
+/* daily 3 */
+.sec-title{font-family:var(--font-display);font-size:12px;letter-spacing:.28em;color:var(--gold-light);margin:44px 0 6px}
+.sec-head{font-family:var(--font-serif);font-size:clamp(22px,3vw,30px);margin-bottom:4px}
+.sec-desc{color:var(--muted);font-size:14px;margin-bottom:20px}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.chip{font-family:var(--font-display);font-size:12.5px;letter-spacing:.06em;padding:8px 18px;border-radius:100px;border:1px solid var(--line);background:transparent;color:var(--paper-dim);cursor:pointer;transition:all .18s}
+.chip:hover{border-color:var(--gold);color:var(--paper)}
+.chip.on{background:var(--gold);border-color:var(--gold);color:#080908;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--bg-card);border:1px solid var(--line);border-radius:10px;padding:26px 24px;display:flex;flex-direction:column;transition:border-color .18s,transform .18s}
+.card:hover{border-color:var(--line-gold);transform:translateY(-3px)}
+.card .num{font-family:var(--font-display);font-size:12px;letter-spacing:.2em;color:var(--gold);margin-bottom:10px}
+.card h3{font-family:var(--font-serif);font-size:19px;line-height:1.5;margin-bottom:10px}
+.card p{font-size:13.5px;color:var(--paper-dim);flex:1}
+.card .sowhat{font-size:12.5px;margin-top:12px;padding:9px 14px}
+.card .foot{margin-top:14px;display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--muted)}
+.card .foot a{color:var(--gold-light);text-decoration:none}
+.savebtn{background:none;border:1px solid var(--line);color:var(--paper-dim);border-radius:100px;font-size:11.5px;padding:5px 14px;cursor:pointer;font-family:var(--font-display);letter-spacing:.05em}
+.savebtn.saved{background:var(--gold-dim);border-color:var(--gold);color:var(--gold-light)}
+/* principle */
+.principle{margin:48px 0 0;border:1px dashed var(--line-gold);border-radius:10px;padding:26px 30px;font-size:13.5px;color:var(--paper-dim)}
+.principle b{color:var(--paper)}
+.principle .t{font-family:var(--font-display);font-size:11px;letter-spacing:.24em;color:var(--gold-light);display:block;margin-bottom:10px}
+/* archive teaser */
+.archive{margin:40px 0 20px;background:var(--bg-surface);border:1px solid var(--line);border-radius:10px;padding:30px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.archive h3{font-family:var(--font-serif);font-size:21px;margin-bottom:6px}
+.archive p{font-size:13.5px;color:var(--muted)}
+.abtn{display:inline-block;background:linear-gradient(135deg,var(--gold-light),var(--gold));color:#080908;font-weight:800;font-size:14px;text-decoration:none;padding:13px 30px;border-radius:6px;white-space:nowrap}
+footer{border-top:1px solid var(--line);margin-top:56px;padding:30px 0 46px;color:var(--dim);font-size:12.5px;text-align:center}
+footer a{color:var(--muted)}
+@media(max-width:860px){.grid{grid-template-columns:1fr}.focus{padding:28px 22px}.navlinks{gap:14px;font-size:12px}}
+/* newspaper front page */
+.pressbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--font-display);font-size:12px;letter-spacing:.1em;color:var(--muted);padding:18px 0 14px;border-bottom:1px solid var(--line)}
+.pressbar b{color:var(--paper)}
+.pressbar .issue{color:var(--gold-light);font-weight:700}
+.pressbar .sampletag{color:var(--teal-light);border:1px solid rgba(20,184,166,.45);border-radius:100px;padding:4px 14px;letter-spacing:.14em}
+.masthead{text-align:center;padding:30px 0 24px;border-bottom:4px double var(--line-gold)}
+.masthead .eyebrow{font-family:var(--font-display);font-size:11px;letter-spacing:.42em;color:var(--gold-light);margin-bottom:10px}
+.masthead h1{font-family:var(--font-serif);font-size:clamp(58px,10vw,108px);font-weight:400;line-height:1.1}
+.masthead h1 .markimg{width:.72em;height:.72em;object-fit:cover;border-radius:18%;vertical-align:-.1em;margin-right:.12em;box-shadow:0 4px 24px rgba(0,0,0,.5)}
+.m-morning{font-weight:300;letter-spacing:.14em;color:var(--paper)}
+.m-saem{font-weight:700;letter-spacing:.04em;background:linear-gradient(135deg,var(--gold-light) 20%,var(--gold) 80%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.masthead h1 a{color:var(--paper);text-decoration:none}
+.masthead .orgline{margin-top:12px;font-size:14px;color:var(--paper-dim)}
+.masthead .orgline b{color:var(--gold-light)}
+.headlines{border-bottom:1px solid var(--line);padding:20px 0 22px}
+.headlines .t{font-family:var(--font-display);font-size:11px;letter-spacing:.28em;color:var(--gold-light);margin-bottom:12px}
+.headlines ol{list-style:none}
+.headlines li{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px dotted rgba(236,232,223,.12);font-size:15px}
+.headlines li:last-child{border-bottom:none}
+.headlines .no{font-family:var(--font-display);font-size:12px;color:var(--gold);min-width:34px;letter-spacing:.08em}
+.headlines a{color:var(--paper);text-decoration:none}
+.headlines a:hover{color:var(--gold-light)}
+.headlines .seclabel{margin-left:auto;font-size:11.5px;color:var(--dim);white-space:nowrap;font-family:var(--font-display);letter-spacing:.1em}
+.saved-pillbtn{margin-top:10px;background:none;border:1px solid var(--line-gold);color:var(--paper);border-radius:100px;font-family:var(--font-display);font-size:12.5px;letter-spacing:.06em;padding:8px 22px;cursor:pointer}
+.saved-pillbtn b{color:var(--gold-light)}
+.saved-pillbtn:hover{background:var(--gold-dim)}
+.kwrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:16px 0 4px}
+.kwrow .kwlabel{font-family:var(--font-display);font-size:11px;letter-spacing:.24em;color:var(--muted)}
+.kwrow button{background:none;border:1px solid var(--line);color:var(--paper-dim);border-radius:100px;font-size:12.5px;padding:6px 16px;cursor:pointer}
+.kwrow button:hover{border-color:var(--teal-light);color:var(--teal-light)}
+.drawer-veil{position:fixed;inset:0;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .2s;z-index:90}
+.drawer-veil.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;left:0;right:0;bottom:0;z-index:95;background:var(--bg-surface);border-top:2px solid var(--gold);border-radius:14px 14px 0 0;max-height:70vh;overflow:auto;padding:26px 30px 34px;transform:translateY(105%);transition:transform .25s}
+.drawer.show{transform:none}
+.drawer .d-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:14px}
+.drawer .d-head .t{font-family:var(--font-display);font-size:11px;letter-spacing:.26em;color:var(--gold-light);margin-bottom:6px}
+.drawer .d-head h3{font-family:var(--font-serif);font-size:20px}
+.drawer .d-head button{background:none;border:1px solid var(--line);color:var(--paper-dim);border-radius:100px;padding:6px 18px;cursor:pointer;font-size:12.5px}
+.drawer .d-item{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 0;border-bottom:1px dotted rgba(236,232,223,.14);font-size:14.5px}
+.drawer .d-item a{color:var(--paper);text-decoration:none}
+.drawer .d-item a:hover{color:var(--gold-light)}
+.drawer .d-item .del{background:none;border:1px solid var(--line);color:var(--muted);border-radius:100px;font-size:11.5px;padding:4px 14px;cursor:pointer;white-space:nowrap}
+.drawer .d-empty{color:var(--muted);font-size:14px;padding:14px 0}
+.drawer .d-note{margin-top:12px;font-size:12.5px;color:var(--dim)}
+#toTop{position:fixed;right:22px;bottom:22px;z-index:80;background:var(--bg-card);border:1px solid var(--line-gold);color:var(--gold-light);border-radius:100px;font-family:var(--font-display);font-size:12.5px;padding:10px 20px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s}
+#toTop.show{opacity:1;pointer-events:auto}
+.flash{animation:flashline 1.6s}
+@keyframes flashline{0%{box-shadow:0 0 0 3px var(--gold)}100%{box-shadow:none}}
+/* front page: photo hero + right rail */
+.pressbar .pb-brand{font-family:var(--font-serif);font-size:19px;color:var(--paper);text-decoration:none}
+.pressbar .pb-brand b{color:var(--gold-light)}
+.pressbar .pb-date{font-family:var(--font-display);font-size:clamp(17px,2.4vw,24px);font-weight:700;letter-spacing:.06em;color:var(--paper)}
+.pressbar .pb-date small{font-size:12px;color:var(--muted);font-weight:400;letter-spacing:.14em;margin-left:8px}
+.frontgrid{display:grid;grid-template-columns:1.9fr 1fr;gap:18px;margin:26px 0 8px}
+.focus.photo{background:linear-gradient(100deg,rgba(8,9,8,.94) 30%,rgba(8,9,8,.55) 60%,rgba(8,9,8,.15)),url('marks/hero_focus.webp') center/cover,var(--bg-card);margin:0;padding:40px 36px;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end}
+.focus.photo p{max-width:560px;text-shadow:0 2px 12px rgba(0,0,0,.8)}
+.focus.photo h2{text-shadow:0 3px 18px rgba(0,0,0,.85)}
+.rail{background:var(--bg-surface);border:1px solid var(--line);border-radius:10px;padding:26px 24px;display:flex;flex-direction:column}
+.rail .t{font-family:var(--font-display);font-size:11px;letter-spacing:.26em;color:var(--gold-light);margin-bottom:4px}
+.rail h3{font-family:var(--font-serif);font-size:21px;margin-bottom:14px}
+.rail .ritem{padding:13px 0;border-top:1px dotted rgba(236,232,223,.16)}
+.rail .ritem .n{font-family:var(--font-display);font-size:11.5px;color:var(--gold);letter-spacing:.14em}
+.rail .ritem a.tt{color:var(--paper);text-decoration:none;font-size:15px;font-weight:600;line-height:1.55;display:block;margin:4px 0 8px}
+.rail .ritem a.tt:hover{color:var(--gold-light)}
+.easybtn{background:none;border:1px solid var(--teal-light);color:var(--teal-light);border-radius:100px;font-size:12px;padding:6px 18px;cursor:pointer;font-family:var(--font-display);letter-spacing:.05em}
+.easybtn:hover{background:rgba(20,184,166,.14)}
+.easybtn.gold{border-color:var(--gold);color:var(--gold-light)}
+.easybtn.gold:hover{background:var(--gold-dim)}
+/* easy-reading modal */
+.modal-veil{position:fixed;inset:0;background:rgba(0,0,0,.72);opacity:0;pointer-events:none;transition:opacity .2s;z-index:120}
+.modal-veil.show{opacity:1;pointer-events:auto}
+.emodal{position:fixed;z-index:125;left:50%;top:50%;transform:translate(-50%,-46%);width:min(680px,92vw);max-height:84vh;overflow:auto;background:var(--bg-surface);border:1px solid var(--line-gold);border-radius:14px;padding:34px 36px;opacity:0;pointer-events:none;transition:all .22s}
+.emodal.show{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.emodal .tag{font-family:var(--font-display);font-size:11px;letter-spacing:.26em;color:var(--teal-light);margin-bottom:10px}
+.emodal h3{font-family:var(--font-serif);font-size:24px;line-height:1.45;margin-bottom:16px}
+.emodal ul{margin:0 0 6px 20px;font-size:14.5px;color:var(--paper-dim)}
+.emodal li{margin-bottom:9px}
+.emodal .sowhat{margin-top:14px}
+.emodal .src{margin-top:14px;font-size:12.5px;color:var(--muted)}
+.emodal .src a{color:var(--gold-light);text-decoration:none}
+.emodal .close-row{margin-top:20px;text-align:right}
+.emodal .close-row button{background:var(--gold);border:none;color:#080908;font-weight:700;border-radius:100px;padding:9px 28px;cursor:pointer;font-size:13.5px}
+@media(max-width:900px){.frontgrid{grid-template-columns:1fr}.focus.photo{min-height:340px;padding:28px 22px}}
+</style>
+</head>
+<body>
+<nav class="topnav"><div class="wrap">
+  <a class="brand" href="index.html">SEMISERON <b>AI EDU</b></a>
+  <div class="navlinks">
+    <a href="index.html">메인 홈페이지</a>
+    <a href="campus.html">온라인 캠퍼스</a>
+    <a href="briefing.html" class="hot">모닝샘</a>
+  </div>
+</div></nav>
+
+<div class="wrap">
+  <div class="pressbar">
+    <span><a class="pb-brand" href="briefing.html">모닝<b>샘</b></a> · <span class="issue">제1호</span> · <a class="pb-home" href="index.html">← 새미새론 홈</a> · <span class="sampletag">SIAN · 예시판</span></span>
+    <span class="pb-date">9월 10일 목요일<small>매일 아침 7시 발행</small></span>
+  </div>
+  <header class="masthead">
+    <div class="eyebrow">SEMISERON MORNING BRIEF</div>
+    <h1><a href="briefing.html"><img class="markimg" src="marks/mark_B.webp" alt="모닝샘 마크"><span class="m-morning">모닝</span><span class="m-saem">샘</span></a></h1>
+    <p class="orgline"><b>새미새론 AI 교육원</b> · 오늘의 AI 브리핑 — 교육원과 우리 삶에 닿는 소식만 골라 3줄로 정리합니다</p>
+    <div><button class="saved-pillbtn" id="savedOpen">저장한 소식 <b id="savedCount">0</b>개 보기</button></div>
+  </header>
+
+  <div class="frontgrid">
+  <section class="focus photo" id="focus">
+    <div class="tag">FOCUS · 오늘의 1면</div>
+    <h2>정부 AI 예산 9.9조 원 시대 — "전 국민 AI 공짜"가 온다</h2>
+    <p>2026년 정부 AI 예산이 전년의 3배인 9.9조 원으로 편성됐습니다. 과기정통부는 누구나 범용 AI 챗봇과 공공 AI 에이전트를 쉽게 쓰는 신규 지원 사업을 추진하고, GPU 1만 5,000장 추가 확보로 AI 컴퓨팅 기반을 넓힙니다.</p>
+    <div class="sowhat"><b>나에게는 ·</b> 나라에서 AI를 공짜로 쓸 수 있게 깔아준다는 뜻입니다. 쓸 줄 아는 사람과 모르는 사람의 차이가 벌어지는 지점이라, 지금 기초부터 익혀두는 게 가장 쌉니다.</div>
+    <div class="srcrow">출처: 오마이뉴스(9.4조 보도) · 엑스디노드(GPU 2조 805억 사업 정리) · <a href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003263356" target="_blank" rel="noopener">원문 보기 ↗</a> · <a href="https://www.xdnode.co.kr/insight/articles/2026-government-ai-infrastructure-programs" target="_blank" rel="noopener">인프라 정리 ↗</a> · <button class="easybtn gold" data-d="focus" type="button">쉽게 읽기 ↗</button></div>
+  </section>
+  <aside class="rail">
+    <div class="t">THE DAILY BRIEF</div>
+    <h3>오늘 이것만은</h3>
+    <div class="ritem"><div class="n">01 · MODELS</div><a class="tt" href="#c1">72시간에 4개 모델 폭포</a><button class="easybtn" data-d="c1" type="button">쉽게 읽기</button></div>
+    <div class="ritem"><div class="n">02 · POLICY</div><a class="tt" href="#c2">"국민 모두 AI 공짜로" — 84% 늘어난 9.4조 원</a><button class="easybtn" data-d="c2" type="button">쉽게 읽기</button></div>
+    <div class="ritem"><div class="n">03 · CLASSROOM</div><a class="tt" href="#c3">GPU 1만 5,000장 추가</a><button class="easybtn" data-d="c3" type="button">쉽게 읽기</button></div>
+  </aside>
+  </div>
+
+  <nav class="headlines">
+    <div class="t">TODAY'S HEADLINES · 오늘의 헤드라인</div>
+    <ol>
+      <li><span class="no">1면</span><a href="#focus">정부 AI 예산 9.9조 원 시대 — "전 국민 AI 공짜"가 온다</a><span class="seclabel">FOCUS</span></li>
+      <li><span class="no">2면</span><a href="#c1">72시간에 4개 모델 폭포 — Fable 5.1 · Gemini 3.8 · Spark 1.3 · Astra</a><span class="seclabel">MODELS</span></li>
+      <li><span class="no">3면</span><a href="#c2">"국민 모두 AI 공짜로" — 84% 늘어난 9.4조 원</a><span class="seclabel">POLICY</span></li>
+      <li><span class="no">4면</span><a href="#c3">GPU 1만 5,000장 추가 — "무거운 AI"가 가벼워진다</a><span class="seclabel">CLASSROOM</span></li>
+    </ol>
+  </nav>
+  <div class="kwrow">
+    <span class="kwlabel">오늘의 키워드</span>
+    <button data-t="focus"># AI 예산 9.9조</button>
+    <button data-t="c1"># 72시간 4모델</button>
+    <button data-t="c2"># 전 국민 공짜 AI</button>
+    <button data-t="c3"># GPU 1.5만 장</button>
+  </div>
+
+  <div class="sec-title">THE DAILY THREE</div>
+  <h2 class="sec-head">오늘 이것만은, 3가지</h2>
+  <p class="sec-desc">주제를 고르면 해당 소식만 모아 볼 수 있습니다. 저장은 하트 없이 버튼 한 번이면 됩니다.</p>
+  <div class="chips" id="chips">
+    <button class="chip on" data-cat="all">전체</button>
+    <button class="chip" data-cat="model">프론티어 모델</button>
+    <button class="chip" data-cat="policy">정책·예산</button>
+    <button class="chip" data-cat="edu">교육 현장</button>
+  </div>
+
+  <div class="grid" id="grid">
+    <article class="card" data-cat="model" id="c1">
+      <div class="num">01 · FRONTIER MODELS</div>
+      <h3>72시간에 4개 모델 폭포 — Fable 5.1 · Gemini 3.8 · Spark 1.3 · Astra</h3>
+      <p>9월 첫주, 앤스로픽·구글·메타·OpenAI의 플래그십이 사흘 새 쏟아졌습니다. 가격 개편(일부 인상 철회·일부 인하)까지 겹쳐, "어떤 모델을 쓸지"가 다시 숙제가 됐습니다.</p>
+      <div class="sowhat"><b>나에게는 ·</b> 모델 이름은 외울 필요 없습니다. 기초(묻는 법·검증하는 법)만 알면 어떤 AI가 나와도 바로 쓸 수 있습니다. 순서가 바뀌어도 흔들리지 않는 쪽이 이기는 게임입니다.</div>
+      <div class="foot"><span><a href="https://local-ai-zone.github.io/blog/September_2026_AI_Model_Updates.html" target="_blank" rel="noopener">9월 모델 정리 ↗</a></span><button class="savebtn" data-id="m1">저장</button></div>
+    </article>
+    <article class="card" data-cat="policy" id="c2">
+      <div class="num">02 · PUBLIC AI ACCESS</div>
+      <h3>"국민 모두 AI 공짜로" — 84% 늘어난 9.4조 원</h3>
+      <p>정부가 AI 예산을 84% 늘린 9조 4천억 원으로 확대합니다. 축은 전 국민 범용 AI·공공 에이전트 지원과 AI 중심대학 확대. 평생교육원 AI 강좌 수요에도 직접 불이 붙는 재료입니다.</p>
+      <div class="sowhat"><b>나에게는 ·</b> 공짜로 쓸 수 있는 AI가 늘어나는 만큼, 쓸 줄 아는 사람이 이득을 봅니다. 스마트폰 AI 강좌에서 그 쓰는 법부터 바로 배울 수 있습니다.</div>
+      <div class="foot"><span><a href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003263356" target="_blank" rel="noopener">원문 보기 ↗</a></span><button class="savebtn" data-id="m2">저장</button></div>
+    </article>
+    <article class="card" data-cat="edu" id="c3">
+      <div class="num">03 · INFRA &amp; CLASSROOM</div>
+      <h3>GPU 1만 5,000장 추가 — "무거운 AI"가 가벼워진다</h3>
+      <p>과기정통부 2조 805억 원 사업의 핵심은 AI 컴퓨팅 자원 확충입니다. 연내 GPU 1.5만 장급 추가 확보가 목표. 집 컴퓨터에서 AI 비서를 직접 돌리는 실습의 뒤받침이 됩니다.</p>
+      <div class="sowhat"><b>나에게는 ·</b> 무겁고 비쌀 줄 알았던 AI가 내 컴퓨터·내 스마트폰 안으로 들어오는 시대입니다. "내 PC의 AI 작업실" 강좌가 바로 그 문을 여는 열쇠입니다.</div>
+      <div class="foot"><span><a href="https://www.xdnode.co.kr/insight/articles/2026-government-ai-infrastructure-programs" target="_blank" rel="noopener">사업 정리 ↗</a></span><button class="savebtn" data-id="m3">저장</button></div>
+    </article>
+  </div>
+
+  <div class="principle">
+    <span class="t">EDITING PRINCIPLE · 편집 원칙</span>
+    <b>사실과 해설을 구분합니다.</b> 뉴스 팩트는 원문 링크에서 확인하시고, '나에게는' 한 줄은 읽는 분의 입장에서 정리한 새미새론의 편집 해설입니다. 이후 상황 변화는 원문에서 확인해 주세요. 이 페이지는 시안 예시판이며, 정식 발행 시 매일 아침 7시 날짜판으로 교체됩니다.
+  </div>
+
+  <div class="archive">
+    <div>
+      <h3>지난 브리핑 모아보기</h3>
+      <p>매일 쌓이는 날짜판 아카이브 — 검색 유입의 본진은 여기입니다.</p>
+    </div>
+    <a class="abtn" href="index.html">메인으로 돌아가기</a>
+  </div>
+</div>
+
+<div class="modal-veil" id="modalVeil"></div>
+<div class="emodal" id="emodal" role="dialog" aria-modal="true">
+  <div class="tag" id="emTag">EASY READING · 쉽게 읽기</div>
+  <h3 id="emTitle"></h3>
+  <ul id="emBody"></ul>
+  <div class="sowhat" id="emSo"></div>
+  <div class="src" id="emSrc"></div>
+  <div class="close-row"><button id="emClose" type="button">닫기</button></div>
+</div>
+<div class="drawer-veil" id="drawerVeil"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="d-head">
+    <div><div class="t">SAVED · 저장한 소식</div><h3>다시 읽고 싶은 이야기를 모아두세요</h3></div>
+    <button id="drawerClose" type="button">닫기</button>
+  </div>
+  <div id="drawerList"></div>
+  <p class="d-note">기사 옆 '저장' 버튼을 누르면 이곳에 담깁니다. 저장은 이 브라우저에만 보관됩니다.</p>
+</aside>
+<button id="toTop" type="button">맨 위로 ↑</button>
+<footer>© 2026 SEMISERON AI EDU · 새미새론 AI 교육원 · 시안 예시판 (BRIEFING SIAN v0.1) · <a href="index.html">메인</a> · <a href="campus.html">캠퍼스</a></footer>
+
+<script>
+(function(){
+  var KEY='saemisaeron_briefing_saved_v01';
+  function cardInfo(id){
+    var card=document.querySelector('.savebtn[data-id="'+id+'"]');
+    if(!card) return null;
+    var box=card.closest('article')||card.closest('section');
+    var h=box?box.querySelector('h2,h3'):null;
+    var anchor=box&&box.id?box.id:(box&&box.closest('[id]')?box.closest('[id]').id:'top');
+    return {id:id, t:h?h.textContent.trim().slice(0,60):id, a:anchor};
+  }
+  function load(){
+    try{
+      var raw=JSON.parse(localStorage.getItem(KEY)||'[]');
+      if(raw.length&&typeof raw[0]==='string'){ return raw.map(function(id){ return cardInfo(id); }).filter(Boolean); }
+      return raw;
+    }catch(e){ return []; }
+  }
+  function save(a){ try{ localStorage.setItem(KEY, JSON.stringify(a)); }catch(e){} }
+  var saved=load();
+  var count=document.getElementById('savedCount');
+  var drawer=document.getElementById('drawer'), veil=document.getElementById('drawerVeil'), list=document.getElementById('drawerList');
+  function paint(){
+    count.textContent=saved.length;
+    document.querySelectorAll('.savebtn').forEach(function(b){
+      var on=saved.some(function(s){ return s.id===b.getAttribute('data-id'); });
+      b.classList.toggle('saved',on);
+      b.textContent=on?'저장됨':'저장';
+    });
+    if(!saved.length){
+      list.innerHTML='<p class="d-empty">아직 저장한 소식이 없습니다. 기사 옆 저장 버튼을 눌러 모아보세요.</p>';
+      return;
+    }
+    list.innerHTML='';
+    saved.forEach(function(s){
+      var row=document.createElement('div');
+      row.className='d-item';
+      var a=document.createElement('a');
+      a.href='#'+s.a; a.textContent=s.t;
+      a.addEventListener('click',function(){ closeDrawer(); });
+      var del=document.createElement('button');
+      del.className='del'; del.type='button'; del.textContent='삭제';
+      del.addEventListener('click',function(){
+        saved=saved.filter(function(x){ return x.id!==s.id; });
+        save(saved); paint();
+      });
+      row.appendChild(a); row.appendChild(del);
+      list.appendChild(row);
+    });
+  }
+  function openDrawer(){ paint(); drawer.classList.add('show'); veil.classList.add('show'); drawer.setAttribute('aria-hidden','false'); }
+  function closeDrawer(){ drawer.classList.remove('show'); veil.classList.remove('show'); drawer.setAttribute('aria-hidden','true'); }
+  document.getElementById('savedOpen').addEventListener('click',openDrawer);
+  document.getElementById('drawerClose').addEventListener('click',closeDrawer);
+  veil.addEventListener('click',closeDrawer);
+  document.querySelectorAll('.savebtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var id=b.getAttribute('data-id');
+      if(saved.some(function(s){ return s.id===id; })){ saved=saved.filter(function(s){ return s.id!==id; }); }
+      else{ var info=cardInfo(id); if(info) saved.push(info); }
+      save(saved); paint();
+    });
+  });
+  document.querySelectorAll('#chips .chip').forEach(function(ch){
+    ch.addEventListener('click',function(){
+      document.querySelectorAll('#chips .chip').forEach(function(c){ c.classList.remove('on'); });
+      ch.classList.add('on');
+      var cat=ch.getAttribute('data-cat');
+      document.querySelectorAll('#grid .card').forEach(function(card){
+        card.style.display=(cat==='all'||card.getAttribute('data-cat')===cat)?'flex':'none';
+      });
+    });
+  });
+  document.querySelectorAll('.kwrow button').forEach(function(k){
+    k.addEventListener('click',function(){
+      var el=document.getElementById(k.getAttribute('data-t'));
+      if(!el) return;
+      el.scrollIntoView({behavior:'smooth',block:'center'});
+      el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+    });
+  });
+  var toTop=document.getElementById('toTop');
+  window.addEventListener('scroll',function(){ toTop.classList.toggle('show',window.scrollY>500); },{passive:true});
+  toTop.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  var DIGEST={
+    focus:{tag:'1면 FOCUS · 쉽게 읽기',title:'정부 AI 예산 9조 원대 시대 — "전 국민 AI 공짜"가 온다',
+      bullets:['2026년 정부 AI 예산이 9조 원대로 편성됐습니다. 보도별 집계가 조금씩 달라 9.4조 원(전년 대비 84% 증가) 보도와 9.9조 원(전년의 3배) 정리가 함께 있습니다. 어느 쪽이든 "역대 최대·전년 대비 2~3배"라는 방향은 같습니다.',
+      '핵심 축은 두 가지입니다. 하나는 전 국민이 범용 AI 챗봇과 공공 AI 에이전트를 쉽게 쓰는 신규 지원 사업이고, 다른 하나는 AI 컴퓨팅 기반 확충(2조 805억 원 사업, 연내 GPU 1만 5,000장급 추가 확보 목표)입니다.',
+      '배경에는 고강도 지출 구조조정으로 마련한 재원을 AI·첨단기술에 몰아주는 기조가 있습니다. AI중심대학 확대도 함께 추진됩니다.',
+      '다만 예산안이라 국회 심의가 남았고, 보도별 수치 차이는 확정액이 아닌 편성·보도 기준의 차이이니 "9조 원대"로 이해하시면 됩니다.'],
+      so:'<b>나에게는 ·</b> 나라에서 AI를 공짜로 쓸 수 있게 깔아준다는 뜻입니다. 쓸 줄 아는 사람과 모르는 사람의 차이가 벌어지는 지점이라, 지금 기초부터 익혀두는 게 가장 쌉니다.',
+      src:'출처: <a href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003263356" target="_blank" rel="noopener">오마이뉴스 ↗</a> · <a href="https://www.xdnode.co.kr/insight/articles/2026-government-ai-infrastructure-programs" target="_blank" rel="noopener">엑스디노드 사업 정리 ↗</a> · <a href="https://www.pbsnews.kr/141283" target="_blank" rel="noopener">PBS 과기정통부 예산 ↗</a>'},
+    c1:{tag:'2면 MODELS · 쉽게 읽기',title:'72시간에 4개 모델 폭포 — Fable 5.1 · Gemini 3.8 · Spark 1.3 · Astra',
+      bullets:['9월 첫주 사흘 새 앤스로픽·구글·메타·OpenAI의 플래그십 모델이 쏟아졌습니다. 9월 월간 집계로는 7개 릴리스가 확인됩니다.',
+      '가격도 같이 움직였습니다. 일부 인상 계획은 철회됐고 일부는 인하됐습니다. "어떤 모델을 쓸지"가 다시 숙제가 된 주입니다.',
+      '모델이 자주 바뀔수록 기초(묻는 법·검증하는 법)의 값이 오릅니다. 모델 이름은 외울 필요 없고, 갈아타도 되는 몸이 중요합니다.'],
+      so:'<b>나에게는 ·</b> 모델 이름은 외울 필요 없습니다. 기초(묻는 법·검증하는 법)만 알면 어떤 AI가 나와도 바로 쓸 수 있습니다. 순서가 바뀌어도 흔들리지 않는 쪽이 이기는 게임입니다.',
+      src:'출처: <a href="https://local-ai-zone.github.io/blog/September_2026_AI_Model_Updates.html" target="_blank" rel="noopener">9월 모델 정리 ↗</a> · <a href="https://aireleasetracker.com/releases/september-2026" target="_blank" rel="noopener">9월 릴리스 트래커 ↗</a>'},
+    c2:{tag:'3면 POLICY · 쉽게 읽기',title:'"국민 모두 AI 공짜로" — 84% 늘어난 9.4조 원',
+      bullets:['정부가 AI 예산을 84% 늘린 9조 4천억 원으로 확대한다는 보도입니다. 축은 전 국민 범용 AI·공공 에이전트 지원과 AI중심대학 확대입니다.',
+      '과기정통부 내년 예산안에는 국민 누구나 범용 AI 챗봇과 공공 AI 에이전트를 쉽게 활용하도록 돕는 신규 사업이 담겼습니다.',
+      '공짜로 쓸 수 있는 AI가 늘어나는 만큼, 미리 쓰는 법을 익힌 사람이 이득을 보는 구조입니다. 평생교육원 AI 강좌 수요에도 직접 불이 붙는 재료입니다.'],
+      so:'<b>나에게는 ·</b> 공짜로 쓸 수 있는 AI가 늘어나는 만큼, 쓸 줄 아는 사람이 이득을 봅니다. 스마트폰 AI 강좌에서 그 쓰는 법부터 바로 배울 수 있습니다.',
+      src:'출처: <a href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003263356" target="_blank" rel="noopener">오마이뉴스 ↗</a> · <a href="https://www.pbsnews.kr/141283" target="_blank" rel="noopener">PBS ↗</a>'},
+    c3:{tag:'4면 CLASSROOM · 쉽게 읽기',title:'GPU 1만 5,000장 추가 — "무거운 AI"가 가벼워진다',
+      bullets:['과기정통부 2조 805억 원 사업의 핵심은 AI 컴퓨팅 자원 확충입니다. 연내 GPU 1만 5,000장 수준 추가 확보가 목표입니다.',
+      '돈이 가장 많이 몰리는 곳이 GPU라는 뜻입니다. 무겁고 비쌀 줄 알았던 AI가 나라 기반 위에서 가벼워지는 흐름입니다.',
+      '집 컴퓨터에서 AI 비서를 직접 돌리는 실습(로컬·온프레미스)의 뒤받침이 됩니다. 인프라가 국비로 깔리면 배우는 문턱이 낮아집니다.'],
+      so:'<b>나에게는 ·</b> 무겁고 비쌀 줄 알았던 AI가 내 컴퓨터·내 스마트폰 안으로 들어오는 시대입니다. "내 PC의 AI 작업실" 강좌가 바로 그 문을 여는 열쇠입니다.',
+      src:'출처: <a href="https://www.xdnode.co.kr/insight/articles/2026-government-ai-infrastructure-programs" target="_blank" rel="noopener">엑스디노드 사업 정리 ↗</a>'}
+  };
+  var mveil=document.getElementById('modalVeil'), em=document.getElementById('emodal');
+  function openEasy(id){
+    var d=DIGEST[id]; if(!d) return;
+    document.getElementById('emTag').textContent=d.tag;
+    document.getElementById('emTitle').textContent=d.title;
+    document.getElementById('emBody').innerHTML=d.bullets.map(function(b){ return '<li>'+b+'</li>'; }).join('');
+    document.getElementById('emSo').innerHTML=d.so;
+    document.getElementById('emSrc').innerHTML=d.src;
+    mveil.classList.add('show'); em.classList.add('show');
+  }
+  function closeEasy(){ mveil.classList.remove('show'); em.classList.remove('show'); }
+  document.querySelectorAll('.easybtn').forEach(function(b){ b.addEventListener('click',function(){ openEasy(b.getAttribute('data-d')); }); });
+  document.getElementById('emClose').addEventListener('click',closeEasy);
+  mveil.addEventListener('click',closeEasy);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeEasy(); closeDrawer(); } });
+  paint();
+})();
+</script>
+</body>
+</html>

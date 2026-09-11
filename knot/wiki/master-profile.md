@@ -131,10 +131,10 @@ aliases: [마스터님, Ted Chang, 테드창, 임창식]
 
 | 이름 | 모델 | 플랫폼 | 역할 |
 |:----:|:----:|:------:|:----:|
-| 🌞 해나 | DS V4 Flash/Pro | Hermes Agent | 일상·자동화·보고 |
+| 🌞 해나 | DS V4 Flash / Nemotron 3 Ultra | Hermes Agent | 일상·자동화·보고 (OpenRouter 무료 티어/직접 할당) |
 | 💋 미모 | MiMo V2.5 Pro | Zed + MiMo Code | 1:1 코딩 |
-| 🧊 지호 | ~~GLM 5.2 (중단)~~ | (사용 중단) | bigmodel.cn 프로모션 소진 |
-| 🎨 AG | Gemini 3.1 Pro | Antigravity 2.0 | 기획·디자인·큰 그림 |
+| 🧊 지호 | Nemotron 3 Ultra / MiMo 2.5 Free | AION UI / OpenCode CLI | 오르카 4번 방, 웹 UI 디자인 (OpenRouter 무료 티어) |
+| 🎨 AG | Gemini 3.6 Flash / Pro | Antigravity IDE | 기획·아키텍처·인프라 |
 
 ### 사용 모델 가격
 

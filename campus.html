@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/logo/symbol_light.png">
+  <link rel="apple-touch-icon" href="assets/logo/symbol_light.png">
+  <title>SEMISERON ONLINE CAMPUS · 새미새론 온라인 캠퍼스</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Serif+KR:wght@300;400;600;700&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080908;
+      --bg-surface: #111412;
+      --bg-card: #151a17;
+      --bg-card-hover: #1c241f;
+      --gold: #c79a51;
+      --gold-light: #e5b974;
+      --gold-dim: rgba(199, 154, 81, 0.15);
+      --paper: #e5e2da;
+      --paper-dim: #a6a297;
+      --muted: #6b6962;
+      --line: rgba(236, 232, 223, 0.1);
+      --line-gold: rgba(199, 154, 81, 0.35);
+      --font-serif: "Noto Serif KR", "Batang", serif;
+      --font-sans: "Pretendard", "Inter", -apple-system, sans-serif;
+      --font-display: "Outfit", "Inter", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: var(--bg); color: var(--paper); }
+    body { font-family: var(--font-sans); line-height: 1.7; overflow-x: hidden; background: var(--bg); }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 4.5vw;
+      background: rgba(8, 9, 8, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    .brand {
+      display: flex; align-items: baseline; gap: 12px; text-decoration: none;
+    }
+    .brand-en {
+      font-family: var(--font-display); font-size: 14px; font-weight: 700;
+      letter-spacing: 0.24em; color: var(--gold);
+    }
+    .brand-ko {
+      font-family: var(--font-serif); font-size: 12px; color: var(--paper-dim); letter-spacing: -0.04em;
+    }
+    .brand-campus-badge {
+      font-family: var(--font-display); font-size: 9px; letter-spacing: 0.18em;
+      color: var(--gold-light); background: var(--gold-dim); border: 1px solid var(--line-gold);
+      padding: 2px 8px; border-radius: 2px; margin-left: 4px;
+    }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a {
+      font-family: var(--font-display); font-size: 11px; letter-spacing: 0.18em;
+      color: var(--muted); text-decoration: none; transition: color 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-actions { display: flex; align-items: center; gap: 16px; }
+    .back-btn {
+      font-family: var(--font-display); font-size: 11px; letter-spacing: 0.15em;
+      color: var(--paper-dim); text-decoration: none; transition: color 0.2s;
+    }
+    .back-btn:hover { color: var(--gold); }
+
+    /* Enroll CTA Button matching exact twin style */
+    .enroll-cta {
+      border: 1px solid var(--line-gold);
+      padding: 8px 18px;
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      background: transparent;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      line-height: 1.2;
+    }
+    .enroll-cta:hover {
+      background: var(--gold);
+      color: var(--bg);
+      border-color: var(--gold);
+      box-shadow: 0 0 16px rgba(199, 154, 81, 0.35);
+    }
+
+    /* Hero */
+    .hero-section {
+      padding: 160px 4.5vw 80px; text-align: center; position: relative;
+      border-bottom: 1px solid var(--line);
+      background: radial-gradient(circle at 50% 20%, rgba(199, 154, 81, 0.08), transparent 70%);
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; background: var(--gold-dim); border: 1px solid var(--line-gold);
+      color: var(--gold-light); font-size: 11px; letter-spacing: 0.18em; margin-bottom: 24px;
+      font-family: var(--font-display);
+    }
+    .hero-section h1 {
+      font-family: var(--font-serif); font-size: clamp(30px, 4vw, 50px);
+      font-weight: 400; line-height: 1.35; margin-bottom: 20px; color: #fff;
+    }
+    .hero-section h1 span { color: var(--gold); }
+    .hero-desc {
+      font-size: 16px; color: var(--paper-dim); max-width: 760px; margin: 0 auto 36px; line-height: 1.8;
+    }
+
+    /* Faculty Bar */
+    .faculty-bar {
+      display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 36px;
+      border-top: 1px solid var(--line); padding-top: 28px;
+    }
+    .faculty-item {
+      display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--paper-dim);
+    }
+    .faculty-item strong { color: #fff; font-weight: 600; }
+    .faculty-item span { color: var(--gold); font-size: 11px; }
+
+    /* Section Common */
+    .section-wrap { padding: 90px 4.5vw; border-bottom: 1px solid var(--line); }
+    .container { max-width: 1240px; margin: 0 auto; }
+    .eyebrow { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.25em; color: var(--gold); margin-bottom: 12px; }
+    .sec-title { font-family: var(--font-serif); font-size: clamp(24px, 3vw, 36px); font-weight: 400; margin-bottom: 16px; color:#fff; }
+    .sec-desc { font-size: 14px; color: var(--paper-dim); max-width: 680px; margin-bottom: 48px; }
+
+    /* 9 Major Certs Grid */
+    .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .cert-card {
+      background: var(--bg-surface); border: 1px solid var(--line);
+      padding: 28px 24px; border-radius: 2px; transition: all 0.3s;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .cert-card:hover {
+      border-color: var(--gold); transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    }
+    .cert-badge {
+      display: inline-block; font-size: 10px; font-family: var(--font-display);
+      letter-spacing: 0.15em; color: var(--gold); margin-bottom: 10px;
+    }
+    .cert-name { font-size: 17px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+    .cert-career { font-size: 12px; color: var(--gold-light); margin-bottom: 14px; }
+    .cert-desc { font-size: 12px; color: var(--paper-dim); line-height: 1.7; margin-bottom: 20px; }
+    .cert-btn {
+      display: inline-block; text-align: center; padding: 12px 16px; font-size: 11px;
+      font-weight: 600; letter-spacing: 0.1em; color: #fff; background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line); text-decoration: none; transition: all 0.2s; cursor: pointer;
+      width: 100%; font-family: inherit;
+    }
+    .cert-card:hover .cert-btn { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+
+    /* Course Grid (14 Tracks) */
+    .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .course-card {
+      background: var(--bg-surface); border: 1px solid var(--line);
+      padding: 26px 22px; border-radius: 2px; transition: all 0.3s;
+    }
+    .course-card:hover { border-color: var(--gold); }
+    .course-tag {
+      font-size: 10px; font-family: var(--font-display); color: var(--gold);
+      margin-bottom: 8px; display: inline-block; letter-spacing: 0.1em;
+    }
+    .course-title { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .course-desc { font-size: 12px; color: var(--paper-dim); line-height: 1.65; margin-bottom: 16px; }
+    .course-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--line); padding-top: 12px; font-size: 11px; color: var(--muted);
+    }
+
+    /* Quick Action & Lessons */
+    .quick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .quick-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .quick-item {
+      background: var(--bg-surface); border: 1px solid var(--line);
+      padding: 16px 20px; display: flex; justify-content: space-between; align-items: center;
+      transition: all 0.2s;
+    }
+    .quick-item:hover { border-color: var(--gold); }
+    .quick-item-title { font-size: 13px; color: #fff; font-weight: 500; }
+    .quick-item-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .quick-btn {
+      background: none; border: 1px solid var(--line-gold); color: var(--gold);
+      padding: 6px 12px; font-size: 11px; cursor: pointer; transition: all 0.2s;
+    }
+    .quick-btn:hover { background: var(--gold); color: #080908; }
+
+    /* Modal System */
+    .modal {
+      position: fixed; inset: 0; z-index: 300;
+      display: none; align-items: center; justify-content: center;
+      padding: 24px; background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    }
+    .modal.open { display: flex; }
+    .modal-box {
+      position: relative; width: min(860px, 100%); max-height: 88vh;
+      background: #0d100e; border: 1px solid var(--line-gold);
+      padding: 46px 42px; overflow-y: auto;
+    }
+    .modal-box::-webkit-scrollbar { width: 5px; }
+    .modal-box::-webkit-scrollbar-thumb { background: var(--line-gold); }
+    .modal-close {
+      position: absolute; right: 24px; top: 20px; font-size: 32px;
+      color: var(--muted); background: none; border: none; cursor: pointer;
+      line-height: 1; transition: color 0.2s;
+    }
+    .modal-close:hover { color: #fff; }
+    .modal-header {
+      border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 24px;
+    }
+    .modal-num {
+      font-family: var(--font-display); font-size: 10px; letter-spacing: 0.22em;
+      color: var(--gold); margin-bottom: 6px;
+    }
+    .modal-name {
+      font-family: var(--font-serif); font-size: 30px; font-weight: 400; color: #fff;
+    }
+    .modal-role {
+      font-family: var(--font-display); font-size: 12px; color: var(--gold-light); letter-spacing: 0.1em; margin-top: 4px;
+    }
+    .modal-tags {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; border-top: 1px solid var(--line); padding-top: 20px;
+    }
+    .modal-tags span {
+      padding: 6px 14px; background: #111412; border: 1px solid #28332c;
+      font-size: 12px; color: #cec9bd;
+    }
+    .modal-table {
+      width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px;
+    }
+    .modal-table th {
+      background: rgba(199, 154, 81, 0.08); color: var(--gold-light);
+      border: 1px solid var(--line); padding: 12px 16px; text-align: left;
+      font-weight: 600; width: 28%;
+    }
+    .modal-table td {
+      border: 1px solid var(--line); padding: 12px 16px; color: #cec9bd; line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 4.5vw; border-top: 1px solid var(--line);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 11px; color: var(--muted); flex-wrap: wrap; gap: 16px;
+    }
+
+    @media (max-width: 960px) {
+      .cert-grid, .course-grid, .quick-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+        <a href="index.html" class="brand" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+      <img src="assets/logo/wordmark_dark.png" alt="새미새론AI교육원 SEMISERON AI Lab" style="height:44px; width:auto; vertical-align:middle; filter:drop-shadow(0 2px 10px rgba(0,0,0,0.6)); transition:opacity 0.2s;">
+      <span class="brand-campus-badge">ONLINE CAMPUS</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#certifications">공식 9대 자격증</a></li>
+      <li><a href="#courses">개설 교육 과정 (14대 단과)</a></li>
+      <li><a href="mouse_interactive/index.html" style="color:var(--teal-light); font-weight:700; border-bottom: 1px solid var(--teal-light); padding-bottom:2px;">타자·마우스 훈련원 ↗</a></li>
+      <li><a href="ai_literacy_interactive/index.html" style="color:var(--gold); font-weight:600; border-bottom: 1px solid var(--gold); padding-bottom:2px;">AI 리터러시 &amp; 윤리 ↗</a></li>
+      <li><a href="#quickstart">AI 실전 퀵스타트</a></li>
+      <li><a href="#lessons">최신 실전 레슨</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="index.html" class="back-btn">← 메인 홈페이지</a>
+      <button type="button" onclick="openContactModal()" class="enroll-cta">수강 &amp; 출강 신청</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero-section">
+    <div class="badge">SEMISERON AI ACADEMY · HYBRID CAMPUS</div>
+    <h1>대학원 교수진 직강 · 실시간 AI 실습 플랫폼<br><span>새미새론 온라인 캠퍼스</span></h1>
+    <p class="hero-desc">
+      6인 교수진이 직접 설계한 정통 AI·XR 융합 실습 환경에서<br>
+      새미새론 공식 9대 자격검정과 실무 14대 단과 과정을 원스톱으로 마스터합니다.
+    </p>
+
+    <!-- Faculty Lineup Bar -->
+    <div class="faculty-bar">
+      <div class="faculty-item"><strong>김소영</strong> <span>이사장</span></div>
+      <div class="faculty-item"><strong>임창식</strong> <span>총괄이사</span></div>
+      <div class="faculty-item"><strong>한기열</strong> <span>콘텐츠이사</span></div>
+      <div class="faculty-item"><strong>김봉수</strong> <span>연구이사</span></div>
+      <div class="faculty-item"><strong>김태완</strong> <span>크리에이티브이사</span></div>
+      <div class="faculty-item"><strong>조안나</strong> <span>디자인이사</span></div>
+    </div>
+  </header>
+
+    <!-- DEDICATED AI ETHICS & LITERACY PROMINENT SHOWCASE -->
+  <section class="section-wrap" style="position:relative; background: linear-gradient(180deg, rgba(8,9,8,0.72) 0%, rgba(8,9,8,0.88) 100%), url('assets/bg_campus_night.jpg') center/cover no-repeat; border-bottom: 1px solid var(--line-gold); overflow:hidden;">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px;">
+      <div style="max-width: 760px;">
+        <div class="eyebrow" style="color:var(--gold-light);">MANDATORY PUBLIC &amp; ENTERPRISE EDUCATION</div>
+        <h2 style="font-family:var(--font-serif); font-size:28px; color:#fff; font-weight:400; margin-bottom:10px;">공공기관 · 기업 필수 AI 리터러시 &amp; 윤리 실습실</h2>
+        <p style="font-size:14px; color:var(--paper-dim); line-height:1.75;">
+          과도한 AI 의존 부작용(사고력 감퇴, 심리적 고립, 할루시네이션 피해)을 예방하고 생각의 주권을 확립하는 <strong>5단계 정밀 인터랙티브 진단 플랫폼</strong>입니다.
+        </p>
+      </div>
+      <a href="ai_literacy_interactive/index.html" class="enroll-cta" style="padding:14px 28px !important; font-size:12px !important; font-weight:700 !important; background:var(--gold) !important; color:#080908 !important;">
+        실습실 바로 입장하기 ↗
+      </a>
+    </div>
+  </section>
+
+  <!-- DEDICATED TYPING ACADEMY & MOUSE LAB SHOWCASE -->
+  <section class="section-wrap" style="position:relative; background: linear-gradient(180deg, rgba(8,9,8,0.85) 0%, rgba(8,9,8,0.92) 100%), url('assets/bg_academic_grid.jpg') center/cover no-repeat; border-bottom: 1px solid var(--line-gold); overflow:hidden;">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px;">
+      <div style="max-width: 760px;">
+        <div class="eyebrow" style="color:var(--teal-light);">DIGITAL FOUNDATION · TYPING ACADEMY &amp; MOUSE LAB</div>
+        <h2 style="font-family:var(--font-serif); font-size:28px; color:#fff; font-weight:400; margin-bottom:10px;">새미새론 타자 아카데미 &amp; 마우스 훈련원</h2>
+        <p style="font-size:14px; color:var(--paper-dim); line-height:1.75;">
+          어린이 손끝 감각부터 시니어 디지털 문해력까지 — 5대 테마 짝맞추기 드래그와 보물상자 더블클릭, <strong>10손가락 홈 포지션 · 스마트 자판 탐색기 · 3대 타자 아케이드 · 60초 공인 급수 검정 및 영구 성장 대시보드</strong>를 아우르는 원스톱 기초 실습 플랫폼입니다.
+        </p>
+      </div>
+      <a href="mouse_interactive/index.html" class="enroll-cta" style="padding:14px 28px !important; font-size:12px !important; font-weight:700 !important; background:transparent !important; color:var(--teal-light) !important; border:1px solid var(--teal-light) !important; box-shadow:0 0 20px rgba(20,184,166,0.25);">
+        훈련원 바로 입장하기 ↗
+      </a>
+    </div>
+  </section>
+
+<!-- 1. OFFICIAL 9 CERTIFICATIONS -->
+  <section class="section-wrap" id="certifications" style="position:relative; background: linear-gradient(180deg, rgba(8,9,8,0.85) 0%, rgba(8,9,8,0.92) 100%), url('assets/bg_academic_grid.jpg') center/cover no-repeat; border-bottom: 1px solid var(--line);">
+    <div class="container">
+      <div class="eyebrow">SEMISERON ACCREDITED 9 CERTS</div>
+      <h2 class="sec-title">새미새론 공식 9대 자격검정 체계</h2>
+      <p class="sec-desc">자격관리 기본 규정을 준수하며, 취득 즉시 새미새론 파트너 강사 풀 등록 및 기업 출강으로 연계되는 공인 자격 체계입니다.</p>
+
+      <div class="cert-grid">
+        <!-- 01 -->
+        <div class="cert-card">
+          <div>
+            <div class="cert-badge">TRACK A · 1·2급 승급제</div>
+            <div class="cert-name">01. AI기업교육강사</div>
+            <div class="cert-career">진로 ｜ 기업 출강 · 사내 강사 · B2B 컨설팅</div>
+            <p class="cert-desc">기업 직무 생산성 혁신, 사내 AI 도입 전략, 워크플로우 자동화 강의를 총괄하는 전문 기업 강사 양성 과정.</p>
+          </div>
+          <button type="button" onclick="openCertModal('cert_01')" class="cert-btn">검정 요강 및 직무 상세 ↗</button>
+        </div>
+
+        <!-- 02 -->
+        <div class="cert-card">
+          <div>
+            <div class="cert-badge">TRACK A · 1·2급 승급제</div>
+            <div class="cert-name">02. AI활용교육지도사</div>
+            <div class="cert-career">진로 ｜ 초중고 방과후 · 평생학습관 · 대학 특강</div>
+            <p class="cert-desc">생애주기별 맞춤형 AI 도구 지도법, 교안 설계, 실습 코칭을 전담하는 공공 및 평생교육 전문 지도사.</p>
+          </div>
+          <button type="button" onclick="openCertModal('cert_02')" class="cert-btn">검정 요강 및 직무 상세 ↗</button>
+        </div>
+
+        <!-- 03 -->
+        <div class="cert-card">
+          <div>
+            <div class="cert-badge">TRACK A · 1·2급 승급제</div>
+            <div class="cert-name">03. AI윤리교육지도사</div>
+            <div class="cert-career">진로 ｜ 윤리 감사 · 기관 준법 특강 · 청소년 캠프</div>
+            <p class="cert-desc">생성형 AI 저작권, 데이터 편향, 딥페이크 예방, 기업 보안 준법 가이드를 교육하는 전문 윤리 지도사.</p>
+          </div>
+          <button type="button" onclick="openCertModal('cert_03')" class="cert-btn">검정 요강 및 직무 상세 ↗</button>
+        </div>
+
+        <!-- 04 -->
+        <div class="cert-card">
+          <div>
+            <div class="cert-badge">TRACK B · 단일 전문등급</div>
+            <div class="cert-name">04. AI시니어교육전문가</div>
+            <div class="cert-career">진로 ｜ 복지관 · 시니어클럽 · 실버 디지털 강사</div>
+            <p class="cert-desc">스마트폰 AI 음성 비서, 복지 혜택 검색, 인지 강화 콘텐츠 등 고령층 눈높이에 맞춘 디지털 포용 전문가.</p>
+          </div>
+          <button type="button" onclick="openCertModal('cert_04')" class="cert-btn">검정 요강 및 직무 상세 ↗</button>
+        </div>
+
+        <!-- 05 -->
+        <div class="cert-card">
+          <div>
+            <div class="cert-badge">TRACK B · 단일 전문등급</div>
+            <div class="cert-name">05. AI리터러시지도사</div>
+            <div class="cert-career">진로 ｜ 도서관 · 시민 아카데미 · 기초 문해 강사</div>
+            <p class="cert-desc">AI 기본 원리, 프롬프트 엔지니어링 기초, 비판적 정보 수용력을 시민사회에 보급하는 필수 문해력 지도사.</p>
+          </div>
+          <button type="button" onclick="openCertModal('cert_05')" class="cert-btn">검정 요강 및 직무 상세 ↗</button>
+        </div>
+
+        <!-- 06 -->
+        <div class="cert-card">
+          <div>
+            <div class="cert-badge">TRACK B · 단일 전문등급</div>
+            <div class="cert-name">06. AI콘텐츠제작전문가</div>
+            <div class="cert-career">진로 ｜ 1인 출판 · 숏폼 크리에이터 · 웹툰 기획</div>
+            <p class="cert-desc">AI 그림책 출간, 광고 영상 콘티 렌더링, 디지털 굿즈 및 사운드 비주얼을 상용화하는 미디어 전문가.</p>
+          </div>
+          <button type="button" onclick="openCertModal('cert_06')" class="cert-btn">검정 요강 및 직무 상세 ↗</button>
+        </div>
+
+        <!-- 07 -->
+        <div class="cert-card">
+          <div>
+            <div class="cert-badge">TRACK B · 단일 전문등급</div>
+            <div class="cert-name">07. AI마케팅실무전문가</div>
+            <div class="cert-career">진로 ｜ 소상공인 마케팅 · 이커머스 상세페이지 · SNS 대행</div>
+            <p class="cert-desc">검색/AI 답변 최적화(GEO/SEO), 카피라이팅 자동화, 타깃 광고 소재 양산을 리드하는 퍼포먼스 마케터.</p>
+          </div>
+          <button type="button" onclick="openCertModal('cert_07')" class="cert-btn">검정 요강 및 직무 상세 ↗</button>
+        </div>
+
+        <!-- 08 -->
+        <div class="cert-card">
+          <div>
+            <div class="cert-badge">TRACK B · 단일 전문등급</div>
+            <div class="cert-name">08. AI실무활용전문가</div>
+            <div class="cert-career">진로 ｜ 스마트 오피스 · 1인 기업 · 업무 효율화 PM</div>
+            <p class="cert-desc">사내 데이터 분석, 보고서 자동 요약, 다국어 번역 및 이메일 자동 회신 시스템을 구축하는 오피스 실무 마스터.</p>
+          </div>
+          <button type="button" onclick="openCertModal('cert_08')" class="cert-btn">검정 요강 및 직무 상세 ↗</button>
+        </div>
+
+        <!-- 09 -->
+        <div class="cert-card">
+          <div>
+            <div class="cert-badge">TRACK B · 단일 전문등급</div>
+            <div class="cert-name">09. AI영어독서논술지도사</div>
+            <div class="cert-career">진로 ｜ 어학원 · 영어도서관 · 창의융합 공부방</div>
+            <p class="cert-desc">AI 기반 1:1 맞춤형 영어 원서 리딩, 에세이 영작 피드백, 시·그림 융합 스토리텔링을 지도하는 전문 어학교사.</p>
+          </div>
+          <button type="button" onclick="openCertModal('cert_09')" class="cert-btn">검정 요강 및 직무 상세 ↗</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 14 COURSES -->
+  <section class="section-wrap" id="courses" style="background:#0b0e0c;">
+    <div class="container">
+      <div class="eyebrow">CURRICULUM · 14 ACADEMIC TRACKS</div>
+      <h2 class="sec-title">개설 정규 실습 단과 (14대 과정)</h2>
+      <p class="sec-desc">입문부터 전문 엔지니어링까지 수준별·직무별로 완비된 체계적인 실습 룸입니다.</p>
+
+      <div class="course-grid">
+        <div class="course-card">
+          <div class="course-tag">[입문 코스] 무료 실습</div>
+          <div class="course-title">왕초보 AI 첫걸음</div>
+          <p class="course-desc">낯선 AI를 처음 접하는 분들을 위한 직관적인 프롬프트 명령법과 기초 대화 원리 실습실.</p>
+          <div class="course-meta"><span>난이도: 초급</span> <span>담당: 김소영 / 임창식</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-tag">[입문 코스] 무료 실습</div>
+          <div class="course-title">스마트폰 AI 100% 활용</div>
+          <p class="course-desc">음성 비서, 실시간 통번역, 사진 보정 등 손안의 모바일 AI 기능을 200% 정복하는 생활 코스.</p>
+          <div class="course-meta"><span>난이도: 초급</span> <span>담당: 임창식 총괄이사</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-tag">[실무 생산성]</div>
+          <div class="course-title">챗GPT 문서 작성 &amp; AI 비주얼</div>
+          <p class="course-desc">보고서 30초 요약, 업무 이메일 자동화, Gamma 슬라이드 즉석 생성 실전 파이프라인.</p>
+          <div class="course-meta"><span>난이도: 중급</span> <span>담당: 임창식 총괄이사</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-tag">[실무 생산성]</div>
+          <div class="course-title">생활 문화 AI 아카데미</div>
+          <p class="course-desc">시·그림 융합 예술 창작, 디지털 에세이 집필, 삶의 기록을 작품으로 엮어내는 문화 강좌.</p>
+          <div class="course-meta"><span>난이도: 중급</span> <span>담당: 김소영 이사장</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-tag">[미디어 &amp; 크리에이티브]</div>
+          <div class="course-title">유튜브 크리에이터 &amp; AI 영상제작</div>
+          <p class="course-desc">쇼츠/릴스 대본 기획부터 AI 성우 보이스오버, 자동 컷편집, 썸네일 양산 마스터.</p>
+          <div class="course-meta"><span>난이도: 중급</span> <span>담당: 임창식 총괄이사</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-tag">[미디어 &amp; 크리에이티브]</div>
+          <div class="course-title">AI 작곡 &amp; 음악 창작</div>
+          <p class="course-desc">Suno / Udio 기반 장르별 BGM 생성, 가사 작사, 광고 음악과 사운드트랙 제작.</p>
+          <div class="course-meta"><span>난이도: 중급</span> <span>담당: 한기열 콘텐츠이사</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-tag">[피지컬 &amp; 메이커]</div>
+          <div class="course-title">청소년 종이회로 메이커 (이론/실습)</div>
+          <p class="course-desc">전도성 테이프와 종이 회로를 이용해 직접 불을 켜고 센서를 제어하는 융합 창의 교육.</p>
+          <div class="course-meta"><span>난이도: 초중급</span> <span>담당: 한기열 콘텐츠이사</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-tag">[피지컬 &amp; 메이커]</div>
+          <div class="course-title">AI &amp; 3D 입체 융합 메이커</div>
+          <p class="course-desc">생성형 3D 모델링, 인터랙티브 센서 연동, 공간 조형물을 제작하는 메이커스페이스 실무.</p>
+          <div class="course-meta"><span>난이도: 중고급</span> <span>담당: 김봉수 / 한기열</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-tag">[빌더 &amp; 바이브코딩]</div>
+          <div class="course-title">바이브코딩 입문 (Vibe Coding)</div>
+          <p class="course-desc">말 한마디로 웹/앱 서비스를 즉석 생성하는 v0, Bolt, Lovable 및 자연어 코딩 실전.</p>
+          <div class="course-meta"><span>난이도: 중급</span> <span>담당: 임창식 총괄이사</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-tag">[빌더 &amp; 바이브코딩]</div>
+          <div class="course-title">사운드 비주얼 &amp; 미디어아트</div>
+          <p class="course-desc">소리에 반응하는 인터랙티브 비주얼, TouchDesigner 연동 및 전시 미디어아트 제작.</p>
+          <div class="course-meta"><span>난이도: 고급</span> <span>담당: 한기열 콘텐츠이사</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-tag">[엔지니어링]</div>
+          <div class="course-title">기업용 로컬 보안 AI 비서 구축</div>
+          <p class="course-desc">데이터 외부 유출 0%, Ollama와 DeepSeek 기반 사내 온프레미스 AI 시스템 구축.</p>
+          <div class="course-meta"><span>난이도: 고급</span> <span>담당: 김봉수 연구이사</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-tag">[엔지니어링]</div>
+          <div class="course-title">디지털 트윈 R&amp;D 및 시뮬레이션</div>
+          <p class="course-desc">3D 빔프로젝션 맵핑, 방산/항공 시뮬레이터 영상 통합, 국책 R&amp;D 시스템 아키텍처.</p>
+          <div class="course-meta"><span>난이도: 최고급</span> <span>담당: 김봉수 연구이사</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-tag">[브랜딩 &amp; UX]</div>
+          <div class="course-title">AI 생성형 브랜딩 &amp; UI/UX 디자인</div>
+          <p class="course-desc">Red Dot 어워드 수상 노하우를 바탕으로 한 브랜드 경험 설계 및 생성형 인터랙션 디자인.</p>
+          <div class="course-meta"><span>난이도: 고급</span> <span>담당: 조안나 디자인이사</span></div>
+        </div>
+        <div class="course-card">
+          <div class="course-tag">[시각 방법론]</div>
+          <div class="course-title">실감미디어 &amp; 스마트시티 비주얼</div>
+          <p class="course-desc">가상 공간 설계, 메타버스 그래픽스, 실감 전시관 산학 프로젝트 실무 워크플로우.</p>
+          <div class="course-meta"><span>난이도: 고급</span> <span>담당: 김태완 크리에이티브이사</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. QUICKSTART & LESSONS -->
+  <section class="section-wrap" id="quickstart">
+    <div class="container">
+      <div class="quick-grid">
+        <div>
+          <div class="eyebrow">ACTION LIST</div>
+          <h3 class="sec-title" style="font-size:24px;">AI 실전 퀵스타트</h3>
+          <p class="sec-desc" style="margin-bottom:24px;">배운 즉시 실무에 적용해 보는 실전 연습 액션 리스트입니다.</p>
+
+          <ul class="quick-list">
+            <li class="quick-item">
+              <div>
+                <div class="quick-item-title">AI로 업무 이메일 초안 30초 만에 뽑기</div>
+                <div class="quick-item-sub">챗GPT 문서 작성 &amp; AI 비주얼 코스</div>
+              </div>
+              <button type="button" class="quick-btn" onclick="alert('실습실이 준비되었습니다. 메인 프롬프트 빌더로 이동합니다.'); window.location.href='index.html#labs';">실습 개시 ↗</button>
+            </li>
+            <li class="quick-item">
+              <div>
+                <div class="quick-item-title">긴 보고서 1개를 AI에 붙여넣어 3줄 요약</div>
+                <div class="quick-item-sub">AI 실무활용전문가 실습 룸</div>
+              </div>
+              <button type="button" class="quick-btn" onclick="alert('실습실이 준비되었습니다. 메인 프롬프트 빌더로 이동합니다.'); window.location.href='index.html#labs';">실습 개시 ↗</button>
+            </li>
+            <li class="quick-item">
+              <div>
+                <div class="quick-item-title">동화책/홍보용 AI 이미지 한 장 만들기</div>
+                <div class="quick-item-sub">AI콘텐츠제작전문가 실습 룸</div>
+              </div>
+              <button type="button" class="quick-btn" onclick="alert('실습실이 준비되었습니다. 메인 프롬프트 빌더로 이동합니다.'); window.location.href='index.html#labs';">실습 개시 ↗</button>
+            </li>
+            <li class="quick-item">
+              <div>
+                <div class="quick-item-title">분명하고 친절한 한 문장 명령(Prompt) 쓰기</div>
+                <div class="quick-item-sub">왕초보 AI 첫걸음 코스</div>
+              </div>
+              <button type="button" class="quick-btn" onclick="window.location.href='ai_literacy_interactive/index.html';">실습 개시 ↗</button>
+            </li>
+          </ul>
+        </div>
+
+        <div id="lessons">
+          <div class="eyebrow">UPDATED LESSONS</div>
+          <h3 class="sec-title" style="font-size:24px;">이번 주 새 AI 심화 레슨</h3>
+          <p class="sec-desc" style="margin-bottom:24px;">매주 업데이트되는 최신 AI 기술과 직무별 심화 레슨입니다.</p>
+
+          <ul class="quick-list">
+            <li class="quick-item">
+              <div>
+                <div class="quick-item-title">MCP로 AI를 Notion · Google Drive에 양방향 연결</div>
+                <div class="quick-item-sub">AI 비즈니스 자동화 · 엔지니어링 트랙</div>
+              </div>
+              <button type="button" class="quick-btn" onclick="openContactModal()">강의 수강 ↗</button>
+            </li>
+            <li class="quick-item">
+              <div>
+                <div class="quick-item-title">Gamma로 발표 슬라이드 초안 10분 만에 완성하기</div>
+                <div class="quick-item-sub">AI기업교육강사 정규 코스</div>
+              </div>
+              <button type="button" class="quick-btn" onclick="openContactModal()">강의 수강 ↗</button>
+            </li>
+            <li class="quick-item">
+              <div>
+                <div class="quick-item-title">v0 &amp; Bolt로 말로 앱 즉석 프로토타이핑</div>
+                <div class="quick-item-sub">바이브 코딩 입문 코스</div>
+              </div>
+              <button type="button" class="quick-btn" onclick="openContactModal()">강의 수강 ↗</button>
+            </li>
+            <li class="quick-item">
+              <div>
+                <div class="quick-item-title">검색/AI 답변 동시 노출(GEO &amp; SEO) 전략 기초</div>
+                <div class="quick-item-sub">AI마케팅실무전문가 코스</div>
+              </div>
+              <button type="button" class="quick-btn" onclick="openContactModal()">강의 수강 ↗</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL (Rich Bio & Cert Shared Modal) -->
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" onclick="closeModal()" aria-label="닫기">×</button>
+      <div class="modal-header">
+        <div class="modal-num" id="modalNum"></div>
+        <h3 class="modal-name" id="modalName"></h3>
+        <div class="modal-role" id="modalRole"></div>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-lectures" id="modalLectures" style="display:none;">
+        <h5 id="modalLecturesTitle">출강 및 교육 일정</h5>
+        <div class="modal-lectures-content" id="modalLecturesContent"></div>
+      </div>
+      <div class="modal-tags" id="modalTags"></div>
+    </div>
+  </div>
+
+  <!-- CONTACT MODAL -->
+  <div class="modal" id="contactModal">
+    <div class="modal-box" style="max-width: 680px; width: 92%;">
+      <button class="modal-close" onclick="closeContactModal()" aria-label="닫기">×</button>
+      
+      <div class="modal-header" style="border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 24px;">
+        <div class="modal-num" style="color: var(--gold); font-size: 11px; letter-spacing: 0.2em;">INQUIRY & PARTNERSHIP</div>
+        <h3 class="modal-name" style="font-size: 26px; font-family: var(--font-serif); margin-top: 4px; color: #fff;">CONTACT SEMISERON</h3>
+        <div class="modal-role" style="color: var(--paper-dim); font-size: 13px; margin-top: 4px;">새미새론AI교육원 · 기업 출강 · 9대 자격증 · 산학 컨설팅</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px;">
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--line); padding: 14px 16px;">
+          <div style="font-size: 11px; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 4px;">OFFICIAL INQUIRY</div>
+          <div style="font-size: 14px; font-weight: 600; color: #fff;">contact@semiseron.kr</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--line); padding: 14px 16px;">
+          <div style="font-size: 11px; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 4px;">OFFICIAL DOCUMENT</div>
+          <div style="font-size: 14px; font-weight: 600; color: #fff;">office@semiseron.kr</div>
+        </div>
+      </div>
+
+      <form id="campusInqForm" onsubmit="handleCampusInquiry(event)" style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div>
+            <label style="display:block; font-size: 12px; color: var(--paper-dim); margin-bottom: 6px;">성함 / 직책 *</label>
+            <input type="text" required placeholder="예: 홍길동 팀장" style="width: 100%; background: #111412; border: 1px solid var(--line); color: #fff; padding: 10px 12px; font-size: 13px; box-sizing: border-box; outline: none;">
+          </div>
+          <div>
+            <label style="display:block; font-size: 12px; color: var(--paper-dim); margin-bottom: 6px;">연락처 *</label>
+            <input type="text" required placeholder="010-0000-0000" style="width: 100%; background: #111412; border: 1px solid var(--line); color: #fff; padding: 10px 12px; font-size: 13px; box-sizing: border-box; outline: none;">
+          </div>
+        </div>
+        <div>
+          <label style="display:block; font-size: 12px; color: var(--paper-dim); margin-bottom: 6px;">문의 내용 *</label>
+          <textarea required rows="3" placeholder="신청하시려는 자격증, 수강 단과 및 출강 요청사항을 작성해 주세요." style="width: 100%; background: #111412; border: 1px solid var(--line); color: #fff; padding: 10px 12px; font-size: 13px; box-sizing: border-box; outline: none; resize: vertical; line-height: 1.6;"></textarea>
+        </div>
+        <button type="submit" id="campusSubmitBtn" style="margin-top: 8px; width: 100%; background: var(--gold); color: #080908; font-weight: 700; font-size: 14px; letter-spacing: 0.1em; padding: 14px; border: none; cursor: pointer;">
+          신청 및 문의 접수하기 (SUBMIT)
+        </button>
+      </form>
+
+      <div id="campusSuccessToast" style="display:none; margin-top: 16px; padding: 16px; background: rgba(199, 154, 81, 0.1); border: 1px solid var(--gold); text-align: center;">
+        <div style="color: var(--gold); font-weight: 700; font-size: 14px; margin-bottom: 4px;">문의가 성공적으로 접수되었습니다.</div>
+        <div style="font-size: 12px; color: var(--paper-dim);">담당 이사진이 24시간 이내에 직접 안내드리겠습니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <!-- 5. INTERACTIVE PROMPT BUILDER SECTION FOR ONLINE CAMPUS -->
+  <section class="section-wrap" id="builder" style="position:relative; background: linear-gradient(180deg, rgba(8,9,8,0.82) 0%, rgba(8,9,8,0.90) 100%), url('assets/bg_milkyway_horizon.jpg') center/cover no-repeat; border-top:1px solid var(--line);">
+    <div class="container">
+      <div style="margin-bottom: 28px; border-bottom: 1px solid var(--line); padding-bottom: 16px;">
+        <span style="font-size:11px; color:var(--gold); letter-spacing:0.15em; font-family:var(--font-display);">ONLINE CAMPUS INTERACTIVE LAB</span>
+        <h3 style="font-size:24px; font-family:var(--font-serif); color:#fff; margin:4px 0 6px 0;">10대 실전 프롬프트 조합하기</h3>
+        <p style="font-size:13px; color:var(--paper-dim); margin:0;">수강생들이 실전에서 매일 활용하는 10대 추천 템플릿과 5개 카테고리 조합 엔진입니다.</p>
+      </div>
+
+      <!-- Top 10 Template Buttons (Perfect 5x2 Grid) -->
+      <div style="margin-bottom: 24px;">
+        <div style="font-size: 11px; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 10px; font-weight:600;">RECOMMENDED TEMPLATES (10대 추천 템플릿)</div>
+        <div id="campusBuilderTemplateStrip" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px;"></div>
+      </div>
+
+      <!-- 2-COLUMN SPLIT LAYOUT -->
+      <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 24px; align-items: start;">
+        
+        <!-- LEFT COLUMN: 5 Categories Inputs -->
+        <div id="campusBuilderControlsGrid" style="display: flex; flex-direction: column; gap: 14px;"></div>
+
+        <!-- RIGHT COLUMN: Live Preview & Action Buttons -->
+        <div style="position: sticky; top: 90px; background:#0c0f0d; border:1px solid var(--line-gold); padding:22px; border-radius:4px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px; border-bottom:1px solid var(--line); padding-bottom:12px;">
+            <span style="font-size:12px; color:var(--gold); font-family:var(--font-display); letter-spacing:0.1em; font-weight:700;">LIVE PROMPT PREVIEW</span>
+            <div style="display:flex; gap:6px;">
+              <button type="button" id="btnCopyPromptCampus" style="padding:7px 14px; background:var(--gold); color:#080908; font-weight:700; font-size:11px; border:none; border-radius:2px; cursor:pointer; transition:all 0.2s;">복사하기</button>
+              <button type="button" id="btnSavePromptCampus" style="padding:7px 12px; background:rgba(255,255,255,0.06); color:#fff; font-size:11px; border:1px solid var(--line); border-radius:2px; cursor:pointer;">텍스트 파일 저장</button>
+              <button type="button" id="btnResetBuilderCampus" style="padding:7px 10px; background:transparent; color:var(--paper-dim); font-size:11px; border:1px solid var(--line); border-radius:2px; cursor:pointer;">초기화</button>
+            </div>
+          </div>
+          <pre id="campusPromptPreviewContent" style="white-space:pre-wrap; word-break:break-all; font-family:monospace; font-size:12.5px; color:var(--paper); line-height:1.75; margin:0; background:rgba(255,255,255,0.02); padding:16px; border:1px solid var(--line); border-radius:2px; min-height:360px; max-height:480px; overflow-y:auto;"></pre>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+      <footer style="padding:40px 4.5vw 48px; border-top:1px solid var(--line); text-align:center; display:flex; flex-direction:column; align-items:center; gap:12px;">
+    <div style="display:flex; align-items:center; justify-content:center; gap:18px; font-size:12.5px; flex-wrap:wrap;">
+      <a href="index.html" style="color:var(--gold-light); text-decoration:underline;">← 메인 홈페이지</a>
+      <span style="color:var(--muted);">·</span>
+      <a href="mouse_interactive/index.html" style="color:var(--teal-light); text-decoration:underline;">타자·마우스 훈련원 ↗</a>
+      <span style="color:var(--muted);">·</span>
+      <a href="ai_literacy_interactive/index.html" style="color:var(--gold); text-decoration:underline;">AI 윤리 실습실 ↗</a>
+      <span style="color:var(--muted);">·</span>
+      <button type="button" onclick="openCampusSiteMapModal()" style="background:none; border:none; color:var(--gold); font-size:12.5px; font-weight:700; cursor:pointer; text-decoration:underline;">전체 사이트맵 (SITEMAP)</button>
+    </div>
+    <div style="color:var(--paper-dim); font-size:12px; letter-spacing:0.02em;">
+      © 2026 SEMISERON AI Lab (새미새론AI교육원) ONLINE CAMPUS. ALL RIGHTS RESERVED.
+    </div>
+  </footer>
+
+  <script>
+    const certsModalData = {
+      cert_01: {
+        track: "1·2급 승급제 트랙",
+        title: "AI기업교육강사 (1급 · 2급)",
+        subtitle: "기업 맞춤형 AI 직무 자동화 설계 및 프리미엄 사내 출강 전문가",
+        jobDesc: "기업 임직원과 직장인을 대상으로 산업 현장에 특화된 AI 직무 역량 기초 교육부터, 기업 맞춤형 AI 에이전트 자동화 설계 및 프리미엄 사내 출강 커리큘럼을 총괄 기획·운영하는 업무를 수행합니다.",
+        subject: "1급: 기업 맞춤형 AI업무 자동화 설계실무<br>2급: AI활용 기초 직무교육",
+        eligibility: "1급: 만 18세 이상 + 해당 종목 2급 자격 소지자<br>2급: 만 18세 이상 (제한 없음)",
+        target: "기업체 사내 AI 전문 강사, B2B AI 워크플로우 컨설턴트, 경영혁신 임직원 연수 출강 (시간당 50~100만원 출강 시장)"
+      },
+      cert_02: {
+        track: "1·2급 승급제 트랙",
+        title: "AI활용교육지도사 (1급 · 2급)",
+        subtitle: "생성형 AI 기본 개념부터 고급 프롬프트 기술까지 체계적으로 가르치는 전문 교수자",
+        jobDesc: "다양한 학습자를 대상으로 생성형 AI의 기본 개념과 실용적인 툴 사용법, 프롬프트 작성 기술을 교육하며, 현장 맞춤형 강의안 설계 및 실습 교육을 총괄 운영하는 전문 교육 업무를 수행합니다.",
+        subject: "1급: AI활용교육 교수법 (강의안 설계 및 실기 지도)<br>2급: AI활용교육론 입문",
+        eligibility: "1급: 만 18세 이상 + 해당 종목 2급 자격 소지자<br>2급: 만 18세 이상 (제한 없음)",
+        target: "평생교육원, 지자체 학습관, 문화센터, 초·중·고 방과후 강사, 대학 부설 평생교육원 출강 강사단"
+      },
+      cert_03: {
+        track: "1·2급 승급제 트랙",
+        title: "AI윤리교육지도사 (1급 · 2급)",
+        subtitle: "AI 저작권, 데이터 편향성, 개인정보 프라이버시 및 법·제도 가이드라인 전문 지도사",
+        jobDesc: "저작권, 정보 편향성, 딥페이크, 프라이버시 등 AI 시대에 발생할 수 있는 윤리적 쟁점과 올바른 가치관을 교육하며, 공공기관 및 기업 맞춤형 AI 윤리 컴플라이언스 가이드라인을 컨설팅합니다.",
+        subject: "1급: AI윤리교육 교수법 및 법·제도 가이드<br>2급: AI윤리 기초와 저작권의 이해",
+        eligibility: "1급: 만 18세 이상 + 해당 종목 2급 자격 소지자<br>2급: 만 18세 이상 (제한 없음)",
+        target: "공공기관 및 기업체 필수 의무교육 강사, 학교 AI 윤리 전담 강사, 기업 윤리경영 컴플라이언스 자문위원"
+      },
+      cert_04: {
+        track: "단일 등급 트랙",
+        title: "AI시니어교육전문가 (단일등급)",
+        subtitle: "고령층의 디지털 소외를 해소하고 실생활 AI 도구를 눈높이에 맞춰 지도하는 전문가",
+        jobDesc: "시니어 계층의 신체적·심리적 특성을 바탕으로 스마트폰, 무인 키오스크, 생성형 AI 등 실생활에 필요한 디지털 기기 활용법을 쉽고 친절하게 반복 실습 지도하는 역할을 수행합니다.",
+        subject: "시니어 디지털 및 AI 교육 실무",
+        eligibility: "만 18세 이상 (학력·경력 제한 없음)",
+        target: "노인종합복지관, 시니어클럽, 주민자치센터, 디지털 배움터 전담 강사, 노인 일자리 지원 사업 지도사"
+      },
+      cert_05: {
+        track: "단일 등급 트랙",
+        title: "AI리터러시지도사 (단일등급)",
+        subtitle: "전 연령을 위한 AI 기초 원리 이해와 비판적 데이터 해석 능력을 교육하는 지도사",
+        jobDesc: "AI 기술에 대한 올바른 이해와 데이터 비판적 해석 능력을 바탕으로 챗GPT, Claude 등 주요 LLM 도구의 기본 원리와 일상·업무 적용 기초 프롬프트를 전 연령에게 지도합니다.",
+        subject: "AI리터러시 지도 방법론",
+        eligibility: "만 18세 이상 (학력·경력 제한 없음)",
+        target: "지역 학습관, 청소년 수련관, 도서관 AI 기초 입문반 강사, 학부모 AI 문해력 지도 코치"
+      },
+      cert_06: {
+        track: "단일 등급 트랙",
+        title: "AI콘텐츠제작전문가 (단일등급)",
+        subtitle: "생성형 AI 기술을 활용하여 영상, 이미지, 텍스트 멀티미디어를 기획·제작하는 전문가",
+        jobDesc: "DALL-E, Midjourney, Runway, Suno 등 최신 생성형 AI 툴을 융합하여 상용 수준의 영상, 일러스트, 전자책, 사운드 등 다양한 멀티미디어 콘텐츠를 기획·제작하고 수익화 파이프라인을 구축합니다.",
+        subject: "생성형 AI 콘텐츠 제작 실무",
+        eligibility: "만 18세 이상 (학력·경력 제한 없음)",
+        target: "1인 미디어 창작자, 디지털 콘텐츠 제작사, AI 그림책 작가, 웹소설·스토리보드 프로덕션 디렉터"
+      },
+      cert_07: {
+        track: "단일 등급 트랙",
+        title: "AI마케팅실무전문가 (단일등급)",
+        subtitle: "AI 기반 카피라이팅, 광고 이미지 생성, 마케팅 자동화 및 데이터 분석 전문가",
+        jobDesc: "AI 기반의 설득력 있는 카피라이팅, 카드뉴스 및 숏폼 광고 기획, 고객 데이터 분석 도구를 실제 마케팅 전략에 즉시 적용하여 비즈니스 전환 성과를 극대화하는 업무를 수행합니다.",
+        subject: "AI기반 마케팅 전략 실무",
+        eligibility: "만 18세 이상 (학력·경력 제한 없음)",
+        target: "기업 마케팅 부서 실무진, 스마트스토어 및 이커머스 운영자, 디지털 종합 광고대행사 AE/기획자"
+      },
+      cert_08: {
+        track: "단일 등급 트랙",
+        title: "AI실무활용전문가 (단일등급)",
+        subtitle: "비즈니스 환경에서 생성형 AI와 자동화 도구를 활용해 업무 생산성을 극대화하는 전문가",
+        jobDesc: "일상 행정 업무와 비즈니스 환경에서 AI 문서 요약, 엑셀/스프레드시트 데이터 가공, 보고서 초안 작성 및 워크플로우 자동화를 실무에 직접 구축하고 활용합니다.",
+        subject: "생성형AI기초 이해 및 실무활용",
+        eligibility: "만 18세 이상 (학력·경력 제한 없음)",
+        target: "일반 기업 사무직 임직원, 공공기관 행정 실무자, 스마트워크 전환을 희망하는 직장인 및 프리랜서"
+      },
+      cert_09: {
+        track: "단일 등급 트랙",
+        title: "AI영어독서논술지도사 (단일등급)",
+        subtitle: "AI 맞춤형 문제 생성과 실시간 영작 첨삭으로 원서 독서·논술 과정을 지도하는 전문가",
+        jobDesc: "학습자가 영어 원서를 읽은 뒤, AI 툴을 활용해 개인별 수준에 맞는 독해 문제를 생성하고 글을 쓰며 틀린 문법과 어휘를 실시간으로 교정받는 선진형 독서·논술 과정을 전문 지도합니다.",
+        subject: "생성형AI기초 이해 및 영어독서논술 교수법",
+        eligibility: "만 18세 이상 (학력·경력 제한 없음)",
+        target: "영어 전문 학원 강사, 초·중등 방과후 영어 교사, 온라인 영어 독서논술 코치, 영어 자기주도학습 지도사"
+      }
+    };
+
+    const modal = document.getElementById('modal');
+    const contactModal = document.getElementById('contactModal');
+
+    window.closeModal = function() {
+      if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    };
+
+    window.openContactModal = function() {
+      if (contactModal) {
+        contactModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    window.closeContactModal = function() {
+      if (contactModal) {
+        contactModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    };
+
+    window.openCertModal = function(certKey) {
+      const c = certsModalData[certKey];
+      if (!c) return;
+      document.getElementById('modalNum').textContent = "OFFICIAL QUALIFICATION · " + c.track;
+      document.getElementById('modalName').innerHTML = c.title;
+      document.getElementById('modalRole').textContent = c.subtitle;
+      
+      let html = `
+        <div style="margin-bottom: 24px; padding: 22px 24px; background: rgba(199, 154, 81, 0.06); border: 1px solid var(--line-gold);">
+          <div style="font-family: var(--font-display); font-size: 11px; color: var(--gold-light); letter-spacing: 0.18em; margin-bottom: 8px;">JOB DEFINITION &amp; ROLE (직무 개요 및 역할)</div>
+          <p style="font-size: 14px; color: var(--paper); line-height: 1.85;">${c.jobDesc}</p>
+        </div>
+
+        <div style="background: #0d100e; border: 1px solid var(--line); margin-bottom: 24px;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13px;">
+            <tr style="border-bottom: 1px solid var(--line);">
+              <th style="padding: 14px 18px; width: 28%; background: rgba(255,255,255,0.02); color: var(--gold-light); font-weight: 500;">검정 과목 및 기준</th>
+              <td style="padding: 14px 18px; color: var(--paper); line-height: 1.7;">${c.subject}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <th style="padding: 14px 18px; background: rgba(255,255,255,0.02); color: var(--gold-light); font-weight: 500;">응시 자격 기준</th>
+              <td style="padding: 14px 18px; color: var(--paper);">${c.eligibility}</td>
+            </tr>
+            <tr>
+              <th style="padding: 14px 18px; background: rgba(255,255,255,0.02); color: var(--gold-light); font-weight: 500;">주요 진로 &amp; 활동처</th>
+              <td style="padding: 14px 18px; color: var(--paper); line-height: 1.7;">${c.target}</td>
+            </tr>
+          </table>
+        </div>
+      `;
+      
+      document.getElementById('modalBody').innerHTML = html;
+      document.getElementById('modalLectures').style.display = 'none';
+      document.getElementById('modalTags').innerHTML = `
+        <span>[SEMISERON ACCREDITED]</span>
+        <span>[자격관리 기본 규정 준수]</span>
+        <span>[새미새론 파트너 강사 풀 연계]</span>
+      `;
+      
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+    }
+
+    if (contactModal) {
+      contactModal.addEventListener('click', (e) => {
+        if (e.target === contactModal) closeContactModal();
+      });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+        closeContactModal();
+      }
+    });
+
+    function handleCampusInquiry(e) {
+      e.preventDefault();
+      const form = document.getElementById('campusInqForm');
+      const toast = document.getElementById('campusSuccessToast');
+      const btn = document.getElementById('campusSubmitBtn');
+      btn.disabled = true;
+      btn.innerText = '접수 처리 중...';
+      setTimeout(() => {
+        form.style.display = 'none';
+        toast.style.display = 'block';
+      }, 500);
+    }
+  
+    // Auto open cert modal if param exists
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const openCertId = params.get('openCert');
+      if (openCertId && certsModalData[openCertId]) {
+        setTimeout(() => {
+          openCertModal(openCertId);
+        }, 200);
+      }
+    });
+
+  /* CAMPUS PROMPT BUILDER LOGIC */
+    const CAMPUS_BUILDER_CATEGORIES = [
+      {
+        id: 'role',
+        label: '역할 (ROLE)',
+        presets: [
+          { label: '분야 전문가', text: '당신은 해당 분야에서 30년 이상 실무 경력을 쌓은 최고 수준의 전문가입니다.' },
+          { label: '친절한 강사', text: '당신은 초보자도 쉽게 이해하도록 가르치는 친절하고 인내심 있는 전문 교수자입니다.' },
+          { label: '출판 기획자', text: '당신은 문장을 다듬고 출판 기획을 총괄하는 베테랑 도서 편집자입니다.' },
+          { label: '마케팅 컨설턴트', text: '당신은 소비자 심리를 꿰뚫는 전략 마케팅 전문가입니다.' }
+        ]
+      },
+      {
+        id: 'task',
+        label: '작업 (TASK)',
+        presets: [
+          { label: '강의 계획서', text: '초보자 대상 AI 리터러시 2시간 강의 계획서를 작성해 주세요.' },
+          { label: '그림책 스토리', text: '8페이지 분량의 AI 그림책 스토리와 프롬프트 콘티를 작성해 주세요.' },
+          { label: '사업 보고서', text: '다음 사업계획서 초안을 검토하고 핵심 요약 보고서를 작성해 주세요.' },
+          { label: 'SNS 홍보 카피', text: '신규 강좌를 알리는 인스타그램 카드뉴스 및 홍보 카피를 작성해 주세요.' }
+        ]
+      },
+      {
+        id: 'context',
+        label: '상황·대상 (CONTEXT)',
+        presets: [
+          { label: '5060 시니어', text: '대상은 AI를 처음 접하는 5060 성인 및 소상공인 학습자입니다.' },
+          { label: '공공기관·기업', text: '대상은 지자체 공무원 및 기업체 실무 임직원입니다.' },
+          { label: '대학생·취준생', text: '대상은 디자인 및 콘텐츠 제작 실무를 준비하는 대학생입니다.' }
+        ]
+      },
+      {
+        id: 'constraints',
+        label: '제약사항 (CONSTRAINTS)',
+        presets: [
+          { label: '쉬운 설명 위주', text: '어려운 전문 용어를 배제하고 실습 중심으로 알기 쉽게 설명해 주세요.' },
+          { label: '표 & 개조식', text: '핵심 내용은 비교표와 개조식(1. 가. (1))으로 일목요연하게 정리해 주세요.' },
+          { label: '핵심 3줄 요약', text: '바쁜 실무자를 위해 핵심 결론을 3줄로 먼저 요약해 주세요.' }
+        ]
+      },
+      {
+        id: 'format',
+        label: '출력 형식 (FORMAT)',
+        presets: [
+          { label: '마크다운 표', text: '소제목과 마크다운 표, 체크리스트 형식으로 깔끔하게 출력해 주세요.' },
+          { label: '개조식 글머리', text: '번호 매기기와 글머리 기호(•)를 활용하여 정돈해 주세요.' },
+          { label: '구조화 서식', text: '입력과 출력이 명확히 구분된 템플릿 서식으로 출력해 주세요.' }
+        ]
+      }
+    ];
+
+    const CAMPUS_BUILDER_TEMPLATES = [
+      { name: '강의계획서 작성', data: { role: '당신은 30년 경력의 교육 전문가이자 강의 설계 전문가입니다.', task: '초보자 대상 AI 리터러시 2시간 강의계획서를 작성해 주세요.', context: '대상은 AI를 처음 접하는 성인 학습자(시니어 포함)입니다.', constraints: '난이도는 왕초보 수준으로 쉬운 말과 실습 중심으로 구성해 주세요.', format: '차시·시간·주제·활동·준비물을 표로 정리하고 아래에 요약을 작성해 주세요.' } },
+      { name: 'AI 그림책 기획', data: { role: '당신은 따뜻한 감성의 동화 작가이자 일러스트 디렉터입니다.', task: '손주와 가족을 위한 8페이지 분량의 AI 그림책 스토리와 프롬프트 콘티를 작성해 주세요.', context: '주제는 강원도 자연과 샘물에서 시작되는 모험 이야기입니다.', constraints: '페이지마다 한글 본문(3~4문장)과 이미지 생성 프롬프트를 함께 작성해 주세요.', format: '페이지 번호 / 줄거리 / 이미지 생성 프롬프트를 표로 구분해 주세요.' } },
+      { name: 'SNS 홍보 카피', data: { role: '당신은 고객의 마음을 사로잡는 디지털 마케팅 전문가입니다.', task: '새미새론AI교육원의 신규 강좌를 알리는 인스타그램 카드뉴스 카피를 작성해 주세요.', context: '새로움이 샘처럼 솟아나는 교육원의 비전과 5대 마스터 트랙을 강조합니다.', constraints: '호기심을 자극하는 헤드라인과 행동을 유도하는 CTA를 포함하세요.', format: '카드 1~5장 슬라이드별 헤드카피, 본문, 해시태그 10개로 구성해 주세요.' } },
+      { name: '보고서 자동화 요약', data: { role: '당신은 기획재정부 및 공공기관 출신의 정책 기획관입니다.', task: '다음 사업계획서 초안을 검토하고 핵심 요약 보고서를 작성해 주세요.', context: '지자체 디지털 혁신 사업 제안용 2페이지 요약본입니다.', constraints: '추진 배경, 주요 사업 내용, 기대 효과, 예산 개요를 명확한 수치와 함께 정리하세요.', format: '개조식(1. 가. (1)) 형식과 주요 비교표를 활용해 주세요.' } },
+      { name: '이력서·자기소개서', data: { role: '당신은 채용 담당자의 시선을 사로잡는 인사·채용 전문 컨설턴트입니다.', task: '다음 경력 정보를 바탕으로 매력적인 이력서와 자기소개서 초안을 작성해 주세요.', context: '지원자는 경력 전환을 준비 중이며, AI 및 디지털 교육 분야로 진출하고자 합니다.', constraints: '과장된 표현 없이 구체적인 수치와 프로젝트 성과를 강조해 주세요.', format: '이력서는 표, 자기소개서는 소제목이 포함된 자연스러운 문단 글로 작성해 주세요.' } },
+      { name: '블로그 글쓰기', data: { role: '당신은 검색 상위 노출과 독자 유입에 능한 인기 블로그 작가입니다.', task: '다음 주제로 독자의 흥미를 끄는 고품질 블로그 포스팅을 작성해 주세요.', context: '네이버 블로그에 게시하며, 대상 독자는 40~60대 성인 및 직장인입니다.', constraints: '제목에 핵심 검색 키워드를 포함하고, 친근한 해요체로 1,000자 내외로 작성해 주세요.', format: '제목, 소제목(3개), 본문 설명, 핵심 요약 및 참여 유도 질문 구조로 작성해 주세요.' } },
+      { name: '상품 상세페이지', data: { role: '당신은 고객의 구매 전환율을 극대화하는 세일즈 카피라이터입니다.', task: '다음 상품의 매력적인 상세페이지 홍보 카피를 작성해 주세요.', context: '온라인 판매 채널용이며, 대상 고객은 가성비와 실용성을 중시하는 30~50대입니다.', constraints: '고객의 불편함 → 솔루션 → 핵심 혜택 3가지 순으로 설득력 있게 전개해 주세요.', format: '헤드카피(슬로건), 핵심 특장점 비교표, 구매 유도 CTA 문구 순으로 작성해 주세요.' } },
+      { name: '부모님 자서전 인터뷰', data: { role: '당신은 어르신의 삶의 이야기를 따뜻하고 편안하게 이끌어내는 구술 생애사 인터뷰 전문가입니다.', task: '부모님의 자서전을 기록하기 위한 심층 인터뷰 질문지를 만들어 주세요.', context: '대상은 70대 부모님이며, 자녀가 1시간 동안 편안하게 대화하며 질문할 예정입니다.', constraints: '질문은 짧고 대답하기 쉽게, 어린 시절부터 청년기 순서로 구성해 주세요.', format: '시기별 질문 5단계와 각 질문마다 덧붙일 꼬리 질문을 표로 정리해 주세요.' } },
+      { name: '이메일 마케팅 카피', data: { role: '당신은 높은 오픈율과 클릭률을 만드는 이메일 마케팅 전문가입니다.', task: '새로운 강좌 오픈 및 실무 과정을 안내하는 이메일 뉴스레터 카피를 작성해 주세요.', context: '구독자는 자기계발과 AI 실무에 관심 있는 직장인 및 성인 학습자입니다.', constraints: '제목은 40자 이내로 호기심을 자극하고, 명확한 CTA 버튼 문구를 넣으세요.', format: '이메일 제목, 프리뷰 텍스트, 인사말, 핵심 혜택 3줄 요약, 신청 링크 CTA 순으로 작성해 주세요.' } },
+      { name: '회의록 핵심 요약', data: { role: '당신은 복잡한 논의를 명쾌한 결정 사항과 실행 과제로 정리하는 문서 비서관입니다.', task: '다음 회의 녹취록 내용을 검토하고 핵심 요약 회의록을 작성해 주세요.', context: '새미새론AI교육원의 정기 운영 회의 내용이며, 공식 공유 문서입니다.', constraints: '핵심 안건, 최종 결정 사항, 담당자별 액션 아이템(기한 포함)을 명확히 추출하세요.', format: '회의 개요, 안건별 결정 사항, [담당자/과제/기한] 액션 아이템 표로 깔끔하게 정리해 주세요.' } }
+    ];
+
+    let currentCampusPromptState = { ...CAMPUS_BUILDER_TEMPLATES[0].data };
+
+    function renderCampusBuilderTemplates() {
+      const container = document.getElementById('campusBuilderTemplateStrip');
+      if (!container) return;
+      container.innerHTML = CAMPUS_BUILDER_TEMPLATES.map((t, idx) => `
+        <button type="button" onclick="applyCampusBuilderTemplate(${idx})" id="c_bldTplBtn_${idx}" style="padding:9px 10px; font-size:12px; text-align:center; background:${idx === 0 ? 'var(--gold)' : 'rgba(255,255,255,0.03)'}; color:${idx === 0 ? '#080908' : 'var(--paper)'}; font-weight:${idx === 0 ? '700' : '500'}; border:1px solid var(--line); border-radius:2px; cursor:pointer; transition:all 0.2s;">
+          ${idx + 1}. ${t.name}
+        </button>
+      `).join('');
+    }
+
+    function renderCampusBuilderControls() {
+      const container = document.getElementById('campusBuilderControlsGrid');
+      if (!container) return;
+      container.innerHTML = CAMPUS_BUILDER_CATEGORIES.map(cat => `
+        <div style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:16px; border-radius:2px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span style="font-size:12px; font-weight:700; color:var(--gold);">${cat.label}</span>
+          </div>
+          <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:10px;">
+            ${cat.presets.map(p => `
+              <button type="button" onclick="applyCampusBuilderPreset('${cat.id}', '${p.text.replace(/'/g, "\'")}')" style="padding:3px 8px; font-size:11px; background:rgba(255,255,255,0.04); color:var(--paper-dim); border:1px solid var(--line); border-radius:2px; cursor:pointer; transition:all 0.15s;">
+                + ${p.label}
+              </button>
+            `).join('')}
+          </div>
+          <textarea id="c_bldInp_${cat.id}" oninput="onCampusBuilderInputChange('${cat.id}', this.value)" rows="2" style="width:100%; background:#111412; border:1px solid var(--line); color:#fff; font-size:12px; padding:8px 10px; border-radius:2px; resize:vertical; box-sizing:border-box; outline:none; line-height:1.5;">${currentCampusPromptState[cat.id] || ''}</textarea>
+        </div>
+      `).join('');
+    }
+
+    function applyCampusBuilderTemplate(index) {
+      const t = CAMPUS_BUILDER_TEMPLATES[index];
+      if (!t) return;
+      currentCampusPromptState = { ...t.data };
+      
+      CAMPUS_BUILDER_TEMPLATES.forEach((_, idx) => {
+        const btn = document.getElementById(`c_bldTplBtn_${idx}`);
+        if (btn) {
+          if (idx === index) {
+            btn.style.background = 'var(--gold)'; btn.style.color = '#080908'; btn.style.fontWeight = '700';
+          } else {
+            btn.style.background = 'rgba(255,255,255,0.03)'; btn.style.color = 'var(--paper)'; btn.style.fontWeight = '500';
+          }
+        }
+      });
+
+      CAMPUS_BUILDER_CATEGORIES.forEach(cat => {
+        const inp = document.getElementById(`c_bldInp_${cat.id}`);
+        if (inp) inp.value = currentCampusPromptState[cat.id] || '';
+      });
+
+      updateCampusPromptPreview();
+    }
+
+    function applyCampusBuilderPreset(catId, text) {
+      currentCampusPromptState[catId] = text;
+      const inp = document.getElementById(`c_bldInp_${catId}`);
+      if (inp) inp.value = text;
+      updateCampusPromptPreview();
+    }
+
+    function onCampusBuilderInputChange(catId, val) {
+      currentCampusPromptState[catId] = val;
+      updateCampusPromptPreview();
+    }
+
+    function updateCampusPromptPreview() {
+      const preview = document.getElementById('campusPromptPreviewContent');
+      if (!preview) return;
+      const lines = [];
+      if (currentCampusPromptState.role) lines.push(`[역할 정의]\n${currentCampusPromptState.role}`);
+      if (currentCampusPromptState.task) lines.push(`[수행할 작업]\n${currentCampusPromptState.task}`);
+      if (currentCampusPromptState.context) lines.push(`[상황 및 대상]\n${currentCampusPromptState.context}`);
+      if (currentCampusPromptState.constraints) lines.push(`[제약 및 유의사항]\n${currentCampusPromptState.constraints}`);
+      if (currentCampusPromptState.format) lines.push(`[원하는 출력 서식]\n${currentCampusPromptState.format}`);
+      preview.textContent = lines.join('\n\n');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCampusBuilderTemplates();
+      renderCampusBuilderControls();
+      updateCampusPromptPreview();
+
+      const btnCopy = document.getElementById('btnCopyPromptCampus');
+      if (btnCopy) {
+        btnCopy.addEventListener('click', () => {
+          const text = document.getElementById('campusPromptPreviewContent')?.textContent || '';
+          navigator.clipboard.writeText(text).then(() => {
+            const orig = btnCopy.textContent;
+            btnCopy.textContent = '✓ 복사 완료!';
+            btnCopy.style.background = '#dfb97a';
+            setTimeout(() => { btnCopy.textContent = orig; btnCopy.style.background = 'var(--gold)'; }, 2000);
+          });
+        });
+      }
+
+      const btnSave = document.getElementById('btnSavePromptCampus');
+      if (btnSave) {
+        btnSave.addEventListener('click', () => {
+          const text = document.getElementById('campusPromptPreviewContent')?.textContent || '';
+          const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = `semiseron_prompt_${Date.now()}.txt`;
+          a.click();
+        });
+      }
+
+      const btnReset = document.getElementById('btnResetBuilderCampus');
+      if (btnReset) {
+        btnReset.addEventListener('click', () => { applyCampusBuilderTemplate(0); });
+      }
+    });
+
+    renderCampusBuilderTemplates();
+    renderCampusBuilderControls();
+    updateCampusPromptPreview();
+
+  </script>
+<!-- UNIVERSAL SITEMAP MODAL -->
+  <div id="campusSiteMapModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(8,9,8,0.85); backdrop-filter:blur(8px); align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#0e120f; border:1px solid var(--line-gold); max-width:820px; width:100%; max-height:85vh; overflow-y:auto; border-radius:8px; padding:32px; box-shadow:0 20px 60px rgba(0,0,0,0.8);">
+      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:16px; margin-bottom:24px;">
+        <div>
+          <span style="font-size:11px; color:var(--gold); letter-spacing:0.2em; font-family:var(--font-display);">SEMISERON ECOSYSTEM SITEMAP</span>
+          <h3 style="font-size:22px; color:#fff; font-family:var(--font-serif); margin:4px 0 0 0;">새미새론 전체 사이트맵</h3>
+        </div>
+        <button type="button" onclick="closeCampusSiteMapModal()" style="background:none; border:none; color:var(--paper-dim); font-size:28px; cursor:pointer; line-height:1;">&times;</button>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:20px; font-size:13px; line-height:2.0;">
+        <div style="background:rgba(255,255,255,0.02); padding:16px; border:1px solid var(--line); border-radius:4px;">
+          <strong style="color:var(--gold); display:block; border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:10px;">01. 메인 포털</strong>
+          <ul style="list-style:none; padding:0; margin:0; color:var(--paper-dim);">
+            <li>• <a href="index.html#top" style="color:var(--paper); text-decoration:none;">홈 (새로움이 샘처럼)</a></li>
+            <li>• <a href="index.html#about" style="color:var(--paper); text-decoration:none;">ABOUT (미션과 철학)</a></li>
+            <li>• <a href="index.html#people" style="color:var(--paper); text-decoration:none;">PEOPLE (6인 교수진)</a></li>
+            <li>• <a href="index.html#network" style="color:var(--paper); text-decoration:none;">NETWORK (전국 R&amp;D 거점)</a></li>
+            <li>• <a href="index.html#education" style="color:var(--paper); text-decoration:none;">EDUCATION (5대 마스터 트랙)</a></li>
+            <li>• <a href="index.html#classroom" style="color:var(--paper); text-decoration:none;">CLASSROOM (실제 출강 아카이브)</a></li>
+            <li>• <a href="index.html#lab" style="color:var(--paper); text-decoration:none;">AI LABS (3대 연구 &amp; 프롬프트 조합)</a></li>
+          </ul>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.02); padding:16px; border:1px solid var(--line); border-radius:4px;">
+          <strong style="color:var(--teal-light); display:block; border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:10px;">02. 실습 &amp; 온라인 캠퍼스</strong>
+          <ul style="list-style:none; padding:0; margin:0; color:var(--paper-dim);">
+            <li>• <a href="campus.html" style="color:var(--gold-light); font-weight:700; text-decoration:none;">ONLINE CAMPUS (실시간 강의실) ↗</a></li>
+            <li>• <a href="mouse_interactive/index.html" style="color:var(--teal-light); font-weight:700; text-decoration:none;">★ 타자·마우스 훈련원 ↗</a></li>
+            <li>• <a href="ai_literacy_interactive/index.html" style="color:var(--gold); font-weight:700; text-decoration:none;">★ AI 리터러시 &amp; 윤리 실습실 ↗</a></li>
+            <li>• <a href="campus.html#certifications" style="color:var(--paper); text-decoration:none;">- 공식 9대 자격검정 응시실</a></li>
+            <li>• <a href="campus.html#courses" style="color:var(--paper); text-decoration:none;">- 개설 정규 실습 (14대 단과)</a></li>
+            <li>• <a href="campus.html#quickstart" style="color:var(--paper); text-decoration:none;">- AI 실전 퀵스타트</a></li>
+          </ul>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.02); padding:16px; border:1px solid var(--line); border-radius:4px;">
+          <strong style="color:var(--gold-light); display:block; border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:10px;">03. 아카이브 &amp; 법적 공시</strong>
+          <ul style="list-style:none; padding:0; margin:0; color:var(--paper-dim);">
+            <li>• <a href="saemisaeron_homepage_v1.html" target="_blank" style="color:var(--paper); text-decoration:none;">v1.0 창립총회 기획본 ↗</a></li>
+            <li>• <a href="saemisaeron_v12.html" target="_blank" style="color:var(--paper); text-decoration:none;">v12 4자 융합 실증본 ↗</a></li>
+            <li>• <a href="briefing.html" target="_blank" style="color:var(--paper); text-decoration:none;">브리핑 시안 원본 ↗</a></li>
+            <li>• <a href="heroes-board.html" target="_blank" style="color:var(--paper); text-decoration:none;">헤나 영웅 보드 시안 ↗</a></li>
+            <li>• <a href="proposal/KACEC_proposal.html" target="_blank" style="color:var(--gold); text-decoration:none; font-weight:600;">2026 교육 제안서 원본 (PDF) ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:24px; text-align:center; border-top:1px solid var(--line); padding-top:18px;">
+        <button type="button" onclick="closeCampusSiteMapModal()" style="padding:8px 24px; background:var(--gold); color:#080908; font-weight:700; border:none; border-radius:2px; cursor:pointer; font-size:12px;">닫기 (CLOSE)</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openCampusSiteMapModal() {
+      const m = document.getElementById('campusSiteMapModal');
+      if (m) { m.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+    }
+    function closeCampusSiteMapModal() {
+      const m = document.getElementById('campusSiteMapModal');
+      if (m) { m.style.display = 'none'; document.body.style.overflow = ''; }
+    }
+    document.getElementById('campusSiteMapModal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'campusSiteMapModal') closeCampusSiteMapModal();
+    });
+  </script>
+
+</body>
+</html>

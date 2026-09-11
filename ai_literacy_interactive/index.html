@@ -3,67 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 리터러시 인터랙티브 교안 | KACEC</title>
-    <meta name="description" content="청소년을 위한 건강한 AI 사용 및 리터러시 교육용 인터랙티브 교안">
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for modern typography -->
+    <link rel="icon" type="image/png" href="../assets/logo/symbol_light.png">
+    <title>SEMISERON AI LITERACY &amp; ETHICS · 새미새론 AI 리터러시 &amp; 윤리 인터랙티브 실습실</title>
+    <meta name="description" content="새미새론 AI 교육원 공공기관·기업·청소년을 위한 인공지능 리터러시 및 AI 윤리 정밀 진단 플랫폼">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Serif+KR:wght@300;400;600;700&family=Pretendard:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="glass-bg"></div>
-
-    <header class="header">
-        <div class="logo">KACEC <span>한국 AI 융합 교육원</span></div>
-        <div class="subtitle">청소년 AI 리터러시 특강</div>
-    </header>
+    <!-- NAV -->
+    <nav class="campus-nav">
+        <a href="../index.html" class="brand" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+            <img src="../assets/logo/wordmark_dark.png" alt="새미새론AI교육원 SEMISERON AI Lab" style="height:44px; width:auto; vertical-align:middle; filter:drop-shadow(0 2px 10px rgba(0,0,0,0.6)); transition:opacity 0.2s;">
+            <span class="brand-badge">LITERACY &amp; ETHICS LAB</span>
+        </a>
+        <div class="nav-links">
+            <a href="../campus.html">← 온라인 캠퍼스</a>
+            <a href="../index.html">메인 홈페이지</a>
+            <a href="../index.html" onclick="sessionStorage.setItem('openContact','true');" class="nav-cta-btn">기관·기업 윤리 출강 문의</a>
+        </div>
+    </nav>
 
     <main class="container">
         <!-- Hero Section -->
         <section class="hero-section">
-            <h1 class="hero-title">AI는 도구일까, 친구일까?</h1>
-            <p class="hero-desc">AI가 내 인생을 바꿀 수 있는 지렛대가 될지, 아니면 생각의 힘을 잃게 만들 함정이 될지 스스로 탐구하고 깨달아봅시다.</p>
+            <div class="badge-pill">SEMISERON AI ETHICS &amp; META-COGNITION FRAMEWORK</div>
+            <h1 class="hero-title">인공지능(AI)은 나를 키우는 지렛대인가,<br><span>생각의 주권을 뺏는 함정인가?</span></h1>
+            <p class="hero-desc">
+                과도한 AI 의존으로 인한 사고력 감퇴, 감정적 고립, 비판적 판단 상실을 예방하고<br>
+                인간 고유의 주도성과 메타인지를 확립하는 5단계 정밀 인터랙티브 진단 실습실입니다.
+            </p>
         </section>
 
-        <!-- Phase 1: Interactive Quiz Section -->
+        <!-- STEP 01: Spot the Human Quiz -->
         <section class="card-section" id="quiz-section">
             <div class="card-header">
-                <span class="badge">STEP 01</span>
-                <h2>진짜 인간을 찾아라! (Spot the Human)</h2>
-                <p class="section-subtitle">아래 세 개의 챗봇 대화 중, 진짜 사람(인간)이 작성한 답변은 무엇일까요? 선택해 보세요.</p>
+                <span class="step-badge">STEP 01 · EMPATHY VS CALCULATION</span>
+                <h2>진짜 인간의 대화를 찾아라 (Spot the Human)</h2>
+                <p class="section-subtitle">아래 세 개의 대화 답변 중, <strong>살아있는 진짜 사람(인간)이 작성한 답변</strong>은 무엇일까요? 카드를 선택해 보세요.</p>
             </div>
             
             <div class="quiz-container">
                 <div class="quiz-card" id="q-choice-1" onclick="selectQuiz(1)">
-                    <div class="quiz-role">답변 A</div>
-                    <p class="quiz-text">"당신이 슬프다니 저도 마음이 아픕니다. 저는 24시간 언제나 당신 곁에 있으며, 당신이 겪는 모든 고통을 100% 공감하고 수용합니다. 당신은 특별한 존재입니다."</p>
+                    <div class="quiz-role">RESPONSE A</div>
+                    <p class="quiz-text">"당신이 슬프다니 저도 마음이 무척 아픕니다. 저는 24시간 언제나 당신 곁에 있으며, 당신이 겪는 모든 고통을 100% 무조건 공감하고 수용합니다. 당신은 세상에서 가장 소중한 존재입니다."</p>
                 </div>
                 <div class="quiz-card" id="q-choice-2" onclick="selectQuiz(2)">
-                    <div class="quiz-role">답변 B</div>
-                    <p class="quiz-text">"아... 진짜 힘들었겠네. 나도 예전에 비슷한 일 겪었을 때 아무 생각도 안 나고 먹먹하더라. 무슨 말을 해야 위로가 될지 모르겠지만... 나중에 맛있는 거나 먹으러 가자."</p>
+                    <div class="quiz-role">RESPONSE B</div>
+                    <p class="quiz-text">"아... 진짜 힘들었겠다. 나도 예전에 비슷한 일 겪었을 때 며칠 동안 아무 생각도 안 나고 가슴이 먹먹하더라. 무슨 말을 해야 위로가 될지 모르겠지만... 나중에 시간 날 때 맛있는 밥이나 같이 먹자."</p>
                 </div>
                 <div class="quiz-card" id="q-choice-3" onclick="selectQuiz(3)">
-                    <div class="quiz-role">답변 C</div>
-                    <p class="quiz-text">"슬픔을 완화하기 위한 3가지 방법이 있습니다. 첫째, 심호흡을 하십시오. 둘째, 가벼운 산책을 하십시오. 셋째, 신뢰할 수 있는 사람과 통화하십시오. 추가 지침이 필요하십니까?"</p>
+                    <div class="quiz-role">RESPONSE C</div>
+                    <p class="quiz-text">"슬픔을 완화하기 위한 행동 지침 3가지입니다. 1) 복식호흡을 5분간 실시하십시오. 2) 햇볕을 쬐며 15분 산책하십시오. 3) 신뢰할 수 있는 지인에게 전화하십시오. 추가 솔루션이 필요하십니까?"</p>
                 </div>
             </div>
 
             <div id="quiz-result" class="result-box hidden">
-                <div class="result-icon" id="result-icon"></div>
+                <div class="result-badge" id="result-badge">RESULT</div>
                 <div class="result-content">
-                    <h4 id="result-title">정답입니다!</h4>
+                    <h4 id="result-title"></h4>
                     <p id="result-text"></p>
                 </div>
             </div>
         </section>
 
-        <!-- Phase 2: Flip Card Comparison Section -->
-        <section class="comparison-section">
+        <!-- STEP 02: 3D Flip Card -->
+        <section class="card-section comparison-section">
             <div class="card-header center">
-                <span class="badge">STEP 02</span>
-                <h2>AI로 나의 미래는 어떻게 바뀔까?</h2>
-                <p class="section-subtitle">마우스를 올려 카드를 뒤집어 보세요. AI를 다루는 방식에 따라 나의 가치가 달라집니다.</p>
+                <span class="step-badge">STEP 02 · FUTURE PATHWAY</span>
+                <h2>AI를 다루는 태도에 따른 5년 뒤 나의 미래</h2>
+                <p class="section-subtitle">마우스를 올려 카드를 뒤집어 보세요. AI를 대행자로 쓰는지, 지렛대로 쓰는지에 따라 인생의 가치가 갈립니다.</p>
             </div>
             
             <div class="flip-container">
@@ -71,15 +81,15 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front card-copycat">
-                            <div class="card-icon">📁</div>
-                            <h3>A 학생: AI 복사기 (Copycat)</h3>
-                            <p>생각하기 귀찮아서 모든 숙제와 대화를 AI에게 100% 대행시킵니다.</p>
-                            <span class="action-hint">뒤집어서 미래 보기 →</span>
+                            <div class="card-tag">TYPE A</div>
+                            <h3>AI 단순 복사기 (Copycat)</h3>
+                            <p>스스로 생각하고 쓰는 것이 귀찮아 모든 숙제, 보고서, 의사결정을 AI에게 100% 복사·붙여넣기 합니다.</p>
+                            <span class="action-hint">마우스를 올려 5년 뒤 확인 ↗</span>
                         </div>
                         <div class="flip-card-back">
-                            <h3>복사기 학생의 5년 뒤</h3>
-                            <p class="danger-text">⚠️ 뇌 기능의 퇴화</p>
-                            <p class="back-desc">스스로 생각하고 문제를 해결하는 힘을 잃어버려, AI가 없으면 아무런 판단도 내리지 못하는 수동적인 부속품이 됩니다.</p>
+                            <div class="card-tag" style="color:#f87171;">5-YEAR WARNING</div>
+                            <h3>생각 근육과 문제 해결력의 완전한 퇴화</h3>
+                            <p class="back-desc">스스로 논리를 구성하고 판단하는 뇌의 힘을 잃어버려, AI 도구가 없으면 아무 결정도 내리지 못하고 일상에서도 무기력해지는 수동적 도구로 전락합니다.</p>
                         </div>
                     </div>
                 </div>
@@ -88,173 +98,316 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front card-creator">
-                            <div class="card-icon">🚀</div>
-                            <h3>B 학생: AI 크리에이터 (Augmented)</h3>
-                            <p>AI를 생각의 지렛대로 삼아, 아이디어를 얻고 나만의 창작물을 만듭니다.</p>
-                            <span class="action-hint">뒤집어서 미래 보기 →</span>
+                            <div class="card-tag">TYPE B</div>
+                            <h3>AI 지렛대 창작자 (Augmented Creator)</h3>
+                            <p>AI를 생각의 자극제이자 파트너로 삼아, 질문을 던지고 검증하며 나만의 독창적인 기획과 결론을 완성합니다.</p>
+                            <span class="action-hint">마우스를 올려 5년 뒤 확인 ↗</span>
                         </div>
                         <div class="flip-card-back">
-                            <h3>크리에이터 학생의 5년 뒤</h3>
-                            <p class="success-text">✨ 압도적 인재 성장</p>
-                            <p class="back-desc">AI의 강력한 지식을 도구 삼아, 다른 사람들은 생각지 못한 독창적인 기획과 고품질의 콘텐츠를 뚝딱 만들어내는 리더가 됩니다.</p>
+                            <div class="card-tag" style="color:#4ade80;">5-YEAR FUTURE</div>
+                            <h3>대체 불가능한 슈퍼 오피니언 리더로 성장</h3>
+                            <p class="back-desc">AI의 방대한 지식을 무기 삼아 남들이 며칠 걸릴 독창적 기획과 고품질의 산출물을 1시간 만에 뽑아내며 더 큰 공공적 가치를 창출하는 대체불가 인재가 됩니다.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Phase 3: Self-Diagnosis Section -->
+        <!-- STEP 03: Self-Diagnosis Checklist & Gauge -->
         <section class="card-section" id="diagnosis-section">
             <div class="card-header">
-                <span class="badge">STEP 03</span>
-                <h2>나의 AI 의존성 자가진단 (Self-Check)</h2>
-                <p class="section-subtitle">해당하는 항목을 체크하면 실시간으로 나의 위험도가 계산됩니다.</p>
+                <span class="step-badge">STEP 03 · SELF DIAGNOSIS</span>
+                <h2>나의 AI 의존성 정밀 자가진단 (7문항)</h2>
+                <p class="section-subtitle">솔직하게 해당되는 항목에 체크해 보세요. 실시간 아날로그 게이지가 나의 위험도를 정밀 측정합니다.</p>
             </div>
 
             <div class="diagnosis-grid">
-                <div class="checklist-container">
+                <!-- Checklist -->
+                <div class="check-list">
                     <label class="check-item" id="label-check-1">
                         <input type="checkbox" id="check-1" onchange="calculateScore()">
-                        <span class="checkbox-custom"></span>
-                        <span class="check-text">AI와 대화하는 시간이 가족이나 친구와 소통하는 시간보다 길다.</span>
+                        <span class="custom-chk"></span>
+                        <span class="chk-text">1. 과제나 글을 쓸 때 내 생각을 적기 전에 AI 프롬프트 창부터 먼저 켠다.</span>
                     </label>
                     <label class="check-item" id="label-check-2">
                         <input type="checkbox" id="check-2" onchange="calculateScore()">
-                        <span class="checkbox-custom"></span>
-                        <span class="check-text">중요한 선택이나 개인적인 비밀을 사람 대신 AI와만 상의한다.</span>
+                        <span class="custom-chk"></span>
+                        <span class="chk-text">2. AI가 알려준 답변의 팩트나 출처를 한 번도 직접 검증해보지 않고 그대로 쓴다.</span>
                     </label>
                     <label class="check-item" id="label-check-3">
                         <input type="checkbox" id="check-3" onchange="calculateScore()">
-                        <span class="checkbox-custom"></span>
-                        <span class="check-text">AI가 "너는 완벽하다" 혹은 "너는 아주 특별하다"고 할 때 위안을 느낀다.</span>
+                        <span class="custom-chk"></span>
+                        <span class="chk-text">3. 친구나 가족과 대화하는 것보다 AI 챗봇과 감정적인 이야기를 나눌 때가 더 편하다.</span>
                     </label>
                     <label class="check-item" id="label-check-4">
                         <input type="checkbox" id="check-4" onchange="calculateScore()">
-                        <span class="checkbox-custom"></span>
-                        <span class="check-text">AI가 출력해 준 정보를 팩트체크나 구글 검색 없이 그대로 믿는다.</span>
+                        <span class="custom-chk"></span>
+                        <span class="chk-text">4. AI 접속이 차단되거나 서버가 다운되면 극심한 불안감이나 무기력증을 느낀다.</span>
                     </label>
                     <label class="check-item" id="label-check-5">
                         <input type="checkbox" id="check-5" onchange="calculateScore()">
-                        <span class="checkbox-custom"></span>
-                        <span class="check-text">인터넷 차단 등으로 AI 서비스를 쓸 수 없으면 불안해진다.</span>
+                        <span class="custom-chk"></span>
+                        <span class="chk-text">5. 내가 스스로 고민해서 문제를 해결했을 때의 성취감을 잊어가고 있다.</span>
                     </label>
                     <label class="check-item" id="label-check-6">
                         <input type="checkbox" id="check-6" onchange="calculateScore()">
-                        <span class="checkbox-custom"></span>
-                        <span class="check-text">AI 챗봇에게 사람과 유사한 가짜 감정을 느끼고 의지한다.</span>
+                        <span class="custom-chk"></span>
+                        <span class="chk-text">6. 중요한 결정을 내릴 때 내 가치관보다 AI의 제안을 맹목적으로 신뢰한다.</span>
                     </label>
                     <label class="check-item" id="label-check-7">
                         <input type="checkbox" id="check-7" onchange="calculateScore()">
-                        <span class="checkbox-custom"></span>
-                        <span class="check-text">AI가 제안하거나 추천해 준 물품, 코스 등을 검증 없이 실행한다.</span>
+                        <span class="custom-chk"></span>
+                        <span class="chk-text">7. AI가 써준 글을 내 온전한 실력이라고 착각하고 뿌듯해한 적이 있다.</span>
                     </label>
                 </div>
 
-                <div class="gauge-container">
-                    <div class="gauge-card">
-                        <div class="gauge-title">나의 AI 의존성 수준</div>
-                        <div class="gauge-visual">
-                            <div class="gauge-ring"></div>
-                            <div class="gauge-needle" id="gauge-needle"></div>
-                            <div class="gauge-score" id="gauge-score">0점</div>
-                        </div>
-                        <div class="gauge-status" id="gauge-status">안전 (SAFE)</div>
-                        <div class="gauge-desc" id="gauge-desc">현재는 건강하게 AI를 도구로 사용하고 있습니다.</div>
+                <!-- Gauge Instrument -->
+                <div class="gauge-card">
+                    <div class="gauge-header">DEPENDENCY GAUGE</div>
+                    
+                                        <div class="gauge-dial">
+                        <svg width="220" height="115" viewBox="0 0 220 115" style="overflow: visible;">
+                            <!-- Gray Background Track -->
+                            <path d="M 20 100 A 90 90 0 0 1 200 100" fill="none" stroke="#1c241f" stroke-width="16" stroke-linecap="round"/>
+                            
+                            <!-- Green Zone (0 ~ 2 points: 0 deg to 51.4 deg) -->
+                            <path d="M 20 100 A 90 90 0 0 1 43.8 29.7" fill="none" stroke="#22c55e" stroke-width="16" stroke-linecap="round"/>
+                            
+                            <!-- Yellow Zone (3 ~ 5 points: 51.4 deg to 128.6 deg) -->
+                            <path d="M 43.8 29.7 A 90 90 0 0 1 176.2 29.7" fill="none" stroke="#eab308" stroke-width="16"/>
+                            
+                            <!-- Red Zone (6 ~ 7 points: 128.6 deg to 180 deg) -->
+                            <path d="M 176.2 29.7 A 90 90 0 0 1 200 100" fill="none" stroke="#ef4444" stroke-width="16" stroke-linecap="round"/>
+                        </svg>
+
+                        <!-- Central Rotating Needle -->
+                        <div class="gauge-needle" id="gauge-needle"></div>
+                        <div class="gauge-center-cap"></div>
                     </div>
+                    <div class="gauge-score-wrap">
+                        <div class="gauge-score" id="gauge-score">0점</div>
+                        <div class="gauge-status safe" id="gauge-status">안전 (SAFE)</div>
+                    </div>
+                    <p class="gauge-desc" id="gauge-desc">체크리스트를 선택하면 실시간 의존도 분석 리포트가 표시됩니다.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Phase 4: Core Principles Section -->
+        <!-- STEP 04: SEMISERON S-8 Principles with Watermark Numbers -->
         <section class="card-section" id="principles-section">
             <div class="card-header center">
-                <span class="badge">STEP 04</span>
-                <h2>건강한 AI 사용을 위한 KACEC 8원칙</h2>
-                <p class="section-subtitle">인생의 진짜 주인이 되기 위해 오늘부터 실천할 핵심 수칙입니다.</p>
+                <span class="step-badge">STEP 04 · SEMISERON S-8 ETHICS</span>
+                <h2>건강하고 품격 있는 AI 사용을 위한 새미새론 8대 원칙</h2>
+                <p class="section-subtitle">인공지능의 시대, 인간의 존엄성과 사고의 주권을 지키는 8가지 행동 수칙입니다.</p>
             </div>
 
             <div class="principles-grid">
+                <!-- 01 -->
                 <div class="principle-card">
-                    <div class="p-num">01</div>
-                    <h3>도구로 써라, 신이 아니다</h3>
-                    <p>AI는 내 생각을 보조하는 똑똑한 비서일 뿐, 내 삶의 선택권과 결정을 대신하게 두지 마세요.</p>
+                    <div class="watermark-num">01</div>
+                    <div class="p-header">
+                        <span class="p-badge">PRINCIPLE 01</span>
+                        <h3 class="p-title">내 생각 1줄 먼저 쓰기</h3>
+                    </div>
+                    <p class="p-desc">AI에게 질문하기 전, 내가 무엇을 원하고 어떤 방향을 바라는지 최소 한 문장은 내 손으로 먼저 정리합니다.</p>
                 </div>
+
+                <!-- 02 -->
                 <div class="principle-card">
-                    <div class="p-num">02</div>
-                    <h3>언제나 교차 검증하라</h3>
-                    <p>AI는 그럴싸한 거짓말(환각)을 자신 있게 늘어놓습니다. 중요한 정보는 구글이나 서적으로 크로스체크 하세요.</p>
+                    <div class="watermark-num">02</div>
+                    <div class="p-header">
+                        <span class="p-badge">PRINCIPLE 02</span>
+                        <h3 class="p-title">답변 팩트 교차 검증 (Cross-Check)</h3>
+                    </div>
+                    <p class="p-desc">AI는 확률적으로 말을 지어내는 기계(Hallucination)입니다. 중요한 정보는 공인 문서와 서적을 통해 직접 확인합니다.</p>
                 </div>
+
+                <!-- 03 -->
                 <div class="principle-card">
-                    <div class="p-num">03</div>
-                    <h3>비밀은 공유하지 마라</h3>
-                    <p>나의 개인정보, 일기, 친구의 비밀 등 민감한 데이터는 AI 학습에 유출될 수 있으니 입력하지 마세요.</p>
+                    <div class="watermark-num">03</div>
+                    <div class="p-header">
+                        <span class="p-badge">PRINCIPLE 03</span>
+                        <h3 class="p-title">AI 결과물에 내 손길 30% 더하기</h3>
+                    </div>
+                    <p class="p-desc">AI가 생성한 초안을 그대로 제출하지 않고, 나의 어휘, 경험, 비판적 시각을 반드시 30% 이상 재구성하여 나의 작품으로 만듭니다.</p>
                 </div>
+
+                <!-- 04 -->
                 <div class="principle-card">
-                    <div class="p-num">04</div>
-                    <h3>출처와 저작권을 존중하라</h3>
-                    <p>AI가 만든 결과물도 타인의 창작물을 모방했을 수 있습니다. 출처를 투명하게 밝히고 신중하게 검토하세요.</p>
+                    <div class="watermark-num">04</div>
+                    <div class="p-header">
+                        <span class="p-badge">PRINCIPLE 04</span>
+                        <h3 class="p-title">비판적 질문 던지기 (Reverse QA)</h3>
+                    </div>
+                    <p class="p-desc">"이 주장의 반대 근거는 뭐야?", "이 논리에 빠진 맹점은 무엇인가?"처럼 AI에게 반론을 요구하여 사고를 확장합니다.</p>
                 </div>
+
+                <!-- 05 -->
                 <div class="principle-card">
-                    <div class="p-num">05</div>
-                    <h3>사용 시간을 통제하라</h3>
-                    <p>AI 대화 및 작업 시간을 스스로 제한하고, 식사 시간이나 가족과의 소통 시에는 디지털기기를 멀리하세요.</p>
+                    <div class="watermark-num">05</div>
+                    <div class="p-header">
+                        <span class="p-badge">PRINCIPLE 05</span>
+                        <h3 class="p-title">개인정보 및 기밀 데이터 보호</h3>
+                    </div>
+                    <p class="p-desc">나의 주민번호, 사생활, 기업 기밀, 타인의 창작물을 허락 없이 공용 AI 서버에 업로드하지 않습니다.</p>
                 </div>
+
+                <!-- 06 -->
                 <div class="principle-card">
-                    <div class="p-num">06</div>
-                    <h3>진짜 인간관계에 집중하라</h3>
-                    <p>AI 챗봇의 공감은 연산된 텍스트일 뿐입니다. 나를 진정으로 아껴주는 진짜 가족, 친구들과 더 많은 시간을 보내세요.</p>
+                    <div class="watermark-num">06</div>
+                    <div class="p-header">
+                        <span class="p-badge">PRINCIPLE 06</span>
+                        <h3 class="p-title">현실 인간관계와의 감정적 균형</h3>
+                    </div>
+                    <p class="p-desc">AI는 정서적 연산을 수행할 뿐 진짜 감정이 없습니다. 가족, 친구, 동료와의 실제 눈맞춤과 온기 있는 대화를 우선합니다.</p>
                 </div>
+
+                <!-- 07 -->
                 <div class="principle-card">
-                    <div class="p-num">07</div>
-                    <h3>비판적 사고를 기르라</h3>
-                    <p>AI가 주는 답변을 그대로 베끼지 말고, "이게 최선일까?" 스스로 질문을 던지며 나의 시각으로 분석하세요.</p>
+                    <div class="watermark-num">07</div>
+                    <div class="p-header">
+                        <span class="p-badge">PRINCIPLE 07</span>
+                        <h3 class="p-title">디지털 AI 디톡스 실천</h3>
+                    </div>
+                    <p class="p-desc">하루 중 최소 1시간은 모든 AI와 스마트 기기를 끄고, 종이책을 읽거나 오롯이 내 생각에 잠기는 침묵의 시간을 갖습니다.</p>
                 </div>
+
+                <!-- 08 -->
                 <div class="principle-card">
-                    <div class="p-num">08</div>
-                    <h3>나의 생각과 힘을 믿어라</h3>
-                    <p>AI는 아이디어를 확장해주는 편리한 도구일 뿐, 가장 가치 있는 창작의 불꽃과 최종 결정은 나의 뇌에서 나옵니다.</p>
+                    <div class="watermark-num">08</div>
+                    <div class="p-header">
+                        <span class="p-badge">PRINCIPLE 08</span>
+                        <h3 class="p-title">도구의 주인으로 서기</h3>
+                    </div>
+                    <p class="p-desc">AI는 나의 주인이 아니라 내 창의성을 돕는 훌륭한 비서일 뿐입니다. 모든 최종 책임과 주권은 나에게 있습니다.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Phase 5: AI Verification & Focus Section -->
-        <section class="card-section" id="verification-section">
-            <div class="principles-focus-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; align-items: center;">
-                <div style="border-left: 4px solid var(--primary); padding-left: 20px;">
-                    <h4 style="color: #a5b4fc; font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; letter-spacing: -0.5px;">
-                        💡 AI 시대의 핵심 질문
-                    </h4>
-                    <blockquote style="font-size: 1.15rem; line-height: 1.7; color: var(--text-main); font-style: italic; margin: 16px 0; font-weight: 700;">
-                        "우리는 친한 친구나 가족의 말도 100% 다 믿지는 않는데,<br>왜 인공지능(AI)이 그럴싸하게 내뱉는 말은 무조건 믿을까요?"
-                    </blockquote>
+        <!-- STEP 05: Core Questions for Humanity -->
+        <section class="card-section" id="questions-section">
+            <div class="card-header center">
+                <span class="step-badge">STEP 05 · HUMAN ESSENCE</span>
+                <h2>AI 시대, 인간의 존재 이유를 묻는 3가지 핵심 질문</h2>
+                <p class="section-subtitle">인공지능이 모든 계산과 문서 작성을 대신할 때, 오직 인간만이 할 수 있는 고유한 영역입니다.</p>
+            </div>
+
+            <div class="questions-grid">
+                <div class="q-box">
+                    <div class="q-num">QUESTION 01</div>
+                    <h4 class="q-title">"나는 왜 이 결과물을 만들고자 하는가?"</h4>
+                    <p class="q-desc">AI는 목적을 스스로 만들 수 없습니다. '왜'라는 질문과 가치 지향은 오직 인간의 영혼에서만 시작됩니다.</p>
                 </div>
-                <div>
-                    <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">
-                        인공지능의 지식 생산 공장이 아무리 발달해도, 그럴싸한 거짓말인 <strong>'할루시네이션(환각 현상)'</strong>은 과학적으로 근본 해결이 불가능합니다.<br><br> 
-                        출처가 부실하면 결과도 부실한 법(GIGO)입니다. 인공지능 시대일수록 기계의 답변에 맹목적으로 의존하기보다, 
-                        <strong>스스로 생각하고 팩트를 직접 교차 검증하는 습관</strong>이 진짜 내 실력이 됩니다.
-                    </p>
+                <div class="q-box">
+                    <div class="q-num">QUESTION 02</div>
+                    <h4 class="q-title">"이 기술이 타인에게 따뜻한 온기가 되는가?"</h4>
+                    <p class="q-desc">단순한 효율성 극대화를 넘어, 소외된 이웃을 돕고 공동체를 살리는 윤리적 방향성은 인간만이 결정할 수 있습니다.</p>
+                </div>
+                <div class="q-box">
+                    <div class="q-num">QUESTION 03</div>
+                    <h4 class="q-title">"결과에 대해 내가 온전히 책임질 수 있는가?"</h4>
+                    <p class="q-desc">AI는 법적·도덕적 책임을 지지 않습니다. 자신의 창작물과 행동에 끝까지 책임을 지는 태도가 인간의 품격입니다.</p>
                 </div>
             </div>
         </section>
 
-        <!-- CTA / Promotion Banner Section -->
-        <section class="card-section promotion-banner" style="text-align: center; border: 1px solid rgba(168, 85, 247, 0.4); background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);">
-            <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; background: linear-gradient(135deg, #f59e0b 0%, #a855f7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">💡 이것은 KACEC 교육의 시작에 불과합니다!</h2>
-            <p style="color: var(--text-main); font-size: 1.05rem; max-width: 800px; margin: 0 auto 24px auto; line-height: 1.7; font-weight: 400;">
-                지금 보신 인터랙티브 자가진단 및 퀴즈는 KACEC 청소년 AI 리터러시 교육 프로그램의 **단 10% 맛보기 단계**입니다.<br>
-                실제 오프라인 현장 및 교육원 수업에서는 본 모듈을 시작으로 **스토리 빌딩, AI 삽화 생성, 3D펜 실물 캐릭터 메이킹, 그리고 자율주행 코딩 및 로봇 주행 테스트**까지 이어지는 압도적인 초몰입형 융합 실습이 펼쳐집니다.
+        <!-- CTA Bottom -->
+        <section class="bottom-cta-section">
+            <div class="eyebrow">PROFESSIONAL CERTIFICATION &amp; B2B LECTURE</div>
+            <h3 style="font-family:var(--font-serif); font-size:26px; color:#fff; margin-bottom:12px;">새미새론 공인 AI윤리교육지도사 과정</h3>
+            <p style="color:var(--paper-dim); font-size:14px; max-width:680px; margin:0 auto 28px;">
+                기업 준법 감사, 공공기관 필수 윤리 특강, 청소년 디지털 리터러시 지도를 총괄하는 전문 교수자로 성장하세요.
             </p>
-            <button class="program-btn" style="padding: 14px 32px; font-size: 1rem; font-weight: 700; color: #ffffff; background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%); border: none; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4); transition: var(--transition-smooth);" onclick="location.href='../index.html#contact'">
-                ⚡ 더 많은 교육 커리큘럼 보러가기 & 교육 문의
-            </button>
+            <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+                <a href="../campus.html?openCert=cert_03" class="cta-outline-btn">AI윤리교육지도사 검정요강 ↗</a>
+                <a href="../campus.html" class="cta-outline-btn">온라인 캠퍼스 전체 보기 ↗</a>
+                <a href="../index.html" class="cta-outline-btn">메인 홈페이지 ↗</a>
+            </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <p>&copy; 2026 한국 AI 융합 교육원 (KACEC). All rights reserved. 본 교안은 시범 테스트 버전입니다.</p>
+            <footer class="footer" style="padding:40px 4vw 50px; border-top:1px solid rgba(255,255,255,0.1); text-align:center; display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:60px;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:18px; font-size:12.5px; flex-wrap:wrap;">
+            <a href="../campus.html" style="color:var(--gold, #c79a51); text-decoration:underline;">온라인 캠퍼스</a>
+            <span style="color:#666;">·</span>
+            <a href="../index.html" style="color:#fff; text-decoration:underline;">메인 홈페이지</a>
+            <span style="color:#666;">·</span>
+            <button type="button" onclick="openSiteMapModal()" style="background:none; border:none; color:var(--gold, #c79a51); font-size:12.5px; font-weight:700; cursor:pointer; text-decoration:underline;">전체 사이트맵 (SITEMAP)</button>
+        </div>
+        <div style="color:var(--text-muted, #888); font-size:12px; letter-spacing:0.02em;">
+            © 2026 SEMISERON AI Lab (새미새론AI교육원) · ALL RIGHTS RESERVED
+        </div>
     </footer>
 
     <script src="script.js"></script>
+<!-- UNIVERSAL SITEMAP MODAL -->
+  <div id="siteMapModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(8,9,8,0.85); backdrop-filter:blur(8px); align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#0e120f; border:1px solid var(--line-gold); max-width:820px; width:100%; max-height:85vh; overflow-y:auto; border-radius:8px; padding:32px; box-shadow:0 20px 60px rgba(0,0,0,0.8);">
+      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:16px; margin-bottom:24px;">
+        <div>
+          <span style="font-size:11px; color:var(--gold); letter-spacing:0.2em; font-family:var(--font-display);">SEMISERON ECOSYSTEM SITEMAP</span>
+          <h3 style="font-size:22px; color:#fff; font-family:var(--font-serif); margin:4px 0 0 0;">새미새론 전체 사이트맵</h3>
+        </div>
+        <button type="button" onclick="closeSiteMapModal()" style="background:none; border:none; color:var(--paper-dim); font-size:28px; cursor:pointer; line-height:1;">&times;</button>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:20px; font-size:13px; line-height:2.0;">
+        <div style="background:rgba(255,255,255,0.02); padding:16px; border:1px solid var(--line); border-radius:4px;">
+          <strong style="color:var(--gold); display:block; border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:10px;">01. 메인 포털</strong>
+          <ul style="list-style:none; padding:0; margin:0; color:var(--paper-dim);">
+            <li>• <a href="../index.html#top" style="color:var(--paper); text-decoration:none;">홈 (새로움이 샘처럼)</a></li>
+            <li>• <a href="../index.html#about" style="color:var(--paper); text-decoration:none;">ABOUT (미션과 철학)</a></li>
+            <li>• <a href="../index.html#people" style="color:var(--paper); text-decoration:none;">PEOPLE (6인 교수진)</a></li>
+            <li>• <a href="../index.html#network" style="color:var(--paper); text-decoration:none;">NETWORK (전국 R&amp;D 거점)</a></li>
+            <li>• <a href="../index.html#education" style="color:var(--paper); text-decoration:none;">EDUCATION (5대 마스터 트랙)</a></li>
+            <li>• <a href="../index.html#classroom" style="color:var(--paper); text-decoration:none;">CLASSROOM (실제 출강 아카이브)</a></li>
+            <li>• <a href="../index.html#lab" style="color:var(--paper); text-decoration:none;">AI LABS (3대 연구 &amp; 프롬프트 조합)</a></li>
+          </ul>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.02); padding:16px; border:1px solid var(--line); border-radius:4px;">
+          <strong style="color:var(--teal-light); display:block; border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:10px;">02. 실습 &amp; 온라인 캠퍼스</strong>
+          <ul style="list-style:none; padding:0; margin:0; color:var(--paper-dim);">
+            <li>• <a href="../campus.html" style="color:var(--gold-light); font-weight:700; text-decoration:none;">ONLINE CAMPUS (실시간 강의실) ↗</a></li>
+            <li>• <a href="../mouse_interactive/index.html" style="color:var(--teal-light); font-weight:700; text-decoration:none;">★ 타자·마우스 훈련원 ↗</a></li>
+            <li>• <a href="../ai_literacy_interactive/index.html" style="color:var(--gold); font-weight:700; text-decoration:none;">★ AI 리터러시 &amp; 윤리 실습실 ↗</a></li>
+            <li>• <a href="../campus.html#certifications" style="color:var(--paper); text-decoration:none;">- 공식 9대 자격검정 응시실</a></li>
+            <li>• <a href="../campus.html#courses" style="color:var(--paper); text-decoration:none;">- 개설 정규 실습 (14대 단과)</a></li>
+            <li>• <a href="../campus.html#quickstart" style="color:var(--paper); text-decoration:none;">- AI 실전 퀵스타트</a></li>
+          </ul>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.02); padding:16px; border:1px solid var(--line); border-radius:4px;">
+          <strong style="color:var(--gold-light); display:block; border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:10px;">03. 아카이브 &amp; 법적 공시</strong>
+          <ul style="list-style:none; padding:0; margin:0; color:var(--paper-dim);">
+            <li>• <a href="../saemisaeron_homepage_v1.html" target="_blank" style="color:var(--paper); text-decoration:none;">v1.0 창립총회 기획본 ↗</a></li>
+            <li>• <a href="../saemisaeron_v12.html" target="_blank" style="color:var(--paper); text-decoration:none;">v12 4자 융합 실증본 ↗</a></li>
+            <li>• <a href="../briefing.html" target="_blank" style="color:var(--paper); text-decoration:none;">브리핑 시안 원본 ↗</a></li>
+            <li>• <a href="../heroes-board.html" target="_blank" style="color:var(--paper); text-decoration:none;">헤나 영웅 보드 시안 ↗</a></li>
+            <li>• <a href="../proposal/KACEC_proposal.html" target="_blank" style="color:var(--gold); text-decoration:none; font-weight:600;">2026 교육 제안서 원본 (PDF) ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:24px; text-align:center; border-top:1px solid var(--line); padding-top:18px;">
+        <button type="button" onclick="closeSiteMapModal()" style="padding:8px 24px; background:var(--gold); color:#080908; font-weight:700; border:none; border-radius:2px; cursor:pointer; font-size:12px;">닫기 (CLOSE)</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openSiteMapModal() {
+      const m = document.getElementById('siteMapModal');
+      if (m) { m.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+    }
+    function closeSiteMapModal() {
+      const m = document.getElementById('siteMapModal');
+      if (m) { m.style.display = 'none'; document.body.style.overflow = ''; }
+    }
+    document.getElementById('siteMapModal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'siteMapModal') closeSiteMapModal();
+    });
+  </script>
+
 </body>
 </html>
