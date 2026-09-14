@@ -271,6 +271,8 @@ footer a{color:var(--muted)}
     <div>
       <h3>지난 브리핑 모아보기</h3>
       <p>매일 쌓이는 날짜판 아카이브 — 검색 유입의 본진은 여기입니다.</p>
+      <p id="archStatus" style="margin-top:8px;font-size:13px;color:var(--gold-light)">제2호(내일 첫 정식 발행)부터 여기에 쌓입니다.</p>
+      <ul id="archList" style="list-style:none;margin:10px 0 0;padding:0"></ul>
     </div>
     <a class="abtn" href="index.html">메인으로 돌아가기</a>
   </div>
@@ -421,6 +423,9 @@ footer a{color:var(--muted)}
   }
   function closeEasy(){ mveil.classList.remove('show'); em.classList.remove('show'); }
   document.querySelectorAll('.easybtn').forEach(function(b){ b.addEventListener('click',function(){ openEasy(b.getAttribute('data-d')); }); });
+  var emCloseBtn=document.getElementById('emClose');
+  if (emCloseBtn) emCloseBtn.addEventListener('click',closeEasy);
+  mveil.addEventListener('click',closeEasy);
   paint();
 
   // OpenCode Go 크론 발행 데이터 동적 바인딩
@@ -473,6 +478,16 @@ footer a{color:var(--muted)}
             }
           }
         });
+        // 5. 헤드라인 목록도 오늘 기사로 갱신 (1면=포커스, 2~4면=3대 뉴스)
+        var hls = document.querySelectorAll('.headlines ol li');
+        if (hls.length >= 4 && d.focus_news && d.focus_news.title) {
+          var h1a = hls[0].querySelector('a');
+          if (h1a) h1a.textContent = d.focus_news.title;
+          for (var hi = 0; hi < 3; hi++) {
+            var ha = hls[hi+1].querySelector('a');
+            if (ha && d.daily_three[hi]) ha.textContent = d.daily_three[hi].title;
+          }
+        }
       }
     })
     .catch(function(err){
