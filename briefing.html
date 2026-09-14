@@ -25,14 +25,13 @@ body{background:var(--bg);color:var(--paper);font-family:var(--font-sans);line-h
 a{color:inherit}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
 /* top nav */
-.topnav{border-bottom:1px solid var(--line);background:rgba(8,9,8,.9);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
-.topnav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
-.brand{font-family:var(--font-display);font-size:13px;letter-spacing:.22em;color:var(--paper);text-decoration:none}
-.brand b{color:var(--gold-light)}
-.navlinks{display:flex;gap:22px;font-size:13px}
-.navlinks a{color:var(--paper-dim);text-decoration:none;letter-spacing:.04em}
+.topnav{border-bottom:1px solid var(--line);background:rgba(8,9,8,.95);position:sticky;top:0;z-index:50;backdrop-filter:blur(10px)}
+.topnav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:inline-flex;align-items:center;text-decoration:none}
+.navlinks{display:flex;align-items:center;gap:24px;font-size:13.5px}
+.navlinks a{color:var(--paper-dim);text-decoration:none;letter-spacing:.06em;font-weight:400;transition:color .2s}
 .navlinks a:hover{color:var(--gold-light)}
-.navlinks a.hot{color:var(--gold-light);font-weight:700}
+.navlinks a.hot{color:var(--gold-light);font-weight:700;border:1px solid var(--gold);padding:5px 14px;border-radius:100px;background:rgba(199,154,81,.12)}
 /* hero */
 .hero{padding:64px 0 30px;text-align:center}
 .kicker{display:inline-block;font-family:var(--font-display);font-size:11px;letter-spacing:.28em;color:var(--gold-light);border:1px solid var(--line-gold);border-radius:100px;padding:7px 20px;margin-bottom:22px}
@@ -172,11 +171,14 @@ footer a{color:var(--muted)}
 </head>
 <body>
 <nav class="topnav"><div class="wrap">
-  <a class="brand" href="index.html">SEMISERON <b>AI EDU</b></a>
+  <a class="brand" href="index.html" aria-label="새미새론AI교육원" style="display:inline-flex; align-items:center; text-decoration:none;">
+    <img src="assets/logo/wordmark_dark.png" alt="새미새론AI교육원 SEMISERON AI Lab" style="height:46px; width:auto; vertical-align:middle; filter:drop-shadow(0 2px 12px rgba(0,0,0,0.7)); transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+  </a>
   <div class="navlinks">
     <a href="index.html">메인 홈페이지</a>
     <a href="campus.html">온라인 캠퍼스</a>
-    <a href="briefing.html" class="hot">모닝샘</a>
+    <a href="mouse_interactive/index.html" style="color:var(--teal-light);">⌨️ 타자·마우스 훈련원 ↗</a>
+    <a href="briefing.html" class="hot">모닝샘 ⚡</a>
   </div>
 </div></nav>
 
@@ -188,7 +190,7 @@ footer a{color:var(--muted)}
   <header class="masthead">
     <div class="eyebrow">SEMISERON MORNING BRIEF</div>
     <h1><a href="briefing.html"><img class="markimg" src="marks/mark_B.webp" alt="모닝샘 마크"><span class="m-morning">모닝</span><span class="m-saem">샘</span></a></h1>
-    <p class="orgline"><b>새미새론 AI 교육원</b> · 오늘의 AI 브리핑 — 교육원과 우리 삶에 닿는 소식만 골라 3줄로 정리합니다</p>
+    <p class="orgline"><b>새미새론AI교육원</b> (SEMISERON AI Lab) · 오늘의 AI 브리핑 — 교육원과 우리 삶에 닿는 소식만 골라 3줄로 정리합니다</p>
     <div><button class="saved-pillbtn" id="savedOpen">저장한 소식 <b id="savedCount">0</b>개 보기</button></div>
   </header>
 
@@ -292,8 +294,7 @@ footer a{color:var(--muted)}
   <div id="drawerList"></div>
   <p class="d-note">기사 옆 '저장' 버튼을 누르면 이곳에 담깁니다. 저장은 이 브라우저에만 보관됩니다.</p>
 </aside>
-<button id="toTop" type="button">맨 위로 ↑</button>
-<footer>© 2026 SEMISERON AI EDU · 새미새론 AI 교육원 · 시안 예시판 (BRIEFING SIAN v0.1) · <a href="index.html">메인</a> · <a href="campus.html">캠퍼스</a></footer>
+<footer>© 2026 SEMISERON AI Lab · 새미새론AI교육원 · <a href="index.html">메인 홈페이지</a> · <a href="campus.html">온라인 캠퍼스</a> · <a href="mouse_interactive/index.html">타자·마우스 훈련원</a></footer>
 
 <script>
 (function(){
@@ -418,10 +419,59 @@ footer a{color:var(--muted)}
   }
   function closeEasy(){ mveil.classList.remove('show'); em.classList.remove('show'); }
   document.querySelectorAll('.easybtn').forEach(function(b){ b.addEventListener('click',function(){ openEasy(b.getAttribute('data-d')); }); });
-  document.getElementById('emClose').addEventListener('click',closeEasy);
-  mveil.addEventListener('click',closeEasy);
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeEasy(); closeDrawer(); } });
   paint();
+
+  // OpenCode Go 크론 발행 데이터 동적 바인딩
+  fetch('today-briefing.json?v=' + Date.now())
+    .then(function(res){ return res.json(); })
+    .then(function(d){
+      if (!d) return;
+      // 1. 포커스 히어로 이미지 동적 적용 (20종 로테이션)
+      var focusPhoto = document.querySelector('.focus.photo');
+      if (focusPhoto && d.hero_image) {
+        focusPhoto.style.backgroundImage = "linear-gradient(100deg, rgba(8,9,8,.94) 30%, rgba(8,9,8,.55) 60%, rgba(8,9,8,.15)), url('" + d.hero_image + "')";
+      }
+      // 2. 일자 갱신
+      if (d.date) {
+        var pbDate = document.querySelector('.pressbar .pb-date b');
+        if (pbDate) pbDate.textContent = d.date + ' 발행';
+      }
+      // 3. 포커스 기사 내용 갱신
+      if (d.focus_news) {
+        var fTag = focusPhoto ? focusPhoto.querySelector('.tag') : null;
+        var fH2 = focusPhoto ? focusPhoto.querySelector('h2') : null;
+        var fP = focusPhoto ? focusPhoto.querySelector('p') : null;
+        var fSo = focusPhoto ? focusPhoto.querySelector('.sowhat') : null;
+        var fSrc = focusPhoto ? focusPhoto.querySelector('.srcrow') : null;
+
+        if (fTag && d.focus_news.tag) fTag.textContent = '1면 FOCUS · ' + d.focus_news.tag;
+        if (fH2 && d.focus_news.title) fH2.textContent = d.focus_news.title;
+        if (fP && d.focus_news.summary) fP.textContent = d.focus_news.summary;
+        if (fSo && d.focus_news.so_what) fSo.innerHTML = '<b>새미새론 시사점 ·</b> ' + d.focus_news.so_what;
+        if (fSrc && d.focus_news.source_name) {
+          fSrc.innerHTML = '출처: <a href="' + (d.focus_news.source_url || '#') + '" target="_blank" rel="noopener">' + d.focus_news.source_name + ' ↗</a>';
+        }
+      }
+      // 4. 레일 3대 기사 갱신
+      if (d.daily_three && d.daily_three.length >= 3) {
+        var ritems = document.querySelectorAll('.rail .ritem');
+        ritems.forEach(function(item, idx){
+          if (d.daily_three[idx]) {
+            var nSpan = item.querySelector('.n');
+            var aTt = item.querySelector('a.tt');
+            var itemData = d.daily_three[idx];
+            if (nSpan) nSpan.textContent = '0' + (idx+2) + ' ' + (itemData.category || 'AI NEWS');
+            if (aTt) {
+              aTt.textContent = itemData.title;
+              aTt.title = itemData.one_line || '';
+            }
+          }
+        });
+      }
+    })
+    .catch(function(err){
+      console.log('Briefing live data fetch error:', err);
+    });
 })();
 </script>
 </body>

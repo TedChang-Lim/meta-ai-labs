@@ -1878,6 +1878,7 @@
     </a>
 
     <div class="navlinks">
+      <a href="briefing.html" style="color:var(--gold-light); font-weight:600; display:inline-flex; align-items:center; gap:5px;"><span style="font-size:9px; padding:1px 5px; border-radius:4px; background:rgba(199,154,81,0.25); border:1px solid var(--gold); color:var(--gold-light);">DAILY</span>모닝샘</a>
       <a href="#about">ABOUT</a>
       <a href="#people">PEOPLE</a>
       <a href="#network">NETWORK</a>
@@ -1891,6 +1892,7 @@
       <a href="mouse_interactive/index.html" class="campus-cta" style="border-color: var(--teal-light); color: var(--teal-light); background: rgba(20, 184, 166, 0.08);">
         <span>⌨️</span> 타자·마우스 훈련원 ↗
       </a>
+      <a href="briefing.html" class="nav-cta" style="border-color:var(--gold); color:var(--gold-light); background:rgba(199,154,81,0.12);">모닝샘 AI 브리핑 ↗</a>
       <a href="campus.html" class="campus-cta">ONLINE CAMPUS</a>
       <button class="nav-cta" id="contactNavBtn" type="button" onclick="openContactModal()">CONTACT</button>
     </div>
@@ -1905,6 +1907,7 @@
   <!-- Mobile Drawer -->
   <div class="drawer-overlay" id="drawerOverlay"></div>
   <aside class="mobile-drawer" id="mobileDrawer">
+    <a href="briefing.html" class="drawer-link" style="color:var(--gold-light); font-weight:700;">🌅 모닝샘 오늘의 AI 브리핑 ↗</a>
     <a href="mouse_interactive/index.html" class="drawer-link" style="color:var(--teal-light); font-weight:700;">⌨️ 타자·마우스 훈련원 ↗</a>
     <a href="campus.html" class="drawer-link" style="color:var(--gold-light); font-weight:700;">ONLINE CAMPUS ↗</a>
     <a href="#about" class="drawer-link">ABOUT US</a>
@@ -1917,42 +1920,204 @@
     <button class="drawer-link" id="contactDrawerBtn" type="button" onclick="toggleMenu(false); openContactModal();" style="color:var(--gold);background:none;border:none;width:100%;text-align:left;font-family:inherit;font-size:inherit;padding:16px 0;cursor:pointer;">CONTACT SEMISERON</button>
   </aside>
 
-  <!-- HERO SECTION -->
-  <header class="hero" id="top">
-    <div class="hero-grid"></div>
-    
-    <div class="hero-water" id="heroWater" aria-label="새미새론 물방울 인터랙션">
-      <div class="water-image"></div>
-      <div class="water-shade"></div>
-      <div class="water-rings" aria-hidden="true">
-        <i></i><i></i><i></i>
-      </div>
-      <div class="water-caption">
-        <span class="dot"></span>
-        <span>TOUCH THE DROP</span>
-      </div>
-    </div>
-
-    <div class="hero-copy reveal">
-      <div class="eyebrow">SEMISERON AI LAB</div>
-      <h1>새로움이 <em>샘처럼</em></h1>
-      
-      <div class="hero-sub">
-        <p>
-          <strong>새로움이 샘처럼 솟아나는 곳.</strong><br>
-          사람을 키우고, 기술을 연결하고, 새로운 일을 만듭니다.
-        </p>
-        <nav class="hero-code" aria-label="빠른 바로가기">
-          <a href="#education">EDUCATION</a>
-          <a href="#classroom">CLASSROOM</a>
-          <a href="#lab">AI LABS</a>
-          <a href="#network">NETWORK</a>
-        </nav>
+  <!-- ==========================================
+       V5 SCROLL INTRO & MORNING SAM INTEGRATION
+       ========================================== -->
+  <div class="v5scroll-space" id="v5space">
+    <div class="v5stage" id="v5stage">
+      <canvas id="v5cv"></canvas>
+      <div class="v5-mobile-hero" id="v5MobileHero" style="display:none; position:absolute; inset:0; background:url('test-assets/f121.jpg') center/cover no-repeat;"></div>
+      <div class="v5hint" id="v5hint">SCROLL — 휠을 내리면 터치 → 파문 → 새싹</div>
+      <button class="v5-skip-btn" id="v5SkipBtn" type="button" onclick="skipIntro()">본문 바로가기 (SKIP) ✕</button>
+      <div class="v5cap" id="v5cap">
+        <h2>새미새론<span>AI</span>교육원</h2>
+        <p>TOUCH THE DROP — 새로움이 샘처럼 솟아나는 곳</p>
       </div>
     </div>
+  </div>
 
-    <div class="scrollmark"><i></i>SCROLL</div>
-  </header>
+  <!-- MORNING SAM LIVE TICKER (인트로 직후 첫 진입 구역) -->
+  <div class="morning-ticker-wrap" id="morningTickerWrap">
+    <div class="container">
+      <div class="morning-ticker" onclick="location.href='briefing.html'">
+        <div class="ticker-left">
+          <span class="ticker-badge" id="tickerBadge">🌅 모닝샘 데일리</span>
+          <span class="ticker-date" id="tickerDate">2026.09.14</span>
+        </div>
+        <div class="ticker-headline" id="tickerHeadline">
+          <span class="loading-pulse">오늘의 글로벌 AI 핵심 브리핑 로딩 중...</span>
+        </div>
+        <div class="ticker-action">
+          <span>브리핑 전문 보기</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* V5 Intro Styles */
+    .v5scroll-space { height: 380vh; background: #000; position: relative; }
+    .v5stage { position: sticky; top: 0; height: 100vh; overflow: hidden; background: #000; }
+    .v5stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .v5hint { position: absolute; top: 78px; left: 0; right: 0; text-align: center; font-size: 12px; color: var(--gold-light); letter-spacing: 2px; text-shadow: 0 2px 8px rgba(0,0,0,0.8); pointer-events: none; }
+    .v5-skip-btn {
+      position: absolute; top: 74px; right: 28px; z-index: 10;
+      background: rgba(8, 9, 8, 0.75); border: 1px solid var(--gold);
+      color: var(--gold-light); font-family: var(--font-display);
+      font-size: 11px; letter-spacing: 0.12em; padding: 7px 16px;
+      border-radius: 100px; cursor: pointer; backdrop-filter: blur(8px);
+      transition: all 0.25s ease;
+    }
+    .v5-skip-btn:hover { background: var(--gold); color: #000; transform: scale(1.04); }
+    .v5cap { position: absolute; left: 0; right: 0; bottom: 10%; text-align: center; pointer-events: none; opacity: 0; transition: opacity 0.3s; }
+    .v5cap h2 { font-family: var(--font-serif); font-size: clamp(26px, 4vw, 36px); color: var(--paper); letter-spacing: 1px; }
+    .v5cap h2 span { color: var(--gold-light); }
+    .v5cap p { font-size: 13px; color: var(--paper-dim); margin-top: 8px; letter-spacing: 3px; }
+
+    /* Morning Sam Live Ticker */
+    .morning-ticker-wrap {
+      background: #0b0e0c; border-top: 1px solid var(--line-gold);
+      border-bottom: 1px solid var(--line); padding: 14px 0;
+      position: relative; z-index: 20;
+    }
+    .morning-ticker {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 18px; padding: 12px 22px;
+      background: linear-gradient(90deg, rgba(199,154,81,0.12), rgba(14,17,15,0.8));
+      border: 1px solid rgba(199,154,81,0.3); border-radius: 8px;
+      cursor: pointer; transition: all 0.25s ease;
+    }
+    .morning-ticker:hover {
+      border-color: var(--gold); background: linear-gradient(90deg, rgba(199,154,81,0.2), rgba(20,184,166,0.1));
+      transform: translateY(-1px); box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .ticker-left { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .ticker-badge {
+      background: var(--gold); color: #000; font-family: var(--font-display);
+      font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.05em;
+    }
+    .ticker-date { font-family: var(--font-display); font-size: 12px; color: var(--paper-dim); }
+    .ticker-headline {
+      flex: 1; font-family: var(--font-sans); font-size: 14.5px;
+      color: var(--paper); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .ticker-headline strong { color: var(--gold-light); }
+    .ticker-action {
+      display: flex; align-items: center; gap: 6px; flex-shrink: 0;
+      font-family: var(--font-display); font-size: 11.5px; color: var(--gold-light); letter-spacing: 0.1em;
+    }
+    @media (max-width: 768px) {
+      .v5scroll-space { height: 90vh !important; }
+      .v5hint { display: none !important; }
+      .v5cap { opacity: 1 !important; bottom: 15% !important; }
+      .morning-ticker { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .ticker-headline { white-space: normal; font-size: 13.5px; line-height: 1.5; }
+      .ticker-action { width: 100%; justify-content: flex-end; }
+    }
+  </style>
+
+  <script>
+  (function(){
+    var isMobile = window.innerWidth <= 768;
+    var space = document.getElementById('v5space');
+    var cv = document.getElementById('v5cv'), ctx = cv.getContext('2d');
+    var cap = document.getElementById('v5cap');
+    var mobileHero = document.getElementById('v5MobileHero');
+
+    // [모바일 B안]: 모바일에서는 121장 배열 다운로드를 일절 실행하지 않고 정지 히어로 1장으로 대체
+    if (isMobile) {
+      cv.style.display = 'none';
+      mobileHero.style.display = 'block';
+      if (cap) cap.style.opacity = '1';
+      return;
+    }
+
+    // 데스크톱 첫 방문 / 재방문 검사
+    var lastVisit = localStorage.getItem('semiseron_last_intro_date');
+    var today = new Date().toISOString().slice(0,10);
+    if (lastVisit === today && window.location.hash === "") {
+      // 당일 재방문자는 인트로 건너뛰고 티커 위치로 즉시 스크롤 점프
+      setTimeout(function(){
+        skipIntro(true);
+      }, 50);
+    } else {
+      localStorage.setItem('semiseron_last_intro_date', today);
+    }
+
+    var N = 121;
+    var frames = new Array(N), cur = -1, first = false;
+
+    function size(){
+      if (isMobile) return;
+      var r = cv.parentElement.getBoundingClientRect();
+      cv.width = r.width; cv.height = r.height;
+      draw(vprog());
+    }
+    window.addEventListener('resize', size);
+
+    function vprog(){
+      var top = space.offsetTop, h = space.offsetHeight - window.innerHeight;
+      return h > 0 ? Math.min(1, Math.max(0, (window.scrollY - top) / h)) : 0;
+    }
+
+    function draw(p){
+      var i = Math.min(N-1, Math.floor(p * N));
+      if (i === cur) return;
+      var img = frames[i];
+      if (!img || !img.complete || !img.naturalWidth) return;
+      cur = i;
+      var W = cv.width, H = cv.height;
+      var s = Math.max(W/img.naturalWidth, H/img.naturalHeight);
+      var dw = img.naturalWidth*s, dh = img.naturalHeight*s;
+      ctx.drawImage(img, (W-dw)/2, (H-dh)/2, dw, dh);
+      if (cap) cap.style.opacity = p > 0.82 ? ((p - 0.82) / 0.18) : 0;
+    }
+
+    for (var k=0; k<N; k++){
+      (function(k){
+        var img = new Image();
+        img.onload = function(){ frames[k] = img; if (!first){ first = true; size(); } };
+        img.src = './test-assets/f' + ('00'+(k+1)).slice(-3) + '.jpg';
+      })(k);
+    }
+    size();
+
+    var ticking = false;
+    window.addEventListener('scroll', function(){
+      if (isMobile) return;
+      if (!ticking){
+        ticking = true;
+        requestAnimationFrame(function(){ ticking=false; draw(vprog()); });
+      }
+    }, { passive:true });
+  })();
+
+  function skipIntro(instant) {
+    var target = document.getElementById('morningTickerWrap');
+    if (target) {
+      if (instant) {
+        window.scrollTo(0, target.offsetTop - 62);
+      } else {
+        window.scrollTo({ top: target.offsetTop - 62, behavior: 'smooth' });
+      }
+    }
+  }
+
+  // 모닝샘 티커 실시간 데이터 바인딩
+  fetch('today-briefing.json?v=' + Date.now())
+    .then(function(res){ return res.json(); })
+    .then(function(data){
+      if (data && data.ticker) {
+        document.getElementById('tickerBadge').textContent = '🌅 ' + (data.ticker.badge || '모닝샘');
+        document.getElementById('tickerDate').textContent = data.date || '';
+        document.getElementById('tickerHeadline').innerHTML = '<strong>[포커스]</strong> ' + (data.ticker.headline || data.focus_news.title);
+      }
+    })
+    .catch(function(err){
+      console.log('Today briefing fetch fallback:', err);
+    });
+  </script>
 
   <!-- ABOUT & PHILOSOPHY SECTION -->
   <section class="section" id="about">
