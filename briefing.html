@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>모닝샘 · 새미새론 AI 교육원 오늘의 AI 브리핑 (시안 예시판)</title>
+<title>모닝샘 · 새미새론 AI 교육원 오늘의 AI 브리핑</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -184,8 +184,8 @@ footer a{color:var(--muted)}
 
 <div class="wrap">
   <div class="pressbar">
-    <span><a class="pb-brand" href="briefing.html">모닝<b>샘</b></a> · <span class="issue">제1호</span> · <a class="pb-home" href="index.html">← 새미새론 홈</a> · <span class="sampletag">SIAN · 예시판</span></span>
-    <span class="pb-date">9월 10일 목요일<small>매일 아침 7시 발행</small></span>
+    <span><a class="pb-brand" href="briefing.html">모닝<b>샘</b></a> · <span class="issue">제1호</span> · <a class="pb-home" href="index.html">← 새미새론 홈</a></span>
+    <span class="pb-date"><b>9월 10일 목요일</b><small>매일 아침 7시 발행</small></span>
   </div>
   <header class="masthead">
     <div class="eyebrow">SEMISERON MORNING BRIEF</div>
@@ -264,7 +264,7 @@ footer a{color:var(--muted)}
 
   <div class="principle">
     <span class="t">EDITING PRINCIPLE · 편집 원칙</span>
-    <b>사실과 해설을 구분합니다.</b> 뉴스 팩트는 원문 링크에서 확인하시고, '나에게는' 한 줄은 읽는 분의 입장에서 정리한 새미새론의 편집 해설입니다. 이후 상황 변화는 원문에서 확인해 주세요. 이 페이지는 시안 예시판이며, 정식 발행 시 매일 아침 7시 날짜판으로 교체됩니다.
+    <b>사실과 해설을 구분합니다.</b> 뉴스 팩트는 원문 링크에서 확인하시고, '나에게는' 한 줄은 읽는 분의 입장에서 정리한 새미새론의 편집 해설입니다. 이후 상황 변화는 원문에서 확인해 주세요. 이 브리핑은 매일 아침 7시에 새로 발행됩니다.
   </div>
 
   <div class="archive">
@@ -378,8 +378,10 @@ footer a{color:var(--muted)}
     });
   });
   var toTop=document.getElementById('toTop');
-  window.addEventListener('scroll',function(){ toTop.classList.toggle('show',window.scrollY>500); },{passive:true});
-  toTop.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  if (toTop) {
+    window.addEventListener('scroll',function(){ toTop.classList.toggle('show',window.scrollY>500); },{passive:true});
+    toTop.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  }
   var DIGEST={
     focus:{tag:'1면 FOCUS · 쉽게 읽기',title:'정부 AI 예산 9조 원대 시대 — "전 국민 AI 공짜"가 온다',
       bullets:['2026년 정부 AI 예산이 9조 원대로 편성됐습니다. 보도별 집계가 조금씩 달라 9.4조 원(전년 대비 84% 증가) 보도와 9.9조 원(전년의 3배) 정리가 함께 있습니다. 어느 쪽이든 "역대 최대·전년 대비 2~3배"라는 방향은 같습니다.',
@@ -431,10 +433,14 @@ footer a{color:var(--muted)}
       if (focusPhoto && d.hero_image) {
         focusPhoto.style.backgroundImage = "linear-gradient(100deg, rgba(8,9,8,.94) 30%, rgba(8,9,8,.55) 60%, rgba(8,9,8,.15)), url('" + d.hero_image + "')";
       }
-      // 2. 일자 갱신
+      // 2. 일자·호수 갱신
       if (d.date) {
         var pbDate = document.querySelector('.pressbar .pb-date b');
         if (pbDate) pbDate.textContent = d.date + ' 발행';
+      }
+      if (d.issue_no) {
+        var issue = document.querySelector('.pressbar .issue');
+        if (issue) issue.textContent = '제' + d.issue_no + '호';
       }
       // 3. 포커스 기사 내용 갱신
       if (d.focus_news) {

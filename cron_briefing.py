@@ -212,6 +212,14 @@ def main():
     data["hero_tag"] = HERO_MAPPING[hid]["tag"]
     data["date"] = TODAY_STR
     data["updated_at"] = TODAY_ISO
+    # 호수: 9/10 시안=제1호, 9/15 정식 첫발행=제2호부터 하루 1씩 증가
+    try:
+        from datetime import date as _date
+        _second = _date(2026, 9, 15)
+        _today = datetime.now(KST).date()
+        data["issue_no"] = 1 if _today < _second else (_today - _second).days + 2
+    except Exception:
+        data["issue_no"] = 1
 
     # 파일 저장 (today-briefing.json)
     base_dir = os.path.dirname(os.path.abspath(__file__))
