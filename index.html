@@ -1926,7 +1926,9 @@
   <div class="v5scroll-space" id="v5space">
     <div class="v5stage" id="v5stage">
       <canvas id="v5cv"></canvas>
-      <div class="v5-mobile-hero" id="v5MobileHero" style="display:none; position:absolute; inset:0; background:url('test-assets/f121.jpg') center/cover no-repeat;"></div>
+      <video id="v5video" muted playsinline preload="auto" style="opacity:0;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></video>
+      <div class="v5-mobile-hero" id="v5MobileHero" style="display:none; position:absolute; inset:0; background:url('test-assets/f001.jpg') center/cover no-repeat;"></div>
+      <video id="v5loop" muted loop playsinline autoplay preload="auto" poster="test-assets/f001.jpg" src="test-assets/intro_loop.mp4" style="opacity:0;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></video>
       <div class="v5hint" id="v5hint">SCROLL — 휠을 내리면 터치 → 파문 → 새싹</div>
       <button class="v5-skip-btn" id="v5SkipBtn" type="button" onclick="skipIntro()">본문 바로가기 (SKIP) ✕</button>
       <div class="v5cap" id="v5cap">
@@ -2009,10 +2011,17 @@
     var cap = document.getElementById('v5cap');
     var mobileHero = document.getElementById('v5MobileHero');
 
-    // [모바일 B안]: 모바일에서는 121장 배열 다운로드를 일절 실행하지 않고 정지 히어로 1장으로 대체
+    // [모바일]: 짧은 반복 영상(0.4MB)으로 재생, 실패 시 손+물방울 정지컷(f001)으로 대체
     if (isMobile) {
       cv.style.display = 'none';
-      mobileHero.style.display = 'block';
+      var loop = document.getElementById('v5loop');
+      function loopFallback(){ mobileHero.style.display = 'block'; }
+      loop.addEventListener('playing', function(){ loop.style.opacity = '1'; });
+      var pp = null;
+      try { pp = loop.play(); } catch(e){}
+      if (pp && pp.catch) pp.catch(loopFallback);
+      loop.addEventListener('error', loopFallback);
+      setTimeout(function(){ if (loop.readyState < 2 && loop.style.opacity !== '1') loopFallback(); }, 6000);
       if (cap) cap.style.opacity = '1';
       return;
     }
@@ -2036,7 +2045,7 @@
       if (isMobile) return;
       var r = cv.parentElement.getBoundingClientRect();
       cv.width = r.width; cv.height = r.height;
-      draw(vprog());
+      prog(vprog());
     }
     window.addEventListener('resize', size);
 
@@ -2058,13 +2067,34 @@
       if (cap) cap.style.opacity = p > 0.82 ? ((p - 0.82) / 0.18) : 0;
     }
 
-    for (var k=0; k<N; k++){
-      (function(k){
-        var img = new Image();
-        img.onload = function(){ frames[k] = img; if (!first){ first = true; size(); } };
-        img.src = './test-assets/f' + ('00'+(k+1)).slice(-3) + '.jpg';
-      })(k);
+    // 영상 우선: 사진 121장(7.6MB) 대신 영상 1개(1.4MB)로 스크롤 재생, 실패 시 기존 사진 방식
+    var vv = document.getElementById('v5video');
+    var useVideo = false, imgStarted = false;
+    function prog(){ if (useVideo) drawV(vprog()); else draw(vprog()); }
+    function drawV(p){
+      if (!vv.duration) return;
+      var t = p * vv.duration;
+      if (Math.abs(vv.currentTime - t) > 1/24) { try { vv.currentTime = t; } catch(e){} }
+      if (cap) cap.style.opacity = p > 0.82 ? ((p - 0.82) / 0.18) : 0;
     }
+    function startImgFallback(){
+      if (imgStarted) return; imgStarted = true;
+      for (var k=0; k<N; k++){
+        (function(k){
+          var img = new Image();
+          img.onload = function(){ frames[k] = img; if (!first){ first = true; size(); } };
+          img.src = './test-assets/f' + ('00'+(k+1)).slice(-3) + '.jpg';
+        })(k);
+      }
+      size();
+    }
+    vv.addEventListener('loadedmetadata', function(){
+      if (imgStarted) return;
+      useVideo = true; vv.style.opacity = '1'; cv.style.display = 'none'; drawV(vprog());
+    });
+    vv.addEventListener('error', function(){ useVideo = false; startImgFallback(); });
+    setTimeout(function(){ if (!useVideo && !imgStarted) startImgFallback(); }, 6000);
+    vv.src = 'test-assets/intro_full.mp4';
     size();
 
     var ticking = false;
@@ -2072,7 +2102,7 @@
       if (isMobile) return;
       if (!ticking){
         ticking = true;
-        requestAnimationFrame(function(){ ticking=false; draw(vprog()); });
+        requestAnimationFrame(function(){ ticking=false; prog(vprog()); });
       }
     }, { passive:true });
   })();
