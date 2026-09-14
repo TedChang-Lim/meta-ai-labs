@@ -1936,24 +1936,7 @@
     </div>
   </div>
 
-  <!-- MORNING SAM LIVE TICKER (인트로 직후 첫 진입 구역) -->
-  <div class="morning-ticker-wrap" id="morningTickerWrap">
-    <div class="container">
-      <div class="morning-ticker" onclick="location.href='briefing.html'">
-        <div class="ticker-left">
-          <span class="ticker-badge" id="tickerBadge">🌅 모닝샘 데일리</span>
-          <span class="ticker-date" id="tickerDate">2026.09.14</span>
-        </div>
-        <div class="ticker-headline" id="tickerHeadline">
-          <span class="loading-pulse">오늘의 글로벌 AI 핵심 브리핑 로딩 중...</span>
-        </div>
-        <div class="ticker-action">
-          <span>브리핑 전문 보기</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- MORNING SAM LIVE TICKER (위치 이동됨: PHILOSOPHY 바로 위) -->
 
   <style>
     /* V5 Intro Styles */
@@ -1979,7 +1962,7 @@
     .morning-ticker-wrap {
       background: #0b0e0c; border-top: 1px solid var(--line-gold);
       border-bottom: 1px solid var(--line); padding: 14px 0;
-      position: relative; z-index: 20; margin-top: 34px;
+      position: relative; z-index: 20; margin-top: 64px;
     }
     .morning-ticker {
       display: flex; align-items: center; justify-content: space-between;
@@ -2014,6 +1997,7 @@
       .morning-ticker { flex-direction: column; align-items: flex-start; gap: 8px; }
       .ticker-headline { white-space: normal; font-size: 13.5px; line-height: 1.5; }
       .ticker-action { width: 100%; justify-content: flex-end; }
+      .morning-ticker-wrap { margin-top: 28px; }
     }
   </style>
 
@@ -2118,6 +2102,25 @@
       console.log('Today briefing fetch fallback:', err);
     });
   </script>
+
+  <!-- MORNING SAM LIVE TICKER (PHILOSOPHY 바로 위) -->
+  <div class="morning-ticker-wrap" id="morningTickerWrap">
+    <div class="container">
+      <div class="morning-ticker" onclick="location.href='briefing.html'">
+        <div class="ticker-left">
+          <span class="ticker-badge" id="tickerBadge">🌅 모닝샘 데일리</span>
+          <span class="ticker-date" id="tickerDate">2026.09.14</span>
+        </div>
+        <div class="ticker-headline" id="tickerHeadline">
+          <span class="loading-pulse">오늘의 글로벌 AI 핵심 브리핑 로딩 중...</span>
+        </div>
+        <div class="ticker-action">
+          <span>브리핑 전문 보기</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ABOUT & PHILOSOPHY SECTION -->
   <section class="section" id="about">
