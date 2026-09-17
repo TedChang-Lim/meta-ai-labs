@@ -1224,6 +1224,19 @@
       .portal-menu-grid { grid-template-columns: 1fr; }
       .record-stats-grid { grid-template-columns: repeat(2, 1fr); }
     }
+
+    @media (hover: none) {
+      /* 터치 기기: 첫 탭이 hover에 먹히지 않고 바로 click 되도록 hover 효과 제거 */
+      .primary-tab:hover { border-color: var(--line); transform: none; }
+      .primary-tab:hover .tab-badge-icon { transform: none; }
+      .subnav-pill:hover { background: rgba(255, 255, 255, 0.03); color: var(--paper-dim); }
+      .btn-theme-chip:hover { border-color: var(--line); color: var(--paper-dim); background: var(--bg-card); transform: none; }
+      .portal-card:hover { border-color: rgba(247, 245, 237, 0.08); transform: none; box-shadow: none; background: linear-gradient(145deg, rgba(26, 32, 28, 0.8) 0%, rgba(16, 20, 18, 0.95) 100%); }
+      .portal-card:hover::before { background: transparent; }
+      .portal-card:hover .portal-card-icon { transform: none; border-color: rgba(255, 255, 255, 0.1); }
+      .kb-key-cap:hover { background: rgba(255, 255, 255, 0.04); color: inherit; transform: none; box-shadow: none; }
+      .btn-scale:hover { background: transparent; color: var(--muted); }
+    }
   </style>
 </head>
 <body>
