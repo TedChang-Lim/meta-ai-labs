@@ -493,6 +493,45 @@ footer a{color:var(--muted)}
     .catch(function(err){
       console.log('Briefing live data fetch error:', err);
     });
+
+  // 지난 호 아카이브 목록 (archive-index.json) — 2026-09-22 추가
+  fetch('archive-index.json?v=' + Date.now())
+    .then(function(res){ return res.json(); })
+    .then(function(list){
+      var ul = document.getElementById('archList');
+      var st = document.getElementById('archStatus');
+      if (!ul || !list || !list.length) return;
+      if (st) st.textContent = '총 ' + list.length + '호가 쌓였습니다. 눌러서 펼치세요.';
+      ul.innerHTML = '';
+      list.forEach(function(it){
+        var li = document.createElement('li');
+        li.style.cssText = 'margin:6px 0;padding:10px 12px;border:1px solid rgba(255,255,255,.14);border-radius:10px;cursor:pointer';
+        var head = document.createElement('div');
+        head.innerHTML = '<b>제' + it.issue_no + '호</b> · ' + it.date +
+          '<br><span style="font-size:14px">' + it.focus + '</span>';
+        var body = document.createElement('div');
+        body.style.cssText = 'display:none;margin-top:8px;font-size:13px;line-height:1.6';
+        body.textContent = '불러오는 중…';
+        head.addEventListener('click', function(){
+          if (body.style.display === 'none') {
+            body.style.display = 'block';
+            if (!body.dataset.done) {
+              fetch(it.file + '?v=' + Date.now()).then(function(r){ return r.json(); }).then(function(d){
+                var h = '';
+                if (d.focus_news) h += '<b>1면:</b> ' + d.focus_news.title + '<br>' + (d.focus_news.summary || '') + '<br>';
+                if (d.daily_three) d.daily_three.forEach(function(n, i){ h += '<b>' + (i+2) + '면:</b> ' + n.title + '<br>'; });
+                body.innerHTML = h;
+                body.dataset.done = '1';
+              }).catch(function(){ body.textContent = '불러오기 실패'; });
+            }
+          } else { body.style.display = 'none'; }
+        });
+        li.appendChild(head); li.appendChild(body); ul.appendChild(li);
+      });
+    })
+    .catch(function(err){
+      console.log('Archive fetch error:', err);
+    });
 })();
 </script>
 </body>

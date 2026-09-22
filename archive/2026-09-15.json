@@ -1,0 +1,41 @@
+{
+  "hero_id": 15,
+  "ticker": {
+    "badge": "오늘의 AI 핵심",
+    "headline": "젠슨 황, \"AI 속도 늦추지 않는다\"… 감속론과 정면 충돌",
+    "link": "briefing.html"
+  },
+  "focus_news": {
+    "tag": "MODEL & REASONING",
+    "title": "속도를 둘러싼 두 목소리: '멈추지 말자'는 엔비디아, '잠시 숨을 고르자'는 앤스로픽",
+    "summary": "AI 개발 속도를 두고 업계의 온도차가 뚜렷해졌습니다. 앤스로픽의 다리오 아모데이가 위험을 근거로 개발 속도를 늦추자는 글을 공개한 가운데, 엔비디아의 젠슨 황 CEO는 트럼프 전 대통령과의 자리에서 AI 둔화는 없을 것이라고 못 박았습니다. 일론 머스크와 샘 알트만이 아모데이의 주장에 힘을 보탠 반면, 황은 정반대편에 섰습니다. 결국 같은 사안을 두고 '안전 우선'과 '속도 우선'이라는 두 논리가 부딪히는 형국입니다.",
+    "so_what": "새미새론 관점: 1) 기업은 AI 도입 로드맵을 세울 때 규제·감속 리스크와 기술 가속 리스크를 함께 시나리오로 나눠 준비해야 합니다. 2) 교육 현장에서는 '빠른 기술'과 '책임 있는 활용'을 함께 가르치는 균형형 커리큘럼이 더 절실해졌습니다. 3) 당분간 감속 담론과 가속 담론이 교차하며 정책 변동성이 커질 수 있어, 특정 모델에 과하게 종속되지 않는 유연한 전략이 유리합니다.",
+    "source_name": "TechCrunch AI",
+    "source_url": "https://techcrunch.com/2026/09/14/nvidia-ceo-jensen-huang-tells-trump-were-not-going-to-let-an-ai-slowdown-happen/"
+  },
+  "daily_three": [
+    {
+      "id": 1,
+      "category": "HARDWARE",
+      "title": "OpenAI, 아이폰 인물사진 만든 팀 품는다… 카메라 스타트업 3억 달러 인수",
+      "one_line": "애플 출신 엔지니어들이 세운 Glass Imaging 인수로, AI 기기의 '눈'인 카메라 역량을 자체 확보하려는 행보로 읽힙니다."
+    },
+    {
+      "id": 2,
+      "category": "POLICY",
+      "title": "AI 업계에 번진 '둠(doom)' 담론, 이제 무엇을 준비할까",
+      "one_line": "감속론이 산업 전반의 화두로 떠오르며, 각국 규제와 기업 윤리 기준이 함께 흔들릴 수 있다는 점을 짚어 둘 필요가 있습니다."
+    },
+    {
+      "id": 3,
+      "category": "EDUCATION",
+      "title": "iOS 27과 함께 돌아온 시리, 이번엔 정말 쓸 만해졌을까",
+      "one_line": "오래 미뤄진 시리 개편이 일상 사용성을 바꾸면서, 강의·학습 보조 도구로 다시 검토해볼 만한 시점입니다."
+    }
+  ],
+  "hero_image": "marks/heroes/hero_forest.webp",
+  "hero_tag": "FOREST",
+  "date": "2026.09.15",
+  "updated_at": "2026-09-15T07:00:00.737968+09:00",
+  "issue_no": 2
+}
