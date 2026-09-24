@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새미새론 AI 교육원</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+    
+    <style>
+        /* 디자인 토큰 */
+        :root {
+            /* 컬러 팔레트 */
+            --bg-primary: #030712;
+            --bg-secondary: #0a0f1a;
+            --bg-card: #111827;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3af;
+            --text-muted: #64748b;
+            --accent-gold: #bf953f;
+            --accent-gold-light: #f5e6b8;
+            --accent-teal: #0d9488;
+            --accent-teal-light: #14b8a6;
+            --accent-sage: #7c9a7c;
+            --border-subtle: rgba(255,255,255,0.06);
+            --border-gold: rgba(191,149,63,0.3);
+            
+            /* 폰트 */
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Pretendard', 'Inter', sans-serif;
+            --font-caption: 'Pretendard', sans-serif;
+            
+            /* 간격 */
+            --container: 1400px;
+            --section-padding: 6rem 2rem;
+            --card-padding: 2rem;
+            --radius: 12px;
+            
+            /* 그림자 */
+            --shadow-card: 0 8px 32px rgba(0,0,0,0.25);
+            --shadow-gold: 0 0 24px rgba(191,149,63,0.15);
+            --shadow-teal: 0 0 24px rgba(13,148,136,0.15);
+            
+            /* 전환 */
+            --transition-normal: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* 컨테이너 */
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* 네비게이션 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(3,7,18,0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1rem 0;
+            transition: var(--transition-normal);
+        }
+
+        nav.scrolled {
+            background: rgba(3,7,18,0.95);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-accent {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Hero 섹션 */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(191,149,63,0.15);
+            border: 1px solid var(--border-gold);
+            border-radius: 24px;
+            color: var(--accent-gold);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-gold-light);
+            box-shadow: var(--shadow-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--border-gold);
+        }
+
+        /* People 섹션 */
+        .section {
+            padding: var(--section-padding);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .people-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .people-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-gold);
+            box-shadow: var(--shadow-card);
+        }
+
+        .card-image {
+            height: 300px;
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--accent-sage) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 100%);
+        }
+
+        .card-content {
+            padding: var(--card-padding);
+        }
+
+        .card-number {
+            color: var(--accent-gold);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-number);
+        }
+
+        .card-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .card-role {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .card-bio {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .view-more {
+            color: var(--accent-teal);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .view-more:hover {
+            gap: 0.75rem;
+        }
+
+        /* Network 섹션 */
+        .network-section {
+            background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .network-map {
+            position: relative;
+            height: 500px;
+            margin: 4rem 0;
+            background: radial-gradient(circle at center, rgba(191,149,63,0.1) 0%, transparent 70%);
+        }
+
+        .network-location {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .location-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(191,149,63,0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .location-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-description {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .footer-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* 스크롤 애니메이션 */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .people-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .people-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-actions {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .people-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">
+                <span class="logo-accent">SEMISERON</span> AI
+            </a>
+            <ul class="nav-links">
+                <li><a href="#hero">홈</a></li>
+                <li><a href="#people">사람들</a></li>
+                <li><a href="#network">네트워크</a></li>
+                <li><a href="#education">교육</a></li>
+                <li><a href="#projects">프로젝트</a></li>
+                <li><a href="#campus">캠퍼스</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero 섹션 -->
+    <section id="hero" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content scroll-reveal">
+                <div class="hero-badge">FOR THE NEW SEMISERON</div>
+                <h1 class="hero-title">
+                    새로움이 샘처럼 솟아나는 곳
+                </h1>
+                <p class="hero-subtitle">
+                    기술을 배우고, 창의력을 키우고, 새로운 일을 만들어내는 AI 교육원.
+                    사람 중심의 따뜻한 기술 교육으로 여러분을 지원합니다.
+                </p>
+                <div class="hero-actions">
+                    <a href="#education" class="btn btn-primary">교육 과정 보기</a>
+                    <a href="#network" class="btn btn-secondary">네트워크 보기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- People 섹션 - 최종 확정 버전 -->
+    <section id="people" class="section">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">사람들</h2>
+                <p class="section-subtitle">
+                    서로 다른 분야에서 활동해 온 사람들이<br/>
+                    AI라는 새로운 변화 앞에서 다시 연결되었습니다.
+                </p>
+            </div>
+            
+            <div class="people-grid">
+                <!-- 01. 김소영 - 이사장 -->
+                <div class="people-card scroll-reveal">
+                    <div class="card-image" style="background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-number">01</div>
+                        <div class="card-name">김소영</div>
+                        <div class="card-role">이사장</div>
+                        <div class="card-bio">
+                            영어교육 20년, 심리코칭 석사, 경북대 AI·XR 입학.<br/>
+                            영어+AI 융합교육, 심리코칭+AI 전문.
+                        </div>
+                        <a href="#" class="view-more">VIEW MORE →</a>
+                    </div>
+                </div>
+
+                <!-- 02. 임창식 - 총괄이사 -->
+                <div class="people-card scroll-reveal" style="transition-delay: 0.1s;">
+                    <div class="card-image" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-number">02</div>
+                        <div class="card-name">임창식</div>
+                        <div class="card-role">총괄이사</div>
+                        <div class="card-bio">
+                            사진·영상 30년, 경복대 AI·XR 석사과정, 저서 출간.<br/>
+                            미디어 교육, 유튜브/SNS 콘텐츠 제작 총괄.
+                        </div>
+                        <a href="#" class="view-more">VIEW MORE →</a>
+                    </div>
+                </div>
+
+                <!-- 03. 한기열 - 이사 -->
+                <div class="people-card scroll-reveal" style="transition-delay: 0.2s;">
+                    <div class="card-image" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-number">03</div>
+                        <div class="card-name">한기열</div>
+                        <div class="card-role">이사</div>
+                        <div class="card-bio">
+                            경복대·평택대 겸임교수, 화성미디어센터장 역임.<br/>
+                            산학협력, 지자체 사업 기획 전문가.
+                        </div>
+                        <a href="#" class="view-more">VIEW MORE →</a>
+                    </div>
+                </div>
+
+                <!-- 04. 김봉수 - 이사 -->
+                <div class="people-card scroll-reveal" style="transition-delay: 0.3s;">
+                    <div class="card-image" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-number">04</div>
+                        <div class="card-name">김봉수</div>
+                        <div class="card-role">이사</div>
+                        <div class="card-bio">
+                            AI·3D매핑·미디어파사드 기업 대표, 정부·군 납품.<br/>
+                            정부사업 연계, B2B 사업 개발 전문가.
+                        </div>
+                        <a href="#" class="view-more">VIEW MORE →</a>
+                    </div>
+                </div>
+
+                <!-- 05. 김태완 - 이사(감사) -->
+                <div class="people-card scroll-reveal" style="transition-delay: 0.4s;">
+                    <div class="card-image" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-number">05</div>
+                        <div class="card-name">김태완</div>
+                        <div class="card-role">이사(감사)</div>
+                        <div class="card-bio">
+                            경복대 전임교수, AR·XR·메타버스·디지털트윈 전문가.<br/>
+                            산학협력, 디지털트윈 교육, 감사 업무 병행.
+                        </div>
+                        <a href="#" class="view-more">VIEW MORE →</a>
+                    </div>
+                </div>
+
+                <!-- 06. 조안나 - 이사 -->
+                <div class="people-card scroll-reveal" style="transition-delay: 0.5s;">
+                    <div class="card-image" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-number">06</div>
+                        <div class="card-name">조안나</div>
+                        <div class="card-role">이사</div>
+                        <div class="card-bio">
+                            멀티미디어 콘텐츠 제작, UX 디자인 전문.<br/>
+                            교육 과정 설계, 학생 상담 및 운영 지원.
+                        </div>
+                        <a href="#" class="view-more">VIEW MORE →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network 섹션 - 경복대 남양주 통합 -->
+    <section id="network" class="section network-section">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">네트워크</h2>
+                <p class="section-subtitle">
+                    원주를 중심으로 전국으로 연결되는 새미새론의 전문가 네트워크
+                </p>
+            </div>
+
+            <div class="network-map">
+                <!-- 원주 (본부) -->
+                <div class="network-location" style="top: 50%; left: 50%;">
+                    <div class="location-dot"></div>
+                    <div class="location-label">원주</div>
+                </div>
+
+                <!-- 평택 -->
+                <div class="network-location" style="top: 30%; left: 70%;">
+                    <div class="location-dot"></div>
+                    <div class="location-label">평택</div>
+                </div>
+
+                <!-- 대전 -->
+                <div class="network-location" style="top: 20%; left: 50%;">
+                    <div class="location-dot"></div>
+                    <div class="location-label">대전</div>
+                </div>
+
+                <!-- 김포 -->
+                <div class="network-location" style="top: 40%; left: 80%;">
+                    <div class="location-dot"></div>
+                    <div class="location-label">김포</div>
+                </div>
+
+                <!-- 남양주 (조안나 + 경복대) -->
+                <div class="network-location" style="top: 60%; left: 80%;">
+                    <div class="location-dot"></div>
+                    <div class="location-label">남양주</div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; margin-top: 4rem;">
+                <div class="scroll-reveal">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-primary);">네트워크 설명</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        새미새론 AI 교육원은 원주를 중심으로 전국에 걸쳐<br/>
+                        전문가와 기관을 연결합니다. 평택, 대전, 김포, 남양주와의<br/>
+                        긴밀한 협력을 통해 지역별 맞춤형 AI 교육을 제공합니다.
+                    </p>
+                </div>
+                <div class="scroll-reveal">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-primary);">연결된 지역</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                        <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 20px; font-size: 0.875rem; color: var(--text-secondary); border: 1px solid var(--border-subtle);">원주 본부</span>
+                        <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 20px; font-size: 0.875rem; color: var(--text-secondary); border: 1px solid var(--border-subtle);">평택</span>
+                        <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 20px; font-size: 0.875rem; color: var(--text-secondary); border: 1px solid var(--border-subtle);">대전</span>
+                        <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 20px; font-size: 0.875rem; color: var(--text-secondary); border: 1px solid var(--border-subtle);">김포</span>
+                        <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 20px; font-size: 0.875rem; color: var(--text-secondary); border: 1px solid var(--border-subtle);">남양주<br/>(경복대)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education 섹션 (Placeholder) -->
+    <section id="education" class="section">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">교육</h2>
+                <p class="section-subtitle">
+                    AI 리터러시부터 전문 크리에이터까지, 실무 중심의 체계적인 커리큘럼
+                </p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                <div class="people-card scroll-reveal">
+                    <div class="card-image" style="background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-name">AI 리터러시 기초</div>
+                        <div class="card-bio">왕초보부터 시작하는 AI 도구 활용법</div>
+                        <a href="#" class="view-more">자세히 보기 →</a>
+                    </div>
+                </div>
+                <div class="people-card scroll-reveal">
+                    <div class="card-image" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-name">AI 미디어 크리에이터</div>
+                        <div class="card-bio">영상, 이미지, 사운드 AI 제작 실무</div>
+                        <a href="#" class="view-more">자세히 보기 →</a>
+                    </div>
+                </div>
+                <div class="people-card scroll-reveal">
+                    <div class="card-image" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-name">XR 콘텐츠 제작</div>
+                        <div class="card-bio">AR/VR/메타버스 콘텐츠 기획·제작</div>
+                        <a href="#" class="view-more">자세히 보기 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects 섹션 (Placeholder) -->
+    <section id="projects" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">프로젝트</h2>
+                <p class="section-subtitle">
+                    기업·기관·대학과 함께하는 AI 전환 및 콘텐츠 제작 프로젝트
+                </p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                <div class="people-card scroll-reveal">
+                    <div class="card-image" style="background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-name">공공기관 AI 교육</div>
+                        <div class="card-bio">지자체·교육청 디지털 역량 강화</div>
+                    </div>
+                </div>
+                <div class="people-card scroll-reveal">
+                    <div class="card-image" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-name">기업 AI 전환 컨설팅</div>
+                        <div class="card-bio">업무 자동화, 생성형 AI 도입 지원</div>
+                    </div>
+                </div>
+                <div class="people-card scroll-reveal">
+                    <div class="card-image" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-name">XR/디지털트윈 구축</div>
+                        <div class="card-bio">스마트시티, 시뮬레이터, 3D 매핑</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus 섹션 (Placeholder) -->
+    <section id="campus" class="section">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">캠퍼스</h2>
+                <p class="section-subtitle">
+                    온라인 캠퍼스와 오프라인 연수원, 전국 네트워크 학습 공간
+                </p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                <div class="people-card scroll-reveal">
+                    <div class="card-image" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-name">온라인 캠퍼스</div>
+                        <div class="card-bio">언제 어디서나 학습 가능한 LMS 플랫폼</div>
+                        <a href="#" class="view-more">입장하기 →</a>
+                    </div>
+                </div>
+                <div class="people-card scroll-reveal">
+                    <div class="card-image" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-name">오프라인 연수원</div>
+                        <div class="card-bio">원주 본원, 전국 거점 센터 운영</div>
+                        <a href="#" class="view-more">자세히 보기 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">SEMISERON<span class="logo-accent">AI</span></a>
+                    <p class="footer-description">
+                        새미새론 AI 교육원은 기술과 사람 사이, 배움의 새 차원을 엽니다.<br/>
+                        모두가 함께 성장하는 AI 교육 공동체를 만들어갑니다.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">빠른 링크</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">홈</a></li>
+                        <li><a href="#people">사람들</a></li>
+                        <li><a href="#network">네트워크</a></li>
+                        <li><a href="#education">교육 과정</a></li>
+                        <li><a href="#projects">프로젝트</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">교육 과정</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">AI 리터러시 기초</a></li>
+                        <li><a href="#">AI 미디어 크리에이터</a></li>
+                        <li><a href="#">XR 콘텐츠 제작</a></li>
+                        <li><a href="#">AI 비즈니스 활용</a></li>
+                        <li><a href="#">AI 강사 양성</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">연락처</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@semiseron.kr">info@semiseron.kr</a></li>
+                        <li><a href="tel:+82-33-123-4567">+82-33-123-4567</a></li>
+                        <li>강원도 원주시</li>
+                        <li>새미새론 AI 교육원</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 새미새론 AI 교육원 협동조합. 모든 권리 보유.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 네비게이션 스크롤 효과
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(3, 7, 18, 0.98)';
+                navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.5)';
+            } else {
+                navbar.style.background = 'rgba(3, 7, 18, 0.8)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 마우스 오버 효과 강화
+        document.querySelectorAll('.people-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
