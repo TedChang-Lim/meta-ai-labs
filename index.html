@@ -2060,6 +2060,13 @@
       box-shadow: 0 8px 24px rgba(23, 25, 28, 0.1);
       transform: translateY(-3px);
     }
+/* ── 안전망: 클래스로 직접 잡는다 (값은 위 K 규칙과 동일) ── */
+.light-band .track-card, .light-band .card-box { background: #ffffff !important; border-color: rgba(23, 25, 28, 0.12) !important; box-shadow: 0 2px 14px rgba(23, 25, 28, 0.06) !important; }
+.light-band .track-card h3, .light-band .track-card h4, .light-band .card-box h3, .light-band .card-box h4 { color: #17191c !important; }
+.light-band .track-card p, .light-band .card-box p, .light-band .track-desc, .light-band .track-instructor { color: #4c5148 !important; }
+.light-band .track-card .track-title { color: #17191c !important; }
+.light-band .track-card .track-num, .light-band .card-box .track-num { color: var(--gold) !important; }
+.light-band h2, .light-band h3, .light-band h4, .light-band p { word-break: keep-all; }
 </style>
 
   <script>
@@ -2551,7 +2558,7 @@
         </div>
 
         <!-- DEDICATED DIGITAL FOUNDATION BANNER (TYPING & MOUSE LAB) -->
-        <div class="dark-embed teal" style="background: radial-gradient(circle at 80% 20%, rgba(20,184,166,0.12)background: radial-gradient(circle at 80% 20%, rgba(20,184,166,0.12) 0%, rgba(12,15,13,0.95) 100%); border: 1.5px solid var(--teal-light); border-radius: 4px; padding: 32px 28px; margin-bottom: 36px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        <div class="dark-embed teal" style="background: radial-gradient(circle at 80% 20%, rgba(20,184,166,0.12) 0%, rgba(12,15,13,0.95) 100%); border: 1.5px solid var(--teal-light); border-radius: 4px; padding: 32px 28px; margin-bottom: 36px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
           <div style="max-width: 720px;">
             <div style="display:inline-flex; align-items:center; gap:8px; font-family:var(--font-display); font-size:11px; color:var(--teal-light); letter-spacing:0.2em; margin-bottom:8px; font-weight:700;">
               <span>⌨️</span> DIGITAL FOUNDATION · MOUSE &amp; TYPING MATRIX
@@ -2569,7 +2576,7 @@
         </div>
 
         <!-- LEVEL 2: SPECIALIZED PROFESSIONAL PROGRAMS (교수진 전문 영역) -->
-        <div class="dark-embed" style="background:rgba(18,20,18,0.7); border:1px solid var(--line-gold)background:rgba(18,20,18,0.7); border:1px solid var(--line-gold); padding:28px; border-radius:2px;">
+        <div class="dark-embed" style="background:rgba(18,20,18,0.7); border:1px solid var(--line-gold); padding:28px; border-radius:2px;">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:20px;">
             <div>
               <div style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.2em;">SPECIALIZED &amp; PROFESSIONAL</div>
