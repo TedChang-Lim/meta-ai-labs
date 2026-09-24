@@ -162,14 +162,16 @@
 
     .navlinks {
       display: flex;
-      gap: 28px;
+      gap: 9px;
       align-items: center;
+      flex-shrink: 0;
     }
 
     .navlinks a {
       font-family: var(--font-display);
       font-size: 11px;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.07em;
+      white-space: nowrap;
       color: var(--muted);
       transition: color 0.25s ease;
       position: relative;
@@ -198,11 +200,13 @@
 
     .nav-cta, .campus-cta {
       border: 1px solid var(--line-gold);
-      padding: 8px 18px;
+      padding: 8px 13px;
       font-family: var(--font-display);
       font-size: 10px;
       font-weight: 500;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      flex-shrink: 0;
       color: var(--gold);
       background: transparent;
       text-decoration: none;
@@ -1745,8 +1749,8 @@
       }
     }
 
-    @media (max-width: 960px) {
-      .navlinks, .nav-cta {
+    @media (max-width: 1450px) {
+      .navlinks, .nav-cta, .campus-cta {
         display: none;
       }
       .menu-btn {
@@ -1874,7 +1878,7 @@
   <!-- NAVIGATION -->
   <nav class="nav" id="nav">
             <a class="brand" href="#top" aria-label="새미새론AI교육원" style="display:inline-flex; align-items:center; text-decoration:none;">
-      <img src="assets/logo/wordmark_dark.png" alt="새미새론AI교육원 SEMISERON AI Lab" style="height:44px; width:auto; vertical-align:middle; filter:drop-shadow(0 2px 10px rgba(0,0,0,0.6)); transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+      <img src="assets/logo/wordmark_dark.png" alt="새미새론AI교육원 SEMISERON AI Lab" style="height:38px; width:auto; vertical-align:middle; filter:drop-shadow(0 2px 10px rgba(0,0,0,0.6)); transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
     </a>
 
     <div class="navlinks">
@@ -1890,9 +1894,8 @@
 
     <div style="display: flex; align-items: center; gap: 8px;">
       <a href="mouse_interactive/index.html" class="campus-cta" style="border-color: var(--teal-light); color: var(--teal-light); background: rgba(20, 184, 166, 0.08);">
-        <span>⌨️</span> 타자·마우스 훈련원 ↗
+        타자·마우스 훈련원 ↗
       </a>
-      <a href="briefing.html" class="nav-cta" style="border-color:var(--gold); color:var(--gold-light); background:rgba(199,154,81,0.12);">모닝샘 AI 브리핑 ↗</a>
       <a href="campus.html" class="campus-cta">ONLINE CAMPUS</a>
       <button class="nav-cta" id="contactNavBtn" type="button" onclick="openContactModal()">CONTACT</button>
     </div>
@@ -1907,13 +1910,14 @@
   <!-- Mobile Drawer -->
   <div class="drawer-overlay" id="drawerOverlay"></div>
   <aside class="mobile-drawer" id="mobileDrawer">
-    <a href="briefing.html" class="drawer-link" style="color:var(--gold-light); font-weight:700;">🌅 모닝샘 오늘의 AI 브리핑 ↗</a>
-    <a href="mouse_interactive/index.html" class="drawer-link" style="color:var(--teal-light); font-weight:700;">⌨️ 타자·마우스 훈련원 ↗</a>
+    <a href="briefing.html" class="drawer-link" style="color:var(--gold-light); font-weight:700;">모닝샘 오늘의 AI 브리핑 ↗</a>
+    <a href="mouse_interactive/index.html" class="drawer-link" style="color:var(--teal-light); font-weight:700;">타자·마우스 훈련원 ↗</a>
     <a href="campus.html" class="drawer-link" style="color:var(--gold-light); font-weight:700;">ONLINE CAMPUS ↗</a>
     <a href="#about" class="drawer-link">ABOUT US</a>
     <a href="#people" class="drawer-link">OUR PEOPLE</a>
     <a href="#network" class="drawer-link">NATIONWIDE NETWORK</a>
     <a href="#education" class="drawer-link">EDUCATION &amp; TRACKS</a>
+    <a href="#classroom" class="drawer-link">CLASSROOM &amp; ARCHIVE</a>
     <a href="#certifications" class="drawer-link">CERTIFICATIONS</a>
     <a href="#labs" class="drawer-link">AI LABS</a>
     <a href="#future" class="drawer-link">FUTURE &amp; PROJECTS</a>
