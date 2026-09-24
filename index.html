@@ -1878,7 +1878,7 @@
   <!-- NAVIGATION -->
   <nav class="nav" id="nav">
             <a class="brand" href="#top" aria-label="새미새론AI교육원" style="display:inline-flex; align-items:center; text-decoration:none;">
-      <img src="assets/logo/wordmark_dark.png" alt="새미새론AI교육원 SEMISERON AI Lab" style="height:38px; width:auto; vertical-align:middle; filter:drop-shadow(0 2px 10px rgba(0,0,0,0.6)); transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+      <img src="assets/logo/wordmark_dark.png" alt="새미새론AI교육원 SEMISERON AI Lab" style="height:44px; width:auto; vertical-align:middle; filter:drop-shadow(0 2px 10px rgba(0,0,0,0.6)); transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
     </a>
 
     <div class="navlinks">
@@ -2067,6 +2067,16 @@
 .light-band .track-card .track-title { color: #17191c !important; }
 .light-band .track-card .track-num, .light-band .card-box .track-num { color: var(--gold) !important; }
 .light-band h2, .light-band h3, .light-band h4, .light-band p { word-break: keep-all; }
+
+    /* v5.2.0 — 수료 안내 칩 읽힘 보강 (이름표로 못 박음) */
+    .light-band .earn-chip {
+      background: rgba(199, 154, 81, 0.12) !important;
+      border-color: var(--line-gold) !important;
+      font-size: 12px !important;
+      font-weight: 500 !important;
+    }
+    .light-band .earn-chip, .light-band .earn-chip strong { color: #2e2a22 !important; }
+    .light-band .earn-chip strong { font-weight: 700 !important; }
 </style>
 
   <script>
@@ -2481,7 +2491,7 @@
         </div>
 
         <!-- LEVEL 1: 5 MASTER TRACKS (대표 교육 철학) -->
-        <div style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.2em; margin-bottom:20px;">
+        <div style="font-family:var(--font-display); font-size:13px; color:var(--gold); letter-spacing:0.16em; margin-bottom:20px;">
           MASTER TRACKS · 5대 대표 교육 트랙
         </div>
 
@@ -2495,7 +2505,7 @@
             <p class="track-desc" style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin-bottom:16px;">
               5060 시니어, 소상공인, 비전공자를 위한 생활 밀착형 AI. 예·복습 부담 없이 수업 안에서 따라하며 경조사 문자, 스마트폰 사진, 여행 통역, 필수 문서를 마스터합니다.
             </p>
-            <div style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
+            <div class="earn-chip" style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
               <strong>수료 후 남는 것:</strong> 일상과 업무에서 AI를 막힘없이 직접 사용하는 실전 능력
             </div>
           </div>
@@ -2509,7 +2519,7 @@
             <p class="track-desc" style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin-bottom:16px;">
               카메라로 직접 촬영하고 AI로 완성합니다. 소상공인 상품 사진의 AI 화보 변환부터 실제 촬영물과 생성형 AI를 결합한 하이브리드 광고 영상·숏폼 제작 실무를 체득합니다.
             </p>
-            <div style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
+            <div class="earn-chip" style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
               <strong>수료 후 남는 것:</strong> 내 상품과 브랜드를 빛내는 실제 상업용 사진 및 홍보 영상 1세트
             </div>
           </div>
@@ -2523,7 +2533,7 @@
             <p class="track-desc" style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin-bottom:16px;">
               기획부터 스토리 구성, AI 화풍 통일, 북 디자인까지. 내 머릿속의 아이디어와 감성 시문학을 한 권의 정식 AI 시그림책으로 엮어 출판하는 힐링 창작 코스입니다.
             </p>
-            <div style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
+            <div class="earn-chip" style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
               <strong>수료 후 남는 것:</strong> 국립중앙도서관 및 온·오프라인 서점에 등록되는 나만의 AI 그림책 1권
             </div>
           </div>
@@ -2537,7 +2547,7 @@
             <p class="track-desc" style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin-bottom:16px;">
               구독료와 고가 장비 부담을 줄이며 무료·저비용 서비스를 스마트 라우팅으로 연결합니다. 24시간 반복 업무를 대신 처리하는 나만의 1인 AI 비서 시스템을 구축합니다.
             </p>
-            <div style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
+            <div class="earn-chip" style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
               <strong>수료 후 남는 것:</strong> 내 컴퓨터에서 실제로 작동하는 업무 자동화 및 AI 비서 파이프라인
             </div>
           </div>
@@ -2551,7 +2561,7 @@
             <p class="track-desc" style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin-bottom:16px;">
               AI 도구를 단순히 사용하는 것을 넘어, 나에게 필요한 전용 음성 입력기나 업무 데스크탑 도구를 바이브코딩으로 직접 제작하고 검증하는 메이커 실습입니다.
             </p>
-            <div style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
+            <div class="earn-chip" style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
               <strong>수료 후 남는 것:</strong> 내가 직접 만들어 매일 업무에 사용하는 맞춤형 소프트웨어 1개
             </div>
           </div>
@@ -2863,7 +2873,7 @@
       </div>
 
       <div style="font-size:10.5px; color:var(--muted); margin-top:2px;">
-        © 2026 SEMISERON AI Lab (새미새론AI교육원). ALL RIGHTS RESERVED. · <button type="button" onclick="openReleaseHistoryModal()" style="background:none; border:none; padding:0 3px; color:#c79a51 !important; font-weight:700; font-size:11px; font-family:var(--font-display), monospace, sans-serif; letter-spacing:0.08em; cursor:pointer; text-decoration:none; vertical-align:baseline; display:inline-block; transition:all 0.2s;" onmouseover="this.style.color='#dfb97a'; this.style.textDecoration='underline';" onmouseout="this.style.color='#c79a51'; this.style.textDecoration='none';" title="새미새론 릴리즈 아카이브">VER. 5.1.8</button> · REV. 2026.09
+        © 2026 SEMISERON AI Lab (새미새론AI교육원). ALL RIGHTS RESERVED. · <button type="button" onclick="openReleaseHistoryModal()" style="background:none; border:none; padding:0 3px; color:#c79a51 !important; font-weight:700; font-size:11px; font-family:var(--font-display), monospace, sans-serif; letter-spacing:0.08em; cursor:pointer; text-decoration:none; vertical-align:baseline; display:inline-block; transition:all 0.2s;" onmouseover="this.style.color='#dfb97a'; this.style.textDecoration='underline';" onmouseout="this.style.color='#c79a51'; this.style.textDecoration='none';" title="새미새론 릴리즈 아카이브">VER. 5.2.0</button> · REV. 2026.09
       </div>
       <div style="font-size:9.5px; color:var(--muted); letter-spacing:0.04em;">
         본 사이트의 모든 텍스트, 자격 검정 체계, 커리큘럼 및 6인 포트레이트 에셋은 저작권법의 보호를 받습니다.
@@ -3996,11 +4006,51 @@ ${currentPromptState.format}`);
       <div class="modal-header" style="border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 24px;">
         <div class="modal-num" style="color: var(--gold); font-size: 11px; letter-spacing: 0.2em;">SYSTEM EVOLUTION TIMELINE</div>
         <h3 class="modal-name" style="font-size: 26px; font-family: var(--font-serif); margin-top: 4px; color: #fff;">새미새론 빌드 아카이브</h3>
-        <div class="modal-role" style="color: var(--gold-light); font-size: 13px; margin-top: 4px;">Kimi 2.6 착안부터 V12 마스터피스까지 6대 진화의 기록</div>
+        <div class="modal-role" style="color: var(--gold-light); font-size: 13px; margin-top: 4px;">Kimi 2.6 착안부터 v5.2.0 종이 배경까지 진화의 기록</div>
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 20px; font-size: 13px; line-height: 1.75; color: var(--paper-dim);">
         
+        <!-- Ver 5.2.0 -->
+        <div style="border-left: 2px solid var(--gold); padding-left: 18px; background: rgba(199, 154, 81, 0.04); padding: 14px 18px; border-radius: 0 4px 4px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <strong style="color:#fff; font-size:15px; font-family:var(--font-display);">v5.2.0 &middot; 교육 구간 종이 배경 &amp; 글씨 읽힘 보강</strong>
+            <span style="font-size:11px; color:var(--gold); font-family:var(--font-display);">2026.09.25</span>
+          </div>
+          <p style="margin:0 0 6px 0; color:var(--paper);">
+            입구는 그대로 두고, 교육 구간의 <strong style="color:#fff;">인상</strong>을 바꿨습니다. 검은 화면 위에서 종이 위로 옮겨 앉혔습니다.<br>
+            &bull; EDUCATION&middot;CLASSROOM 두 구간에 종이색 배경 밴드 적용 &mdash; 흰 카드와 종이 바탕이 겹쳐 보이도록.<br>
+            &bull; 검게 남아야 할 안내 박스 두 곳은 그대로 두어 글자가 묻히지 않게 했습니다.<br>
+            &bull; 카드 안내 글씨를 키우고 진하게 &mdash; 11px&middot;가느다란 굵기라 흐려 보이던 것을 12px&middot;중간 굵기로, 색도 진한 갈색으로.<br>
+            &bull; &lsquo;MASTER TRACKS&rsquo; 줄을 13px 로 키웠습니다.<br>
+            &bull; 공식 로고를 원래 크기(44px)로 되돌렸습니다.
+          </p>
+          <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap;">
+            <a href="campus.html#certifications" target="_blank" style="font-size:11px; color:var(--gold-light); background:rgba(255,255,255,0.05); padding:3px 8px; border:1px solid var(--line); border-radius:2px; text-decoration:none;">9대 자격증 보기 &nearr;</a>
+          </div>
+        </div>
+
+        <!-- Ver 5.1.9 -->
+        <div style="border-left: 2px solid var(--gold); padding-left: 18px; background: rgba(199, 154, 81, 0.04); padding: 14px 18px; border-radius: 0 4px 4px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <strong style="color:#fff; font-size:15px; font-family:var(--font-display);">v5.1.9 &middot; 상단 메뉴 정비 &amp; 끊긴 기록물 복구</strong>
+            <span style="font-size:11px; color:var(--gold); font-family:var(--font-display);">2026.09.25</span>
+          </div>
+          <p style="margin:0 0 6px 0; color:var(--paper);">
+            메뉴가 어긋나고 기록물 링크가 끊겨 있던 것을 먼저 정리했습니다. 이 정리가 바탕이 되어 v5.2.0 으로 넘어갔습니다.<br>
+            &bull; 상단 메뉴가 좁은 화면에서 세로로 깨지던 것 수정 &mdash; 1451px 이상에서는 한 줄, 그 아래에서는 서랍으로.<br>
+            &bull; 서랍에 CLASSROOM &amp; ARCHIVE 항목을 새로 넣었습니다.<br>
+            &bull; 끊겨 있던 기록물 두 건 복구 &mdash; 2026 교육 제안서, v1.0 창립총회 기획본.<br>
+            &bull; 서랍의 AI LABS&middot;CERTIFICATIONS 가 빈 곳으로 가던 것 수정.<br>
+            &bull; 제안서 표기 (PDF) &rarr; (HTML) 정정.
+          </p>
+          <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap;">
+            <a href="proposal/semiseron-proposal-2026.html" target="_blank" style="font-size:11px; color:var(--teal-light); background:rgba(255,255,255,0.05); padding:3px 8px; border:1px solid var(--line); border-radius:2px; text-decoration:none;">2026 교육 제안서 &nearr;</a>
+            <a href="saemisaeron_homepage_v1.html" target="_blank" style="font-size:11px; color:var(--gold); background:rgba(255,255,255,0.05); padding:3px 8px; border:1px solid var(--line); border-radius:2px; text-decoration:none;">v1.0 창립총회 기획본 &nearr;</a>
+          </div>
+        </div>
+
+
         <!-- Ver 5.1.8 (V13) -->
         <div style="border-left: 2px solid var(--gold); padding-left: 18px; background: rgba(199, 154, 81, 0.04); padding: 14px 18px; border-radius: 0 4px 4px 0;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
