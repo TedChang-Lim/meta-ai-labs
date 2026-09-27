@@ -1872,6 +1872,20 @@
     }
 
   </style>
+<style>
+  .mou-band { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 30px 60px; }
+  .mou-band-text { flex: 1 1 430px; min-width: 300px; }
+  .mou-band-side { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+  .mou-stat strong { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 600; color: var(--gold-light); line-height: 1.15; white-space: nowrap; }
+  .mou-stat span { display: block; margin-top: 7px; font-family: var(--font-display); font-size: 11px; letter-spacing: 0.16em; color: var(--paper-dim); }
+  .mou-band-link { display: inline-flex; align-items: center; gap: 9px; padding: 13px 24px; border: 1px solid var(--gold); border-radius: 2px; background: rgba(199,154,81,0.10); color: var(--gold-light); font-family: var(--font-display); font-size: 11px; letter-spacing: 0.16em; text-decoration: none; white-space: nowrap; transition: background .25s ease; }
+  .mou-band-link:hover { background: rgba(199,154,81,0.22); }
+  @media (max-width: 900px) {
+    .mou-band { gap: 26px; }
+    .mou-band-side { width: 100%; justify-content: flex-start; gap: 26px; }
+    .mou-stat strong { font-size: 27px; }
+  }
+</style>
 </head>
 <body>
 
@@ -1889,6 +1903,7 @@
       <a href="#education">EDUCATION</a>
       <a href="#classroom">CLASSROOM</a>
       <a href="#lab">AI LABS</a>
+      <a href="partners.html">MOU</a>
       <a href="#future">FUTURE</a>
     </div>
 
@@ -2831,7 +2846,33 @@
     </div>
   </section>
 
-<section class="cta-section" id="future">
+<section class="section" id="partners" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <div class="mou-band">
+        <div class="mou-band-text">
+          <div class="eyebrow">MOU &amp; PARTNERSHIP</div>
+          <h2 class="section-title" style="word-break:keep-all;">함께하기로 한 기관</h2>
+          <p style="color:var(--paper-dim); font-size:15px; line-height:1.95; max-width:640px; word-break:keep-all; margin-top:18px;">
+            원주영상미디어센터와 흥업면 주민자치위원회가 새미새론과 손을 잡았습니다.<br>
+            앞으로 대학과 공공기관, 기업과도 넓혀 갑니다.
+          </p>
+        </div>
+        <div class="mou-band-side">
+          <div class="mou-stat">
+            <strong>2건</strong>
+            <span>협약 체결</span>
+          </div>
+          <div class="mou-stat">
+            <strong>2026. 9.</strong>
+            <span>첫 협약</span>
+          </div>
+          <a href="partners.html" class="mou-band-link">협약 기관 보기 <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="future">
     <div class="eyebrow">JOIN SEMISERON NETWORK</div>
     <h2>새로운 가능성이<br>샘처럼 솟아나는 곳</h2>
     <p>

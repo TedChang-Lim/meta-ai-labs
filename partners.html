@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/logo/symbol_light.png">
+  <link rel="apple-touch-icon" href="assets/logo/symbol_light.png">
+  <title>협약 기관 · MOU &amp; PARTNERSHIP | 새미새론AI교육원</title>
+  <meta name="description" content="새미새론AI교육원이 함께하기로 한 기관. 원주영상미디어센터, 흥업면 주민자치위원회와 업무협약을 체결했습니다.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Serif+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080908;
+      --bg-surface: #0e110f;
+      --bg-card: #121513;
+      --paper: #ece8df;
+      --paper-dim: #c5c1b7;
+      --muted: #969a91;
+      --gold: #c79a51;
+      --gold-light: #e5b974;
+      --gold-dim: rgba(199, 154, 81, 0.12);
+      --teal-light: #14b8a6;
+      --line: rgba(236, 232, 223, 0.1);
+      --line-gold: rgba(199, 154, 81, 0.35);
+      --font-serif: "Noto Serif KR", "Batang", serif;
+      --font-sans: "Pretendard", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: "Outfit", "Inter", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: var(--bg); color: var(--paper); }
+    body { font-family: var(--font-sans); line-height: 1.75; overflow-x: hidden; background: var(--bg); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 4.5vw;
+      background: rgba(8, 9, 8, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    nav .brand img { height: 44px; width: auto; vertical-align: middle; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.6)); transition: opacity 0.2s; }
+    nav .brand:hover img { opacity: 0.85; }
+    .brand-page-badge {
+      font-family: var(--font-display); font-size: 9px; letter-spacing: 0.18em;
+      color: var(--gold-light); background: var(--gold-dim); border: 1px solid var(--line-gold);
+      padding: 2px 8px; border-radius: 2px; margin-left: 4px;
+    }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a {
+      font-family: var(--font-display); font-size: 11px; letter-spacing: 0.18em;
+      color: var(--muted); text-decoration: none; transition: color 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-actions { display: flex; align-items: center; gap: 16px; }
+    .back-btn {
+      font-family: var(--font-display); font-size: 11px; letter-spacing: 0.15em;
+      color: var(--paper-dim); text-decoration: none; transition: color 0.2s;
+    }
+    .back-btn:hover { color: var(--gold); }
+    .enroll-cta {
+      border: 1px solid var(--line-gold); padding: 8px 18px;
+      font-family: var(--font-display); font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+      color: var(--gold); background: transparent; text-decoration: none;
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: all 0.3s ease; cursor: pointer; line-height: 1.2;
+    }
+    .enroll-cta:hover { background: var(--gold); color: var(--bg); border-color: var(--gold); box-shadow: 0 0 16px rgba(199, 154, 81, 0.35); }
+
+    /* HERO */
+    .hero { position: relative; padding: 186px 4.5vw 84px; border-bottom: 1px solid var(--line-gold); overflow: hidden; }
+    /* 3안 — 아주 느린 신경망 (canvas) */
+    .hero > .hero-net {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      z-index: 1; pointer-events: none;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(64% 78% at 72% 42%, rgba(199,154,81,0.22), rgba(8,9,8,0) 72%);
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        linear-gradient(100deg, rgba(8,9,8,0.92) 0%, rgba(8,9,8,0.70) 38%, rgba(8,9,8,0.10) 78%, rgba(8,9,8,0.02) 100%),
+        linear-gradient(180deg, rgba(8,9,8,0.28) 0%, rgba(8,9,8,0.04) 52%, var(--bg) 100%);
+    }
+    .hero h1 { word-break: keep-all; }
+    .hero-desc { word-break: keep-all; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero::before, .hero::after { animation: none !important; }
+    }
+    .hero > * { position: relative; z-index: 2; }
+    .badge {
+      display: inline-block; font-family: var(--font-display);
+      font-size: 10.5px; letter-spacing: 0.26em; color: var(--gold);
+      border: 1px solid var(--line-gold); background: var(--gold-dim);
+      padding: 6px 14px; border-radius: 2px;
+    }
+    .hero h1 {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(30px, 4.4vw, 58px); line-height: 1.24; letter-spacing: -0.035em;
+      margin: 22px 0 20px; max-width: 15ch;
+    }
+    .hero h1 span { color: var(--gold-light); }
+    .hero-desc { color: var(--paper-dim); font-size: clamp(14px, 1.25vw, 17px); max-width: 660px; line-height: 1.9; }
+
+    .stats { display: flex; margin-top: 48px; border-top: 1px solid var(--line-gold); border-bottom: 1px solid var(--line-gold); flex-wrap: wrap; }
+    .stat { flex: 1 1 200px; padding: 24px 22px; border-right: 1px solid var(--line); }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; font-family: var(--font-display); font-size: clamp(21px, 2.3vw, 31px); font-weight: 600; color: var(--gold-light); letter-spacing: 0.01em; line-height: 1.2; }
+    .stat span { display: block; margin-top: 8px; font-family: var(--font-display); font-size: 10.5px; letter-spacing: 0.18em; color: var(--muted); }
+
+    /* SECTIONS */
+    .wrap { max-width: 1440px; margin: 0 auto; padding: 94px 4.5vw; }
+    .sec-head { margin-bottom: 52px; }
+    .eyebrow { font-family: var(--font-display); font-size: 10.5px; letter-spacing: 0.28em; color: var(--gold); margin-bottom: 16px; }
+    h2 { font-family: var(--font-serif); font-size: clamp(24px, 2.8vw, 37px); font-weight: 600; letter-spacing: -0.025em; margin-bottom: 16px; line-height: 1.35; }
+    .sec-head p { color: var(--paper-dim); font-size: 14.5px; max-width: 640px; line-height: 1.9; }
+
+    /* MOU CARD */
+    .card { display: grid; grid-template-columns: 0.92fr 1.4fr; gap: 48px; padding: 44px 0; border-top: 1px solid var(--line); align-items: center; }
+    .card:last-of-type { border-bottom: 1px solid var(--line); }
+    .card-no { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.32em; color: var(--gold); margin-bottom: 18px; }
+    .card h3 { font-family: var(--font-serif); font-size: clamp(21px, 2.15vw, 30px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.35; margin-bottom: 16px; }
+    .card-date {
+      display: inline-block; font-family: var(--font-display); font-size: 11px; letter-spacing: 0.16em;
+      color: var(--gold-light); border: 1px solid var(--line-gold); background: var(--gold-dim);
+      padding: 5px 12px; border-radius: 2px;
+    }
+    .card-org { margin-top: 20px; color: var(--paper-dim); font-size: 13.5px; line-height: 1.9; }
+
+    .photos .lead img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 3px; }
+    .thumbs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+    .thumbs img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 3px; }
+
+    /* SLOTS */
+    .slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+    .slot {
+      border: 1px dashed var(--line-gold); border-radius: 3px; background: rgba(199,154,81,0.03);
+      padding: 42px 20px; text-align: center;
+      font-family: var(--font-display); font-size: 11.5px; letter-spacing: 0.2em; color: var(--muted);
+    }
+    .slot strong { display: block; font-family: var(--font-serif); font-size: 15px; font-weight: 600; color: var(--paper-dim); letter-spacing: -0.02em; margin-bottom: 8px; }
+    .slot-cta { margin-top: 26px; font-size: 13.5px; color: var(--paper-dim); }
+    .slot-cta a { color: var(--gold-light); text-decoration: none; border-bottom: 1px solid var(--line-gold); padding-bottom: 2px; }
+    .slot-cta a:hover { color: #fff; border-bottom-color: var(--gold); }
+
+    /* PRESS */
+    .press-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 22px;
+      border: 1px solid var(--line); border-radius: 3px; background: var(--bg-card);
+      padding: 26px 28px; flex-wrap: wrap;
+    }
+    .press-row p { color: var(--paper-dim); font-size: 13.5px; }
+    .press-chip {
+      font-family: var(--font-display); font-size: 10px; letter-spacing: 0.2em;
+      color: var(--muted); border: 1px solid var(--line); border-radius: 2px; padding: 5px 12px;
+    }
+
+    /* CONTACT */
+    .contact { border-top: 1px solid var(--line-gold); background: var(--bg-surface); padding: 76px 4.5vw; text-align: center; }
+    .contact h2 { margin-bottom: 14px; }
+    .contact p { color: var(--paper-dim); font-size: 14.5px; max-width: 620px; margin: 0 auto 30px; line-height: 1.9; }
+    .contact-lines { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .contact-lines div { font-size: 14px; }
+    .contact-lines b { display: block; font-family: var(--font-display); font-size: 10.5px; letter-spacing: 0.2em; color: var(--muted); font-weight: 400; margin-bottom: 6px; }
+    .contact-lines a { color: var(--gold-light); text-decoration: none; }
+    .contact-lines a:hover { text-decoration: underline; }
+
+    footer { padding: 44px 4.5vw 52px; border-top: 1px solid var(--line); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    footer .links { display: flex; align-items: center; justify-content: center; gap: 18px; font-size: 12.5px; flex-wrap: wrap; }
+    footer .links a { text-decoration: underline; }
+    footer .biz { font-size: 11.5px; color: var(--paper-dim); line-height: 1.9; letter-spacing: 0.02em; text-align: center; }
+    footer .biz .sep { margin: 0 8px; color: var(--line-gold); }
+    footer .copy { color: var(--muted); font-size: 11px; letter-spacing: 0.02em; }
+
+    @media (max-width: 1024px) {
+      .card { grid-template-columns: 1fr; gap: 28px; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 720px) {
+      .hero { padding: 150px 5.5vw 64px; }
+      .stats { flex-direction: column; }
+      .stat { border-right: 0; border-bottom: 1px solid var(--line); }
+      .stat:last-child { border-bottom: 0; }
+      .slots { grid-template-columns: 1fr; }
+      .wrap { padding: 68px 5.5vw; }
+      .thumbs { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="brand">
+      <img src="assets/logo/wordmark_dark.png" alt="새미새론AI교육원 SEMISERON AI Lab">
+      <span class="brand-page-badge">MOU &amp; PARTNERSHIP</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#partners">협약 기관</a></li>
+      <li><a href="#next">다음 자리</a></li>
+      <li><a href="#press">언론 보도</a></li>
+      <li><a href="#contact">협약 문의</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="index.html" class="back-btn">← 메인 홈페이지</a>
+      <a href="index.html#future" class="enroll-cta">수강 &amp; 출강 신청</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <canvas class="hero-net" aria-hidden="true"></canvas>
+    <div class="badge">SEMISERON AI LAB · MOU &amp; PARTNERSHIP</div>
+    <h1>함께하기로 한 <span>기관과 단체</span></h1>
+    <p class="hero-desc">
+      AI 교육은 한 곳에서 혼자 만들 수 없습니다.<br>
+      원주영상미디어센터와 흥업면 주민자치위원회가 새미새론과 손을 잡았습니다.
+    </p>
+    <div class="stats">
+      <div class="stat"><strong>2</strong><span>협약</span></div>
+      <div class="stat"><strong>2026. 9.</strong><span>첫 협약</span></div>
+      <div class="stat"><strong>이틀</strong><span>연속 체결</span></div>
+    </div>
+  </header>
+
+  <!-- PARTNERS -->
+  <section class="wrap" id="partners">
+    <div class="sec-head">
+      <div class="eyebrow">MOU &amp; PARTNERSHIP</div>
+      <h2>협약 기관</h2>
+      <p>체결한 협약을 하나씩 기록합니다. 새 협약이 들어오면 이 자리에 더해집니다.</p>
+    </div>
+
+    <article class="card">
+      <div>
+        <div class="card-no">지역 기관</div>
+        <h3>원주영상미디어센터</h3>
+        <div class="card-date">체결 2026. 9. 17. (목)</div>
+        <p class="card-org">2009년 개관한 원주 시민의 미디어 허브로, 미디어 교육과 영화 상영, 장비 대여와 공간 대관을 하고 있습니다.</p>
+      </div>
+      <div class="photos">
+        <figure class="lead">
+          <img src="assets/mou/media_group_a.jpg" alt="원주영상미디어센터 업무협약 체결 기념사진" loading="lazy">
+        </figure>
+        <div class="thumbs">
+          <figure><img src="assets/mou/media_duo.jpg" alt="새미새론AI교육원과 원주영상미디어센터 협약 기념사진" loading="lazy"></figure>
+          <figure><img src="assets/mou/media_group_b.jpg" alt="원주영상미디어센터 업무협약 체결 기념사진" loading="lazy"></figure>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div>
+        <div class="card-no">주민 자치</div>
+        <h3>흥업면 주민자치위원회</h3>
+        <div class="card-date">체결 2026. 9. 16. (수)</div>
+        <p class="card-org">흥업면 주민자치센터 운영에 관한 사항을 심의하는 주민 대표 모임입니다.</p>
+      </div>
+      <div class="photos">
+        <figure class="lead">
+          <img src="assets/mou/hueup_group_a.jpg" alt="흥업면 주민자치위원회 업무협약 체결 기념사진" loading="lazy">
+        </figure>
+        <div class="thumbs">
+          <figure><img src="assets/mou/hueup_duo.jpg" alt="새미새론AI교육원과 흥업면 주민자치위원회 협약 기념사진" loading="lazy"></figure>
+          <figure><img src="assets/mou/hueup_group_b.jpg" alt="흥업면 주민자치위원회 업무협약 체결 기념사진" loading="lazy"></figure>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- NEXT -->
+  <section class="wrap" id="next" style="padding-top:0;">
+    <div class="sec-head">
+      <div class="eyebrow">NEXT</div>
+      <h2>다음 자리</h2>
+      <p>앞으로 대학과 공공기관, 기업과도 협약을 넓혀 갑니다. 체결되는 대로 더해집니다.</p>
+    </div>
+    <div class="slots">
+      <div class="slot"><strong>대학</strong>다음</div>
+      <div class="slot"><strong>공공기관</strong>다음</div>
+      <div class="slot"><strong>기업</strong>다음</div>
+    </div>
+    <p class="slot-cta">다음 협약 기관이 되어 주십시오. <a href="#contact">협약 문의 →</a></p>
+  </section>
+
+  <!-- PRESS -->
+  <section class="wrap" id="press" style="padding-top:0;">
+    <div class="sec-head">
+      <div class="eyebrow">PRESS</div>
+      <h2>언론 보도</h2>
+      <p>보도와 교육 소식이 나오면 여기에 모아 둡니다.</p>
+    </div>
+    <div class="press-row">
+      <p>아직 등록된 보도가 없습니다. 첫 소식을 준비하고 있습니다.</p>
+      <span class="press-chip">준비 중</span>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="eyebrow" style="margin-bottom:16px;">PARTNERSHIP</div>
+    <h2>기관 · 대학 협약 문의</h2>
+    <p>교육 협력, 공동 사업, 강사 파견 등 협약을 제안하실 수 있습니다. 편하게 연락 주십시오.</p>
+    <div class="contact-lines">
+      <div><b>이메일</b><a href="mailto:contact@semiseron.kr">contact@semiseron.kr</a></div>
+      <div><b>주소</b><span style="color:var(--paper-dim);">강원특별자치도 원주시 남원로 645, 5층</span></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="links">
+      <a href="index.html" style="color:var(--gold-light);">← 메인 홈페이지</a>
+      <span style="color:var(--muted);">·</span>
+      <a href="campus.html" style="color:var(--gold);">온라인 캠퍼스</a>
+      <span style="color:var(--muted);">·</span>
+      <a href="mouse_interactive/index.html" style="color:var(--teal-light);">타자·마우스 훈련원 ↗</a>
+      <span style="color:var(--muted);">·</span>
+      <a href="ai_literacy_interactive/index.html" style="color:var(--gold);">AI 윤리 실습실 ↗</a>
+    </div>
+
+    <div class="biz">
+      <div>
+        <span>상호: <strong>새미새론AI교육원</strong> (새미새론AI교육원협동조합)</span>
+        <span class="sep">|</span>
+        <span>대표자: <strong>김소영</strong></span>
+        <span class="sep">|</span>
+        <span>원장: <strong>임창식</strong></span>
+      </div>
+      <div>
+        <span>사업자등록번호: <strong>724-81-04208</strong></span>
+        <span class="sep">|</span>
+        <span>대표전화: <strong>033-762-2333</strong></span>
+        <span class="sep">|</span>
+        <span>이메일: <strong>master@semiseron.kr</strong></span>
+      </div>
+      <div>
+        <span>주소: 강원특별자치도 원주시 남원로 645, 5층</span>
+      </div>
+    </div>
+
+    <div class="copy">© 2026 SEMISERON AI Lab (새미새론AI교육원). ALL RIGHTS RESERVED.</div>
+  </footer>
+
+  <script>
+    /* 3안 — 아주 느린 신경망. 움직임 줄이기를 켠 분에게는 정지 그림 한 장만. */
+    (function () {
+      var cv = document.querySelector('.hero-net');
+      if (!cv) return;
+      var ctx = cv.getContext('2d');
+      var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var GOLD = '199,154,81';
+      var W = 0, H = 0, dots = [], dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      function size() {
+        var r = cv.parentElement.getBoundingClientRect();
+        W = r.width; H = r.height;
+        cv.width = W * dpr; cv.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        var n = Math.max(22, Math.min(38, Math.round(W / 48)));
+        dots = [];
+        for (var i = 0; i < n; i++) {
+          dots.push({
+            x: Math.random() * W, y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.09, vy: (Math.random() - 0.5) * 0.065,
+            r: Math.random() < 0.3 ? 3.2 : 2.0
+          });
+        }
+      }
+
+      function frame() {
+        ctx.clearRect(0, 0, W, H);
+        for (var i = 0; i < dots.length; i++) {
+          var a = dots[i];
+          if (!still) {
+            a.x += a.vx; a.y += a.vy;
+            if (a.x < 0 || a.x > W) a.vx *= -1;
+            if (a.y < 0 || a.y > H) a.vy *= -1;
+          }
+          for (var j = i + 1; j < dots.length; j++) {
+            var b = dots[j];
+            var dx = a.x - b.x, dy = a.y - b.y;
+            var d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 235) {
+              ctx.strokeStyle = 'rgba(' + GOLD + ',' + (0.34 * (1 - d / 235)).toFixed(3) + ')';
+              ctx.lineWidth = 0.9;
+              ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+            }
+          }
+          ctx.fillStyle = 'rgba(' + GOLD + ',0.72)';
+          ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, 6.2832); ctx.fill();
+        }
+        if (!still) requestAnimationFrame(frame);
+      }
+
+      size(); frame();
+      var t;
+      window.addEventListener('resize', function () {
+        clearTimeout(t);
+        t = setTimeout(function () { size(); frame(); }, 300);
+      });
+    })();
+  </script>
+</body>
+</html>
