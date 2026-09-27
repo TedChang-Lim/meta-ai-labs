@@ -1904,6 +1904,7 @@
       <a href="#classroom">CLASSROOM</a>
       <a href="#lab">AI LABS</a>
       <a href="partners.html">MOU</a>
+      <a href="song.html" style="color:var(--gold-light);">CM송</a>
       <a href="#future">FUTURE</a>
     </div>
 
@@ -1928,6 +1929,7 @@
     <a href="briefing.html" class="drawer-link" style="color:var(--gold-light); font-weight:700;">모닝샘 오늘의 AI 브리핑 ↗</a>
     <a href="mouse_interactive/index.html" class="drawer-link" style="color:var(--teal-light); font-weight:700;">타자·마우스 훈련원 ↗</a>
     <a href="campus.html" class="drawer-link" style="color:var(--gold-light); font-weight:700;">ONLINE CAMPUS ↗</a>
+    <a href="song.html" class="drawer-link" style="color:var(--gold-light); font-weight:700;">🎵 공식 CM송 (음원·악보) ↗</a>
     <a href="#about" class="drawer-link">ABOUT US</a>
     <a href="#people" class="drawer-link">OUR PEOPLE</a>
     <a href="#network" class="drawer-link">NATIONWIDE NETWORK</a>
@@ -1935,6 +1937,7 @@
     <a href="#classroom" class="drawer-link">CLASSROOM &amp; ARCHIVE</a>
     <a href="campus.html#certifications" class="drawer-link">CERTIFICATIONS</a>
     <a href="#lab" class="drawer-link">AI LABS</a>
+    <a href="partners.html" class="drawer-link">MOU 협약 기관</a>
     <a href="#future" class="drawer-link">FUTURE &amp; PROJECTS</a>
     <button class="drawer-link" id="contactDrawerBtn" type="button" onclick="toggleMenu(false); openContactModal();" style="color:var(--gold);background:none;border:none;width:100%;text-align:left;font-family:inherit;font-size:inherit;padding:16px 0;cursor:pointer;">CONTACT SEMISERON</button>
   </aside>
@@ -2304,6 +2307,29 @@
           </div>
         </div>
       </div>
+
+      <!-- BRAND SOUND CM SONG MINI WIDGET -->
+      <div class="brand-sound-widget reveal" style="margin-top: 36px; background: linear-gradient(135deg, rgba(20, 26, 23, 0.95), rgba(12, 16, 14, 0.95)); border: 1px solid var(--line-gold); border-radius: 12px; padding: 22px 28px; box-shadow: 0 12px 30px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 18px; min-width: 280px; flex: 1;">
+          <audio id="cmMiniAudio" src="assets/song/semiseron_cm_preview_28s.mp3" preload="metadata"></audio>
+          <button type="button" id="cmMiniPlayBtn" onclick="toggleCmMiniPlay()" aria-label="새미새론 CM송 28초 미리듣기" style="width: 48px; height: 48px; border-radius: 50%; background: var(--gold); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #080908; flex-shrink: 0; box-shadow: 0 4px 14px rgba(199,154,81,0.35); transition: transform 0.2s, background 0.2s;">
+            <svg id="cmMiniPlayIcon" viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #080908;"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+            <svg id="cmMiniPauseIcon" viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #080908; display: none;"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </button>
+          <div>
+            <div style="font-size: 11px; letter-spacing: 0.18em; color: var(--gold); font-weight: 700; text-transform: uppercase; margin-bottom: 2px;">BRAND SOUND · 공식 CM송</div>
+            <h4 style="font-size: 16px; color: #fff; font-weight: 700; margin-bottom: 3px;">"새로움이 샘처럼" (28초 미리듣기)</h4>
+            <p id="cmMiniStatusText" style="font-size: 12.5px; color: var(--paper-dim);">배우는 AI 만드는 AI, 수업이 끝나면 손에 남아</p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 14px; flex-shrink: 0;">
+          <a href="song.html" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; background: rgba(199, 154, 81, 0.12); border: 1px solid var(--gold); border-radius: 6px; color: var(--gold-light); font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s;">
+            <span>가사 및 악보 전문 보기 (50s 풀버전) ↗</span>
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -2923,6 +2949,8 @@
     
     <div style="display:flex; align-items:center; gap:12px; font-size:11.5px; color:var(--paper-dim); flex-wrap:wrap;">
       <button type="button" onclick="openDocModal('proposal')" style="background:none; border:none; color:var(--gold); font-size:11.5px; letter-spacing:0.04em; cursor:pointer; text-decoration:underline; font-weight:600; transition:color 0.2s;">2026 교육 제안서 (HTML)</button>
+      <span>·</span>
+      <a href="song.html" style="color:var(--paper-dim); font-size:11.5px; text-decoration:underline; transition:color 0.2s;" onmouseover="this.style.color='#c79a51'" onmouseout="this.style.color='var(--paper-dim)'">공식 CM송</a>
       <span>·</span>
       <button type="button" onclick="openDocModal('sitemap')" style="background:none; border:none; color:#fff; font-size:11.5px; letter-spacing:0.04em; cursor:pointer; text-decoration:underline; transition:color 0.2s;">사이트맵 (SITEMAP)</button>
     </div>
@@ -4034,6 +4062,46 @@ ${currentPromptState.format}`);
     if (relModalEl) {
       relModalEl.addEventListener('click', (e) => {
         if (e.target === relModalEl) closeReleaseHistoryModal();
+      });
+    }
+
+    /* CM Song Mini Player (28s with Smooth Fadeout) */
+    const cmMiniAudio = document.getElementById('cmMiniAudio');
+    const cmMiniPlayBtn = document.getElementById('cmMiniPlayBtn');
+    const cmMiniPlayIcon = document.getElementById('cmMiniPlayIcon');
+    const cmMiniPauseIcon = document.getElementById('cmMiniPauseIcon');
+    const cmMiniStatusText = document.getElementById('cmMiniStatusText');
+
+    window.toggleCmMiniPlay = function() {
+      if (!cmMiniAudio) return;
+      if (cmMiniAudio.paused) {
+        cmMiniAudio.play();
+        if (cmMiniPlayIcon) cmMiniPlayIcon.style.display = 'none';
+        if (cmMiniPauseIcon) cmMiniPauseIcon.style.display = 'block';
+      } else {
+        cmMiniAudio.pause();
+        if (cmMiniPlayIcon) cmMiniPlayIcon.style.display = 'block';
+        if (cmMiniPauseIcon) cmMiniPauseIcon.style.display = 'none';
+      }
+    };
+
+    if (cmMiniAudio) {
+      cmMiniAudio.addEventListener('timeupdate', () => {
+        const cur = cmMiniAudio.currentTime;
+        const s = Math.floor(cur % 60);
+        if (cmMiniStatusText) {
+          if (cur >= 24) {
+            cmMiniStatusText.textContent = `페이드아웃 종료 중... (${s}초 / 28초)`;
+          } else {
+            cmMiniStatusText.textContent = `미리듣기 재생 중... (${s}초 / 28초)`;
+          }
+        }
+      });
+
+      cmMiniAudio.addEventListener('ended', () => {
+        if (cmMiniPlayIcon) cmMiniPlayIcon.style.display = 'block';
+        if (cmMiniPauseIcon) cmMiniPauseIcon.style.display = 'none';
+        if (cmMiniStatusText) cmMiniStatusText.textContent = '배우는 AI 만드는 AI, 수업이 끝나면 손에 남아';
       });
     }
 

@@ -271,6 +271,7 @@
     <ul class="nav-links">
       <li><a href="#certifications">공식 9대 자격증</a></li>
       <li><a href="#courses">개설 교육 과정 (14대 단과)</a></li>
+      <li><a href="song.html" style="color:var(--gold-light);">🎵 공식 CM송</a></li>
       <li><a href="mouse_interactive/index.html" style="color:var(--teal-light); font-weight:700; border-bottom: 1px solid var(--teal-light); padding-bottom:2px;">타자·마우스 훈련원 ↗</a></li>
       <li><a href="ai_literacy_interactive/index.html" style="color:var(--gold); font-weight:600; border-bottom: 1px solid var(--gold); padding-bottom:2px;">AI 리터러시 &amp; 윤리 ↗</a></li>
       <li><a href="#quickstart">AI 실전 퀵스타트</a></li>
@@ -476,11 +477,14 @@
           <p class="course-desc">시·그림 융합 예술 창작, 디지털 에세이 집필, 삶의 기록을 작품으로 엮어내는 문화 강좌.</p>
           <div class="course-meta"><span>난이도: 중급</span> <span>담당: 김소영 대표 · 이사장</span></div>
         </div>
-        <div class="course-card">
-          <div class="course-tag">[미디어 &amp; 크리에이티브]</div>
+        <div class="course-card" onclick="openCourseDetailModal('ai_video')" style="cursor:pointer; border-color:var(--gold); box-shadow:0 0 16px rgba(199,154,81,0.15); transition:all 0.25s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <div class="course-tag">[미디어 &amp; 크리에이티브]</div>
+            <span style="font-size:11px; color:var(--gold-light); background:rgba(199,154,81,0.15); border:1px solid rgba(199,154,81,0.3); padding:2px 8px; border-radius:10px; font-weight:700;">상세 커리큘럼 ↗</span>
+          </div>
           <div class="course-title">유튜브 크리에이터 &amp; AI 영상제작</div>
-          <p class="course-desc">쇼츠/릴스 대본 기획부터 AI 성우 보이스오버, 자동 컷편집, 썸네일 양산 마스터.</p>
-          <div class="course-meta"><span>난이도: 중급</span> <span>담당: 임창식 교육원장</span></div>
+          <p class="course-desc">어려운 기술보다 연출·이야기·비용 절약을 먼저 잡는 실전 코스. 쇼츠 대본부터 AI 생성, 컷편집까지 완성.</p>
+          <div class="course-meta"><span>난이도: 초·중급</span> <span>담당: 임창식 원장 (30년 영화/사진)</span></div>
         </div>
         <div class="course-card">
           <div class="course-tag">[미디어 &amp; 크리에이티브]</div>
@@ -630,6 +634,51 @@
         <div class="modal-lectures-content" id="modalLecturesContent"></div>
       </div>
       <div class="modal-tags" id="modalTags"></div>
+    </div>
+  </div>
+
+  <!-- 14 TRACKS COURSE DETAIL MODAL (FLAGSHIP: AI VIDEO PRODUCTION) -->
+  <div class="modal" id="courseDetailModal">
+    <div class="modal-box" style="max-width: 840px; width: 92%; max-height: 90vh;">
+      <button class="modal-close" onclick="closeCourseDetailModal()" aria-label="닫기">×</button>
+      
+      <div class="modal-header" style="border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 20px;">
+        <div class="modal-num" id="cdmTrack" style="color:var(--gold); font-size:11px; letter-spacing:0.18em; font-weight:700;">TRACK 04 · MEDIA &amp; CREATIVE</div>
+        <h3 class="modal-name" id="cdmTitle" style="font-size:24px; font-family:var(--font-serif); margin-top:4px; color:#fff;">유튜브 크리에이터 &amp; AI 영상제작</h3>
+        <div class="modal-role" id="cdmSubtitle" style="color:var(--paper-dim); font-size:13.5px; margin-top:4px;">임창식 원장 직강 · 스마트폰 하나로 끝내는 왕초보 맞춤형 AI 영화·영상 창작 과정</div>
+      </div>
+
+      <div class="modal-body" id="cdmBody">
+        <!-- Highlight Card -->
+        <div style="background:rgba(199, 154, 81, 0.08); border:1px solid var(--line-gold); border-radius:8px; padding:18px 22px; margin-bottom:24px;">
+          <h4 style="font-size:13.5px; color:var(--gold-light); margin-bottom:6px; font-weight:700;">🎯 과정 핵심 철학: "수업이 끝나면 손에 남아"</h4>
+          <p style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin:0;">
+            예복습 제로, 100% 실습 및 따라하기 중심! 30년 영화감독의 연출 감각과 돈 아끼는 생성형 AI 프롬프트 노하우를 배우며,
+            매 강마다 나만의 영상 산출물을 직접 손에 쥡니다.
+          </p>
+        </div>
+
+        <!-- 3-Plan Tabs -->
+        <div style="display:flex; gap:8px; border-bottom:1px solid var(--line); margin-bottom:22px; flex-wrap:wrap;">
+          <button type="button" class="cdm-tab" id="cdmTabA" onclick="switchCdmPlan('A')" style="padding:10px 18px; font-size:13px; font-weight:700; border-radius:6px 6px 0 0; cursor:pointer; background:rgba(199,154,81,0.2); border:1px solid var(--gold); border-bottom:none; color:var(--gold-light);">A안 · 3시간 8강 (정규 24h)</button>
+          <button type="button" class="cdm-tab" id="cdmTabB" onclick="switchCdmPlan('B')" style="padding:10px 18px; font-size:13px; font-weight:700; border-radius:6px 6px 0 0; cursor:pointer; background:#141a17; border:1px solid var(--line); border-bottom:none; color:var(--muted);">B안 · 2시간 12강 (분할 24h)</button>
+          <button type="button" class="cdm-tab" id="cdmTabC" onclick="switchCdmPlan('C')" style="padding:10px 18px; font-size:13px; font-weight:700; border-radius:6px 6px 0 0; cursor:pointer; background:#141a17; border:1px solid var(--line); border-bottom:none; color:var(--muted);">C안 · 3시간 5강 (단기 15h)</button>
+        </div>
+
+        <!-- Plan Contents Container -->
+        <div id="cdmPlanContent"></div>
+
+        <!-- Footer Profile & CTA -->
+        <div style="border-top:1px solid var(--line); padding-top:20px; margin-top:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+          <div style="font-size:12.5px; color:var(--paper-dim); line-height:1.6;">
+            강사: <strong style="color:var(--gold-light);">임창식 원장</strong> (30년 사진작가·영화감독, 반딧불영화제 최고감독상, 경복대 AI·XR 석사)<br>
+            준비물: 개인 스마트폰 1대 (50~60대 왕초보 환영 · 사전 지식 없이 수강 가능)
+          </div>
+          <div style="display:flex; gap:10px;">
+            <button type="button" onclick="closeCourseDetailModal(); openContactModal();" style="padding:10px 20px; background:var(--gold); color:#080908; font-weight:700; border:none; border-radius:4px; font-size:13px; cursor:pointer; transition:background 0.2s;">수강 및 출강 문의 ↗</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -928,8 +977,159 @@
       if (e.key === 'Escape') {
         closeModal();
         closeContactModal();
+        closeCourseDetailModal();
       }
     });
+
+    /* ==========================================================================
+       COURSE DETAIL MODAL ENGINE (FLAGSHIP: AI VIDEO PRODUCTION)
+       ========================================================================== */
+    const courseDetailModal = document.getElementById('courseDetailModal');
+
+    const CDM_DATA = {
+      ai_video: {
+        track: "TRACK 04 · MEDIA & CREATIVE",
+        title: "유튜브 크리에이터 & AI 영상제작",
+        subtitle: "임창식 원장 직강 · 스마트폰 하나로 끝내는 왕초보 맞춤형 AI 영화·영상 창작 과정",
+        plans: {
+          A: {
+            name: "A안 · 3시간 8강 (정규 24h)",
+            badge: "A안 정규 코스 (3시간 × 8강 = 총 24시간)",
+            badgeColor: "var(--gold)",
+            sellingPoint: "<strong>원주영상미디어센터 전례 호환 표준 모델:</strong> 도입 20분 + 시연 40분 + 실습 70분 + 피드백 30분 + 휴식 20분의 황금 배분으로 매강 완결된 산출물을 제작합니다.",
+            lessons: [
+              { num: "01강", title: "첫눈에 보는 AI 영상 (OT 및 전체 워크플로우)", desc: "AI 영상의 기초 개념과 단 3일 만에 109컷 영화를 만드는 시대의 도구 활용법 이해", outcome: "내가 만들 1분 영상 기획 한 줄 완성" },
+              { num: "02강", title: "카메라가 말하는 법 (앵글 · 숏 사이즈 · 렌즈 연출)", desc: "단순 생성이 아닌 감정을 담아내는 영화적 앵글(로우/아이/하이)과 미장센 실습", outcome: "휴대폰 카메라 앵글 3종 실습 컷 촬영" },
+              { num: "03강", title: "이어붙이기의 마법 (몽타주 및 커버리지 연출)", desc: "컷과 컷이 만날 때 생기는 제3의 의미, 자연스러운 씬 전환과 시선 일치 원리", outcome: "3컷 이어붙이기 숏폼 클립 완성" },
+              { num: "04강", title: "이야기 먼저 (시나리오 뼈대와 스토리보드)", desc: "AI 도구보다 중요한 기승전결 서사 구조와 관객을 사로잡는 1분 스토리텔링", outcome: "나만의 1분 영상 시나리오 한 장" },
+              { num: "05강", title: "돈 아끼는 생성법 (크레딧 절약형 고화질 프롬프트)", desc: "무의미한 크레딧 낭비를 막는 저비용 고효율 생성 기법과 이미지 일관성 유지 노하우", outcome: "절약형 프롬프트로 생성한 3컷 비주얼" },
+              { num: "06강", title: "내 광고 만들기 (세로형 숏폼 영상 제작)", desc: "유튜브 쇼츠, 인스타그램 릴스 맞춤형 9:16 세로 영상 기획 및 AI 비디오 렌더링", outcome: "세로형 홍보/광고 영상 1편 완성" },
+              { num: "07강", title: "소리 입히기 (BGM · AI 보이스 · 효과음 편집)", desc: "영상의 완성도를 좌우하는 음향 디자인: AI 목소리 생성 및 배경 음악 마스터링", outcome: "음악과 자막이 완비된 1분 영상 편집본" },
+              { num: "08강", title: "내 작품 상영회 및 수료식", desc: "수강생 전원 1분 작품 극장형 상영, 상호 피드백 및 새미새론 공식 수료증 수여", outcome: "최종 1분 영화 완성작 + 공식 수료증" }
+            ]
+          },
+          B: {
+            name: "B안 · 2시간 12강 (분할 24h)",
+            badge: "B안 분할 코스 (2시간 × 12강 = 총 24시간)",
+            badgeColor: "var(--teal-light)",
+            sellingPoint: "<strong>직장인 야간반 및 시니어 여유 모델:</strong> 1강 2시간 구성으로 피로도를 낮추고 12회차에 걸쳐 호흡을 길게 가져가 중도 이탈을 방지합니다.",
+            lessons: [
+              { num: "01강", title: "OT & AI 영상 한눈에 보기", desc: "AI 영상 원리와 수강 목표 설정", outcome: "수강 목표 및 1줄 기획" },
+              { num: "02강", title: "앵글과 숏 사이즈 정복", desc: "카메라 거리와 감정 전달", outcome: "3종 앵글 촬영 컷" },
+              { num: "03강", title: "렌즈와 미장센 연출", desc: "피사체와 배경의 조화", outcome: "배경 바꾸기 실습 2종" },
+              { num: "04강", title: "몽타주란 무엇인가", desc: "충돌과 결합의 편집 미학", outcome: "2컷 대비 붙이기" },
+              { num: "05강", title: "커버리지와 기초 컷편집", desc: "다양한 각도로 장면 완성", outcome: "3컷 연속 이어붙이기" },
+              { num: "06강", title: "이야기 뼈대 세우기", desc: "기승전결 4단 구조", outcome: "기승전결 플롯 카드" },
+              { num: "07강", title: "캐릭터를 지키는 법 (인물 일관성)", desc: "얼굴과 의상 고정 노하우", outcome: "내 주인공 캐릭터 시트" },
+              { num: "08강", title: "시나리오 완성하기", desc: "1분짜리 대본 확정", outcome: "1분 시나리오 원고" },
+              { num: "09강", title: "돈 아끼는 비디오 생성 실습", desc: "크레딧 최소화 생성 팁", outcome: "절약형 3씬 비디오 생성" },
+              { num: "10강", title: "세로형 광고 및 쇼츠 제작", desc: "모바일 숏폼 렌더링", outcome: "숏폼 영상 1편 완성" },
+              { num: "11강", title: "BGM · 성우 보이스 · 자막 합성", desc: "사운드 믹싱과 타이포", outcome: "최종 사운드 믹싱본" },
+              { num: "12강", title: "작품 상영회 및 수료", desc: "최종 시사회 및 피드백", outcome: "최종 상영 및 수료증" }
+            ]
+          },
+          C: {
+            name: "C안 · 3시간 5강 (단기 15h)",
+            badge: "C안 압축 속성 코스 (3시간 × 5강 = 총 15시간)",
+            badgeColor: "#818cf8",
+            sellingPoint: "<strong>단기 집중 특강형 모델:</strong> 미디어센터 5회차 단기 개설 틀에 즉시 진입할 수 있는 쾌속 속성 코스입니다.",
+            lessons: [
+              { num: "01강", title: "보이는 연출 (카메라 앵글 & 몽타주 핵심)", desc: "촬영 기초와 2컷 붙이기", outcome: "앵글 촬영 + 2컷 붙이기 실습" },
+              { num: "02강", title: "이야기 먼저 (1분 시나리오 작성)", desc: "핵심 메시지 뽑아내기", outcome: "1분 완성 시나리오" },
+              { num: "03강", title: "돈 아끼는 생성 (비용 절약형 프롬프트)", desc: "가성비 비디오 생성법", outcome: "절약형 AI 비디오 클립 3종" },
+              { num: "04강", title: "세로형 광고 영상 완성", desc: "숏폼 비디오 편집", outcome: "숏폼 홍보 광고 1편 완성" },
+              { num: "05강", title: "상영회 및 수료", desc: "작품 발표 및 피드백", outcome: "완성작 상영 및 수료" }
+            ]
+          }
+        }
+      }
+    };
+
+    let curCdmKey = 'ai_video';
+    let curCdmPlan = 'A';
+
+    window.openCourseDetailModal = function(key) {
+      curCdmKey = key || 'ai_video';
+      const c = CDM_DATA[curCdmKey];
+      if (!c) return;
+
+      document.getElementById('cdmTrack').textContent = c.track;
+      document.getElementById('cdmTitle').textContent = c.title;
+      document.getElementById('cdmSubtitle').textContent = c.subtitle;
+
+      switchCdmPlan('A');
+
+      if (courseDetailModal) {
+        courseDetailModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    window.closeCourseDetailModal = function() {
+      if (courseDetailModal) {
+        courseDetailModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    };
+
+    window.switchCdmPlan = function(planKey) {
+      curCdmPlan = planKey;
+      const c = CDM_DATA[curCdmKey];
+      if (!c || !c.plans[planKey]) return;
+      const p = c.plans[planKey];
+
+      // Tab styles
+      const tabs = ['A', 'B', 'C'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('cdmTab' + t);
+        if (btn) {
+          if (t === planKey) {
+            btn.style.background = 'rgba(199,154,81,0.2)';
+            btn.style.borderColor = 'var(--gold)';
+            btn.style.color = 'var(--gold-light)';
+          } else {
+            btn.style.background = '#141a17';
+            btn.style.borderColor = 'var(--line)';
+            btn.style.color = 'var(--muted)';
+          }
+        }
+      });
+
+      // Render plan content
+      let html = `
+        <div style="display:inline-block; font-size:12px; font-weight:700; padding:4px 10px; border-radius:4px; margin-bottom:14px; background:${p.badgeColor}; color:#080908;">
+          ${p.badge}
+        </div>
+        <div style="font-size:13px; color:var(--paper); background:#151c18; border-left:3px solid var(--gold); padding:12px 16px; border-radius:0 6px 6px 0; margin-bottom:18px; line-height:1.7;">
+          ${p.sellingPoint}
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+      `;
+
+      p.lessons.forEach(l => {
+        html += `
+          <div style="background:#131816; border:1px solid var(--line); border-radius:6px; padding:12px 16px; display:flex; gap:14px; align-items:flex-start;">
+            <span style="background:rgba(199,154,81,0.15); color:var(--gold-light); font-weight:800; font-size:12px; padding:3px 7px; border-radius:3px; white-space:nowrap; margin-top:2px;">${l.num}</span>
+            <div style="flex:1;">
+              <div style="font-size:14px; font-weight:700; color:#fff; margin-bottom:3px;">${l.title}</div>
+              <div style="font-size:12.5px; color:var(--paper-dim); margin-bottom:6px; line-height:1.5;">${l.desc}</div>
+              <div style="display:inline-flex; align-items:center; gap:5px; font-size:12px; color:var(--gold-light); background:rgba(199,154,81,0.08); padding:2px 8px; border-radius:4px; border:1px solid rgba(199,154,81,0.2);">
+                <span>🏆 <strong>손에 쥐는 산출물:</strong> ${l.outcome}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      html += `</div>`;
+      document.getElementById('cdmPlanContent').innerHTML = html;
+    };
+
+    if (courseDetailModal) {
+      courseDetailModal.addEventListener('click', (e) => {
+        if (e.target === courseDetailModal) closeCourseDetailModal();
+      });
+    }
 
     function handleCampusInquiry(e) {
       e.preventDefault();
