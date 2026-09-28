@@ -1289,7 +1289,7 @@
 
     <!-- DUAL PRIMARY TABS -->
     <nav class="primary-tabs">
-      <div class="primary-tab active" id="modeTabMouse" onclick="changeMode('mouse')">
+      <div class="primary-tab active" id="modeTabMouse" onclick="changeMode('mouse')" onpointerdown="changeMode('mouse')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')changeMode('mouse')">
         <span class="tab-badge-icon">🖐️</span>
         <div class="tab-texts">
           <h2>마우스 훈련실 (Mouse Lab)</h2>
@@ -1297,7 +1297,7 @@
         </div>
       </div>
 
-      <div class="primary-tab" id="modeTabTyping" onclick="changeMode('typing')">
+      <div class="primary-tab" id="modeTabTyping" onclick="changeMode('typing')" onpointerdown="changeMode('typing')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')changeMode('typing')">
         <span class="tab-badge-icon">⌨️</span>
         <div class="tab-texts">
           <h2>타자 아카데미 (Typing Lab)</h2>
@@ -1532,25 +1532,48 @@
     /* ==========================================================================
        PRIMARY MODE SWITCH
        ========================================================================== */
+    let _lastModeSwitchTime = 0;
     function changeMode(mode) {
-      State.masterMode = mode;
-      document.getElementById('modeTabMouse').classList.toggle('active', mode === 'mouse');
-      document.getElementById('modeTabTyping').classList.toggle('active', mode === 'typing');
+      const now = performance.now();
+      if (now - _lastModeSwitchTime < 150) return; // 150ms 초고속 연타 디바운스
+      _lastModeSwitchTime = now;
 
-      if (State.rainInterval) clearInterval(State.rainInterval);
+      targetRound = 0; // 타깃 조준 세션 클린업 (이벤트 락 방지)
+      State.masterMode = mode;
+
+      const tabMouse = document.getElementById('modeTabMouse');
+      const tabTyping = document.getElementById('modeTabTyping');
+      if (tabMouse) tabMouse.classList.toggle('active', mode === 'mouse');
+      if (tabTyping) tabTyping.classList.toggle('active', mode === 'typing');
+
+      if (State.rainInterval) {
+        clearInterval(State.rainInterval);
+        State.rainInterval = null;
+      }
 
       if (mode === 'mouse') {
-        document.getElementById('statSpeedTitle').innerText = 'REACTION SPEED';
-        document.getElementById('statSpeedUnit').innerText = 'ms';
+        const title = document.getElementById('statSpeedTitle');
+        const unit = document.getElementById('statSpeedUnit');
+        if (title) title.innerText = 'REACTION SPEED';
+        if (unit) unit.innerText = 'ms';
         buildMouseSubnav();
-        setMouseTab(State.mouseTab);
+        setMouseTab(State.mouseTab || 'drag');
       } else {
-        document.getElementById('statSpeedTitle').innerText = 'TYPING SPEED';
-        document.getElementById('statSpeedUnit').innerText = '타/분';
+        const title = document.getElementById('statSpeedTitle');
+        const unit = document.getElementById('statSpeedUnit');
+        if (title) title.innerText = 'TYPING SPEED';
+        if (unit) unit.innerText = '타/분';
         buildTypingSubnav();
         setTypingTab('portal');
       }
       Sound.click();
+
+      // 작업 영역으로 부드럽고 정확하게 스크롤 정렬
+      const ws = document.querySelector('.workspace-shell');
+      if (ws) {
+        const topPos = ws.getBoundingClientRect().top + window.pageYOffset - 90;
+        window.scrollTo({ top: Math.max(0, topPos), behavior: 'smooth' });
+      }
     }
 
     /* ==========================================================================
@@ -1773,6 +1796,7 @@
 
     function nextTarget() {
       const vp = document.getElementById('viewportZone');
+      if (!vp) return;
       vp.innerHTML = '';
 
       if (targetRound >= 10) {
@@ -1782,7 +1806,10 @@
             <div style="font-size:calc(56px * var(--scale)); margin-bottom:14px;">🏆</div>
             <h3 style="font-family:var(--font-serif); font-size:calc(28px * var(--scale)); margin-bottom:10px;">10회 조준 완수!</h3>
             <p style="font-size:calc(15px * var(--scale)); color:var(--paper-dim); margin-bottom:24px;">정확도와 반응 속도가 아주 훌륭합니다.</p>
-            <button class="subnav-pill active" onclick="setMouseTab('double')">다음: 더블클릭 보물상자 열기 →</button>
+            <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+              <button class="subnav-pill active" onclick="setMouseTab('double')">다음: 더블클릭 보물상자 열기 →</button>
+              <button class="subnav-pill" style="border:1.5px solid var(--accent); color:var(--accent); background:rgba(212,167,89,0.1);" onclick="changeMode('typing')">⌨️ 타자 아카데미로 이동 ↗</button>
+            </div>
           </div>
         `;
         return;
@@ -1805,15 +1832,33 @@
 
       spawnMoment = performance.now();
 
-      t.onmousedown = (e) => {
+      let isHit = false;
+      const handleHit = (e) => {
+        if (isHit) return;
+        isHit = true;
         e.stopPropagation();
+
         const rt = Math.round(performance.now() - spawnMoment);
         addScore(100);
         logInput(true, rt);
         Sound.click();
         spawnPopSpark(e.clientX, e.clientY, `+100점 (${rt}ms)`);
-        nextTarget();
+
+        // DOM을 즉시 날려버리면 마우스 포인터 캡처가 깨져 상단 탭 전환이 불통되므로
+        // 시각 피드백 후 50ms 후 다음 타깃을 렌더링하여 브라우저 이벤트 루프를 안정화
+        t.style.transform = 'scale(0.85)';
+        t.style.opacity = '0.4';
+        t.style.pointerEvents = 'none';
+
+        setTimeout(() => {
+          if (State.masterMode === 'mouse' && State.mouseTab === 'click') {
+            nextTarget();
+          }
+        }, 50);
       };
+
+      t.onpointerdown = handleHit;
+      t.onclick = (e) => e.stopPropagation();
 
       vp.appendChild(t);
     }
