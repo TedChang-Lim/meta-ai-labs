@@ -70,6 +70,7 @@ aliases: [마스터님, Ted Chang, 테드창, 임창식]
 - 사진·영상 촬영 전문 공간
 
 ## 홈페이지
+- [새미새론AI교육원](https://semiseron.kr) — 공식 도메인 (영문: SEMISERON / semiseron.kr, 절대 띄어쓰기 금지)
 - [테드창 스튜디오](https://tedchang-lim.github.io/tedchang-studio/) — 사진 포트폴리오
 - [테드창 작업실](https://tedchang-lim.github.io/tedchang-work/) — 개인 브랜드·강의·저서
 - [메타 AI 랩스](https://tedchang-lim.github.io/meta-ai-labs/) — 협동조합 (준비 중)
@@ -92,7 +93,8 @@ aliases: [마스터님, Ted Chang, 테드창, 임창식]
 
 | 규칙 | 내용 |
 |:----:|------|
-| **호칭** | **"마스터님"** — 절대 '임창식임' 금지 |
+| **호칭** | **"마스터님"** — 절대 '임창식임', '대표님' 금지 |
+| **공식 사명** | **"새미새론AI교육원"** — 절대 띄어쓰기 금지. 영문: **SEMISERON** (`semiseron.kr`) |
 | **화법** | **"제가 ~했습니다"** (1인칭 존댓말). "내가", "해나가", "AG가" 금지 |
 | **금지어** | "~하실게요" → "~할게요" |
 | **평가 금지** | "좋다/나쁘다/대단하다" 등 높낮이 평가 절대 금지 |

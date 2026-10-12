@@ -1,0 +1,3771 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080908">
+  <title>새미새론 AI 교육원 | SEMISERON AI EDU — 새로움이 샘처럼 솟아나는 곳</title>
+  <meta name="description" content="사람을 키우고, 기술을 연결하고, 새로운 일을 만듭니다. 새미새론 AI 교육원 공식 홈페이지.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="새미새론 AI 교육원 | SEMISERON AI EDU">
+  <meta property="og:description" content="새로움이 샘처럼 솟아나는 곳. 사람을 키우고, 기술을 연결하고, 새로운 일을 만듭니다.">
+  <meta property="og:image" content="assets/김소영_EXACT.png">
+  <meta property="og:type" content="website">
+
+  <!-- Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. DESIGN SYSTEM VARIABLES (Dark Luxury & Editorial)
+       ========================================================================== */
+    :root {
+      --bg: #080908;
+      --bg-surface: #0e110f;
+      --bg-card: #121513;
+      --bg-card-hover: #171b18;
+      --paper: #ece8df;
+      --paper-dim: #c5c1b7;
+      --muted: #969a91;
+      --dim: #62665e;
+      --gold: #c79a51;
+      --gold-light: #e5b974;
+      --gold-dim: rgba(199, 154, 81, 0.22);
+      --teal: #0e4e48;
+      --teal-light: #14b8a6;
+      --line: rgba(236, 232, 223, 0.1);
+      --line-gold: rgba(199, 154, 81, 0.35);
+      --max: 1440px;
+      --font-serif: "Noto Serif KR", "Batang", serif;
+      --font-sans: "Pretendard", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: "Outfit", "Inter", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--paper);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.7;
+      letter-spacing: -0.015em;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: var(--bg);
+    }
+
+    /* Container Utility */
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 4.5vw;
+    }
+
+    .eyebrow {
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      color: var(--gold-light);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1.5px;
+      background: var(--gold);
+    }
+
+    /* ==========================================================================
+       2. NAVIGATION
+       ========================================================================== */
+    .nav {
+      position: fixed;
+      z-index: 120;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 84px;
+      padding: 0 4.5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid transparent;
+      transition: background 0.35s ease, border-color 0.35s ease, height 0.35s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(8, 9, 8, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom-color: var(--line);
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      white-space: nowrap;
+    }
+
+    .brand-en {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.24em;
+      color: var(--gold);
+    }
+
+    .brand-ko {
+      font-family: var(--font-serif);
+      font-size: 12px;
+      color: var(--paper-dim);
+      letter-spacing: -0.04em;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .navlinks a {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      transition: color 0.25s ease;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .navlinks a:hover,
+    .navlinks a.active {
+      color: var(--paper);
+    }
+
+    .navlinks a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .navlinks a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta, .campus-cta {
+      border: 1px solid var(--line-gold);
+      padding: 8px 18px;
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      background: transparent;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      line-height: 1.2;
+    }
+
+    .nav-cta:hover, .campus-cta:hover {
+      background: var(--gold);
+      color: var(--bg);
+      border-color: var(--gold);
+      box-shadow: 0 0 16px rgba(199, 154, 81, 0.35);
+    }
+
+    /* Mobile Hamburger */
+    .menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      padding: 10px;
+    }
+
+    .menu-btn span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--paper);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .menu-btn.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .menu-btn.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-btn.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: min(340px, 85vw);
+      height: 100vh;
+      background: #0d100e;
+      border-left: 1px solid var(--line);
+      z-index: 110;
+      padding: 110px 36px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .mobile-drawer.open {
+      right: 0;
+    }
+
+    .mobile-drawer a {
+      font-family: var(--font-display);
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      color: var(--paper-dim);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+      z-index: 105;
+      display: none;
+    }
+
+    .drawer-overlay.open {
+      display: block;
+    }
+
+    /* ==========================================================================
+       3. HERO SECTION (Touch & Water Interaction)
+       ========================================================================== */
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 160px 4.5vw 8vh;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(236, 232, 223, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(236, 232, 223, 0.03) 1px, transparent 1px);
+      background-size: 120px 120px;
+      mask-image: linear-gradient(to bottom, #000 0%, transparent 88%);
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 88%);
+      pointer-events: none;
+    }
+
+    .hero-water {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .water-image {
+      position: absolute;
+      right: -2vw;
+      top: 0;
+      width: 65vw;
+      height: 85vh;
+      min-height: 560px;
+      background-image: url("assets/hero_hand_droplet_clean_v10.jpg");
+      background-size: cover;
+      background-position: center top;
+      opacity: 0.95;
+      filter: saturate(0.82) contrast(1.05);
+      transform: translate3d(0, 0, 0) scale(1.02);
+      transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.8s;
+      cursor: crosshair;
+    }
+
+    .water-shade {
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(180deg, rgba(8, 9, 8, 0.98) 0, rgba(8, 9, 8, 0.92) 80px, transparent 130px),
+        linear-gradient(90deg, var(--bg) 0%, rgba(8, 9, 8, 0.94) 28%, rgba(8, 9, 8, 0.35) 60%, rgba(8, 9, 8, 0.05) 80%, rgba(8, 9, 8, 0.25) 100%),
+        linear-gradient(0deg, rgba(8, 9, 8, 0.98) 0, rgba(8, 9, 8, 0.9) 90px, transparent 150px);
+      pointer-events: none;
+    }
+
+    .water-rings {
+      position: absolute;
+      right: 22vw;
+      top: 48vh;
+      width: 140px;
+      height: 70px;
+      pointer-events: none;
+      transform: translate(50%, -50%);
+    }
+
+    .water-rings i {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(199, 154, 81, 0.75);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0.3);
+      opacity: 0;
+    }
+
+    /* Hero One-Shot Intro Animation */
+    html.hero-intro .water-rings i:nth-child(1) {
+      animation: oneRipple 1.4s 0.5s cubic-bezier(0.2, 0.65, 0.2, 1) both;
+    }
+    html.hero-intro .water-rings i:nth-child(2) {
+      animation: oneRipple 1.7s 0.7s cubic-bezier(0.2, 0.65, 0.2, 1) both;
+    }
+    html.hero-intro .water-rings i:nth-child(3) {
+      animation: oneRipple 2.0s 0.9s cubic-bezier(0.2, 0.65, 0.2, 1) both;
+    }
+
+    @keyframes oneRipple {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.35); }
+      20% { opacity: 0.85; }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(4.2); }
+    }
+
+    .water-caption {
+      position: absolute;
+      right: 5vw;
+      bottom: 11vh;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--dim);
+      font-family: var(--font-display);
+      font-size: 9px;
+      letter-spacing: 0.25em;
+    }
+
+    .water-caption .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 14px rgba(199, 154, 81, 0.8);
+    }
+
+    .hero-copy {
+      position: relative;
+      max-width: var(--max);
+      width: 100%;
+      margin: 0 auto;
+      z-index: 10;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(68px, 11vw, 160px);
+      line-height: 0.95;
+      letter-spacing: -0.09em;
+      margin: 24px 0 34px;
+      color: var(--paper);
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+      font-weight: 300;
+    }
+
+    .hero-sub {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      border-top: 1px solid var(--line);
+      padding-top: 26px;
+    }
+
+    .hero-sub p {
+      margin: 0;
+      color: var(--paper-dim);
+      font-size: clamp(16px, 1.4vw, 19px);
+      line-height: 1.85;
+      letter-spacing: -0.03em;
+      max-width: 600px;
+    }
+
+    .hero-sub strong {
+      color: var(--paper);
+      font-weight: 500;
+    }
+
+    .hero-code {
+      display: flex;
+      gap: 16px;
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--dim);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .hero-code a {
+      color: var(--muted);
+      transition: color 0.25s;
+    }
+    .hero-code a:hover {
+      color: var(--gold);
+    }
+    .hero-code a:not(:last-child)::after {
+      content: "/";
+      margin-left: 16px;
+      color: var(--dim);
+    }
+
+    /* Scroll Indicator */
+    .scrollmark {
+      position: absolute;
+      right: 4.5vw;
+      bottom: 8vh;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--dim);
+      font-family: var(--font-display);
+      font-size: 8px;
+      letter-spacing: 0.25em;
+      writing-mode: vertical-rl;
+      pointer-events: none;
+    }
+
+    .scrollmark i {
+      display: block;
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(var(--gold), transparent);
+    }
+
+    /* ==========================================================================
+       4. SECTION GLOBAL & REVEAL
+       ========================================================================== */
+    .section {
+      padding: 140px 0;
+      position: relative;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 60px;
+      align-items: flex-end;
+      margin-bottom: 60px;
+    }
+
+    
+    .section-title-sub {
+      display: block;
+      font-size: clamp(20px, 2.4vw, 30px);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+      line-height: 1.4;
+      background: linear-gradient(135deg, #f5e6c8 0%, #ffffff 40%, #c79a51 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0.95;
+    }
+
+    .section-title {
+      word-break: keep-all;
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(38px, 4.5vw, 68px);
+      line-height: 1.32;
+      letter-spacing: -0.06em;
+      margin: 14px 0 0;
+      color: var(--paper);
+    }
+
+    .section-lead {
+      color: #e2ddd0;
+      font-size: 17px;
+      line-height: 1.85;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      word-break: keep-all;
+      border-left: 2px solid var(--gold);
+      padding-left: 18px;
+    }
+    .section-lead strong {
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.on {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ==========================================================================
+       5. PHILOSOPHY & ABOUT SECTION
+       ========================================================================== */
+    .about-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: flex-start;
+    }
+
+    .about-narrative h3 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(26px, 2.8vw, 40px);
+      line-height: 1.5;
+      letter-spacing: -0.04em;
+      margin-bottom: 28px;
+      color: var(--paper);
+      word-break: keep-all;
+    }
+    .about-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: flex-start;
+      margin-top: 20px;
+    }
+
+    .about-narrative p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2.05;
+      margin-bottom: 20px;
+    }
+
+    .about-narrative strong {
+      color: var(--paper);
+      font-weight: 500;
+    }
+
+    .principles {
+      border-top: 1px solid var(--line);
+    }
+
+    .principle {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 20px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+      transition: background 0.3s ease;
+    }
+
+    .principle b {
+      font-family: var(--font-display);
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.16em;
+    }
+
+    .principle h4 {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 8px;
+      color: var(--paper);
+    }
+
+    .principle p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ==========================================================================
+       6. OUR PEOPLE (Strict 6 Members Order & Details)
+       ========================================================================== */
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+      margin-top: 20px;
+    }
+
+    .person-card {
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-surface);
+      display: flex;
+      flex-direction: column;
+      transition: background 0.35s ease, transform 0.35s ease;
+      position: relative;
+    }
+
+    .person-card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-5px);
+      z-index: 2;
+    }
+
+    .portrait {
+      height: 440px;
+      position: relative;
+      overflow: hidden;
+      background: #111412;
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(100%) contrast(1.02) brightness(0.9);
+      transition: filter 0.6s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .person-card:hover .portrait img {
+      filter: grayscale(15%) saturate(0.85) contrast(1.02) brightness(1.0);
+      transform: scale(1.03);
+    }
+
+    .portrait::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--bg-surface) 0%, rgba(8,9,8,0.1) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .person-meta {
+      padding: 22px 20px 26px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .person-no {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+    }
+
+    .person-name {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 24px;
+      letter-spacing: -0.06em;
+      margin: 8px 0 4px;
+      color: var(--paper);
+    }
+
+    .person-role {
+      font-size: 11px;
+      color: var(--paper-dim);
+      margin-bottom: 12px;
+    }
+
+    .person-role span {
+      color: var(--dim);
+      font-family: var(--font-display);
+      letter-spacing: 0.05em;
+    }
+
+    .person-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+      min-height: 42px;
+      margin-bottom: 20px;
+    }
+
+    .viewmore-btn {
+      margin-top: auto;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: var(--gold-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0;
+      position: relative;
+      transition: all 0.25s ease;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .viewmore-btn::before {
+      content: "";
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .viewmore-btn::after {
+      content: "↗";
+      font-size: 13px;
+      color: var(--gold);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .person-card:hover .viewmore-btn::before,
+    .track-card:hover .viewmore-btn::before,
+    .cert-card:hover .viewmore-btn::before {
+      width: 100%;
+    }
+
+    .person-card:hover .viewmore-btn::after,
+    .track-card:hover .viewmore-btn::after,
+    .cert-card:hover .viewmore-btn::after {
+      transform: translate(4px, -4px);
+    }
+
+    .viewmore-btn:hover {
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       7. NATIONWIDE NETWORK (Map + Separation)
+       ========================================================================== */
+    .network-section {
+      border-top: 1px solid var(--line);
+      padding-top: 120px;
+    }
+
+    .network-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .network-info h3 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1.15;
+      letter-spacing: -0.08em;
+      margin-bottom: 24px;
+    }
+
+    .network-info p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2.0;
+      margin-bottom: 30px;
+    }
+
+    .network-quote {
+      padding-left: 20px;
+      border-left: 2px solid var(--gold);
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--paper-dim);
+      line-height: 1.75;
+    }
+
+    .network-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      padding: 40px;
+    }
+
+    .map-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .map-box img {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+      filter: brightness(0.9) contrast(1.08);
+    }
+
+    .location-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .loc-item {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    .loc-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .loc-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 10px var(--gold-dim);
+    }
+
+    .loc-head b {
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: var(--paper);
+    }
+
+    .loc-head small {
+      font-size: 11px;
+      color: var(--dim);
+    }
+
+    .loc-item p {
+      font-size: 13px;
+      color: var(--paper-dim);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       8. EDUCATION & 5 TRACKS
+       ========================================================================== */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-top: 40px;
+    }
+
+    .track-card {
+      background: var(--bg-surface);
+      padding: 38px 32px;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.3s ease;
+    }
+
+    .track-card:hover {
+      background: var(--bg-card-hover);
+    }
+
+    .track-badge {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .track-card h4 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -0.05em;
+      margin-bottom: 12px;
+      color: var(--paper);
+    }
+
+    .track-instructor {
+      font-size: 12px;
+      color: var(--dim);
+      margin-bottom: 16px;
+    }
+
+    .track-instructor span {
+      color: var(--paper-dim);
+      font-weight: 400;
+    }
+
+    .track-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .track-details {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--dim);
+      font-family: var(--font-display);
+      letter-spacing: 0.08em;
+    }
+
+    /* ==========================================================================
+       9. CERTIFICATIONS (Henna's 3-Tier System)
+       ========================================================================== */
+    .cert-container {
+      background: linear-gradient(180deg, #0b0e0c 0%, #080908 100%);
+      border: 1px solid var(--line-gold);
+      padding: 60px 48px;
+      margin-top: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cert-container::before {
+      content: "";
+      position: absolute;
+      right: -10vw;
+      top: -10vw;
+      width: 40vw;
+      height: 40vw;
+      background: radial-gradient(circle, rgba(199, 154, 81, 0.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    .cert-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .cert-card {
+      background: rgba(18, 21, 19, 0.85);
+      border: 1px solid var(--line);
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.35s ease;
+    }
+
+    
+    
+    .cert-grid-9 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .cert-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+
+    .cert-level {
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .cert-title {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--paper);
+      margin-bottom: 14px;
+      letter-spacing: -0.05em;
+    }
+
+    .cert-target {
+      font-size: 12px;
+      color: var(--paper-dim);
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cert-req {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 26px;
+      flex-grow: 1;
+    }
+
+    .cert-pill {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      font-size: 10px;
+      color: var(--dim);
+      font-family: var(--font-display);
+      letter-spacing: 0.1em;
+      align-self: flex-start;
+    }
+
+    /* ==========================================================================
+       10. AI LABS (Prompt Builder Interactive Widget)
+       ========================================================================== */
+    .labs-wrapper {
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      padding: 50px 44px;
+      margin-top: 40px;
+    }
+
+    .labs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 34px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 20px;
+    }
+
+    .labs-header h3 {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: -0.06em;
+      color: var(--paper);
+    }
+
+    .labs-header p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+/* AI Labs 10 Templates & Custom Dark UI */
+    .template-grid-10 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 1200px) {
+      .template-grid-10 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .template-grid-10 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .template-grid-10 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tpl-btn {
+      padding: 14px 16px;
+      background: #111512;
+      border: 1px solid var(--line);
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--paper);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      cursor: pointer;
+      border-radius: 2px;
+      text-align: left;
+    }
+
+    .tpl-btn span.tag {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+    }
+
+    .tpl-btn span.name {
+      font-size: 13px;
+      color: var(--paper-dim);
+      line-height: 1.3;
+    }
+
+    .tpl-btn:hover {
+      border-color: var(--gold);
+      background: #171d19;
+      transform: translateY(-2px);
+    }
+
+    .tpl-btn:hover span.name {
+      color: #ffffff;
+    }
+
+    .tpl-btn.active {
+      border-color: var(--gold);
+      background: rgba(199, 154, 81, 0.15);
+      box-shadow: 0 4px 16px rgba(199, 154, 81, 0.18);
+    }
+
+    .tpl-btn.active span.name {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Builder Grid */
+    .builder-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+    }
+
+    .builder-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .category-row {
+      background: #101412;
+      border: 1px solid var(--line);
+      padding: 16px 20px;
+      transition: border-color 0.25s ease;
+      border-radius: 2px;
+    }
+
+    .category-row:hover {
+      border-color: rgba(199, 154, 81, 0.35);
+    }
+
+    .cat-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .cat-title {
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* Pure Custom Dark Luxury Dropdown */
+    .custom-select-wrapper {
+      position: relative;
+      width: 100%;
+      user-select: none;
+    }
+
+    .custom-select-trigger {
+      width: 100%;
+      background: #090c0a;
+      border: 1px solid var(--line);
+      color: #ffffff;
+      padding: 13px 18px;
+      font-size: 14px;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.25s ease;
+      border-radius: 2px;
+    }
+
+    .custom-select-trigger:hover,
+    .custom-select-wrapper.open .custom-select-trigger {
+      border-color: var(--gold);
+      background: #0f1310;
+    }
+
+    .custom-select-trigger .arrow {
+      color: var(--gold);
+      font-size: 10px;
+      transition: transform 0.25s ease;
+    }
+
+    .custom-select-wrapper.open .custom-select-trigger .arrow {
+      transform: rotate(180deg);
+    }
+
+    .custom-options-list {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      background: #111513;
+      border: 1px solid var(--gold-dim);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 1px rgba(199, 154, 81, 0.4);
+      border-radius: 2px;
+      z-index: 100;
+      max-height: 260px;
+      overflow-y: auto;
+      display: none;
+      backdrop-filter: blur(12px);
+    }
+
+    .custom-options-list::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-options-list::-webkit-scrollbar-thumb {
+      background: var(--line-gold);
+      border-radius: 2px;
+    }
+
+    .custom-select-wrapper.open .custom-options-list {
+      display: block;
+      animation: dropFadeIn 0.2s ease forwards;
+    }
+
+    @keyframes dropFadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .custom-option {
+      padding: 12px 18px;
+      font-size: 13.5px;
+      color: #e5e2da;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .custom-option:last-child {
+      border-bottom: none;
+    }
+
+    .custom-option:hover {
+      background: rgba(199, 154, 81, 0.15);
+      color: #ffffff;
+      padding-left: 22px;
+    }
+
+    .custom-option.selected {
+      background: rgba(199, 154, 81, 0.22);
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    .custom-option.selected::after {
+      content: '✓';
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    .cat-custom-input {
+      width: 100%;
+      background: #080a09;
+      border: 1px solid var(--line-gold);
+      color: #ffffff;
+      padding: 13px 16px;
+      font-size: 14px;
+      font-family: var(--font-sans);
+      outline: none;
+      margin-top: 10px;
+      display: none;
+      border-radius: 2px;
+    }
+
+    .cat-custom-input:focus {
+      border-color: var(--gold-light);
+      background: #0c0f0d;
+    }
+
+    /* Preview Box */
+    .preview-box {
+      background: #080a09;
+      border: 1px solid var(--line);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 2px;
+    }
+
+    .preview-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+    }
+
+    .preview-head b {
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+    }
+
+    .preview-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    /* Big, Prominent Action Buttons */
+    .action-btn {
+      padding: 12px 24px;
+      border: 1px solid var(--line);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--paper);
+      background: #111512;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 2px;
+    }
+
+    .action-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+      background: #171d19;
+    }
+
+    .action-btn.copy-btn {
+      background: linear-gradient(135deg, rgba(199, 154, 81, 0.25) 0%, rgba(199, 154, 81, 0.12) 100%);
+      border: 1px solid var(--gold);
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 12px 28px;
+      box-shadow: 0 4px 16px rgba(199, 154, 81, 0.2);
+    }
+
+    .action-btn.copy-btn:hover {
+      background: var(--gold);
+      color: var(--bg);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(199, 154, 81, 0.35);
+    }
+
+    .action-btn.reset-btn {
+      padding: 12px 24px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--line);
+      background: #111512;
+      color: var(--paper-dim);
+    }
+
+    .action-btn.reset-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .preview-content {
+      flex-grow: 1;
+      min-height: 440px;
+      font-family: "Pretendard", monospace;
+      font-size: 13.5px;
+      line-height: 1.9;
+      color: #ece8df;
+      white-space: pre-wrap;
+      overflow-y: auto;
+      background: rgba(255,255,255,0.015);
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 2px;
+    }
+
+    /* ==========================================================================
+       11. CAMPUS & FUTURE SECTION
+       ========================================================================== */
+    .future-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+      margin-top: 50px;
+    }
+
+    .future-card {
+      background: var(--bg-surface);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 44px 32px;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.3s ease;
+    }
+
+    .future-card:hover {
+      background: var(--bg-card-hover);
+    }
+
+    .future-num {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .future-card h4 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 14px;
+      color: var(--paper);
+      letter-spacing: -0.05em;
+    }
+
+    .future-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    /* ==========================================================================
+       12. CALL TO ACTION & FOOTER
+       ========================================================================== */
+    .cta-section {
+      padding: 180px 4.5vw;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      position: relative;
+    }
+
+    .cta-section h2 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(44px, 6.5vw, 92px);
+      line-height: 1.1;
+      letter-spacing: -0.09em;
+      margin: 20px 0 28px;
+    }
+
+    .cta-section p {
+      max-width: 620px;
+      margin: 0 auto 40px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.95;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--line-gold);
+      padding: 16px 36px;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--gold-light);
+      background: rgba(199, 154, 81, 0.05);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: var(--gold) !important;
+      color: #080908 !important;
+      border-color: var(--gold) !important;
+      font-weight: 700;
+      box-shadow: 0 0 25px rgba(199, 154, 81, 0.4);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 34px 4.5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-display);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: var(--dim);
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    /* ==========================================================================
+       13. MODALS (Rich Bio & Contact)
+       ========================================================================== */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-box {
+      position: relative;
+      width: min(840px, 100%);
+      max-height: 88vh;
+      background: #0d100e;
+      border: 1px solid var(--line-gold);
+      padding: 50px 46px;
+      overflow-y: auto;
+    }
+
+    .modal-box::-webkit-scrollbar {
+      width: 5px;
+    }
+    .modal-box::-webkit-scrollbar-thumb {
+      background: var(--line-gold);
+    }
+
+    .modal-close {
+      position: absolute;
+      right: 24px;
+      top: 20px;
+      font-size: 32px;
+      color: var(--muted);
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover {
+      color: var(--paper);
+    }
+
+    .modal-header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 22px;
+      margin-bottom: 24px;
+    }
+
+    .modal-num {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .modal-name {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: -0.06em;
+      color: var(--paper);
+    }
+
+    .modal-name span {
+      font-family: var(--font-display);
+      font-size: 16px;
+      color: var(--dim);
+      margin-left: 10px;
+      font-weight: 300;
+    }
+
+    .modal-role {
+      font-size: 13px;
+      color: var(--gold-light);
+      margin-top: 4px;
+    }
+
+    .modal-body {
+      font-size: 14px;
+      line-height: 1.95;
+      color: var(--paper-dim);
+    }
+
+    .modal-bio-item {
+      margin-bottom: 14px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .modal-bio-item::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    .modal-bio-item span.hl {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .modal-lectures {
+      margin: 24px 0;
+      padding: 18px 22px;
+      background: rgba(199, 154, 81, 0.05);
+      border: 1px solid rgba(199, 154, 81, 0.25);
+      border-radius: 2px;
+    }
+
+    .modal-lectures h5 {
+      font-family: var(--font-cinzel), var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      color: #e5c07b;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-lectures-content {
+      font-size: 12px;
+      line-height: 1.75;
+      color: var(--paper-dim);
+    }
+
+    .modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+    }
+
+    .modal-tags span {
+      padding: 6px 14px;
+      background: #111412;
+      border: 1px solid #28332c;
+      font-size: 12px;
+      color: #cec9bd;
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+    }
+    .modal-tags span:hover {
+      border-color: #c79a51;
+      color: #e5c07b;
+    }
+
+    /* ==========================================================================
+       14. RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1280px) {
+      .people-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .portrait {
+        height: 420px;
+      }
+      .future-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .tracks-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .navlinks, .nav-cta {
+        display: none;
+      }
+      .menu-btn {
+        display: flex;
+      }
+      .section {
+        padding: 100px 0;
+      }
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+      .about-box {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+      .network-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .network-visual {
+        grid-template-columns: 1fr;
+        padding: 30px;
+      }
+      .cert-cards {
+        grid-template-columns: 1fr;
+      }
+      .builder-grid {
+        grid-template-columns: 1fr;
+      }
+
+      
+    .cert-grid-9 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .cert-grid, .cert-grid-9 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        padding: 140px 4.5vw 60px;
+      }
+      .hero-sub {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .hero-code {
+        justify-content: flex-start;
+      }
+      .water-image {
+        width: 100vw;
+        right: -20vw;
+        opacity: 0.75;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .brand-ko {
+        display: none;
+      }
+      .people-grid {
+        grid-template-columns: 1fr;
+      }
+      .portrait {
+        height: 480px;
+      }
+      .tracks-grid {
+        grid-template-columns: 1fr;
+      }
+      .future-grid {
+        grid-template-columns: 1fr;
+      }
+      .cert-container {
+        padding: 40px 24px;
+      }
+
+      
+    .cert-grid-9 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .cert-grid, .cert-grid-9 {
+        grid-template-columns: 1fr;
+      }
+
+      .labs-wrapper {
+        padding: 30px 20px;
+      }
+      .modal-box {
+        padding: 36px 24px;
+      }
+      .modal-name {
+        font-size: 28px;
+      }
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  
+    @media (max-width: 1024px) {
+      .classroom-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+    @media (max-width: 640px) {
+      .classroom-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="새미새론 AI 교육원">
+      <span class="brand-en">SEMISERON AI EDU</span>
+      <span class="brand-ko">새미새론 AI 교육원</span>
+    </a>
+
+    <div class="navlinks">
+      <a href="#about">ABOUT</a>
+      <a href="#people">PEOPLE</a>
+      <a href="#network">NETWORK</a>
+      <a href="#education">EDUCATION</a>
+      <a href="#classroom">CLASSROOM</a>
+      <a href="#lab">AI LABS</a>
+      <a href="#future">FUTURE</a>
+    </div>
+
+    <a href="campus.html" class="campus-cta">ONLINE CAMPUS</a>
+    <button class="nav-cta" id="contactNavBtn" type="button" onclick="openContactModal()">CONTACT</button>
+
+    <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <a href="#about" class="drawer-link">ABOUT US</a>
+    <a href="#people" class="drawer-link">OUR PEOPLE</a>
+    <a href="#network" class="drawer-link">NATIONWIDE NETWORK</a>
+    <a href="#education" class="drawer-link">EDUCATION &amp; TRACKS</a>
+    <a href="campus.html#certifications" class="drawer-link">CERTIFICATIONS</a>
+    <a href="#lab" class="drawer-link">AI LABS</a>
+    <a href="#future" class="drawer-link">FUTURE &amp; PROJECTS</a>
+    <button class="drawer-link" id="contactDrawerBtn" type="button" onclick="toggleMenu(false); openContactModal();" style="color:var(--gold);background:none;border:none;width:100%;text-align:left;font-family:inherit;font-size:inherit;padding:16px 0;cursor:pointer;">CONTACT SEMISERON</button>
+  </aside>
+
+  <!-- HERO SECTION -->
+  <header class="hero" id="top">
+    <div class="hero-grid"></div>
+    
+    <div class="hero-water" id="heroWater" aria-label="새미새론 물방울 인터랙션">
+      <div class="water-image"></div>
+      <div class="water-shade"></div>
+      <div class="water-rings" aria-hidden="true">
+        <i></i><i></i><i></i>
+      </div>
+      <div class="water-caption">
+        <span class="dot"></span>
+        <span>TOUCH THE DROP</span>
+      </div>
+    </div>
+
+    <div class="hero-copy reveal">
+      <div class="eyebrow">SEMISERON AI EDUCATION</div>
+      <h1>새로움이 <em>샘처럼</em></h1>
+      
+      <div class="hero-sub">
+        <p>
+          <strong>새로움이 샘처럼 솟아나는 곳.</strong><br>
+          사람을 키우고, 기술을 연결하고, 새로운 일을 만듭니다.
+        </p>
+        <nav class="hero-code" aria-label="빠른 바로가기">
+          <a href="#education">EDUCATION</a>
+          <a href="#classroom">CLASSROOM</a>
+          <a href="#lab">AI LABS</a>
+          <a href="#network">NETWORK</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="scrollmark"><i></i>SCROLL</div>
+  </header>
+
+  <!-- ABOUT & PHILOSOPHY SECTION -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">PHILOSOPHY &amp; MISSION</div>
+          <h2 class="section-title" style="word-break: keep-all;">
+            <span class="section-title-sub">새미새론 AI 교육원은</span>
+            교육원을 넘어<br>실행하는 네트워크
+          </h2>
+        </div>
+        <div class="section-lead" style="word-break: keep-all;">
+          <strong>새미새론은 단순한 강의 판매 사이트가 아닙니다.</strong><br>
+          AI 강사를 양성하고, 전문가를 연결하며, 기관·기업과 함께 실전 프로젝트를 완성하는 AI 융합 생태계입니다.
+        </div>
+      </div>
+
+      <div class="about-box">
+        <div class="about-narrative reveal">
+          <h3>AI를 가르치는 사람을 만들고,<br>그 사람이 현장을 변화시키도록.</h3>
+          <p>
+            <strong>새미새론 AI 교육원</strong>은 <strong>'새로운 것이 샘처럼 솟아난다'</strong>는 뜻을 품고 있습니다. 
+            AI 기술의 급격한 발전 속에서 도태되지 않고, 누구나 자신의 지식과 경험에 AI를 융합하여 새로운 가치를 창출하도록 돕습니다.
+          </p>
+          <p>
+            원주 본부를 기점으로 전국 각지의 미디어·XR·디자인·엔지니어링 전문가들이 유기적으로 결합하여, 
+            기초 리터러시 교육부터 고난도 국책 R&amp;D 실증 프로젝트까지 전 과정을 수행합니다.
+          </p>
+        </div>
+
+        <div class="principles reveal">
+          <div class="principle">
+            <b>01</b>
+            <div>
+              <h4>사람을 키웁니다</h4>
+              <p>AI 활용 역량과 교육 설계 능력을 겸비한 전문 강사를 체계적으로 양성합니다.</p>
+            </div>
+          </div>
+          <div class="principle">
+            <b>02</b>
+            <div>
+              <h4>프로젝트를 만듭니다</h4>
+              <p>공공기관·기업·학교가 필요로 하는 맞춤형 AI·XR·영상 콘텐츠 프로젝트를 직접 수주·수행합니다.</p>
+            </div>
+          </div>
+          <div class="principle">
+            <b>03</b>
+            <div>
+              <h4>학교와 연결합니다</h4>
+              <p>경복대학교를 비롯한 대학원 및 연구소와의 협력으로 학술 이론과 실무 현장의 가교를 구축합니다.</p>
+            </div>
+          </div>
+          <div class="principle">
+            <b>04</b>
+            <div>
+              <h4>전국으로 확장합니다</h4>
+              <p>지역의 한계를 뛰어넘어 온라인 캠퍼스와 전국 지부 네트워크를 통해 어디서나 동일한 수준의 교육을 제공합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR PEOPLE (Strict 6 Members Order) -->
+  <section class="section" id="people">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">OUR PEOPLE</div>
+          <h2 class="section-title">새미새론을 만드는 사람들</h2>
+        </div>
+        <div class="section-lead" style="word-break: keep-all;">
+          <strong>AI, XR 실감콘텐츠, 영어교육, 미디어, 엔지니어링, 브랜딩.</strong><br>
+          각자의 현장에서 경험을 쌓아온 6명의 전문가가 함께합니다.
+        </div>
+      </div>
+
+      <div class="people-grid">
+        
+        <!-- 01 김소영 (여성) -->
+        <article class="person-card reveal" data-person="kimsoyoung">
+          <div class="portrait">
+            <img src="assets/김소영_EXACT.png" alt="김소영 이사장">
+          </div>
+          <div class="person-meta">
+            <span class="person-no">01</span>
+            <h3 class="person-name">김소영</h3>
+            <div class="person-role">이사장 <span>/ Chairperson</span></div>
+            <p class="person-desc">심리코칭 · 영어교육 · AI 교육<br>교육과 사람의 성장을 연결하는 리더.</p>
+            <button class="viewmore-btn">상세 약력 · 저서 · 출강</button>
+          </div>
+        </article>
+
+        <!-- 02 임창식 (남성) -->
+        <article class="person-card reveal" data-person="imchangshik">
+          <div class="portrait">
+            <img src="assets/임창식_EXACT.png" alt="임창식 총괄이사">
+          </div>
+          <div class="person-meta">
+            <span class="person-no">02</span>
+            <h3 class="person-name">임창식</h3>
+            <div class="person-role">총괄이사 <span>/ Executive Director</span></div>
+            <p class="person-desc">사진 · 영상 · AI 교육 · 바이브코딩<br>새미새론의 비전과 콘텐츠 전략 총괄.</p>
+            <button class="viewmore-btn">상세 약력 · 저서 · 출강</button>
+          </div>
+        </article>
+
+        <!-- 03 한기열 -->
+        <article class="person-card reveal" data-person="hankiyeol">
+          <div class="portrait">
+            <img src="assets/한기열_EXACT.png" alt="한기열 콘텐츠이사">
+          </div>
+          <div class="person-meta">
+            <span class="person-no">03</span>
+            <h3 class="person-name">한기열</h3>
+            <div class="person-role">콘텐츠이사 <span>/ Content Director</span></div>
+            <p class="person-desc">Interactive Media · XR · Contents<br>AI·XR 콘텐츠 기획 및 미디어 개발.</p>
+            <button class="viewmore-btn">상세 약력 · 저서 · 출강</button>
+          </div>
+        </article>
+
+        <!-- 04 김봉수 -->
+        <article class="person-card reveal" data-person="kimbongsoo">
+          <div class="portrait">
+            <img src="assets/김봉수_EXACT.png" alt="김봉수 연구이사">
+          </div>
+          <div class="person-meta">
+            <span class="person-no">04</span>
+            <h3 class="person-name">김봉수</h3>
+            <div class="person-role">연구이사 <span>/ R&amp;D Director</span></div>
+            <p class="person-desc">AI · XR · Digital Twin · 특급기술자<br>국책 R&amp;D 과제 및 시스템 설계 선도.</p>
+            <button class="viewmore-btn">상세 약력 · 저서 · 출강</button>
+          </div>
+        </article>
+
+        <!-- 05 김태완 -->
+        <article class="person-card reveal" data-person="kimtaewan">
+          <div class="portrait">
+            <img src="assets/김태완_EXACT.png" alt="김태완 크리에이티브이사">
+          </div>
+          <div class="person-meta">
+            <span class="person-no">05</span>
+            <h3 class="person-name">김태완</h3>
+            <div class="person-role">크리에이티브이사 <span>/ Creative Director</span></div>
+            <p class="person-desc">Visual Design · Real-time Media<br>디자인 방법론과 실감미디어 연구.</p>
+            <button class="viewmore-btn">상세 약력 · 저서 · 출강</button>
+          </div>
+        </article>
+
+        <!-- 06 조안나 -->
+        <article class="person-card reveal" data-person="joanna">
+          <div class="portrait">
+            <img src="assets/조안나_EXACT.png" alt="조안나 디자인이사">
+          </div>
+          <div class="person-meta">
+            <span class="person-no">06</span>
+            <h3 class="person-name">조안나</h3>
+            <div class="person-role">디자인이사 <span>/ Design Director</span></div>
+            <p class="person-desc">Branding · UX/UI · Typography<br>브랜딩과 경험 디자인 어워드 수상자.</p>
+            <button class="viewmore-btn">상세 약력 · 저서 · 출강</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NATIONWIDE NETWORK -->
+  <section class="section network-section" id="network">
+    <div class="container">
+      <div class="network-grid">
+        <div class="network-info reveal">
+          <div class="eyebrow">NATIONWIDE NETWORK</div>
+          <h3>전국으로 연결되는<br>새미새론의 네트워크</h3>
+          <p>
+            새미새론은 원주 본부를 기점으로 수도권 및 충청권을 잇는 전국 단위 전문가 거점을 형성하고 있습니다. 
+            단순히 한 곳에서 배우고 끝나는 교육이 아니라, 지역의 실제 프로젝트와 인재가 서로 교류하는 순환형 플랫폼을 지향합니다.
+          </p>
+          <div class="network-quote">
+            한 곳에 머무는 배움이 아니라,<br>
+            전국의 사람과 기술이 실시간으로 연결되는 구조.
+          </div>
+        </div>
+
+        <div class="network-visual reveal">
+          <div class="map-box">
+            <img src="assets/korea_network_graphic_only.png" alt="새미새론 전국 네트워크 지도">
+          </div>
+          <div class="location-list">
+            <div class="loc-item">
+              <div class="loc-head">
+                <i class="loc-dot"></i>
+                <b>WONJU HQ</b>
+                <small>원주 본부</small>
+              </div>
+              <p>김소영 이사장 · 임창식 총괄이사</p>
+            </div>
+            <div class="loc-item">
+              <div class="loc-head">
+                <i class="loc-dot"></i>
+                <b>GIMPO</b>
+                <small>김포 거점</small>
+              </div>
+              <p>김태완 크리에이티브이사 (Visual Design)</p>
+            </div>
+            <div class="loc-item">
+              <div class="loc-head">
+                <i class="loc-dot"></i>
+                <b>PYEONGTAEK</b>
+                <small>평택 거점</small>
+              </div>
+              <p>한기열 콘텐츠이사 (Interactive XR)</p>
+            </div>
+            <div class="loc-item">
+              <div class="loc-head">
+                <i class="loc-dot"></i>
+                <b>NAMYANGJU</b>
+                <small>남양주 거점</small>
+              </div>
+              <p>조안나 디자인이사 (Branding &amp; UX)</p>
+            </div>
+            <div class="loc-item">
+              <div class="loc-head">
+                <i class="loc-dot"></i>
+                <b>DAEJEON</b>
+                <small>대전 대덕테크노밸리</small>
+              </div>
+              <p>김봉수 연구이사 (R&amp;D · ㈜글림시스템즈)</p>
+            </div>
+            <div class="loc-item">
+              <div class="loc-head">
+                <i class="loc-dot"></i>
+                <b>KYUNGBOK UNIV.</b>
+                <small>산학 연계</small>
+              </div>
+              <p>AI·XR 시뮬레이션 미디어콘텐츠 연구원 연계</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION & 5 TRACKS -->
+  <!-- 03. EDUCATION SECTION: 5 MASTER TRACKS & SPECIALIZED PROGRAMS -->
+    <section class="section" id="education" style="border-top:1px solid var(--line);">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">EDUCATION &amp; CURRICULUM</div>
+            <h2 class="section-title" style="word-break: keep-all;">
+              <span class="section-title-sub">새미새론의 교육 철학</span>
+              배우는 AI에서,<br>직접 만드는 AI로.
+            </h2>
+          </div>
+          <div class="section-lead" style="word-break: keep-all;">
+            <strong>배워서 쓰고, 써서 만들고, 만들어서 나눕니다.</strong><br>
+            단순히 도구 사용법을 외우는 것이 아니라, 수업이 끝났을 때 실제 내 삶과 업무에 작동하는 결과물이 남습니다.
+          </div>
+        </div>
+
+        <!-- LEVEL 1: 5 MASTER TRACKS (대표 교육 철학) -->
+        <div style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.2em; margin-bottom:20px;">
+          MASTER TRACKS · 5대 대표 교육 트랙
+        </div>
+
+        <div class="tracks-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:20px; margin-bottom:48px;">
+          <!-- TRACK 01 -->
+          <div class="track-card" style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:28px 24px;">
+            <div class="track-num" style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.15em; margin-bottom:8px;">TRACK 01 · 배운다</div>
+            <h3 class="track-title" style="font-size:17px; color:#fff; margin-bottom:4px; font-weight:700; font-family:var(--font-display); letter-spacing:0.02em;">AI BASIC</h3>
+            <div style="font-size:13px; color:var(--gold-light); font-weight:600; margin-bottom:8px;">처음 만나는 AI</div>
+            <div class="track-instructor" style="font-size:11px; color:var(--paper-dim); margin-bottom:14px;">원주시 평생교육원 35회차 교안 직결</div>
+            <p class="track-desc" style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin-bottom:16px;">
+              5060 시니어, 소상공인, 비전공자를 위한 생활 밀착형 AI. 예·복습 부담 없이 수업 안에서 따라하며 경조사 문자, 스마트폰 사진, 여행 통역, 필수 문서를 마스터합니다.
+            </p>
+            <div style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
+              <strong>수료 후 남는 것:</strong> 일상과 업무에서 AI를 막힘없이 직접 사용하는 실전 능력
+            </div>
+          </div>
+
+          <!-- TRACK 02 -->
+          <div class="track-card" style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:28px 24px;">
+            <div class="track-num" style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.15em; margin-bottom:8px;">TRACK 02 · 만든다</div>
+            <h3 class="track-title" style="font-size:17px; color:#fff; margin-bottom:4px; font-weight:700; font-family:var(--font-display); letter-spacing:0.02em;">AI CREATOR</h3>
+            <div style="font-size:13px; color:var(--gold-light); font-weight:600; margin-bottom:8px;">보고, 찍고, 만들다</div>
+            <div class="track-instructor" style="font-size:11px; color:var(--paper-dim); margin-bottom:14px;">30년 사진·영상 감독 임창식 총괄이사</div>
+            <p class="track-desc" style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin-bottom:16px;">
+              카메라로 직접 촬영하고 AI로 완성합니다. 소상공인 상품 사진의 AI 화보 변환부터 실제 촬영물과 생성형 AI를 결합한 하이브리드 광고 영상·숏폼 제작 실무를 체득합니다.
+            </p>
+            <div style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
+              <strong>수료 후 남는 것:</strong> 내 상품과 브랜드를 빛내는 실제 상업용 사진 및 홍보 영상 1세트
+            </div>
+          </div>
+
+          <!-- TRACK 03 -->
+          <div class="track-card" style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:28px 24px;">
+            <div class="track-num" style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.15em; margin-bottom:8px;">TRACK 03 · 표현한다</div>
+            <h3 class="track-title" style="font-size:17px; color:#fff; margin-bottom:4px; font-weight:700; font-family:var(--font-display); letter-spacing:0.02em;">AI STORY</h3>
+            <div style="font-size:13px; color:var(--gold-light); font-weight:600; margin-bottom:8px;">생각을 이야기로</div>
+            <div class="track-instructor" style="font-size:11px; color:var(--paper-dim); margin-bottom:14px;">상지대학교 평생교육원 &amp; 출판사 연계</div>
+            <p class="track-desc" style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin-bottom:16px;">
+              기획부터 스토리 구성, AI 화풍 통일, 북 디자인까지. 내 머릿속의 아이디어와 감성 시문학을 한 권의 정식 AI 시그림책으로 엮어 출판하는 힐링 창작 코스입니다.
+            </p>
+            <div style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
+              <strong>수료 후 남는 것:</strong> 국립중앙도서관 및 온·오프라인 서점에 등록되는 나만의 AI 그림책 1권
+            </div>
+          </div>
+
+          <!-- TRACK 04 -->
+          <div class="track-card" style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:28px 24px;">
+            <div class="track-num" style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.15em; margin-bottom:8px;">TRACK 04 · 일을 맡긴다</div>
+            <h3 class="track-title" style="font-size:17px; color:#fff; margin-bottom:4px; font-weight:700; font-family:var(--font-display); letter-spacing:0.02em;">AI WORKFLOW</h3>
+            <div style="font-size:13px; color:var(--gold-light); font-weight:600; margin-bottom:8px;">내 PC의 AI 작업실</div>
+            <div class="track-instructor" style="font-size:11px; color:var(--paper-dim); margin-bottom:14px;">Windows · Linux Mint · macOS</div>
+            <p class="track-desc" style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin-bottom:16px;">
+              구독료와 고가 장비 부담을 줄이며 무료·저비용 서비스를 스마트 라우팅으로 연결합니다. 24시간 반복 업무를 대신 처리하는 나만의 1인 AI 비서 시스템을 구축합니다.
+            </p>
+            <div style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
+              <strong>수료 후 남는 것:</strong> 내 컴퓨터에서 실제로 작동하는 업무 자동화 및 AI 비서 파이프라인
+            </div>
+          </div>
+
+          <!-- TRACK 05 -->
+          <div class="track-card" style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:28px 24px;">
+            <div class="track-num" style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.15em; margin-bottom:8px;">TRACK 05 · 실험한다</div>
+            <h3 class="track-title" style="font-size:17px; color:#fff; margin-bottom:4px; font-weight:700; font-family:var(--font-display); letter-spacing:0.02em;">AI LAB</h3>
+            <div style="font-size:13px; color:var(--gold-light); font-weight:600; margin-bottom:8px;">도구 제작 &amp; 실험실</div>
+            <div class="track-instructor" style="font-size:11px; color:var(--paper-dim); margin-bottom:14px;">새미새론 R&amp;D 연구팀 직강</div>
+            <p class="track-desc" style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin-bottom:16px;">
+              AI 도구를 단순히 사용하는 것을 넘어, 나에게 필요한 전용 음성 입력기나 업무 데스크탑 도구를 바이브코딩으로 직접 제작하고 검증하는 메이커 실습입니다.
+            </p>
+            <div style="padding:10px 12px; background:rgba(199,154,81,0.06); border:1px solid var(--line-gold); border-radius:2px; font-size:11px; color:var(--gold-light);">
+              <strong>수료 후 남는 것:</strong> 내가 직접 만들어 매일 업무에 사용하는 맞춤형 소프트웨어 1개
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVEL 2: SPECIALIZED PROFESSIONAL PROGRAMS (교수진 전문 영역) -->
+        <div style="background:rgba(18,20,18,0.7); border:1px solid var(--line-gold); padding:28px; border-radius:2px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:20px;">
+            <div>
+              <div style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.2em;">SPECIALIZED &amp; PROFESSIONAL</div>
+              <h4 style="font-size:18px; color:#fff; margin:4px 0 0 0; font-family:var(--font-serif); font-weight:400;">교수진 심화 전문 프로그램</h4>
+            </div>
+            <span style="font-size:12px; color:var(--paper-dim);">기관·기업 맞춤형 위탁 및 프로젝트 출강 연계</span>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:14px;">
+            <div style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:14px 16px;">
+              <div style="color:var(--gold); font-size:11px; font-weight:700;">김소영 이사장</div>
+              <div style="color:#fff; font-size:13px; font-weight:600; margin-top:3px;">AI 영어 &amp; NLP 코칭</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:14px 16px;">
+              <div style="color:var(--gold); font-size:11px; font-weight:700;">한기열 콘텐츠이사</div>
+              <div style="color:#fff; font-size:13px; font-weight:600; margin-top:3px;">인터랙티브 미디어 &amp; XR</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:14px 16px;">
+              <div style="color:var(--gold); font-size:11px; font-weight:700;">김봉수 연구이사</div>
+              <div style="color:#fff; font-size:13px; font-weight:600; margin-top:3px;">3D 프로젝션 맵핑 &amp; 파사드</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:14px 16px;">
+              <div style="color:var(--gold); font-size:11px; font-weight:700;">김태완 크리에이티브이사</div>
+              <div style="color:#fff; font-size:13px; font-weight:600; margin-top:3px;">XR 스마트시티 공간 기획</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:14px 16px;">
+              <div style="color:var(--gold); font-size:11px; font-weight:700;">조안나 디자인이사</div>
+              <div style="color:#fff; font-size:13px; font-weight:600; margin-top:3px;">브랜드 비주얼 &amp; UI/UX</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04. REAL CLASSROOM & PROJECT ARCHIVE SECTION -->
+    <section class="section" id="classroom" style="border-top:1px solid var(--line);">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">REAL CLASSROOM &amp; ARCHIVE</div>
+            <h2 class="section-title" style="word-break: keep-all;">
+              <span class="section-title-sub">현장에서 검증된</span>
+              실제 교육 기록과 결과물
+            </h2>
+          </div>
+          <div class="section-lead" style="word-break: keep-all;">
+            <strong>수많은 강의 숫자를 나열하지 않습니다.</strong><br>
+            대학 강단, 지자체 공공기관, 산업계 R&amp;D 실증 현장에서 교수진이 직접 증명한 살아있는 프로젝트 아카이브입니다.
+          </div>
+        </div>
+
+        <div class="classroom-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; margin-top:28px;">
+          <!-- CARD 01: 원주시 평생교육원 -->
+          <div class="card-box" style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:28px 24px;">
+            <div style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.15em;">LOCATION 01</div>
+            <h4 style="font-size:16px; color:#fff; margin:6px 0 6px; font-weight:700;">원주시 평생교육원</h4>
+            <div style="font-size:12px; color:var(--gold-light); margin-bottom:12px; font-weight:600;">왕초보 AI 활용법 (주간/야간 정규반)</div>
+            <p style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin:0;">
+              5060 시민들을 대상으로 매주 2회 진행되는 35회차 실전 교안. 경조사 문자 작성부터 스마트폰 사진 보정, 생성형 AI 기초까지 전원 실습 성공. (임창식 총괄이사)
+            </p>
+          </div>
+
+          <!-- CARD 02: 원주영상미디어센터 -->
+          <div class="card-box" style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:28px 24px;">
+            <div style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.15em;">LOCATION 02</div>
+            <h4 style="font-size:16px; color:#fff; margin:6px 0 6px; font-weight:700;">원주영상미디어센터</h4>
+            <div style="font-size:12px; color:var(--gold-light); margin-bottom:12px; font-weight:600;">소상공인 상품사진 &amp; AI 하이브리드 영상</div>
+            <p style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin:0;">
+              지역 창업가와 소상공인의 실제 제품을 조명 촬영하고 AI 화보로 변환. 촬영 실사와 AI 비주얼을 합성한 상업용 숏폼 광고 콘텐츠 완성. (임창식 총괄이사)
+            </p>
+          </div>
+
+          <!-- CARD 03: 상지대학교 평생교육원 -->
+          <div class="card-box" style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:28px 24px;">
+            <div style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.15em;">LOCATION 03</div>
+            <h4 style="font-size:16px; color:#fff; margin:6px 0 6px; font-weight:700;">상지대학교 평생교육원</h4>
+            <div style="font-size:12px; color:var(--gold-light); margin-bottom:12px; font-weight:600;">2026 2학기 3대 전문 정규 과정</div>
+            <p style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin:0;">
+              ① AI 사진·영상 심화, ② SNS 콘텐츠 자동화 및 크론잡 운영, ③ AI 시그림책 기획부터 자체 출판사 연계 정식 출판까지 전 과정 원스톱 진행. (임창식 총괄이사)
+            </p>
+          </div>
+
+          <!-- CARD 04: 경복대학교 & 평택대학교 -->
+          <div class="card-box" style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:28px 24px;">
+            <div style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.15em;">LOCATION 04</div>
+            <h4 style="font-size:16px; color:#fff; margin:6px 0 6px; font-weight:700;">경복대학교 &amp; 평택대학교</h4>
+            <div style="font-size:12px; color:var(--gold-light); margin-bottom:12px; font-weight:600;">인터랙티브 미디어 &amp; 실감형 XR 전시</div>
+            <p style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin:0;">
+              TouchDesigner 기반 센서 반응형 미디어아트 및 문화공간 인터랙션 시스템 구축. 공공 전시 콘텐츠 및 대학 미디어 전공 실무 교육 직강. (한기열 콘텐츠이사)
+            </p>
+          </div>
+
+          <!-- CARD 05: ㈜글림시스템즈 대덕 R&D -->
+          <div class="card-box" style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:28px 24px;">
+            <div style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.15em;">LOCATION 05</div>
+            <h4 style="font-size:16px; color:#fff; margin:6px 0 6px; font-weight:700;">㈜글림시스템즈 대덕 R&amp;D</h4>
+            <div style="font-size:12px; color:var(--gold-light); margin-bottom:12px; font-weight:600;">군용 시뮬레이션 &amp; 대형 3D 프로젝션 맵핑</div>
+            <p style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin:0;">
+              21년 경력 특급기술자 총괄. 국방/군용 실시간 3D 시뮬레이션 시스템 납품 및 대형 건축물 미디어 파사드 하드웨어·소프트웨어 아키텍처 설계. (김봉수 연구이사)
+            </p>
+          </div>
+
+          <!-- CARD 06: 경복대 디자인학부 산학 랩 -->
+          <div class="card-box" style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:28px 24px;">
+            <div style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.15em;">LOCATION 06</div>
+            <h4 style="font-size:16px; color:#fff; margin:6px 0 6px; font-weight:700;">경복대 디자인학부 산학 랩</h4>
+            <div style="font-size:12px; color:var(--gold-light); margin-bottom:12px; font-weight:600;">스마트시티 가상공간 &amp; 브랜드 UI/UX</div>
+            <p style="font-size:13px; color:var(--paper-dim); line-height:1.75; margin:0;">
+              디지털트윈 기반 3D 가상도시 공간 기획 및 Red Dot · iF 어워드 수상 노하우 기반의 기업 브랜드 아이덴티티(VI) 및 AI 에셋 UI/UX 프로젝트. (김태완 &amp; 조안나 디자인이사)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- 05. AI LAB SECTION: 5-STEP RESEARCH LOG -->
+    <!-- 6. AI LABS SECTION (3-Column Perfect Horizontal Grid) -->
+  <section class="section" id="lab" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">SEMISERON AI LAB · 실험한다</div>
+          <h2 class="section-title" style="word-break: keep-all;">
+            <span class="section-title-sub">AI로 새로운 도구를 만드는</span>
+            살아있는 실험실
+          </h2>
+        </div>
+        <div class="section-lead" style="word-break: keep-all;">
+          <strong>완성된 이론만 가르치지 않습니다.</strong><br>
+          우리가 실제 업무에서 겪은 불편함을 해결하기 위해 시도하고, 실패하고, 고쳐서 지금 매일 사용하는 실전 제작 기록입니다.
+        </div>
+      </div>
+
+      <!-- AI LABS Dual Tab Selector (No Emojis, Clean Typography) -->
+      <div style="display:flex; gap:12px; margin-bottom: 28px; border-bottom: 1px solid var(--line); padding-bottom: 16px; flex-wrap:wrap;">
+        <button type="button" id="tabBtnResearch" onclick="switchLabTab('research')" style="padding:10px 22px; font-size:13px; font-family:var(--font-sans); border-radius:2px; cursor:pointer; background:var(--gold); color:#080908; font-weight:700; border:none; transition:all 0.2s;">
+          3대 실전 R&amp;D 연구 노트 (Hena Whisper · MiMo House · Smart Routing)
+        </button>
+        <button type="button" id="tabBtnBuilder" onclick="switchLabTab('builder')" style="padding:10px 22px; font-size:13px; font-family:var(--font-sans); border-radius:2px; cursor:pointer; background:rgba(255,255,255,0.03); color:var(--paper-dim); border:1px solid var(--line); font-weight:600; transition:all 0.2s;">
+          10대 실전 프롬프트 조합하기 (Prompt Builder Engine)
+        </button>
+      </div>
+
+      <!-- 1. RESEARCH 3-CARD PERFECT 3-COLUMN HORIZONTAL GRID -->
+      <div id="labResearchContainer">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; box-sizing: border-box;">
+          
+          <!-- LAB 01 -->
+          <div style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:28px 24px; border-radius:2px; box-sizing:border-box;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.15em;">LAB PROJECT 01</span>
+              <span style="padding:2px 8px; font-size:10px; font-family:var(--font-display); background:rgba(34,197,94,0.15); color:#4ade80; border:1px solid rgba(34,197,94,0.3); border-radius:2px;">PROVEN</span>
+            </div>
+            <h4 style="font-size:17px; color:#fff; margin-bottom:14px; font-weight:700;">HENA WHISPER (음성 입력 도구)</h4>
+            <div style="font-size:12px; line-height:1.85; color:var(--paper-dim);">
+              <div style="margin-bottom:6px;"><strong style="color:var(--gold-light);">WHY:</strong> 키보드를 치지 않고 말하는 것만으로 AI에게 일을 시키고 싶었다.</div>
+              <div style="margin-bottom:6px;"><strong style="color:var(--gold-light);">BUILD:</strong> Groq Whisper를 연결해 VRAM 부담 없는 단축키 음성 입력 시스템 제작.</div>
+              <div style="margin-bottom:6px;"><strong style="color:var(--gold-light);">TEST:</strong> 백그라운드 단축키 충돌을 해결하며 수백 번의 실전 타이핑 검증.</div>
+              <div style="margin-bottom:6px;"><strong style="color:var(--gold-light);">RESULT:</strong> 단축키 하나로 말하면 AI에 즉시 텍스트가 입력되는 도구 완성.</div>
+              <div><strong style="color:#4ade80;">EVIDENCE:</strong> 현재 마스터와 에이전트의 모든 실시간 업무에 매일 사용 중.</div>
+            </div>
+          </div>
+
+          <!-- LAB 02 -->
+          <div style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:28px 24px; border-radius:2px; box-sizing:border-box;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.15em;">LAB PROJECT 02</span>
+              <span style="padding:2px 8px; font-size:10px; font-family:var(--font-display); background:rgba(34,197,94,0.15); color:#4ade80; border:1px solid rgba(34,197,94,0.3); border-radius:2px;">PROVEN</span>
+            </div>
+            <h4 style="font-size:17px; color:#fff; margin-bottom:14px; font-weight:700;">MIMO HOUSE &amp; PORTAL v5.1.7</h4>
+            <div style="font-size:12px; line-height:1.85; color:var(--paper-dim);">
+              <div style="margin-bottom:6px;"><strong style="color:var(--gold-light);">WHY:</strong> 터미널이 낯선 사용자를 위한 독립 데스크탑 GUI와 고성능 웹 포털 필요.</div>
+              <div style="margin-bottom:6px;"><strong style="color:var(--gold-light);">BUILD:</strong> Rust/Tauri 경량 GUI 앱 및 바닐라 JS 기반 자체 독립 웹 포털 개발.</div>
+              <div style="margin-bottom:6px;"><strong style="color:var(--gold-light);">TEST:</strong> 2개월간 수많은 레이아웃 충돌과 모달 버그를 직접 수정하며 완성도 향상.</div>
+              <div style="margin-bottom:6px;"><strong style="color:var(--gold-light);">RESULT:</strong> 가볍고 빠르게 작동하는 자체 웹 포털 구축 완료.</div>
+              <div><strong style="color:#4ade80;">EVIDENCE:</strong> 새미새론 공식 마스터 포털 및 에이전트 뷰어로 안정적 실가동 중.</div>
+            </div>
+          </div>
+
+          <!-- LAB 03 -->
+          <div style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:28px 24px; border-radius:2px; box-sizing:border-box;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="font-family:var(--font-display); font-size:11px; color:var(--gold); letter-spacing:0.15em;">LAB PROJECT 03</span>
+              <span style="padding:2px 8px; font-size:10px; font-family:var(--font-display); background:rgba(234,179,8,0.15); color:#facc15; border:1px solid rgba(234,179,8,0.3); border-radius:2px;">IN LAB</span>
+            </div>
+            <h4 style="font-size:17px; color:#fff; margin-bottom:14px; font-weight:700;">크로스 플랫폼 스마트 라우팅</h4>
+            <div style="font-size:12px; line-height:1.85; color:var(--paper-dim);">
+              <div style="margin-bottom:6px;"><strong style="color:var(--gold-light);">WHY:</strong> 비싼 고가 GPU나 맥북 없이도 누구나 자신의 PC에서 AI를 부리게 하겠다.</div>
+              <div style="margin-bottom:6px;"><strong style="color:var(--gold-light);">BUILD:</strong> Windows 및 Linux Mint에서 옴니라우트 기반 3대 에이전트 연동 실험.</div>
+              <div style="margin-bottom:6px;"><strong style="color:var(--gold-light);">TEST:</strong> 무료/저비용 엔드포인트의 실시간 안정성 및 10분 원클릭 설치 스크립트 개발.</div>
+              <div style="margin-bottom:6px;"><strong style="color:var(--gold-light);">RESULT:</strong> 윈도우/리눅스에서도 구독료 부담 없이 돌아가는 에이전트 환경 구현.</div>
+              <div><strong style="color:#facc15;">EVIDENCE:</strong> 상지대 2학기 및 하반기 특강 커리큘럼으로 실증 검증 진행 중.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 2. INTERACTIVE PROMPT BUILDER ENGINE (PERFECT 2-COLUMN SPLIT) -->
+      <div id="labBuilderContainer" style="display:none; margin-top:20px;">
+        <div style="background: var(--bg-surface); border: 1px solid var(--line); padding: 32px 28px; border-radius: 4px;">
+          
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; border-bottom:1px solid var(--line); padding-bottom:14px; flex-wrap:wrap; gap:10px;">
+            <div>
+              <span style="font-size:11px; color:var(--gold); letter-spacing:0.15em; font-family:var(--font-display);">INTERACTIVE LABS</span>
+              <h3 style="font-size:22px; font-family:var(--font-serif); color:#fff; margin:2px 0 0 0;">10대 실전 프롬프트 조합하기</h3>
+            </div>
+            <span style="font-size:12px; color:var(--paper-dim);">상황별 10대 템플릿을 선택하거나 좌측에서 역할을 콕콕 찍어 우측에서 실시간으로 확인하세요.</span>
+          </div>
+
+          <!-- Top 10 Template Buttons (Perfect 5x2 Grid) -->
+          <div style="margin-bottom: 24px;">
+            <div style="font-size: 11px; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 10px; font-weight:600;">RECOMMENDED TEMPLATES (10대 추천 템플릿)</div>
+            <div id="builderTemplateStrip" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;"></div>
+          </div>
+
+          <!-- 2-COLUMN SPLIT LAYOUT (LEFT: 5 Controls / RIGHT: Live Preview & Actions) -->
+          <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 24px; align-items: start;">
+            
+            <!-- LEFT COLUMN: 5 Categories Inputs -->
+            <div id="builderControlsGrid" style="display: flex; flex-direction: column; gap: 14px;"></div>
+
+            <!-- RIGHT COLUMN: Live Preview & Action Buttons (Sticky & Synced) -->
+            <div style="position: sticky; top: 90px; background:#0c0f0d; border:1px solid var(--line-gold); padding:22px; border-radius:4px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px; border-bottom:1px solid var(--line); padding-bottom:12px;">
+                <span style="font-size:12px; color:var(--gold); font-family:var(--font-display); letter-spacing:0.1em; font-weight:700;">LIVE PROMPT PREVIEW</span>
+                <div style="display:flex; gap:6px;">
+                  <button type="button" id="btnCopyPrompt" style="padding:7px 14px; background:var(--gold); color:#080908; font-weight:700; font-size:11px; border:none; border-radius:2px; cursor:pointer; transition:all 0.2s;">복사하기</button>
+                  <button type="button" id="btnSavePrompt" style="padding:7px 12px; background:rgba(255,255,255,0.06); color:#fff; font-size:11px; border:1px solid var(--line); border-radius:2px; cursor:pointer;">텍스트 파일 저장</button>
+                  <button type="button" id="btnResetBuilder" style="padding:7px 10px; background:transparent; color:var(--paper-dim); font-size:11px; border:1px solid var(--line); border-radius:2px; cursor:pointer;">초기화</button>
+                </div>
+              </div>
+              <pre id="promptPreviewContent" style="white-space:pre-wrap; word-break:break-all; font-family:monospace; font-size:12.5px; color:var(--paper); line-height:1.75; margin:0; background:rgba(255,255,255,0.02); padding:16px; border:1px solid var(--line); border-radius:2px; min-height:360px; max-height:480px; overflow-y:auto;"></pre>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="cta-section" id="future">
+    <div class="eyebrow">JOIN SEMISERON NETWORK</div>
+    <h2>새로운 가능성이<br>샘처럼 솟아나는 곳</h2>
+    <p>
+      배우는 사람, 가르치는 사람, 만드는 사람, 그리고 새로운 일을 찾는 조직이 만나는 곳.<br>
+      새미새론과 함께 새로운 미래를 설계해 보세요.
+    </p>
+    <button type="button" class="cta-btn" id="contactCtaBtn" onclick="openContactModal()">
+      <span>PARTNERSHIP &amp; INQUIRY</span>
+      <span>↗</span>
+    </button>
+  </section>
+
+  <!-- FOOTER -->
+    <footer>
+    <div style="display:flex; flex-direction:column; gap:6px;">
+      <div>
+        © 2026 SEMISERON AI EDU (새미새론 AI 교육원). ALL RIGHTS RESERVED. · <button type="button" onclick="openReleaseHistoryModal()" style="background:none; border:none; padding:0 3px; color:#c79a51 !important; font-weight:700; font-size:11px; font-family:var(--font-display), monospace, sans-serif; letter-spacing:0.08em; cursor:pointer; text-decoration:none; vertical-align:baseline; display:inline-block; transition:all 0.2s;" onmouseover="this.style.color='#dfb97a'; this.style.textDecoration='underline';" onmouseout="this.style.color='#c79a51'; this.style.textDecoration='none';" title="새미새론 릴리즈 아카이브">VER. 5.1.7</button> · REV. 2026.08
+      </div>
+      <div style="font-size:9px; color:var(--muted); letter-spacing:0.04em;">
+        본 사이트의 모든 텍스트, 자격 검정 체계, 커리큘럼 및 6인 포트레이트 에셋은 저작권법의 보호를 받습니다.
+      </div>
+    </div>
+    
+    <div style="display:flex; align-items:center; gap:12px; font-size:11px; color:var(--paper-dim); flex-wrap:wrap;">
+      <button type="button" onclick="openDocModal('articles')" style="background:none; border:none; color:var(--paper-dim); font-size:11px; letter-spacing:0.04em; cursor:pointer; text-decoration:underline; transition:color 0.2s;">조합 정관 열람</button>
+      <span>·</span>
+      <button type="button" onclick="openDocModal('minutes')" style="background:none; border:none; color:var(--paper-dim); font-size:11px; letter-spacing:0.04em; cursor:pointer; text-decoration:underline; transition:color 0.2s;">창립총회 의사록</button>
+      <span>·</span>
+      <button type="button" onclick="openDocModal('proposal')" style="background:none; border:none; color:var(--gold); font-size:11px; letter-spacing:0.04em; cursor:pointer; text-decoration:underline; font-weight:600; transition:color 0.2s;">2026 교육 제안서 (HTML)</button>
+      <span>·</span>
+      <button type="button" onclick="openDocModal('sitemap')" style="background:none; border:none; color:#fff; font-size:11px; letter-spacing:0.04em; cursor:pointer; text-decoration:underline; transition:color 0.2s;">사이트맵 (SITEMAP)</button>
+    </div>
+  </footer>
+
+<!-- CONTACT MODAL (Dark Luxury In-Site Form) -->
+  <div class="modal" id="contactModal">
+    <div class="modal-box" style="max-width: 680px; width: 92%;">
+      <button class="modal-close" id="contactModalClose" aria-label="닫기">×</button>
+      
+      <div class="modal-header" style="border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 24px;">
+        <div class="modal-num" style="color: var(--gold); font-size: 11px; letter-spacing: 0.2em;">INQUIRY & PARTNERSHIP</div>
+        <h3 class="modal-name" style="font-size: 26px; font-family: var(--font-serif); margin-top: 4px; color: #fff;">CONTACT SEMISERON</h3>
+        <div class="modal-role" style="color: var(--paper-dim); font-size: 13px; margin-top: 4px;">새미새론 AI 교육원 · 기업 출강 · 9대 자격증 · 산학 컨설팅</div>
+      </div>
+
+      <!-- Quick Contact Info Cards -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px;">
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--line); padding: 14px 16px; border-radius: 2px;">
+          <div style="font-size: 11px; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 4px;">OFFICIAL INQUIRY</div>
+          <div style="font-size: 14px; font-weight: 600; color: #fff;">contact@semiseron.kr</div>
+          <button type="button" onclick="copyContact('contact@semiseron.kr', this)" style="background:none; border:none; color: var(--paper-dim); font-size: 11px; padding: 0; margin-top: 6px; cursor: pointer; text-decoration: underline;">이메일 주소 복사하기</button>
+        </div>
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--line); padding: 14px 16px; border-radius: 2px;">
+          <div style="font-size: 11px; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 4px;">OFFICIAL DOCUMENT</div>
+          <div style="font-size: 14px; font-weight: 600; color: #fff;">office@semiseron.kr</div>
+          <button type="button" onclick="copyContact('office@semiseron.kr', this)" style="background:none; border:none; color: var(--paper-dim); font-size: 11px; padding: 0; margin-top: 6px; cursor: pointer; text-decoration: underline;">공문 접수 메일 복사하기</button>
+        </div>
+      </div>
+
+      <!-- In-Site Inquiry Form -->
+      <form id="inquiryForm" onsubmit="handleInquirySubmit(event)" style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div>
+            <label style="display:block; font-size: 12px; color: var(--paper-dim); margin-bottom: 6px;">성함 / 직책 <span style="color:var(--gold)">*</span></label>
+            <input type="text" id="inqName" required placeholder="예: 홍길동 팀장" style="width: 100%; background: #111412; border: 1px solid var(--line); color: #fff; padding: 10px 12px; font-size: 13px; border-radius: 2px; box-sizing: border-box; outline: none; transition: border-color 0.2s;">
+          </div>
+          <div>
+            <label style="display:block; font-size: 12px; color: var(--paper-dim); margin-bottom: 6px;">연락처 (휴대전화 / 유선) <span style="color:var(--gold)">*</span></label>
+            <input type="text" id="inqPhone" required placeholder="010-0000-0000" style="width: 100%; background: #111412; border: 1px solid var(--line); color: #fff; padding: 10px 12px; font-size: 13px; border-radius: 2px; box-sizing: border-box; outline: none; transition: border-color 0.2s;">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div>
+            <label style="display:block; font-size: 12px; color: var(--paper-dim); margin-bottom: 6px;">소속 기관 / 기업명</label>
+            <input type="text" id="inqOrg" placeholder="예: 상지대학교 / ㈜새미테크" style="width: 100%; background: #111412; border: 1px solid var(--line); color: #fff; padding: 10px 12px; font-size: 13px; border-radius: 2px; box-sizing: border-box; outline: none; transition: border-color 0.2s;">
+          </div>
+          <div>
+            <label style="display:block; font-size: 12px; color: var(--paper-dim); margin-bottom: 6px;">문의 분야 <span style="color:var(--gold)">*</span></label>
+            <select id="inqType" required style="width: 100%; background: #111412; border: 1px solid var(--line); color: #fff; padding: 10px 12px; font-size: 13px; border-radius: 2px; box-sizing: border-box; outline: none; cursor: pointer;">
+              <option value="기업/기관 맞춤형 AI 출강">기업/기관 맞춤형 AI 출강</option>
+              <option value="새미새론 실무 인증 프로젝트 단체 응시 및 취득">새미새론 실무 인증 프로젝트 단체 응시 및 취득</option>
+              <option value="AI 미디어 / XR / 시스템 개발 컨설팅">AI 미디어 / XR / 시스템 개발 컨설팅</option>
+              <option value="5대 대표 교육 트랙 수강 문의">5대 대표 교육 트랙 수강 문의</option>
+              <option value="산학 협력 및 파트너십 제안">산학 협력 및 파트너십 제안</option>
+              <option value="기타 일반 문의">기타 일반 문의</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label style="display:block; font-size: 12px; color: var(--paper-dim); margin-bottom: 6px;">문의 내용 <span style="color:var(--gold)">*</span></label>
+          <textarea id="inqContent" required rows="3" placeholder="희망하시는 교육 일정, 인원, 강의 주제 및 요청사항을 자유롭게 작성해 주세요." style="width: 100%; background: #111412; border: 1px solid var(--line); color: #fff; padding: 10px 12px; font-size: 13px; border-radius: 2px; box-sizing: border-box; outline: none; resize: vertical; line-height: 1.6;"></textarea>
+        </div>
+
+        <button type="submit" id="inqSubmitBtn" style="margin-top: 8px; width: 100%; background: var(--gold); color: #080908; font-weight: 700; font-size: 14px; letter-spacing: 0.1em; padding: 14px; border: none; border-radius: 2px; cursor: pointer; transition: all 0.25s;">
+          문의 접수하기 (SUBMIT INQUIRY)
+        </button>
+      </form>
+
+      <!-- Toast Confirmation -->
+      <div id="inqSuccessToast" style="display:none; margin-top: 16px; padding: 16px; background: rgba(199, 154, 81, 0.1); border: 1px solid var(--gold); text-align: center; border-radius: 2px;">
+        <div style="color: var(--gold); font-weight: 700; font-size: 14px; margin-bottom: 4px;">문의가 성공적으로 접수되었습니다.</div>
+        <div style="font-size: 12px; color: var(--paper-dim); line-height: 1.6;">
+          기재해 주신 연락처로 새미새론 담당 이사진이 24시간 이내에 직접 안내드리겠습니다.<br>
+          급하신 용무는 <strong>contact@semiseron.kr</strong>로 메일을 남겨주세요.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- LEGAL & PROPOSAL MODAL (Secured & Tabbed) -->
+  <div class="modal" id="docModal" oncontextmenu="return false;" style="user-select:none; -webkit-user-select:none;">
+    <div class="modal-box" style="max-width: 960px; width: 95%; position:relative; overflow:hidden;">
+      
+      <!-- Security Watermark Background -->
+      <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; transform:rotate(-25deg); pointer-events:none; z-index:1; opacity:0.04; font-family:var(--font-display); font-size:42px; font-weight:800; color:var(--gold); white-space:nowrap; letter-spacing:0.1em;">
+        SEMISERON AI EDU · OFFICIAL REGISTRATION · DO NOT COPY
+      </div>
+
+      <div style="position:relative; z-index:2;">
+        <button class="modal-close" onclick="closeDocModal()" aria-label="닫기">×</button>
+        
+        <div class="modal-header" style="border-bottom:1px solid var(--line); padding-bottom:16px; margin-bottom:20px;">
+          <div class="modal-num" id="docModalCategory" style="color:var(--gold); font-size:11px; letter-spacing:0.2em;">OFFICIAL LEGAL REGISTRATION</div>
+          <h3 class="modal-name" id="docModalTitle" style="font-size:24px; font-family:var(--font-serif); margin-top:4px; color:#fff;"></h3>
+          <div class="modal-role" id="docModalSub" style="color:var(--paper-dim); font-size:12px; margin-top:4px;"></div>
+        </div>
+
+        <!-- Chapter Navigation Tabs -->
+        <div id="docChapterTabs" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; border-bottom:1px solid var(--line); padding-bottom:12px;"></div>
+
+        <!-- Chapter Body Container -->
+        <div id="docModalBody" style="min-height:280px; max-height:55vh; overflow-y:auto; padding:16px 20px; background:rgba(0,0,0,0.4); border:1px solid var(--line);"></div>
+
+        <!-- Modal Footer Notice -->
+        <div style="margin-top:18px; display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--muted); border-top:1px solid var(--line); padding-top:14px; flex-wrap:wrap; gap:8px;">
+          <div>🔒 본 문서는 새미새론 지적재산권 및 공공 공시 규정에 의해 보호되며 무단 복제가 제한됩니다.</div>
+          <button type="button" onclick="closeDocModal()" class="nav-cta" style="padding:6px 16px; font-size:10px;">창 닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL (Rich Bio Viewer) -->
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="닫기">×</button>
+      <div class="modal-header">
+        <div class="modal-num" id="modalNum"></div>
+        <h3 class="modal-name" id="modalName"></h3>
+        <div class="modal-role" id="modalRole"></div>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-lectures" id="modalLectures" style="display:none;">
+        <h5 id="modalLecturesTitle">2026학년도 2학기 출강 및 교육 일정</h5>
+        <div class="modal-lectures-content" id="modalLecturesContent"></div>
+      </div>
+      <div class="modal-tags" id="modalTags"></div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    /* 1. Hero Water Intro & Mouse Effect */
+    document.documentElement.classList.add('hero-intro');
+    setTimeout(() => {
+      document.documentElement.classList.remove('hero-intro');
+    }, 3200);
+
+    const heroWater = document.getElementById('heroWater');
+    const waterImage = document.querySelector('.water-image');
+    const rings = document.querySelector('.water-rings');
+
+    if (heroWater && waterImage) {
+      heroWater.addEventListener('pointermove', (e) => {
+        const r = heroWater.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        waterImage.style.transform = `translate3d(${x * 12}px, ${y * 8}px, 0) scale(1.025)`;
+      });
+
+      heroWater.addEventListener('pointerleave', () => {
+        waterImage.style.transform = 'translate3d(0,0,0) scale(1.02)';
+      });
+
+      heroWater.addEventListener('pointerdown', (e) => {
+        const r = heroWater.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        rings.style.left = x + 'px';
+        rings.style.top = y + 'px';
+        rings.querySelectorAll('i').forEach((i) => {
+          i.style.animation = 'none';
+          void i.offsetWidth;
+          i.style.animation = 'oneRipple 1.4s cubic-bezier(0.2, 0.7, 0.2, 1)';
+        });
+      });
+    }
+
+    /* 2. Scroll Reveal & Navbar State */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('on');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    /* 3. Mobile Drawer */
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+
+    function toggleMenu(open) {
+      const isOpen = open !== undefined ? open : !mobileDrawer.classList.contains('open');
+      mobileDrawer.classList.toggle('open', isOpen);
+      drawerOverlay.classList.toggle('open', isOpen);
+      menuBtn.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    menuBtn.addEventListener('click', () => toggleMenu());
+    drawerOverlay.addEventListener('click', () => toggleMenu(false));
+    document.querySelectorAll('.drawer-link').forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    /* 4. Comprehensive People Data (100% Preserved) */
+    const peopleData = {
+      kimsoyoung: {
+        no: '01 / OUR PEOPLE',
+        name: '김소영',
+        enName: 'Julia Kim',
+        role: '이사장 / Chairperson',
+        bio: [
+          '<span class="hl">경복대학교 대학원 AI기반 XR시뮬레이션 미디어콘텐츠 석사과정 연구원</span>으로 재학하며 생성형 AI 기반 맞춤형 영어 교수법 및 XR 가상 현실 시뮬레이션을 깊이 있게 연구하고 있습니다.',
+          '<span class="hl">남서울대학교 대학원 코칭학과 석사 졸업</span> (GPA 4.5/4.5 만점). 영어 자기주도학습 코칭 프로그램의 효과성에 관한 학술 논문을 발표했습니다.',
+          '2008년 캐나다 공인 KGIBC에서 <span class="hl">TESOL 및 LATIE 국제 전문 자격증</span>을 동시 취득하였고, 사단법인 한국코칭협회 인증 <span class="hl">KAC 전문 코치</span>이자 NLP Master 코치 자격을 보유하고 있습니다.',
+          '영어유치원 전문강사를 거쳐 <span class="hl">해일로 영어코칭연구소</span> 및 <span class="hl">줄리아코칭영어학원</span>을 경영하며 21년 이상 영어 교육과 자기주도학습 솔루션을 제시해 왔습니다.',
+          '저서로 단행본인 <span class="hl">《밤 9시 엄마와 영어 글쓰기》</span>, 단독 번역서 <span class="hl">《공감으로 완성하는 코칭》</span> 외 다수 집필이 있으며, 갤러리 개인 유화 전시회 개최 및 시민 연극 극본 집필 등 문학과 미술을 아우르는 창작 예술 활동을 융합 교육 모델에 반영하고 있습니다.'
+        ],
+        lectures: {
+          title: '2026학년도 2학기 출강 및 교육 일정',
+          content: '<strong>[상지대학교 평생교육원 출강]</strong><br>• 상담코칭지도사 (수요일 10:00 - 12:00)<br>• 시그림쓰기지도사 - 주간 (화요일 10:00 - 12:00)<br>• 시그림쓰기지도사 - 야간 (월요일 19:00 - 21:00)<br><br><strong>[원주시 학습관 출강]</strong><br>• 영어회화 기초 - 주간/오후<br>• AI 활용 기초 영어 - 야간'
+        },
+        tags: ['경복대 AI·XR 석사연구원', '코칭학 석사 (GPA 4.5)', 'KAC 전문코치 & NLP Master', 'TESOL / LATIE 국제자격', '《밤 9시 영어글쓰기》 저자', '유화 작가 & 연극 극작가', '영어교육 21년 경력']
+      },
+
+      imchangshik: {
+        no: '02 / OUR PEOPLE',
+        name: '임창식',
+        enName: 'Ted Chang / 테드창',
+        role: '총괄이사 / Executive Director',
+        bio: [
+          '<span class="hl">경복대학교 대학원 AI기반 XR시뮬레이션 미디어콘텐츠 석사연구원</span>으로 재학하며, 정밀 미디어 기술과 인공지능의 융합을 학문적으로 연구하고 있습니다.',
+          '2026년 5월 신간 단행본 <span class="hl">《퍼스널 비주얼 브랜딩》</span>을 집필 및 출간하여, 타인의 무의식을 장악하는 0.1초의 첫인상 설계 및 미래 이미지 명함 시각화 이론을 수립했습니다.',
+          '2026년 6월, 김소영 이사장과 공동 집필한 <span class="hl">《바이브코딩》</span> 초고를 완성하였으며, 영문판 <span class="hl">《Vibe Coding》</span>도 동시 출간하여 AI 리터러시 실용 입문서를 국내외 독자에게 선보였습니다.',
+          '2026년 5월, <span class="hl">《AI 에이전트 가이드》</span> 및 영문판 <span class="hl">《AI Agent Guide》</span>, 4월 <span class="hl">《로컬 AI 가이드》</span>를 연속 출간하며 비개발자를 위한 실용 AI 기술을 널리 보급하고 있습니다.',
+          '<span class="hl">아시아나항공 기술팀(정비 부문) 엔지니어 출신</span> 및 대한민국 공군 부사관 복무 이력의 정밀한 기계적 분석 능력을 예술과 콘텐츠 제작 시스템에 접목했습니다.',
+          '30년 경력의 사진·영상 감독으로, 단편 극영화 <span class="hl">〈바퀴와 바닐라〉</span>를 총감독하여 <span class="hl">2025 반딧불영화제 최고감독상</span>을 수상하였고 지상파(G1, KBS) 다큐멘터리 주연으로 소개되었습니다.',
+          '<span class="hl">문화체육관광부 예술전문강사</span> 및 올림푸스한국(주) 교육팀 강사를 거쳐 원주시 평생교육원, 복지관, 상지대학교 등에서 AI 미디어 활용 교육을 전담하는 전문 강사로 활약하고 있습니다.',
+          '대표 여행 잡지인 <span class="hl">‘트래비(Travie)’</span> 및 러닝 전문 매거진 <span class="hl">‘런시티’</span>, <span class="hl">‘월간항공’</span> 공식 포토그래퍼로 활동하며 수십 편의 전문 사진과 원고를 기고했습니다.'
+        ],
+        lectures: {
+          title: '2026학년도 2학기 출강 및 교육 일정',
+          content: '<strong>[상지대학교 평생교육원 출강]</strong><br>• AI그림책 작가 되기 (화요일 10:00 - 12:00)<br>• AI홍보비서 만들기 (월요일 13:00 - 15:00)<br>• AI활용 스마트폰 사진 마스터 (수요일 10:00 - 12:00)<br><br><strong>[지자체 및 공공기관 출강]</strong><br>• 왕초보 AI 활용법 (오전 | 원주 동부 복합체육문화센터)<br>• 왕초보 AI 활용법 (야간 | 원주시 학습관 본관)'
+        },
+        tags: ['경복대 AI·XR 석사연구원', '《바이브코딩》 & 《브랜딩》 저자', '아시아나항공 엔지니어 출신', '단편영화 〈바퀴와 바닐라〉 감독', '문체부 예술전문강사', '테드창 스튜디오 대표']
+      },
+
+      hankiyeol: {
+        no: '03 / OUR PEOPLE',
+        name: '한기열',
+        enName: 'Han Ki-yeol',
+        role: '콘텐츠이사 / Content Director',
+        bio: [
+          '현재 <span class="hl">경복대학교 겸임교수</span>로 재직하며 인터랙티브미디어 및 실감콘텐츠를 연구하고 미래 미디어 학도들을 양성하고 있습니다.',
+          '2008년부터 현재까지 다수의 대학에서 컴퓨터음악, 미디어아트, 인터랙티브 콘텐츠, AR·VR·XR, 홀로그램, 실감 미디어를 강의하고 있습니다.',
+          '前 <span class="hl">화성ICT생활문화센터 센터장</span>으로 미디어아트전시, ICT 융합 교육, 생활문화 교육, 메이커스페이스를 운영하였으며, 문화예술 관련 전문가로 경기도의회 지역사회공헌 표창장을 수상하였습니다.',
+          '<span class="hl">㈜메이브 대표이사</span>(전시 콘텐츠 기획개발) 및 <span class="hl">리얼라이즈미디어 대표</span>(출판 및 문화예술 교육)를 역임하며, 전시 시스템 구축 등 다수의 공공 전시 프로젝트를 수행하였습니다.'
+        ],
+        tags: ['경복대학교 겸임교수', '前 화성ICT생활문화센터 센터장', '실감 & 인터랙티브 미디어 연구', '㈜메이브 대표이사', 'Real Lies Media 대표']
+      },
+
+      kimbongsoo: {
+        no: '04 / OUR PEOPLE',
+        name: '김봉수',
+        enName: 'Kim Bong-soo',
+        role: '연구이사 / R&D Director',
+        bio: [
+          '동의대 기계공학 학사. 21년 경력의 <span class="hl">특급기술자</span>로서 2019년 ㈜글림시스템즈(GLEAM SYSTEMS)를 창업, 대표이사로서 대전 대덕테크노밸리에서 실시간 영상기술 및 시스템 설계 전문 기업을 이끌고 있습니다.',
+          '<span class="hl">AAV용 통합 항공전자시스템(2023~2026)</span> PM을 비롯하여, <span class="hl">디지털트윈/AI/XR 치과 교육훈련 시스템(2021~2024)</span> PM, <span class="hl">혼합현실 기반 군중생태 디지털 테마파크(2020~2022)</span> PM 등 <span class="hl">국책 R&amp;D 과제만 7개 이상</span>을 사업총괄(PM)로 수행하며 실사업 역량을 입증하였습니다.',
+          '<span class="hl">UH-60P 헬기 시뮬레이터(육군, 2005~2009)</span>, <span class="hl">CN-235-100M 시뮬레이터(방사청, 2003~2005)</span>, <span class="hl">육군항공전술 시뮬레이터(2009~2011)</span> 등 <span class="hl">방산 시뮬레이터 프로젝트</span>에서 영상통합 시스템을 담당하며 검증된 군납 실적을 보유하고 있습니다.',
+          '<span class="hl">비정형 다층구조 빔프로젝션 맵핑</span> 특허기술을 보유하고 있으며, K-MDAS 사고조사 프로그램 SW, VR 헬리콥터·720도 모션비행 시뮬레이터, 승무원 사격 VR 시뮬레이션 게임 등 다양한 고난도 프로젝트를 성공적으로 완수하였습니다.',
+          '경복대학교 AI·XR 석사과정을 통해 최신 이론을 흡수하며, 협동조합의 <span class="hl">3D 프로젝션 맵핑·미디어 파사드·방산 시뮬레이터 R&amp;D 트랙</span>을 이끄는 핵심 기술 파트너입니다.'
+        ],
+        tags: ['㈜글림시스템즈 대표이사', '정보통신 특급기술자 (21년)', '빔프로젝션 맵핑 특허 보유', '방산 시뮬레이터 (육군·방사청)', 'VR·AR·디지털트윈 아키텍트', 'AAV 항공전자시스템 PM']
+      },
+
+      kimtaewan: {
+        no: '05 / OUR PEOPLE',
+        name: '김태완',
+        enName: 'Kim Tae-wan',
+        role: '크리에이티브이사 / Creative Director',
+        bio: [
+          '현재 <span class="hl">경복대학교 시각디자인학과 전임교수</span>로 재직하며 인터랙티브 영상 및 그래픽 디자인 방법론을 연구하고 지도하고 있습니다.',
+          'AR·VR·XR, 홀로그램 실감 미디어뿐만 아니라 3차원 가상 도시 설계 모델인 스마트시티(Smart City)와 디지털 트윈(Digital Twin) 분야의 학술 전문가입니다.',
+          '경복대학교와 제주뮤지엄아이바가든 등 국내 대표 실감미디어 전시관들과의 산학 협력 프로젝트를 이끌며, 학술적 이론과 실무 융합 교육 모델의 가교 역할을 담당하고 있습니다.'
+        ],
+        tags: ['경복대 시각디자인학과 전임교수', 'AR/VR/XR 실감미디어 연구', '스마트시티 & 디지털트윈 연구', '메타버스 그래픽스', '제주뮤지엄아이바가든 산학협력']
+      },
+
+      joanna: {
+        no: '06 / OUR PEOPLE',
+        name: '조안나',
+        enName: 'Anna Jo',
+        role: '디자인이사 / Design Director',
+        bio: [
+          '현재 <span class="hl">경복대학교 영상미디어콘텐츠학과 교수</span>로 재직하며 타이포그래피, 브랜딩, UX/UI 및 실감콘텐츠 융합 디자인을 가르치고 연구하고 있습니다.',
+          '국민대학교 디자인대학원 시각디자인 전공으로 디자인학 박사 학위(2022)를 취득하였으며, 타이포그래피와 서체디자인을 기반으로 한 시각커뮤니케이션 연구자입니다.',
+          '느린학습자를 위한 기능성 서체인 “Peachmarket”을 개발하여 글로벌의 <span class="hl">Red Dot Design Award(2022)</span> 및 <span class="hl">iF Design Award(2023)</span>를 수상하였습니다.',
+          '윤디자인그룹 기획·디자이너, 사회문화디자인연구소 선임연구원을 거쳤으며, 현재 사단법인 한국커뮤니케이션디자인협회 편집위원으로 활발한 학술 연구를 이어가고 있습니다.'
+        ],
+        tags: ['🏫 경복대 영상미디어과 교수', '🎓 국민대 디자인학 박사', '🏆 Red Dot & iF 디자인어워드 수상', '✍️ 서체 "Peachmarket" 개발자', '🎨 타이포그래피 & 브랜딩 전문가']
+      }
+    };
+
+    const modal = document.getElementById('modal');
+    const modalClose = document.getElementById('modalClose');
+
+    function openPersonModal(key) {
+      const p = peopleData[key];
+      if (!p) return;
+      document.getElementById('modalNum').textContent = p.no;
+      document.getElementById('modalName').innerHTML = `${p.name} <span>${p.enName}</span>`;
+      document.getElementById('modalRole').textContent = p.role;
+      
+      const bodyHtml = p.bio.map(b => `<div class="modal-bio-item">${b}</div>`).join('');
+      document.getElementById('modalBody').innerHTML = bodyHtml;
+
+      const lecBox = document.getElementById('modalLectures');
+      if (p.lectures) {
+        document.getElementById('modalLecturesTitle').textContent = p.lectures.title;
+        document.getElementById('modalLecturesContent').innerHTML = p.lectures.content;
+        lecBox.style.display = 'block';
+      } else {
+        lecBox.style.display = 'none';
+      }
+
+      document.getElementById('modalTags').innerHTML = p.tags.map(t => `<span>${t}</span>`).join('');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.viewmore-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const card = e.target.closest('.person-card');
+        if (card) openPersonModal(card.dataset.person);
+      });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    
+    /* 6. Comprehensive Tracks & Certifications Modal Data */
+    const tracksModalData = {
+      'ai-basic': {
+        no: '01 / 5 MASTER TRACKS',
+        title: 'TRACK 01 · AI BASIC (처음 만나는 AI)',
+        instructor: '원주시 평생교육원 35회차 실전 교안 직결',
+        role: '생활 밀착형 기초 AI 실무',
+        desc: '5060 시니어, 소상공인, 비전공자를 위한 생활 밀착형 AI 실전 과정입니다. 어려운 이론이나 예·복습 부담 없이 수업 안에서 직접 실습하며 일상과 업무에 필요한 AI 활용 능력을 체득합니다.',
+        weeks: [
+          { w: '1주차', t: '생성형 AI 기초 대화법 및 올바른 프롬프트 작성', d: 'ChatGPT 및 Gemini 기초 설정, 일상 질문법' },
+          { w: '2주차', t: '경조사 문자, 공문서, 감성 편지 10분 완성', d: '상황별 맞춤형 문서 작성 및 서식 자동화' },
+          { w: '3주차', t: '스마트폰 사진 보정 및 AI 화보 변환', d: '인물·풍경 사진 리터칭 및 생성형 배경 변환' },
+          { w: '4주차', t: '외국어 통역, 여행 계획 및 Suno 음악 작곡', d: '실시간 여행 통역과 일상 힐링 콘텐츠 제작' }
+        ],
+        target: 'AI를 처음 접하는 5060 시니어, 소상공인, 직무 전환 희망자',
+        outcome: '일상과 업무에서 AI를 막힘없이 직접 사용하는 실전 능력',
+        career: ['지자체 평생학습관 실무 활용', '소상공인 1인 매장 관리', '가정 및 일상 디지털 라이프']
+      },
+      'ai-creator': {
+        no: '02 / 5 MASTER TRACKS',
+        title: 'TRACK 02 · AI CREATOR (보고, 찍고, 만들다)',
+        instructor: '30년 사진·영상 감독 임창식 총괄이사 직강',
+        role: '상업 사진 및 하이브리드 영상 제작',
+        desc: '카메라로 직접 촬영하고 AI로 완성하는 상업 미디어 제작 과정입니다. 소상공인 상품 촬영부터 AI 화보 변환, 실사 촬영물과 생성형 AI를 결합한 하이브리드 광고 영상·숏폼 제작 실무를 익힙니다.',
+        weeks: [
+          { w: '1주차', t: '상업 상품 촬영 조명 및 35mm 카메라 구도 실무', d: '제품 텍스처와 형태를 살리는 현장 조명 기법' },
+          { w: '2주차', t: '생성형 AI를 활용한 상품 화보 및 룩북 변환', d: '촬영 원본의 상업용 카탈로그 화보 변환' },
+          { w: '3주차', t: '촬영 실사와 AI 비주얼을 결합한 하이브리드 영상 연출', d: '실사 클립과 생성형 씬의 자연스러운 합성' },
+          { w: '4주차', t: '유튜브 숏폼, 릴스 상업 광고 영상 편집 및 사운드', d: '실제 홍보용 숏폼 광고 콘텐츠 1세트 완성' }
+        ],
+        target: '소상공인, 1인 미디어 크리에이터, 기업 마케팅 및 홍보 담당자',
+        outcome: '내 상품과 브랜드를 빛내는 실제 상업용 사진 및 홍보 영상 1세트',
+        career: ['상업 광고 대행사', '소상공인 브랜드 마케팅', '미디어 에이전시 크리에이터']
+      },
+      'ai-story': {
+        no: '03 / 5 MASTER TRACKS',
+        title: 'TRACK 03 · AI STORY (생각을 이야기로)',
+        instructor: '상지대학교 평생교육원 & 자체 출판사 연계',
+        role: 'AI 시그림책 기획 및 정식 출판',
+        desc: '내 머릿속의 이야기와 감성 시문학을 한 권의 책으로 완성하는 출판 과정입니다. 스토리 기획부터 AI 화풍 통일, 편집 디자인, 자체 출판사를 통한 정식 출판 등록까지 원스톱으로 진행됩니다.',
+        weeks: [
+          { w: '1주차', t: '스토리 기획 및 시문학 시나리오 구성', d: '주제 선정 및 챕터별 스토리보드 설계' },
+          { w: '2주차', t: '생성형 AI 일관된 캐릭터 및 화풍 제어 기법', d: '페이지별 캐릭터와 톤앤매너 일관성 유지' },
+          { w: '3주차', t: '북 디자인 및 인디자인/캔바 레이아웃 편집', d: '타이포그래피 배치 및 본문 판형 편집' },
+          { w: '4주차', t: '정식 출판 인쇄 감리 및 온·오프라인 서점 등록', d: '자체 출판사 연계 국립중앙도서관 정식 등록' }
+        ],
+        target: '동화 작가 지망생, 1인 출판 희망자, 힐링 창작을 원하는 누구나',
+        outcome: '국립중앙도서관 및 온·오프라인 서점에 등록되는 나만의 AI 그림책 1권',
+        career: ['AI 시그림책 작가', '독립 출판 크리에이터', '문화예술 교육 강사']
+      },
+      'ai-workflow': {
+        no: '04 / 5 MASTER TRACKS',
+        title: 'TRACK 04 · AI WORKFLOW (내 PC의 AI 작업실)',
+        instructor: 'Windows · Linux Mint · macOS 크로스 플랫폼',
+        role: '업무 자동화 및 개인 AI 비서 구축',
+        desc: '비싼 고가 장비나 구독료 부담 없이, 무료·저비용 서비스를 스마트 라우팅으로 연결하여 내 컴퓨터를 24시간 일하는 AI 작업실로 바꾸는 실전 엔지니어링 과정입니다.',
+        weeks: [
+          { w: '1주차', t: 'Windows / Linux Mint / macOS 환경 최적화', d: '내 PC 사양에 맞춘 AI 실행 환경 구성' },
+          { w: '2주차', t: '무료 및 저비용 AI 엔드포인트 스마트 라우팅', d: '비용 부담 없는 API 라우팅 파이프라인 구축' },
+          { w: '3주차', t: '반복 업무(보고서, 엑셀, 공문서) 자동화', d: '사내 업무 템플릿과 데이터 자동 정리' },
+          { w: '4주차', t: '역할 분담형 AI 비서(기획·실행·검수) 오케스트레이션', d: '24시간 스스로 일하는 나만의 AI 비서 완성' }
+        ],
+        target: '1인 기업가, 스타트업 대표, 업무 생산성을 극대화하려는 직장인',
+        outcome: '내 컴퓨터에서 실제로 작동하는 업무 자동화 및 AI 비서 파이프라인',
+        career: ['1인 기업 자동화 총괄', '기업 DX 추진팀', '비즈니스 자동화 전문가']
+      },
+      'ai-lab': {
+        no: '05 / 5 MASTER TRACKS',
+        title: 'TRACK 05 · AI LAB (도구 제작 & 실험실)',
+        instructor: '새미새론 R&D 연구팀 직강',
+        role: 'AI 도구 제작 및 바이브코딩 실습',
+        desc: 'AI를 단순 사용하는 단계를 넘어, 나에게 필요한 전용 음성 입력기나 업무 데스크탑 도구를 AI와 대화하며(바이브코딩) 직접 만들고 업무에 적용하는 실전 메이커 과정입니다.',
+        weeks: [
+          { w: '1주차', t: '문제 정의 및 요구사항 구조화 (WHY)', d: '실제 업무에서 겪는 불편함과 해결 목표 수립' },
+          { w: '2주차', t: '바이브코딩(Vibe Coding) 앱 프로토타이핑 (BUILD)', d: '자연어 대화를 통한 기능 구현 및 UI 설계' },
+          { w: '3주차', t: '헤나 위스퍼 형태의 음성 입력 도구 및 GUI 연동 (TEST)', d: '백그라운드 키 연동 및 실전 디버깅' },
+          { w: '4주차', t: '실제 업무 적용 및 배포 (RESULT & EVIDENCE)', d: '매일 실무에 사용하는 나만의 도구 완성' }
+        ],
+        target: '나만의 소프트웨어를 만들고 싶은 실무자, 능동적 AI 학습자',
+        outcome: '내가 직접 만들어 매일 업무에 사용하는 맞춤형 소프트웨어 1개',
+        career: ['AI 도구 메이커', '사내 솔루션 개발자', 'AI 프로덕트 디자이너']
+      }
+    };
+
+    const certsModalData = {
+      cert_01: {
+        track: "TRACK 01 직결 실무 인증",
+        title: "새미새론 AI 기초 실무 인증 (AI Basic Practical Certification)",
+        subtitle: "일상 및 업무 환경에서 생성형 AI를 능숙하게 다루는 실무 역량 인증",
+        jobDesc: "생성형 AI 기본 프롬프트 작성, 경조사 및 공문서 작성, 스마트폰 사진 보정 및 일상 외국어 통역 등 생활과 직무에 필요한 AI 도구를 자립적으로 활용하는 실전 능력을 검증합니다.",
+        subject: "실무 포트폴리오 심사: 4대 생활 밀착형 AI 결과물 (문서·사진·통역·음악) 제작",
+        eligibility: "새미새론 AI BASIC 트랙 수료자 또는 동등한 실무 역량 보유자",
+        target: "5060 시니어, 소상공인, 디지털 전환을 희망하는 비전공자"
+      },
+      cert_02: {
+        track: "TRACK 02 직결 실무 인증",
+        title: "새미새론 상업 미디어 제작 인증 (Commercial AI Creator Certification)",
+        subtitle: "상업용 사진 촬영과 생성형 AI 비주얼 및 숏폼 광고 영상 제작 실무 인증",
+        jobDesc: "실제 상품 사진 조명 촬영부터 AI 화보 변환, 실사 클립과 생성형 씬을 합성한 상업용 하이브리드 광고 숏폼 영상 제작 및 사운드 믹싱 역량을 종합 평가합니다.",
+        subject: "실무 포트폴리오 심사: 상업용 상품 화보 1세트 및 숏폼 광고 영상 1편 완성",
+        eligibility: "새미새론 AI CREATOR 트랙 수료자 또는 미디어 실무 경력자",
+        target: "소상공인, 1인 미디어 크리에이터, 기업 마케팅·홍보 담당자"
+      },
+      cert_03: {
+        track: "TRACK 03 직결 실무 인증",
+        title: "새미새론 AI 시그림책 출판 인증 (AI Story & Publishing Certification)",
+        subtitle: "생각을 이야기로 기획하여 AI 화풍 제어 및 정식 단행본으로 출판하는 창작 역량 인증",
+        jobDesc: "시나리오 스토리보드 기획, 생성형 AI 캐릭터 및 스타일 일관성 제어, 인디자인/캔바 북 디자인 편집 및 국립중앙도서관 정식 출판 등록 전 과정을 완수하는 능력을 검증합니다.",
+        subject: "실무 포트폴리오 심사: 국립중앙도서관 및 온·오프라인 정식 등록 AI 그림책 1권",
+        eligibility: "새미새론 AI STORY 트랙 수료자 또는 출판 희망 창작자",
+        target: "그림책 작가 지망생, 1인 출판 희망자, 문화예술 창작 교육자"
+      },
+      cert_04: {
+        track: "TRACK 04 직결 실무 인증",
+        title: "새미새론 AI 워크플로우 엔지니어 인증 (AI Workflow Practical Certification)",
+        subtitle: "PC 환경 최적화, 무료·저비용 스마트 라우팅 및 24시간 개인 AI 비서 구축 인증",
+        jobDesc: "Windows, Linux Mint, macOS 환경에서 다중 AI 엔드포인트 라우팅, 사내 반복 업무 자동화 파이프라인 구축 및 역할 분담형 AI 비서 오케스트레이션 역량을 평가합니다.",
+        subject: "실무 포트폴리오 심사: 실제 PC에서 작동하는 사내 업무 자동화 파이프라인 1식",
+        eligibility: "새미새론 AI WORKFLOW 트랙 수료자 또는 사내 IT 담당자",
+        target: "1인 기업가, 스타트업 대표, 업무 생산성 혁신을 추진하는 실무자"
+      },
+      cert_05: {
+        track: "TRACK 05 직결 실무 인증",
+        title: "새미새론 AI 도구 메이커 인증 (AI Tool Maker Practical Certification)",
+        subtitle: "바이브코딩(Vibe Coding)을 활용한 맞춤형 데스크탑 소프트웨어 직접 제작 인증",
+        jobDesc: "업무 문제 정의(WHY), 바이브코딩을 통한 프로토타이핑(BUILD), 음성 입력 도구 및 GUI 디버깅(TEST), 실제 업무 배포 및 실증(RESULT & EVIDENCE) 전 과정을 독자적으로 수행하는 능력을 검증합니다.",
+        subject: "실무 포트폴리오 심사: 실제 업무에 매일 사용하는 자체 제작 데스크탑 소프트웨어 1개",
+        eligibility: "새미새론 AI LAB 트랙 수료자 또는 소프트웨어 메이커",
+        target: "나만의 소프트웨어를 개발하고자 하는 실무자 및 능동적 AI 학습자"
+      }
+    };
+
+    function openTrackModal(trackKey) {
+      const t = tracksModalData[trackKey];
+      if (!t) return;
+      document.getElementById('modalNum').textContent = t.no;
+      document.getElementById('modalName').innerHTML = t.title;
+      document.getElementById('modalRole').textContent = t.instructor;
+      
+      let html = `<p style="margin-bottom: 20px; color: var(--paper); line-height: 1.75;">${t.desc}</p>`;
+      html += `<div style="background: rgba(255,255,255,0.02); border: 1px solid var(--line); padding: 20px; margin-bottom: 20px;">`;
+      html += `<h5 style="color: var(--gold); font-size: 12px; font-family: var(--font-display); letter-spacing: 0.15em; margin-bottom: 12px;">주차별 상세 커리큘럼 로드맵</h5>`;
+      if (Array.isArray(t.weeks)) {
+        t.weeks.forEach(w => {
+          const wText = typeof w === 'object' ? `<strong>${w.w} (${w.t}):</strong> ${w.d}` : w;
+          html += `<div style="font-size: 13px; color: var(--paper-dim); margin-bottom: 10px; line-height: 1.7; padding-left: 14px; border-left: 2px solid var(--gold-dim);">${wText}</div>`;
+        });
+      }
+      html += `</div>`;
+      
+      document.getElementById('modalBody').innerHTML = html;
+      document.getElementById('modalLectures').style.display = 'none';
+      
+      let tagsHtml = '';
+      if (t.outcome) tagsHtml += `<span>🏆 수료 결과물: ${t.outcome}</span>`;
+      if (Array.isArray(t.career)) {
+        t.career.forEach(c => { tagsHtml += `<span>🎯 진출 분야: ${c}</span>`; });
+      }
+      document.getElementById('modalTags').innerHTML = tagsHtml;
+      
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function openCertModal(certKey) {
+      const c = certsModalData[certKey];
+      if (!c) return;
+      document.getElementById('modalNum').textContent = "SEMISERON CERTIFICATION · " + c.track;
+      document.getElementById('modalName').innerHTML = c.title;
+      document.getElementById('modalRole').textContent = c.subtitle;
+      
+      let html = `
+        <!-- 1. 직무 정의 및 핵심 역량 -->
+        <div style="margin-bottom: 24px; padding: 22px 24px; background: rgba(199, 154, 81, 0.06); border: 1px solid var(--line-gold);">
+          <div style="font-family: var(--font-display); font-size: 11px; color: var(--gold-light); letter-spacing: 0.18em; margin-bottom: 8px;">JOB DEFINITION &amp; ROLE (직무 개요 및 역할)</div>
+          <p style="font-size: 14px; color: var(--paper); line-height: 1.85;">${c.jobDesc}</p>
+        </div>
+
+        <!-- 2. 검정 기준 및 평가 테이블 -->
+        <div style="margin-bottom: 24px; background: rgba(0,0,0,0.35); border: 1px solid var(--line); padding: 20px 24px;">
+          <div style="font-family: var(--font-display); font-size: 11px; color: var(--gold-light); letter-spacing: 0.18em; margin-bottom: 12px;">EXAMINATION CRITERIA (검정 기준 및 시험 과목)</div>
+          <table style="width: 100%; border-collapse: collapse; font-size: 13px; color: var(--paper-dim);">
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 9px 0; color: var(--gold); width: 28%;">검정 과목</td>
+              <td style="padding: 9px 0; color: var(--paper); font-weight: 400;">${c.subject}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 9px 0; color: var(--gold);">시험 형태</td>
+              <td style="padding: 9px 0;">필기시험 (객관식 20문항 + 주관식 단답형 5문항 = 총 25문항 / 50분)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 9px 0; color: var(--gold);">응시 자격</td>
+              <td style="padding: 9px 0;">${c.eligibility}</td>
+            </tr>
+            <tr>
+              <td style="padding: 9px 0; color: var(--gold);">합격 기준</td>
+              <td style="padding: 9px 0;">100점 만점 기준 70점 이상 득점자</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- 3. 진로 및 실전 활동처 (Warm Amber / Gold Tone) -->
+        <div style="padding: 22px 24px; background: rgba(229, 185, 116, 0.05); border: 1px solid rgba(229, 185, 116, 0.2);">
+          <div style="font-family: var(--font-display); font-size: 11px; color: var(--gold-light); letter-spacing: 0.18em; margin-bottom: 10px;">CAREER &amp; ACTIVITIES (자격 취득 후 진로 및 활동처)</div>
+          <p style="font-size: 13px; color: var(--paper-dim); line-height: 1.85;">${c.target}</p>
+        </div>
+      `;
+      
+      document.getElementById('modalBody').innerHTML = html;
+      document.getElementById('modalLectures').style.display = 'none';
+      
+      // Clean, professional tags without emoji clutter
+      document.getElementById('modalTags').innerHTML = `
+        <span style="font-family: var(--font-display); letter-spacing: 0.08em; border-color: var(--line-gold); color: var(--gold-light);">[SEMISERON ACCREDITED]</span>
+        <span style="font-family: var(--font-display); letter-spacing: 0.08em;">[자격관리 기본 규정 준수]</span>
+        <span style="font-family: var(--font-display); letter-spacing: 0.08em;">[새미새론 파트너 강사 풀 연계]</span>
+      `;
+      
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    /* ==========================================================================
+       11. LEGAL DOCUMENT MODAL & TABS
+       ========================================================================== */
+    const legalDocChapters = {
+      articles: [{"id": "art_c1", "title": "제1장 총칙", "sub": "제1조~제9조 (설립, 명칭, 목적, 책무, 사업구역, 공고, 통지, 선거금지, 규약)", "content": "<div style=\"line-height:2.0; font-size:13px; color:#e5e2da;\">\n  <h4 style=\"color:var(--gold); font-size:16px; margin-bottom:14px;\">제1장 총칙 (제1조 ~ 제9조)</h4>\n  <p style=\"margin-bottom:14px;\"><strong>제1조 (설립과 명칭)</strong> 이 조합은 협동조합기본법에 의하여 설립하며, <strong>새미새론AI교육원 협동조합</strong>이라 한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제2조 (목적)</strong> 새미새론AI교육원 협동조합(이하 ‘조합’이라 한다)은 자주적·자립적·자치적인 조합 활동을 통하여 인공지능(AI), 확장현실(XR), 미디어 리터러시 교육 및 실감형 콘텐츠 개발을 협동으로 영위함으로써 조합원의 경제적·사회적·문화적 권익을 향상시키고, 지역사회의 디지털 역량 강화와 문화 복지 증진에 기여함을 목적으로 한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제3조 (조합의 책무)</strong><br>\n  ① 조합은 조합원 등의 권익 증진을 위하여 교육ㆍ훈련 및 정보 제공 등의 활동을 적극적으로 수행한다.(法)<br>\n  ② 조합은 다른 협동조합, 다른 법률에 따른 협동조합, 외국의 협동조합 및 관련 국제기구 등과의 상호 협력, 이해 증진 및 공동사업 개발 등을 위하여 노력한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제4조 (사무소의 소재지)</strong> 조합의 주된 사무소는 강원특별자치도 원주시에 두며, 이사회의 의결에 따라 필요한 곳에 지사무소를 둘 수 있다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제5조 (사업구역)</strong> 조합의 사업구역은 강원도로 한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제6조 (공고방법)</strong><br>\n  ① 조합의 공고는 주된 사무소의 게시판(지사무소의 게시판을 포함한다) 또는 조합의 인터넷 홈페이지(https://kacec.kr/ 및 https://semiseron.kr)에 게시하고, 필요하다고 인정하는 때에는 강원특별자치도에서 발간되는 일간신문 및 중앙일간지에 게재할 수 있다.<br>\n  ② 제1항의 공고기간은 7일 이상으로 하며, 조합원의 이해에 중대한 영향을 미칠 수 있는 내용에 대하여는 공고와 함께 서면으로 조합원에게 통지하여야 한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제7조 (통지 및 최고방법)</strong> 조합원에 대한 통지 및 최고는 조합원명부에 기재된 주소지로 하고, 통지 및 최고기간은 7일 이상으로 한다. 다만, 조합원이 따로 연락받을 연락처를 지정하였을 때에는 그곳으로 한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제8조 (공직선거 관여 금지)</strong><br>\n  ① 조합은 공직선거에 있어서 특정 정당을 지지․반대하거나 특정인을 당선되도록 하거나 당선되지 아니하도록 하는 일체의 행위를 하여서는 아니 된다.(法)<br>\n  ② 누구든지 조합을 이용하여 제1항에 따른 행위를 하여서는 아니 된다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제9조 (규약 또는 규정)</strong> 조합의 운영 및 사업실시에 관하여 필요한 사항으로서 이 정관으로 정한 것을 제외하고는 규약 또는 규정으로 정할 수 있다.(法)</p>\n</div>"}, {"id": "art_c2", "title": "제2장 조합원", "sub": "제10조~제17조 (자격, 가입, 고지의무, 책임, 탈퇴, 제명, 지분환급, 손실부담)", "content": "<div style=\"line-height:2.0; font-size:13px; color:#e5e2da;\">\n  <h4 style=\"color:var(--gold); font-size:16px; margin-bottom:14px;\">제2장 조합원 (제10조 ~ 제17조)</h4>\n  <p style=\"margin-bottom:14px;\"><strong>제10조 (조합원의 자격)</strong> 조합의 설립목적에 동의하고 조합원으로서의 의무를 다하고자 하는 자는 조합원이 될 수 있다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제11조 (조합원의 가입)</strong><br>\n  ① 조합원의 자격을 가진 자가 조합에 가입하고자 할 때에는 가입신청서를 제출하여야 한다.<br>\n  ② 조합은 제1항에 따른 신청서가 접수되면 신청인의 자격을 확인하고 가입의 가부를 결정하여 신청서를 접수한 날부터 2주 이내에 신청인에게 서면 또는 전화 등의 방법으로 통지하여야 한다.<br>\n  ③ 제2항의 규정에 따라 가입의 통지를 받은 자는 조합에 가입할 자격을 가지며 납입하기로 한 출자좌수에 대한 금액을 지정한 기일 내에 조합에 납부함으로써 조합원이 된다.<br>\n  ④ 조합은 정당한 사유 없이 조합원의 자격을 갖추고 있는 자에 대하여 가입을 거절하거나 가입에 관하여 다른 조합원보다 불리한 조건을 붙일 수 없다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제12조 (조합원의 고지의무)</strong> 조합원은 제11조제1항에 따라 제출한 가입신청서의 기재사항에 변경이 있을 때 또는 조합원의 자격을 상실하였을 때에는 지체 없이 조합에 이를 고지하여야 한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제13조 (조합원의 책임)</strong> 조합원의 책임은 납입한 출자액을 한도로 한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제14조 (탈퇴)</strong><br>\n  ① 조합원은 조합에 탈퇴의사를 알리고 조합을 탈퇴할 수 있다.(法)<br>\n  ② 조합원은 다음 각 호의 어느 하나에 해당하는 때에는 당연히 탈퇴된다.(法)<br>\n  &nbsp;&nbsp;1. 조합원의 자격이 없는 경우<br>\n  &nbsp;&nbsp;2. 사망한 경우<br>\n  &nbsp;&nbsp;3. 성년후견개시의 심판을 받은 경우<br>\n  &nbsp;&nbsp;4. 조합원인 법인이 해산한 경우</p>\n  <p style=\"margin-bottom:14px;\"><strong>제15조 (제명)</strong><br>\n  ① 조합은 조합원이 다음 각 호의 어느 하나에 해당하면 총회의 의결을 얻어 제명할 수 있다.<br>\n  &nbsp;&nbsp;1. 출자금 및 경비의 납입 등 조합에 대한 의무를 이행하지 아니한 경우(法)<br>\n  &nbsp;&nbsp;2. 1년 이상 계속해서 조합의 사업을 이용하지 아니한 경우<br>\n  &nbsp;&nbsp;3. 조합의 사업과 관련된 법령ㆍ행정처분ㆍ정관 및 총회의결사항, 규약·규정을 위반한 경우<br>\n  &nbsp;&nbsp;4. 고의 또는 중대한 과실로 조합의 사업을 방해하거나 신용을 상실하게 하는 행위를 한 경우<br>\n  ② 조합은 제1항에 따라 조합원을 제명하고자 할 때에는 총회 개최 10일 전에 그 조합원에게 제명의 사유를 알리고 총회에서 의견을 진술할 기회를 주어야 한다.(法)<br>\n  ③ 제2항에 따른 의견진술의 기회를 주지 아니하고 행한 총회의 제명 의결은 해당 조합원에게 대항하지 못한다.(法)<br>\n  ④ 조합은 제명결의가 있었을 때에 제명된 조합원에게 제명이유를 서면으로 통지하여야 한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제16조 (탈퇴·제명조합원의 지분환급청구권)</strong><br>\n  ① 탈퇴 조합원(제명된 조합원을 포함한다. 이하 이 조와 제17조에서 같다)은 지분의 환급을 청구할 수 있다.(法)<br>\n  ② 조합은 탈퇴 조합원이 조합에 대한 채무를 다 갚을 때까지는 제1항에 따른 지분의 환급을 정지할 수 있다.(法) 다만, 탈퇴 조합원이 조합에 대하여 채무가 있을 때에는 제1항에 따른 환급금과 상계할 수 있다.<br>\n  ③ 제1항에 따른 청구권은 탈퇴(제명을 포함한다. 이하 이 조와 제17조에서 같다) 당시의 회계연도의 다음 회계연도부터 청구할 수 있다.(法)<br>\n  ④ 제1항에 따른 청구권은 제3항에 따라 청구권을 행사할 수 있는 날부터 2년간 행사하지 아니하면 소멸된다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제17조 (탈퇴·제명조합원의 손실액 부담)</strong><br>\n  ① 조합은 조합의 재산으로 그 채무를 다 갚을 수 없는 경우에는 탈퇴 조합원의 지분의 환급분을 계산할 때, 탈퇴 조합원이 부담하여야 할 손실액의 납입을 청구할 수 있다.(法)<br>\n  ② 제1항에 따른 손실액의 납입 청구에 관하여는 제16조제4항을 준용한다.</p>\n</div>"}, {"id": "art_c3", "title": "제3장 출자 & 적립금", "sub": "제18조~제27조 (1좌 1만원, 30% 한도, 출자증서, 양도, 사용료, 법정적립금 10%)", "content": "<div style=\"line-height:2.0; font-size:13px; color:#e5e2da;\">\n  <h4 style=\"color:var(--gold); font-size:16px; margin-bottom:14px;\">제3장 출자와 경비부담 및 적립금 (제18조 ~ 제27조)</h4>\n  <p style=\"margin-bottom:14px;\"><strong>제18조 (출자)</strong><br>\n  ① 조합원은 1좌 이상의 출자를 하여야 하며 출자 1좌의 금액은 10,000원으로 한다.<br>\n  ② 한 조합원의 출자좌수는 총 출자좌수의 100분의 30을 초과해서는 아니 된다.(法)<br>\n  ③ 출자금은 10일까지 납입한다.<br>\n  ④ 조합에 납입할 출자금은 조합에 대한 채권과 상계하지 못한다.(法)<br>\n  ⑤ 출자는 현물로도 할 수 있고, 현물출자의 경우 규약이 정하는 바에 따라 출자액을 계산한다. 이 경우 현물출자자는 출자의 납입기일에 출자의 목적인 재산의 전부를 조합 또는 조합에서 지정한 장소에 납입하여야 한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제18조의2 (우선출자)</strong> 조합은 협동조합기본법 제22조의2에 따른 우선출자는 발행하지 아니한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제19조 (출자증서등의 교부)</strong><br>\n  ① 조합의 이사장은 조합원이 제18조의 규정에 의하여 최초 출자금을 납입한 때 및 조합원이 요구할 때에는 다음 각 호의 사항을 적은 출자증서 또는 출자를 확인할 수 있는 증표에 기명날인하여 조합원에게 발급하여야 한다.<br>\n  &nbsp;&nbsp;1. 조합의 명칭<br>\n  &nbsp;&nbsp;2. 조합원의 성명 또는 명칭<br>\n  &nbsp;&nbsp;3. 조합 가입 연월일<br>\n  &nbsp;&nbsp;4. 출자금의 납입 연월일<br>\n  &nbsp;&nbsp;5. 출자금액 또는 출자좌수<br>\n  &nbsp;&nbsp;6. 발행 연월일<br>\n  ② 조합의 이사장은 매년 정기총회 10일 후까지 조합원의 지분 변동상황을 조합원에게 알려주어야 한다. 이 경우 우편, 전자통신매체 등을 이용하여 통지할 수 있다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제20조 (지분의 범위)</strong> 조합의 재산에 대한 조합원의 지분은 다음 각 호와 같다. 다만, 법 제50조제1항에 의한 법정적립금은 지분 범위에 포함되지 아니한다.<br>\n  &nbsp;&nbsp;1. 조합원이 납입한 출자금<br>\n  &nbsp;&nbsp;2. 매 회계연도 총회에서 지분으로 확정한 준비금 등</p>\n  <p style=\"margin-bottom:14px;\"><strong>제21조 (지분등의 양도와 취득금지)</strong><br>\n  ① 조합원 지위의 양도 또는 조합원 지분의 양도는 총회의 의결을 받아야 한다.(法)<br>\n  ② 조합원이 아닌 자가 지분을 양수하려고 할 때에는 가입의 예에 따른다.<br>\n  ③ 지분의 양수인은 그 지분에 관하여 양도인의 권리의무를 승계한다.<br>\n  ④ 조합원은 지분을 공유하지 못한다.<br>\n  ⑤ 조합은 조합원의 출자지분을 취득하거나 이를 질권의 목적으로 하여서는 아니 된다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제22조 (출자금액의 감소의결)</strong><br>\n  ① 조합은 부득이한 사유가 있을 때에는 조합원의 신청에 의하여 출자좌수를 감소할 수 있다.<br>\n  ② 조합은 출자 1좌 금액의 감소 또는 출자좌수의 감소(이하 “출자감소”라 한다)를 의결한 경우에는 그 의결을 한 날부터 14일 이내에 대차대조표를 작성한다.(法)<br>\n  ③ 조합은 제2항에 따른 의결을 한 날부터 14일 이내에 채권자에 대하여 이의가 있으면 조합의 주된 사무소에 이를 서면으로 진술하라는 취지를 공고하고, 이미 알고 있는 채권자에게는 개별적으로 최고하여야 한다.(法)<br>\n  ④ 제3항에 따른 이의신청 기간은 30일 이상으로 한다.(法)<br>\n  ⑤ 그 밖의 출자감소의 절차와 방법에 관하여는 별도의 규약으로 정할 수 있다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제23조 (출자감소 의결에 대한 채권자의 이의)</strong><br>\n  ① 채권자가 제22조의 이의신청 기간에 출자감소에 관한 의결에 대하여 이의를 신청하지 아니하면 출자감소를 승인한 것으로 본다.(法)<br>\n  ② 채권자가 이의를 신청하면 조합은 채무를 변제하거나 상당한 담보를 제공하여야 한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제24조 (경비 및 사용료와 수수료)</strong><br>\n  ① 조합은 사업운영을 위하여 조합원 및 조합의 사업을 이용하는 자에게 다음 각 호의 경비 및 사용료와 수수료를 부과 및 징수할 수 있다.<br>\n  &nbsp;&nbsp;1. 조합운영을 위한 연회비 또는 월회비를 징수하는 기본회비<br>\n  &nbsp;&nbsp;2. 교육 또는 연수목적으로 강사에게 징수하는 특별회비<br>\n  &nbsp;&nbsp;3. 시설 및 장비사용료<br>\n  &nbsp;&nbsp;4. 자격검정 및 인증수수료<br>\n  &nbsp;&nbsp;5. 온라인 학습플랫폼, LMS, AI서비스 등 플랫폼 이용료<br>\n  &nbsp;&nbsp;6. 기타 이사회의 의결을 거쳐 필요한 경비 및 수수료<br>\n  ② 제1항에 따른 경비 및 사용료와 수수료의 부과대상, 부과금액, 부과방법, 징수시기와 징수방법은 규약으로 정한다.<br>\n  ③ 조합원은 제1항에 따른 경비 및 사용료와 수수료를 납입할 때 조합에 대한 채권과 상계할 수 없다.<br>\n  ④ 제2항의 부과금에 있어서 조합원 등에 대한 부과금액의 산정기준 사항에 변경이 있어도 이미 부과한 금액은 변경하지 못한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제25조 (과태금)</strong><br>\n  ① 조합은 조합원이 출자금 또는 경비 등의 납입의무를 그 기한까지 이행하지 아니하는 경우에는 과태금을 징수할 수 있다.<br>\n  ② 조합원은 제1항에 따른 과태금을 조합에 대한 채권과 상계할 수 없다.<br>\n  ③ 과태금의 금액 및 징수방법은 규약으로 정한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제26조 (법정적립금)</strong><br>\n  ① 조합은 매 회계연도 결산의 결과 잉여금이 있는 때에는 해당 회계연도 말 출자금 납입총액의 3배가 될 때까지 잉여금의 100분의 10 이상을 적립하여야 한다.(法)<br>\n  ② 제1항의 법정적립금은 손실금의 보전에 충당하거나 해산하는 경우 외에는 사용하여서는 아니 된다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제27조 (임의적립금)</strong><br>\n  ① 조합은 매 회계연도의 잉여금에서 제26조에 따른 법정적립금을 빼고 나머지가 있을 때에는 총회에서 결정하는 바에 따라 매 회계연도 잉여금의 100분의 10이상을 임의적립금으로 적립할 수 있다.<br>\n  ② 임의적립금은 총회에서 결정하는 바에 따라 사업준비금, 사업개발비, 교육 등 특수목적을 위하여 지출할 수 있다.</p>\n</div>"}, {"id": "art_c4", "title": "제4장 총회 & 이사회", "sub": "제28조~제45조 (정기/임시총회, 대의원, 1인1표, 의결사항, 이사회 소집·의결)", "content": "<div style=\"line-height:2.0; font-size:13px; color:#e5e2da;\">\n  <h4 style=\"color:var(--gold); font-size:16px; margin-bottom:14px;\">제4장 총회와 이사회 (제28조 ~ 제45조)</h4>\n  <p style=\"margin-bottom:14px;\"><strong>제28조 (총회)</strong> ① 조합은 총회를 둔다.(法) ② 총회는 정기총회와 임시총회로 구분한다. ③ 총회는 이사장과 조합원으로 구성하며, 이사장이 그 의장이 된다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제29조 (대의원총회)</strong> ① 조합원의 수가 200인을 초과하는 경우 대의원 총회를 둘 수 있다.(法) ⑥ 대의원의 임기는 3년으로 한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제30조 (대의원의 의무 및 자격상실)</strong> 대의원은 성실히 출석하여야 하며, 정당한 사유 없이 3회 이상 불출석 시 자격을 상실하게 할 수 있다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제31조 (정기총회)</strong> 정기총회는 매년 1회 회계연도 종료 후 3개월 이내에 이사장이 소집한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제32조 (임시총회)</strong> 이사장·이사회 필요 시, 조합원 5분의 1 이상 동의 청구 시, 감사 청구 시 소집한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제33조 (총회의 소집절차)</strong> 총회 개최 7일 전까지 회의목적·안건·일시 및 장소를 통지하여야 한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제33조의2 (조합원제안권)</strong> 조합원 5분의 1 이상의 동의로 총회일 2주 전에 안건을 제안할 수 있다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제34조 (총회의 의결사항)</strong> 정관 변경, 규약 제정·변경, 임원 선출·해임, 사업계획 및 예산 승인, 결산보고서 승인, 합병·분할·해산, 조합원 제명 등(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제35조 (총회의 의사)</strong> 총 조합원 과반수 출석으로 개회하고 출석조합원 과반수 찬성으로 의결한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제36조 (특별의결사항)</strong> 정관 변경, 합병·분할·해산, 조합원 제명 등은 과반수 출석과 출석 3분의 2 이상의 찬성으로 의결한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제37조 (의결권 및 선거권)</strong> 조합원은 출자좌수에 관계없이 각각 1개의 의결권과 선거권을 갖는다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제38조 (대리인이 될 자격)</strong> 대리인은 다른 조합원 또는 동거 가족에 한하며 1인만 대리할 수 있다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제39조 (총회의 의사록)</strong> 의사진행 상황과 결과를 적고 의장과 선출 조합원 3인 이상이 기명날인 또는 서명한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제42조 (이사회)</strong> 이사회는 이사장 및 이사로 구성하며 이사장이 소집하고 의장이 된다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제43조 (이사회의 의결사항)</strong> 재산 및 업무집행, 총회 상정 의안, 규정 제정·개정, 사업계획·예산안 작성 등(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제44조 (이사회의 의사)</strong> 구성원 과반수 출석과 출석이사 과반수 찬성으로 의결한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제45조 (이사회의 의사록)</strong> 의사 경과와 결과를 기재하고 참석 이사 전원이 기명날인 또는 서명한다.</p>\n</div>"}, {"id": "art_c5", "title": "제5장 임원 & 직원", "sub": "제46조~제60조 (임원 정수, 선임, 결격사유, 임기 4년, 직무, 감사, 해임, 운영공개)", "content": "<div style=\"line-height:2.0; font-size:13px; color:#e5e2da;\">\n  <h4 style=\"color:var(--gold); font-size:16px; margin-bottom:14px;\">제5장 임원과 직원 (제46조 ~ 제60조)</h4>\n  <p style=\"margin-bottom:14px;\"><strong>제46조 (임원의 정수)</strong> 이사장 1명을 포함한 3명 이상 5명 이내의 이사와 1명 이상 2명 이내의 감사를 둔다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제47조 (임원의 선임)</strong> 이사 및 감사는 총회가 조합원 중에서 선출하며, 이사장은 이사 중에서 총회에서 선출한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제48조 (선거운동의 제한)</strong> 금품·향응 제공, 직 제공 약속, 호별 방문 등 일체의 부정 선거운동을 금지한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제49조 (선거관리위원회의 구성·운영)</strong> 공정한 선거 관리를 위해 2인 이내의 위원회를 구성·운영할 수 있다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제50조 (임원등의 결격사유)</strong> 피성년후견인, 파산자, 금고 이상 실형/집행유예자 등은 임원이 될 수 없다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제51조 (임원의 임기)</strong><br>\n  ① <span style=\"color:var(--gold-light); font-weight:700; background:rgba(199,154,81,0.1); padding:2px 6px; border:1px solid var(--line-gold);\">임원의 임기는 4년으로 한다.</span><br>\n  ② 임원은 연임할 수 있다. 다만, 이사장은 두 차례만 연임할 수 있다.(法)<br>\n  ③ 결원으로 인하여 선출된 임원의 임기는 전임자의 임기종료일까지로 한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제52조 (임직원의 겸직금지)</strong> 이사장은 타 조합 이사장 겸직 불가, 이사·직원은 감사 겸직 불가, 국회의원/지방의원 겸직 불가(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제53조 (이사장 및 이사의 직무)</strong> 이사장은 조합을 대표하고 업무를 총괄 집행한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제53조의2 (이사의 경업금지)</strong> 동의 없이 조합의 영업부류에 속한 거래나 타사 임원이 되지 못한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제53조의3 (이사와 협동조합 간의 거래)</strong> 총회/조합원 과반수 결의가 있는 경우에만 거래할 수 있다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제54조 (감사의 직무)</strong> 연 1회 이상 업무 및 재산상태를 감사하여 총회에 보고한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제55조 (감사의 대표권)</strong> 조합이 이사와 소송을 하는 때에는 감사가 조합을 대표한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제56조 (임원의 의무와 책임)</strong> 법령과 정관을 준수하고 손해 발생 시 연대 배상 책임을 진다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제58조 (임원의 해임)</strong> 조합원 5분의 1 이상의 동의로 총회에 해임을 요구할 수 있다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제59조 (운영의 공개)</strong> 정관, 의사록, 회계장부, 결산보고서를 주된 사무소에 비치하고 열람에 응한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제60조 (직원의 임면등)</strong> 직원은 이사장이 임면하며 간부직원은 이사회 결의를 거친다.</p>\n</div>"}, {"id": "art_c6", "title": "제6장 사업과 집행", "sub": "제61조~제63조 (디지털 전환 실천, 워크숍, 강사 브랜딩, 상담/교육훈련, 수지예산)", "content": "<div style=\"line-height:2.0; font-size:13px; color:#e5e2da;\">\n  <h4 style=\"color:var(--gold); font-size:16px; margin-bottom:14px;\">제6장 사업과 집행 (제61조 ~ 제63조)</h4>\n  <p style=\"margin-bottom:14px;\"><strong>제61조 (사업의 종류)</strong><br>\n  ① 이 조합은 그 목적을 달성하기 위하여 다음 각 호의 사업을 할 수 있다.<br>\n  &nbsp;&nbsp;1. <strong>AI·XR 기반 지역사회 디지털 전환 실천 사업</strong><br>\n  &nbsp;&nbsp;2. <strong>조합원과 강사를 위한 ‘역량 강화 워크숍' 운영과 공동 강의 브랜딩 및 네트워크 형성 사업</strong><br>\n  &nbsp;&nbsp;3. <strong>조합원과 강사에 대한 상담, 교육․훈련 및 정보제공 사업(法)</strong><br>\n  &nbsp;&nbsp;4. <strong>조합 간 협력을 위한 사업(法)</strong><br>\n  &nbsp;&nbsp;5. <strong>조합의 홍보 및 지역사회를 위한 사업(法)</strong><br>\n  ② 조합의 사업은 관계 법령에서 정하는 목적·요건·절차·방법 등에 따라 적법하고 타당하게 시행되어야 한다.(法)<br>\n  ③ 제1항과 제2항에도 불구하고 조합은 「통계법」 제22조제1항에 따라 통계청장이 고시하는 한국표준산업분류에 의한 금융 및 보험업을 영위할 수 없다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제62조 (사업의 이용)</strong> 조합은 조합원이 이용하는 데에 지장이 없는 범위에서 다음 각 호의 경우 조합원이 아닌 자에게 사업을 이용하게 할 수 있다.<br>\n  &nbsp;&nbsp;1. 조합이 실시하는 교육·연수·세미나·강사양성과정에 참여하는 자<br>\n  &nbsp;&nbsp;2. 국가기관, 지방자치단체, 학교, 공공기관 및 기업 등의 위탁교육 대상자</p>\n  <p style=\"margin-bottom:14px;\"><strong>제63조 (사업계획과 수지예산)</strong> 이사회는 매 회계연도 경과 후 3개월 이내에 해당 연도의 사업계획을 수립하고 동 계획의 집행에 필요한 수지예산을 편성하여 총회의 의결을 받아야 한다.(法)</p>\n</div>"}, {"id": "art_c7", "title": "제7장 회계", "sub": "제64조~제69조 (1.1~12.31, 일반/특별회계, 결산, 손실보전, 잉여금 50%이용배당)", "content": "<div style=\"line-height:2.0; font-size:13px; color:#e5e2da;\">\n  <h4 style=\"color:var(--gold); font-size:16px; margin-bottom:14px;\">제7장 회계 (제64조 ~ 제69조)</h4>\n  <p style=\"margin-bottom:14px;\"><strong>제64조 (회계연도)</strong> 조합의 회계연도는 매년 1월 1일부터 12월 31일까지로 한다. 다만, 최초 회계연도는 설립등기일(또는 설립일)부터 같은 해 12월 31일까지로 한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제65조 (회계)</strong> ① 조합의 회계는 일반회계와 특별회계로 구분한다.(法) ② 당해 조합의 사업은 일반회계로 하고, 특별회계는 정부 보조금 사업, 교육발전기금 등 구분 경리할 필요가 있을 때 설치한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제66조 (특별회계의 설치)</strong> 특별회계는 정부·지방자치단체 보조금 사업, 교육발전기금을 운영하기 위하여 설치한다.</p>\n  <p style=\"margin-bottom:14px;\"><strong>제67조 (결산등)</strong> 정기총회 7일 전까지 결산보고서를 감사에게 제출하고 총회 승인을 받아야 한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제68조 (손실금의 보전)</strong> 결산 결과 손실금 발생 시 미처분이월금, 임의적립금, 법정적립금 순으로 보전한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제69조 (잉여금의 배당 및 이월)</strong><br>\n  ① 손실금 보전 및 법정·임의적립금 적립 후 잔여가 있을 때 총회 결의로 배당할 수 있다.(法)<br>\n  ② 사업 이용실적 배당은 전체 배당액의 100분의 50 이상, 납입출자액 배당은 납입출자금의 100분의 10을 초과하지 못한다.(法)</p>\n</div>"}, {"id": "art_c8", "title": "제8장 해산 & 부칙", "sub": "제70조~제73조 & 부칙 제1~2조 (합병, 해산, 청산, 초대임원 2030년 정기총회 특례)", "content": "<div style=\"line-height:2.0; font-size:13px; color:#e5e2da;\">\n  <h4 style=\"color:var(--gold); font-size:16px; margin-bottom:14px;\">제8장 합병·분할·해산 &amp; 부칙 (제70조 ~ 제73조, 부칙 제1~2조)</h4>\n  <p style=\"margin-bottom:14px;\"><strong>제70조 (합병과 분할)</strong> 계약서/계획서 작성 후 총회의 의결을 얻어 합병 또는 분할할 수 있다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제71조 (해산)</strong> 총회의 의결, 합병·분할 또는 파산 시 해산하며 해산절차는 민법 등 관련 법령에 의한다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제72조 (청산인)</strong> 해산 시 이사장이 청산인이 되며, 재산상태 조사 후 총회 승인을 얻는다.(法)</p>\n  <p style=\"margin-bottom:14px;\"><strong>제73조 (청산 잔여재산의 처리)</strong> 채무 변제 후 잔여재산은 조합원에게 분배하거나 유사 목적의 비영리법인에 증여할 수 있다.</p>\n  <div style=\"margin-top:20px; padding:16px; background:rgba(199,154,81,0.08); border:1px solid var(--line-gold);\">\n    <h5 style=\"color:var(--gold-light); font-size:14px; margin-bottom:10px;\">부 칙</h5>\n    <p style=\"margin-bottom:10px;\"><strong>제1조 (시행일)</strong> 이 정관은 소관 지방자치단체장의 신고서류 수리가 완료된 날부터 시행한다.</p>\n    <p style=\"margin-bottom:0;\"><strong>제2조 (초대임원의 임기에 대한 특례)</strong> 이 정관 제51조 제1항에도 불구하고 조합 설립 당시 선출된 <strong style=\"color:#fff;\">초대 임원의 임기는 2030년 정기총회일까지로 한다.</strong></p>\n  </div>\n</div>"}],
+
+      minutes: [{"id": "min_c1", "title": "총회 개요 & 성원보고", "sub": "2026년 6월 25일 개최, 발기인 5인 전원 출석, 의장 김소영(이사장)", "content": "<div style=\"line-height:2.0; font-size:13px; color:#e5e2da;\">\n  <h4 style=\"color:var(--gold); font-size:16px; margin-bottom:14px;\">한국AI융합교육원 협동조합 창립총회 개요</h4>\n  <table style=\"width:100%; border-collapse:collapse; margin-bottom:16px;\">\n    <tr><th style=\"padding:10px 14px; border:1px solid var(--line); background:rgba(255,255,255,0.02); width:28%; color:var(--gold-light);\">일 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;시</th><td style=\"padding:10px 14px; border:1px solid var(--line);\">2026년 6월 25일(목) 오전 10시 00분</td></tr>\n    <tr><th style=\"padding:10px 14px; border:1px solid var(--line); background:rgba(255,255,255,0.02); color:var(--gold-light);\">장 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;소</th><td style=\"padding:10px 14px; border:1px solid var(--line);\">강원특별자치도 원주시 남원로 645 영광빌딩 5층 (조합 대회의실)</td></tr>\n    <tr><th style=\"padding:10px 14px; border:1px solid var(--line); background:rgba(255,255,255,0.02); color:var(--gold-light);\">출 &nbsp;석 &nbsp;자</th><td style=\"padding:10px 14px; border:1px solid var(--line);\">총 5명 중 5명 전원 참석 (김소영, 임창식, 한기열, 김태완, 김봉수)</td></tr>\n    <tr><th style=\"padding:10px 14px; border:1px solid var(--line); background:rgba(255,255,255,0.02); color:var(--gold-light);\">의장 및 서기</th><td style=\"padding:10px 14px; border:1px solid var(--line);\">의장: 김소영 (이사장) &nbsp;|&nbsp; 서기: 임창식 (이 사)</td></tr>\n  </table>\n  <div style=\"background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:16px 20px;\">\n    <h5 style=\"color:var(--gold-light); font-size:14px; margin-bottom:8px;\">[회의 경과]</h5>\n    <p style=\"margin:0;\">의장 김소영은 발기인 5인 전원이 출석하여 성원이 되었음을 보고하고 본 총회가 적법하게 성립되었음을 선언한 뒤, 본 조합 설립에 필요한 아래 안건들의 상정과 심의를 진행하다.</p>\n  </div>\n</div>"}, {"id": "min_c2", "title": "제1·2호 안건 (임기 4년)", "sub": "정관(안) 승인의 건, 초대 임원(이사/감사/이사장) 선출의 건", "content": "<div style=\"line-height:2.0; font-size:13px; color:#e5e2da;\">\n  <h4 style=\"color:var(--gold); font-size:16px; margin-bottom:14px;\">제1호 및 제2호 안건 심의·의결</h4>\n  <div style=\"background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:16px 20px; margin-bottom:16px;\">\n    <div style=\"color:var(--gold); font-weight:700; font-size:14px; margin-bottom:8px;\">제1호 안건: 정관(안) 승인의 건</div>\n    <p style=\"margin:0;\">의장이 미리 준비한 정관 초안을 낭독하고 한 조항씩 의견을 구한바, 참석 발기인 전원이 내용을 정밀 검토한 후 정관 원안에 대해 전원 찬성하여 만장일치로 승인하고 기명날인하기로 의결하다.</p>\n  </div>\n  <div style=\"background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:16px 20px;\">\n    <div style=\"color:var(--gold); font-weight:700; font-size:14px; margin-bottom:8px;\">제2호 안건: 초대 임원(이사장, 이사, 감사) 선출의 건</div>\n    <p style=\"margin:0;\">초대 임원으로 이사(김소영, 임창식, 한기열)와 감사(김태완)를 만장일치로 선출하다. 이어서 선출된 이사 중에서 김소영 이사를 만장일치로 이사장으로 선출하였다. <strong style=\"color:var(--gold-light); background:rgba(199,154,81,0.1); padding:2px 6px; border:1px solid var(--line-gold);\">(임원 임기 4년)</strong></p>\n  </div>\n</div>"}, {"id": "min_c3", "title": "제3·4호 안건 & 폐회", "sub": "사업계획/예산 승인 [금액 마스킹], 주사무소 설치 결의 및 폐회", "content": "<div style=\"line-height:2.0; font-size:13px; color:#e5e2da;\">\n  <h4 style=\"color:var(--gold); font-size:16px; margin-bottom:14px;\">제3호 및 제4호 안건 심의 &amp; 폐회</h4>\n  <div style=\"background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:16px 20px; margin-bottom:16px;\">\n    <div style=\"color:var(--gold); font-weight:700; font-size:14px; margin-bottom:8px;\">제3호 안건: 2026년도 사업계획 및 세입·세출 예산안 승인의 건</div>\n    <p style=\"margin:0;\">이사 임창식이 10대 사업 영역을 주축으로 구성한 2026년도 연간 세부 사업계획서와 총 수입·지출 예산안<span style=\"color:var(--gold-light); font-weight:700;\">(조합 재정 보안 처리: ◯◯,◯◯◯,◯◯◯원 규모)</span>을 보고하다. 이에 발기인 전원이 심도 깊게 검토하여 원안대로 승인 의결하다.</p>\n  </div>\n  <div style=\"background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:16px 20px; margin-bottom:16px;\">\n    <div style=\"color:var(--gold); font-weight:700; font-size:14px; margin-bottom:8px;\">제4호 안건: 주된 사무소 설치의 건</div>\n    <p style=\"margin:0;\">아울러 법인 등기를 위한 주된 사무소 소재지를 '강원특별자치도 원주시 남원로 645 영광빌딩 5층'으로 최종 확정 및 설치하기로 결의하다.</p>\n  </div>\n  <p style=\"color:var(--muted); font-size:12px; margin-top:14px; margin-bottom:0;\">의장은 이상으로써 상정된 모든 설립 안건에 대한 의결 절차가 원만하게 완료되었음을 공포하고, 폐회를 선언하다. (오전 11시 30분 폐회)</p>\n</div>"}],
+
+      proposal: [{"id": "prop_c1", "title": "I·II. 개요 & 교육철학", "sub": "새미새론 AI 교육원 설립 비전 및 4대 차별성", "content": "<div style=\"line-height:2.0; font-size:13px; color:#e5e2da;\">\n  <div style=\"display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; flex-wrap:wrap; gap:12px; border-bottom:1px solid var(--line); padding-bottom:14px;\">\n    <div>\n      <div style=\"font-size:11px; color:var(--gold); letter-spacing:0.2em; font-family:var(--font-display);\">SEMISERON OFFICIAL EDUCATION PROPOSAL</div>\n      <h4 style=\"color:#fff; font-size:20px; margin:4px 0 0 0; font-family:var(--font-serif);\">2026 새미새론 AI 교육원 공식 교육 제안서</h4>\n    </div>\n    <a href=\"proposal/semiseron-proposal-2026.html\" target=\"_blank\" class=\"nav-cta\" style=\"padding:8px 18px; font-size:11px; background:var(--gold); color:#080908; font-weight:700; text-decoration:none;\">\n      제안서 원본 새창 열기 / PDF 인쇄 ↗\n    </a>\n  </div>\n\n  <div style=\"background:rgba(199,154,81,0.08); border:1px solid var(--line-gold); padding:16px 20px; margin-bottom:16px;\">\n    <div style=\"color:var(--gold); font-weight:700; margin-bottom:6px;\">I. 기관 소개 &amp; 설립 비전</div>\n    <p style=\"margin:0; font-size:13px; color:#cec9bd; line-height:1.85;\">\n      새미새론 AI 교육원 협동조합(SEMISERON AI EDU)은 AI·XR 기술 기반의 교육 콘텐츠와 실무 커리큘럼을 개발·보급하는 정통 협동조합형 교육 기관입니다. 경복대 대학원 석사연구원 및 교수진 6인이 뜻을 모아 설립하였으며, \"누구나 쉽게 배우고, 함께 성장하는 AI 리터러시 교육 공동체\"를 실천합니다.\n    </p>\n  </div>\n\n  <div style=\"background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:16px 20px;\">\n    <div style=\"color:var(--gold-light); font-weight:700; margin-bottom:10px;\">II. 교육 철학 및 4대 핵심 차별성</div>\n    <ul style=\"padding-left:18px; line-height:2.0; color:#cec9bd; margin:0;\">\n      <li><strong>현장 즉시 투입형 실무</strong>: 단순 명령어 툴 나열을 탈피하여 당일 실무에 즉시 적용하는 직무 파이프라인 완성</li>\n      <li><strong>대학원 교수진 전원 직강</strong>: 코칭학 석사(GPA 4.5), 21년 특급기술자, Red Dot 수상 교수진의 1:1 밀착 지도</li>\n      <li><strong>새미새론 AI 실무 인증 체계 연계</strong>: 실무 프로젝트 결과물 중심의 새미새론 실무 인증 프로젝트 취득 및 강사 풀 등록 지원</li>\n      <li><strong>필수 AI 윤리 진단 탑재</strong>: 과도한 의존 부작용을 예방하는 5단계 정밀 진단 및 S-8 윤리 원칙 필수 교육</li>\n    </ul>\n  </div>\n</div>"}, {"id": "prop_c2", "title": "III. 새미새론 AI 실무 인증 체계 체계", "sub": "실무 프로젝트 기준 준수 새미새론 실무 인증 프로젝트 종목", "content": "<div style=\"line-height:2.0; font-size:13px; color:#e5e2da;\">\n  <h4 style=\"color:var(--gold); font-size:16px; margin-bottom:14px;\">III. 새미새론 새미새론 AI 실무 인증 (SEMISERON CERTIFICATION) 체계 연계</h4>\n  <table style=\"width:100%; border-collapse:collapse; font-size:12px; margin-bottom:16px;\">\n    <thead>\n      <tr style=\"background:rgba(199,154,81,0.1); color:var(--gold-light);\">\n        <th style=\"padding:8px 10px; border:1px solid var(--line); text-align:left;\">코드</th>\n        <th style=\"padding:8px 10px; border:1px solid var(--line); text-align:left;\">실무 인증 프로젝트명</th>\n        <th style=\"padding:8px 10px; border:1px solid var(--line); text-align:left;\">핵심 직무 개요</th>\n      </tr>\n    </thead>\n    <tbody style=\"color:#cec9bd;\">\n      <tr><td style=\"padding:6px 10px; border:1px solid var(--line);\"><span style=\"font-size:10px; color:var(--gold);\">CERT-01</span></td><td style=\"padding:6px 10px; border:1px solid var(--line); color:#fff; font-weight:600;\">AI프롬프트디자이너</td><td style=\"padding:6px 10px; border:1px solid var(--line);\">고급 맥락 설계, 역할 부여, 구조화된 프롬프트 파이프라인</td></tr>\n      <tr><td style=\"padding:6px 10px; border:1px solid var(--line);\"><span style=\"font-size:10px; color:var(--gold);\">CERT-02</span></td><td style=\"padding:6px 10px; border:1px solid var(--line); color:#fff; font-weight:600;\">생성형AI콘텐츠전문가</td><td style=\"padding:6px 10px; border:1px solid var(--line);\">멀티모달(텍스트·이미지·오디오·비디오) 상업 콘텐츠 제작</td></tr>\n      <tr><td style=\"padding:6px 10px; border:1px solid var(--line);\"><span style=\"font-size:10px; color:var(--gold);\">CERT-03</span></td><td style=\"padding:6px 10px; border:1px solid var(--line); color:#fff; font-weight:600;\">AI윤리교육지도사</td><td style=\"padding:6px 10px; border:1px solid var(--line);\">AI 의존성 예방, 딥페이크 방지, 지적재산권 공공·기업 필수 교육</td></tr>\n      <tr><td style=\"padding:6px 10px; border:1px solid var(--line);\"><span style=\"font-size:10px; color:var(--gold);\">CERT-04</span></td><td style=\"padding:6px 10px; border:1px solid var(--line); color:#fff; font-weight:600;\">XR실감콘텐츠기획사</td><td style=\"padding:6px 10px; border:1px solid var(--line);\">AR/VR/MR 메타버스 가상공간 및 몰입형 사용자 경험 기획</td></tr>\n      <tr><td style=\"padding:6px 10px; border:1px solid var(--line);\"><span style=\"font-size:10px; color:var(--gold);\">CERT-05</span></td><td style=\"padding:6px 10px; border:1px solid var(--line); color:#fff; font-weight:600;\">AI리터러시지도사</td><td style=\"padding:6px 10px; border:1px solid var(--line);\">시니어·학생·비전공자 눈높이 맞춤형 실전 디지털 리터러시 교육</td></tr>\n      <tr><td style=\"padding:6px 10px; border:1px solid var(--line);\"><span style=\"font-size:10px; color:var(--gold);\">CERT-06</span></td><td style=\"padding:6px 10px; border:1px solid var(--line); color:#fff; font-weight:600;\">AI시각영상디렉터</td><td style=\"padding:6px 10px; border:1px solid var(--line);\">35mm 시네마틱 카메라 기법, 조명 연출, AI 영상 룩북 제작</td></tr>\n      <tr><td style=\"padding:6px 10px; border:1px solid var(--line);\"><span style=\"font-size:10px; color:var(--gold);\">CERT-07</span></td><td style=\"padding:6px 10px; border:1px solid var(--line); color:#fff; font-weight:600;\">인터랙티브미디어아트지도사</td><td style=\"padding:6px 10px; border:1px solid var(--line);\">TouchDesigner 센서 반응형 미디어아트, 파사드 맵핑 코딩 교육</td></tr>\n      <tr><td style=\"padding:6px 10px; border:1px solid var(--line);\"><span style=\"font-size:10px; color:var(--gold);\">CERT-08</span></td><td style=\"padding:6px 10px; border:1px solid var(--line); color:#fff; font-weight:600;\">AI비즈니스자동화전문가</td><td style=\"padding:6px 10px; border:1px solid var(--line);\">노코드 바이브코딩, 사내 로컬 AI 구축 및 자동화 파이프라인</td></tr>\n      <tr><td style=\"padding:6px 10px; border:1px solid var(--line);\"><span style=\"font-size:10px; color:var(--gold);\">CERT-09</span></td><td style=\"padding:6px 10px; border:1px solid var(--line); color:#fff; font-weight:600;\">AI시그림·스토리텔링작가</td><td style=\"padding:6px 10px; border:1px solid var(--line);\">감성 시문학과 AI 비주얼을 결합한 시그림책 출판 및 힐링 창작</td></tr>\n    </tbody>\n  </table>\n</div>"}, {"id": "prop_c3", "title": "IV. B2B 출강 모델 & 신청", "sub": "4단계 출강 절차 및 원본 PDF 인쇄 / 접수 안내", "content": "<div style=\"line-height:2.0; font-size:13px; color:#e5e2da;\">\n  <h4 style=\"color:var(--gold); font-size:16px; margin-bottom:14px;\">IV. 기관·기업 맞춤형 B2B 출강 신청</h4>\n  <div style=\"display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin-bottom:18px; text-align:center;\">\n    <div style=\"background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:12px 8px;\">\n      <div style=\"font-size:10px; color:var(--gold);\">STEP 01</div>\n      <div style=\"font-size:12px; font-weight:700; color:#fff; margin-top:4px;\">사전 직무 진단</div>\n    </div>\n    <div style=\"background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:12px 8px;\">\n      <div style=\"font-size:10px; color:var(--gold);\">STEP 02</div>\n      <div style=\"font-size:12px; font-weight:700; color:#fff; margin-top:4px;\">커리큘럼 설계</div>\n    </div>\n    <div style=\"background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:12px 8px;\">\n      <div style=\"font-size:10px; color:var(--gold);\">STEP 03</div>\n      <div style=\"font-size:12px; font-weight:700; color:#fff; margin-top:4px;\">교수진 현장 직강</div>\n    </div>\n    <div style=\"background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:12px 8px;\">\n      <div style=\"font-size:10px; color:var(--gold);\">STEP 04</div>\n      <div style=\"font-size:12px; font-weight:700; color:#fff; margin-top:4px;\">성과물 피드백</div>\n    </div>\n  </div>\n\n  <div style=\"text-align:center; padding:20px; background:rgba(199,154,81,0.08); border:1px solid var(--line-gold);\">\n    <div style=\"font-size:15px; font-weight:700; color:#fff; margin-bottom:6px;\">공식 교육 제안서 원본 및 출강 견적 문의</div>\n    <div style=\"font-size:12px; color:var(--paper-dim); margin-bottom:14px;\">\n      • 공식 접수: <strong>contact@semiseron.kr</strong> &nbsp;|&nbsp; • 기관 공문: <strong>office@semiseron.kr</strong>\n    </div>\n    <button type=\"button\" onclick=\"closeDocModal(); openContactModal();\" class=\"nav-cta\" style=\"padding:10px 24px; font-size:12px; background:var(--gold); color:#080908; font-weight:700;\">\n      출강 및 제안서 상담 접수하기 ↗\n    </button>\n  </div>\n</div>"}],
+
+      sitemap: [
+        {
+          id: 'site_c1', title: '새미새론 전체 사이트맵 (Full Tree)', sub: '메인 8대 섹션 · 온라인 캠퍼스 14대 단과 · 새미새론 실무 인증 프로젝트 · 인터랙티브 실습실',
+          content: `
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <div style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:16px;">
+                <h5 style="color:var(--gold); margin-bottom:10px; font-size:13px; border-bottom:1px solid var(--line); padding-bottom:6px;">[1] 메인 플랫폼 (Main Hub)</h5>
+                <ul style="list-style:none; line-height:2.0; font-size:12px; color:#cec9bd;">
+                  <li>• <a href="#about" onclick="closeDocModal()" style="color:#cec9bd;">01. ABOUT (설립 철학 &amp; 3단 선언)</a></li>
+                  <li>• <a href="#people" onclick="closeDocModal()" style="color:#cec9bd;">02. PEOPLE (6대 이사진 정밀 프로필)</a></li>
+                  <li>• <a href="#network" onclick="closeDocModal()" style="color:#cec9bd;">03. NETWORK (전국 거점망 지도)</a></li>
+                  <li>• <a href="#education" onclick="closeDocModal()" style="color:#cec9bd;">04. EDUCATION (6대 특화 트랙)</a></li>
+                  <li>• <a href="campus.html#certifications" onclick="closeDocModal()" style="color:#cec9bd;">05. CERTIFICATE (새미새론 새미새론 AI 실무 인증 (SEMISERON CERTIFICATION))</a></li>
+                  <li>• <a href="ai_literacy_interactive/index.html" style="color:var(--gold); font-weight:600;">06. AI ETHICS (리터러시 &amp; 윤리 실습실 ↗)</a></li>
+                  <li>• <a href="#lab" onclick="closeDocModal()" style="color:#cec9bd;">07. AI LABS (프롬프트 빌더 2.0)</a></li>
+                  <li>• <a href="#future" onclick="closeDocModal()" style="color:#cec9bd;">08. FUTURE (미래 비전 및 프로젝트)</a></li>
+                </ul>
+              </div>
+              <div style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:16px;">
+                <h5 style="color:var(--gold); margin-bottom:10px; font-size:13px; border-bottom:1px solid var(--line); padding-bottom:6px;">[2] 온라인 캠퍼스 &amp; 법정 공시</h5>
+                <ul style="list-style:none; line-height:2.0; font-size:12px; color:#cec9bd;">
+                  <li>• <a href="campus.html" style="color:var(--gold-light); font-weight:600;">ONLINE CAMPUS (실시간 강의 포털 ↗)</a></li>
+                  <li>• <a href="campus.html#certifications" style="color:#cec9bd;">- 9대 자격검정 온라인 응시실</a></li>
+                  <li>• <a href="campus.html#courses" style="color:#cec9bd;">- 개설 정규 실습 (14대 단과)</a></li>
+                  <li>• <a href="campus.html#quickstart" style="color:#cec9bd;">- AI 실전 퀵스타트 액션 리스트</a></li>
+                  <li>• <a href="ai_literacy_interactive/index.html" style="color:var(--gold); font-weight:600;">★ AI 리터러시 &amp; 윤리 실습실 ↗</a></li>
+                  <li>• <a href="javascript:void(0)" onclick="openDocModal('articles')" style="color:#cec9bd;">법정 정관 전자공시 (Bylaws)</a></li>
+                  <li>• <a href="javascript:void(0)" onclick="openDocModal('minutes')" style="color:#cec9bd;">창립총회 의사록 전자공시 (Minutes)</a></li>
+                  <li>• <a href="javascript:void(0)" onclick="openDocModal('proposal')" style="color:var(--gold);">2026 교육 제안서 요약 (HTML)</a></li>
+                </ul>
+              </div>
+            </div>
+          `
+        }
+      ]
+    };
+
+    let currentDocType = 'articles';
+
+    window.openDocModal = function(docType) {
+      currentDocType = docType;
+      const chapters = legalDocChapters[docType];
+      if (!chapters || chapters.length === 0) return;
+
+      const titles = {
+        articles: { cat: 'OFFICIAL BYLAWS · 법정 정관 공시', title: '새미새론 AI 교육원 협동조합 정관 (Bylaws)', sub: '협동조합기본법 준수 · 13대 핵심 사업 및 자격검정 근거 조문' },
+        minutes: { cat: 'MINUTES OF GENERAL ASSEMBLY · 총회 의사록', title: '창립총회 의사록 (Minutes of Inaugural Meeting)', sub: '2026년 6월 11일 창립총회 의결 기록 · 초대 임원 및 사업계획 승인' },
+        proposal: { cat: 'B2B PROPOSAL · 기관 교육 제안서', title: '2026 새미새론 AI 실무 교육 제안서 요약', sub: '6인 교수진 직강 · 6대 특화 트랙 · 맞춤형 B2B 출강 커리큘럼' },
+        sitemap: { cat: 'PLATFORM SITEMAP · 전체 사이트맵', title: '새미새론 AI 교육원 전체 메뉴 구조도', sub: 'SEMISERON AI EDU 마스터 플랫폼 및 주요 실습실 안내' }
+      };
+
+      const meta = titles[docType] || { cat: 'OFFICIAL DOCUMENT', title: '공식 문서 열람', sub: '' };
+      document.getElementById('docModalCategory').innerText = meta.cat;
+      document.getElementById('docModalTitle').innerText = meta.title;
+      document.getElementById('docModalSub').innerText = meta.sub;
+
+      // Render Chapter Tabs
+      const tabContainer = document.getElementById('docChapterTabs');
+      tabContainer.innerHTML = chapters.map((ch, idx) => `
+        <button type="button" onclick="selectDocChapter(${idx})" id="docTabBtn_${idx}" class="nav-cta" style="padding:6px 14px; font-size:11px; font-family:var(--font-sans); letter-spacing:0; border-radius:2px; ${idx === 0 ? 'background:var(--gold); color:#080908; font-weight:700;' : 'background:transparent; color:var(--paper-dim);'}">
+          ${ch.title}
+        </button>
+      `).join('');
+
+      // Render first chapter
+      selectDocChapter(0);
+
+      const modal = document.getElementById('docModal');
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    window.selectDocChapter = function(index) {
+      const chapters = legalDocChapters[currentDocType];
+      if (!chapters || !chapters[index]) return;
+
+      // Update button active state
+      chapters.forEach((_, idx) => {
+        const btn = document.getElementById(`docTabBtn_${idx}`);
+        if (btn) {
+          if (idx === index) {
+            btn.style.background = 'var(--gold)';
+            btn.style.color = '#080908';
+            btn.style.fontWeight = '700';
+          } else {
+            btn.style.background = 'transparent';
+            btn.style.color = 'var(--paper-dim)';
+            btn.style.fontWeight = '400';
+          }
+        }
+      });
+
+      // Render content
+      document.getElementById('docModalBody').innerHTML = chapters[index].content;
+    };
+
+    window.closeDocModal = function() {
+      const modal = document.getElementById('docModal');
+      if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    };
+
+    // Anti-copy key listener on docModal
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('docModal');
+      if (modal && modal.classList.contains('open')) {
+        if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'C' || e.key === 'a' || e.key === 'A')) {
+          e.preventDefault();
+          alert('🔒 조합 정관 및 공시 문서는 무단 복제 및 도용이 엄격히 금지되어 있습니다.');
+        }
+      }
+    });
+
+    const docModalEl = document.getElementById('docModal');
+    if (docModalEl) {
+      docModalEl.addEventListener('click', (e) => {
+        if (e.target === docModalEl) closeDocModal();
+      });
+    }
+
+    /* 10. Contact Modal Interaction */
+    const contactModal = document.getElementById('contactModal');
+    const contactNavBtn = document.getElementById('contactNavBtn');
+    const contactDrawerBtn = document.getElementById('contactDrawerBtn');
+    const contactHeroBtn = document.getElementById('contactHeroBtn');
+    const contactModalClose = document.getElementById('contactModalClose');
+
+    function openContactModal() {
+      if (contactModal) {
+        contactModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeContactModal() {
+      if (contactModal) {
+        contactModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (contactNavBtn) contactNavBtn.addEventListener('click', openContactModal);
+    const contactCtaBtn = document.getElementById('contactCtaBtn');
+    if (contactCtaBtn) contactCtaBtn.addEventListener('click', openContactModal);
+    if (contactDrawerBtn) contactDrawerBtn.addEventListener('click', () => { toggleMenu(false); openContactModal(); });
+    if (contactHeroBtn) contactHeroBtn.addEventListener('click', openContactModal);
+    if (contactModalClose) contactModalClose.addEventListener('click', closeContactModal);
+
+    if (contactModal) {
+      contactModal.addEventListener('click', (e) => {
+        if (e.target === contactModal) closeContactModal();
+      });
+    }
+
+    function copyContact(text, btn) {
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.innerText;
+        btn.innerText = '✓ 복사 완료';
+        btn.style.color = '#c79a51';
+        setTimeout(() => {
+          btn.innerText = original;
+          btn.style.color = '';
+        }, 2000);
+      });
+    }
+
+    function handleInquirySubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('inquiryForm');
+      const toast = document.getElementById('inqSuccessToast');
+      const btn = document.getElementById('inqSubmitBtn');
+
+      btn.disabled = true;
+      btn.innerText = '접수 완료 중...';
+
+      setTimeout(() => {
+        form.style.display = 'none';
+        toast.style.display = 'block';
+      }, 500);
+    }
+
+  
+    /* ==========================================================================
+       AI LABS DUAL TAB & 10 PROMPT BUILDER ENGINE
+       ========================================================================== */
+    window.switchLabTab = function(tabName) {
+      const resContainer = document.getElementById('labResearchContainer');
+      const bldContainer = document.getElementById('labBuilderContainer');
+      const resBtn = document.getElementById('tabBtnResearch');
+      const bldBtn = document.getElementById('tabBtnBuilder');
+
+      if (tabName === 'builder') {
+        if (resContainer) resContainer.style.display = 'none';
+        if (bldContainer) bldContainer.style.display = 'block';
+        if (bldBtn) { bldBtn.style.background = 'var(--gold)'; bldBtn.style.color = '#080908'; bldBtn.style.fontWeight = '700'; }
+        if (resBtn) { resBtn.style.background = 'rgba(255,255,255,0.03)'; resBtn.style.color = 'var(--paper-dim)'; resBtn.style.fontWeight = '600'; }
+      } else {
+        if (resContainer) resContainer.style.display = 'block';
+        if (bldContainer) bldContainer.style.display = 'none';
+        if (resBtn) { resBtn.style.background = 'var(--gold)'; resBtn.style.color = '#080908'; resBtn.style.fontWeight = '700'; }
+        if (bldBtn) { bldBtn.style.background = 'rgba(255,255,255,0.03)'; bldBtn.style.color = 'var(--paper-dim)'; bldBtn.style.fontWeight = '600'; }
+      }
+    };
+
+    const BUILDER_CATEGORIES = [
+      {
+        id: 'role',
+        label: '역할',
+        englishLabel: 'ROLE',
+        presets: [
+          { id: 'r_expert', label: '분야 전문가', text: '당신은 해당 분야에서 30년 이상 실무 경력을 쌓은 최고 수준의 전문가입니다.' },
+          { id: 'r_teacher', label: '친절한 강사', text: '당신은 초보자도 쉽게 이해하도록 가르치는 친절하고 인내심 있는 전문 교수자입니다.' },
+          { id: 'r_editor', label: '출판 기획자', text: '당신은 문장을 다듬고 출판 기획을 총괄하는 베테랑 도서 편집자입니다.' },
+          { id: 'r_marketer', label: '마케팅 컨설턴트', text: '당신은 소비자 심리를 꿰뚫는 전략 마케팅 전문가입니다.' }
+        ]
+      },
+      {
+        id: 'task',
+        label: '작업',
+        englishLabel: 'TASK',
+        presets: [
+          { id: 't_plan', label: '강의 계획서', text: '초보자 대상 AI 리터러시 2시간 강의 계획서를 작성해 주세요.' },
+          { id: 't_story', label: '그림책 스토리', text: '8페이지 분량의 AI 그림책 스토리와 프롬프트 콘티를 작성해 주세요.' },
+          { id: 't_report', label: '사업 보고서', text: '다음 사업계획서 초안을 검토하고 핵심 요약 보고서를 작성해 주세요.' },
+          { id: 't_copy', label: 'SNS 홍보 카피', text: '신규 강좌를 알리는 인스타그램 카드뉴스 및 홍보 카피를 작성해 주세요.' }
+        ]
+      },
+      {
+        id: 'context',
+        label: '상황·대상',
+        englishLabel: 'CONTEXT',
+        presets: [
+          { id: 'c_senior', label: '5060 시니어', text: '대상은 AI를 처음 접하는 5060 성인 및 소상공인 학습자입니다.' },
+          { id: 'c_biz', label: '공공기관·기업', text: '대상은 지자체 공무원 및 기업체 실무 임직원입니다.' },
+          { id: 'c_student', label: '대학생·취준생', text: '대상은 디자인 및 콘텐츠 제작 실무를 준비하는 대학생입니다.' }
+        ]
+      },
+      {
+        id: 'constraints',
+        label: '제약사항',
+        englishLabel: 'CONSTRAINTS',
+        presets: [
+          { id: 'cs_easy', label: '쉬운 설명 위주', text: '어려운 전문 용어를 배제하고 실습 중심으로 알기 쉽게 설명해 주세요.' },
+          { id: 'cs_table', label: '표 & 개조식', text: '핵심 내용은 비교표와 개조식(1. 가. (1))으로 일목요연하게 정리해 주세요.' },
+          { id: 'cs_short', label: '핵심 3줄 요약', text: '바쁜 실무자를 위해 핵심 결론을 3줄로 먼저 요약해 주세요.' }
+        ]
+      },
+      {
+        id: 'format',
+        label: '출력 형식',
+        englishLabel: 'FORMAT',
+        presets: [
+          { id: 'f_md', label: '마크다운 표', text: '소제목과 마크다운 표, 체크리스트 형식으로 깔끔하게 출력해 주세요.' },
+          { id: 'f_bullet', label: '개조식 글머리', text: '번호 매기기와 글머리 기호(•)를 활용하여 정돈해 주세요.' },
+          { id: 'f_json', label: '구조화 서식', text: '입력과 출력이 명확히 구분된 템플릿 서식으로 출력해 주세요.' }
+        ]
+      }
+    ];
+
+    const BUILDER_TEMPLATES = [
+      {
+        name: '강의계획서 작성',
+        data: {
+          role: '당신은 30년 경력의 교육 전문가이자 강의 설계 전문가입니다.',
+          task: '초보자 대상 AI 리터러시 2시간 강의계획서를 작성해 주세요.',
+          context: '대상은 AI를 처음 접하는 성인 학습자(시니어 포함)입니다.',
+          constraints: '난이도는 왕초보 수준으로 쉬운 말과 실습 중심으로 구성해 주세요.',
+          format: '차시·시간·주제·활동·준비물을 표로 정리하고 아래에 요약을 작성해 주세요.'
+        }
+      },
+      {
+        name: 'AI 그림책 기획',
+        data: {
+          role: '당신은 따뜻한 감성의 동화 작가이자 일러스트 디렉터입니다.',
+          task: '손주와 가족을 위한 8페이지 분량의 AI 그림책 스토리와 프롬프트 콘티를 작성해 주세요.',
+          context: '주제는 강원도 자연과 샘물에서 시작되는 모험 이야기입니다.',
+          constraints: '페이지마다 한글 본문(3~4문장)과 이미지 생성 프롬프트(영문)를 함께 작성해 주세요.',
+          format: '페이지 번호 / 줄거리 / 이미지 생성 프롬프트를 표로 구분해 주세요.'
+        }
+      },
+      {
+        name: 'SNS 홍보 카피',
+        data: {
+          role: '당신은 고객의 마음을 사로잡는 디지털 마케팅 전문가입니다.',
+          task: '새미새론 AI 교육원의 신규 강좌를 알리는 인스타그램 카드뉴스 카피를 작성해 주세요.',
+          context: '새로움이 샘처럼 솟아나는 교육원의 비전과 5대 마스터 트랙을 강조합니다.',
+          constraints: '호기심을 자극하는 헤드라인과 행동을 유도하는 CTA를 포함하세요.',
+          format: '카드 1~5장 슬라이드별 헤드카피, 본문, 해시태그 10개로 구성해 주세요.'
+        }
+      },
+      {
+        name: '보고서 자동화 요약',
+        data: {
+          role: '당신은 기획재정부 및 공공기관 출신의 정책 기획관입니다.',
+          task: '다음 사업계획서 초안을 검토하고 핵심 요약 보고서를 작성해 주세요.',
+          context: '지자체 디지털 혁신 사업 제안용 2페이지 요약본입니다.',
+          constraints: '추진 배경, 주요 사업 내용, 기대 효과, 예산 개요를 명확한 수치와 함께 정리하세요.',
+          format: '개조식(1. 가. (1)) 형식과 주요 비교표를 활용해 주세요.'
+        }
+      },
+      {
+        name: '이력서·자기소개서',
+        data: {
+          role: '당신은 채용 담당자의 시선을 사로잡는 인사·채용 전문 컨설턴트입니다.',
+          task: '다음 경력 정보를 바탕으로 매력적인 이력서와 자기소개서 초안을 작성해 주세요.',
+          context: '지원자는 경력 전환을 준비 중이며, AI 및 디지털 교육 분야로 진출하고자 합니다.',
+          constraints: '과장된 표현 없이 구체적인 수치와 프로젝트 성과를 강조해 주세요.',
+          format: '이력서는 표, 자기소개서는 소제목이 포함된 자연스러운 문단 글로 작성해 주세요.'
+        }
+      },
+      {
+        name: '블로그 글쓰기',
+        data: {
+          role: '당신은 검색 상위 노출과 독자 유입에 능한 인기 블로그 작가입니다.',
+          task: '다음 주제로 독자의 흥미를 끄는 고품질 블로그 포스팅을 작성해 주세요.',
+          context: '네이버 블로그에 게시하며, 대상 독자는 40~60대 성인 및 직장인입니다.',
+          constraints: '제목에 핵심 검색 키워드를 포함하고, 친근한 해요체로 1,000자 내외로 작성해 주세요.',
+          format: '제목, 소제목(3개), 본문 설명, 핵심 요약 및 참여 유도 질문 구조로 작성해 주세요.'
+        }
+      },
+      {
+        name: '상품 상세페이지',
+        data: {
+          role: '당신은 고객의 구매 전환율을 극대화하는 세일즈 카피라이터입니다.',
+          task: '다음 상품의 매력적인 상세페이지 홍보 카피를 작성해 주세요.',
+          context: '온라인 판매 채널용이며, 대상 고객은 가성비와 실용성을 중시하는 30~50대입니다.',
+          constraints: '고객의 불편함 → 솔루션 → 핵심 혜택 3가지 순으로 설득력 있게 전개해 주세요.',
+          format: '헤드카피(슬로건), 핵심 특장점 비교표, 구매 유도 CTA 문구 순으로 작성해 주세요.'
+        }
+      },
+      {
+        name: '부모님 자서전 인터뷰',
+        data: {
+          role: '당신은 어르신의 삶의 이야기를 따뜻하고 편안하게 이끌어내는 구술 생애사 인터뷰 전문가입니다.',
+          task: '부모님의 자서전을 기록하기 위한 심층 인터뷰 질문지를 만들어 주세요.',
+          context: '대상은 70대 부모님이며, 자녀가 1시간 동안 편안하게 대화하며 질문할 예정입니다.',
+          constraints: '질문은 짧고 대답하기 쉽게, 어린 시절부터 청년기, 가족 이야기 순서로 구성해 주세요.',
+          format: '시기별 질문 5단계와 각 질문마다 덧붙일 꼬리 질문을 표로 정리해 주세요.'
+        }
+      },
+      {
+        name: '이메일 마케팅 카피',
+        data: {
+          role: '당신은 높은 오픈율과 클릭률을 만드는 이메일 마케팅 전문가입니다.',
+          task: '새로운 강좌 오픈 및 실무 과정을 안내하는 이메일 뉴스레터 카피를 작성해 주세요.',
+          context: '구독자는 자기계발과 AI 실무에 관심 있는 직장인 및 성인 학습자입니다.',
+          constraints: '제목은 40자 이내로 호기심을 자극하고, 명확한 CTA 버튼 문구를 넣으세요.',
+          format: '이메일 제목, 프리뷰 텍스트, 인사말, 핵심 혜택 3줄 요약, 신청 링크 CTA 순으로 작성해 주세요.'
+        }
+      },
+      {
+        name: '회의록 핵심 요약',
+        data: {
+          role: '당신은 복잡한 논의를 명쾌한 결정 사항과 실행 과제로 정리하는 문서 비서관입니다.',
+          task: '다음 회의 녹취록 내용을 검토하고 핵심 요약 회의록을 작성해 주세요.',
+          context: '새미새론 AI 교육원의 정기 운영 회의 내용이며, 공식 공유 문서입니다.',
+          constraints: '핵심 안건, 최종 결정 사항, 담당자별 액션 아이템(기한 포함)을 명확히 추출하세요.',
+          format: '회의 개요, 안건별 결정 사항, [담당자/과제/기한] 액션 아이템 표로 깔끔하게 정리해 주세요.'
+        }
+      }
+    ];
+
+    let currentPromptState = { ...BUILDER_TEMPLATES[0].data };
+
+    function renderBuilderTemplates() {
+      const container = document.getElementById('builderTemplateStrip');
+      if (!container) return;
+      container.innerHTML = BUILDER_TEMPLATES.map((t, idx) => `
+        <button type="button" onclick="applyBuilderTemplate(${idx})" id="bldTplBtn_${idx}" style="padding:9px 10px; font-size:12px; text-align:center; background:${idx === 0 ? 'var(--gold)' : 'rgba(255,255,255,0.03)'}; color:${idx === 0 ? '#080908' : 'var(--paper)'}; font-weight:${idx === 0 ? '700' : '500'}; border:1px solid var(--line); border-radius:2px; cursor:pointer; transition:all 0.2s; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+          ${idx + 1}. ${t.name}
+        </button>
+      `).join('');
+    }
+
+    function renderBuilderControls() {
+      const container = document.getElementById('builderControlsGrid');
+      if (!container) return;
+      container.innerHTML = BUILDER_CATEGORIES.map(cat => `
+        <div style="background:rgba(255,255,255,0.02); border:1px solid var(--line); padding:16px; border-radius:2px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span style="font-size:12px; font-weight:700; color:var(--gold);">${cat.label} (${cat.englishLabel})</span>
+          </div>
+          <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:10px;">
+            ${cat.presets.map(p => `
+              <button type="button" onclick="applyBuilderPreset('${cat.id}', '${p.text.replace(/'/g, "\'")}')" style="padding:3px 8px; font-size:11px; background:rgba(255,255,255,0.04); color:var(--paper-dim); border:1px solid var(--line); border-radius:2px; cursor:pointer; transition:all 0.15s;">
+                + ${p.label}
+              </button>
+            `).join('')}
+          </div>
+          <textarea id="bldInp_${cat.id}" oninput="onBuilderInputChange('${cat.id}', this.value)" rows="2" style="width:100%; background:#111412; border:1px solid var(--line); color:#fff; font-size:12px; padding:8px 10px; border-radius:2px; resize:vertical; box-sizing:border-box; outline:none; line-height:1.5;">${currentPromptState[cat.id] || ''}</textarea>
+        </div>
+      `).join('');
+    }
+
+    function applyBuilderTemplate(index) {
+      const t = BUILDER_TEMPLATES[index];
+      if (!t) return;
+      currentPromptState = { ...t.data };
+      
+      BUILDER_TEMPLATES.forEach((_, idx) => {
+        const btn = document.getElementById(`bldTplBtn_${idx}`);
+        if (btn) {
+          if (idx === index) {
+            btn.style.background = 'var(--gold)'; btn.style.color = '#080908'; btn.style.fontWeight = '700';
+          } else {
+            btn.style.background = 'rgba(255,255,255,0.03)'; btn.style.color = 'var(--paper)'; btn.style.fontWeight = '400';
+          }
+        }
+      });
+
+      BUILDER_CATEGORIES.forEach(cat => {
+        const inp = document.getElementById(`bldInp_${cat.id}`);
+        if (inp) inp.value = currentPromptState[cat.id] || '';
+      });
+
+      updatePromptPreview();
+    }
+
+    function applyBuilderPreset(catId, text) {
+      currentPromptState[catId] = text;
+      const inp = document.getElementById(`bldInp_${catId}`);
+      if (inp) inp.value = text;
+      updatePromptPreview();
+    }
+
+    function onBuilderInputChange(catId, val) {
+      currentPromptState[catId] = val;
+      updatePromptPreview();
+    }
+
+    function updatePromptPreview() {
+      const preview = document.getElementById('promptPreviewContent');
+      if (!preview) return;
+      const lines = [];
+      if (currentPromptState.role) lines.push(`[역할 정의]
+${currentPromptState.role}`);
+      if (currentPromptState.task) lines.push(`[수행할 작업]
+${currentPromptState.task}`);
+      if (currentPromptState.context) lines.push(`[상황 및 대상]
+${currentPromptState.context}`);
+      if (currentPromptState.constraints) lines.push(`[제약 및 유의사항]
+${currentPromptState.constraints}`);
+      if (currentPromptState.format) lines.push(`[원하는 출력 서식]
+${currentPromptState.format}`);
+      
+      preview.textContent = lines.join('\n\n');
+    }
+
+    // Bind Copy, Save, Reset safely
+    document.addEventListener('DOMContentLoaded', () => {
+      renderBuilderTemplates();
+      renderBuilderControls();
+      updatePromptPreview();
+
+      const btnCopy = document.getElementById('btnCopyPrompt');
+      if (btnCopy) {
+        btnCopy.addEventListener('click', () => {
+          const text = document.getElementById('promptPreviewContent')?.textContent || '';
+          navigator.clipboard.writeText(text).then(() => {
+            const orig = btnCopy.textContent;
+            btnCopy.textContent = '✓ 복사 완료!';
+            btnCopy.style.background = '#dfb97a';
+            setTimeout(() => { btnCopy.textContent = orig; btnCopy.style.background = 'var(--gold)'; }, 2000);
+          });
+        });
+      }
+
+      const btnSave = document.getElementById('btnSavePrompt');
+      if (btnSave) {
+        btnSave.addEventListener('click', () => {
+          const text = document.getElementById('promptPreviewContent')?.textContent || '';
+          const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = `semiseron_prompt_${Date.now()}.txt`;
+          a.click();
+        });
+      }
+
+      const btnReset = document.getElementById('btnResetBuilder');
+      if (btnReset) {
+        btnReset.addEventListener('click', () => { applyBuilderTemplate(0); });
+      }
+    });
+
+    // Also run immediately in case DOM is ready
+    renderBuilderTemplates();
+    renderBuilderControls();
+    updatePromptPreview();
+
+
+    /* Easter Egg: Release History Modal */
+    window.openReleaseHistoryModal = function() {
+      const modal = document.getElementById('releaseHistoryModal');
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    window.closeReleaseHistoryModal = function() {
+      const modal = document.getElementById('releaseHistoryModal');
+      if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    };
+
+    const relModalEl = document.getElementById('releaseHistoryModal');
+    if (relModalEl) {
+      relModalEl.addEventListener('click', (e) => {
+        if (e.target === relModalEl) closeReleaseHistoryModal();
+      });
+    }
+
+  </script>
+
+  <!-- EASTER EGG: RELEASE & EVOLUTION HISTORY MODAL -->
+  <div class="modal" id="releaseHistoryModal">
+    <div class="modal-box" style="max-width: 760px; width: 92%;">
+      <button class="modal-close" onclick="closeReleaseHistoryModal()" aria-label="닫기">×</button>
+      
+      <div class="modal-header" style="border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 24px;">
+        <div class="modal-num" style="color: var(--gold); font-size: 11px; letter-spacing: 0.2em;">SYSTEM EVOLUTION TIMELINE</div>
+        <h3 class="modal-name" style="font-size: 26px; font-family: var(--font-serif); margin-top: 4px; color: #fff;">새미새론 빌드 아카이브</h3>
+        <div class="modal-role" style="color: var(--gold-light); font-size: 13px; margin-top: 4px;">Kimi 2.6 착안부터 V12 마스터피스까지 6대 진화의 기록</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 20px; font-size: 13px; line-height: 1.75; color: var(--paper-dim);">
+        
+        <!-- Ver 5.1.7 (V12) -->
+        <div style="border-left: 2px solid var(--gold); padding-left: 18px; background: rgba(199, 154, 81, 0.04); padding: 14px 18px; border-radius: 0 4px 4px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <strong style="color:#fff; font-size:15px; font-family:var(--font-display);">v5.1.7 · V12 4자 융합 최종 마스터피스</strong>
+            <span style="font-size:11px; color:var(--gold); font-family:var(--font-display);">2026.08.24</span>
+          </div>
+          <p style="margin:0 0 6px 0; color:var(--paper);">
+            마스터 임창식 감독 총괄 디렉팅 + ChatGPT 외부 감리 + AGY 풀스택 빌드 + Chrome CDP 런타임 실측의 4자 융합 완성.<br>
+            • 5대 마스터 트랙 («배우는 AI에서, 직접 만드는 AI로») 정립<br>
+            • 6대 대학·국방 R&amp;D 실증 REAL CLASSROOM 3×2 균형 그리드 구축<br>
+            • 미사용 코드 완전 적출로 런타임 0/0/0/0/0 콘솔 무결점 달성 (SHA-256 Freeze).
+          </p>
+        </div>
+
+        <!-- Ver 5.0 (V1~V11) -->
+        <div style="border-left: 2px solid var(--gold-dim); padding-left: 18px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <strong style="color:#fff; font-size:14px; font-family:var(--font-display);">v5.0 · V1~V11 정밀 조각 &amp; 3D 인터랙션</strong>
+            <span style="font-size:11px; color:var(--paper-dim); font-family:var(--font-display);">2026.08.22 - 08.23</span>
+          </div>
+          <p style="margin:0; color:var(--paper-dim);">
+            다크 럭셔리 글래스모피즘 디자인과 Three.js 3D 물방울 리플 엔진(Touch-the-Drop) 탑재. 6인 포트레이트 및 정관 73조 8개 탭 법적 공시 모달 체계 완비.
+          </p>
+        </div>
+
+        <!-- Ver 4.0 -->
+        <div style="border-left: 2px solid var(--line); padding-left: 18px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <strong style="color:#fff; font-size:14px; font-family:var(--font-display);">v4.0 · 온라인 캠퍼스 LMS &amp; 14대 단과 개설</strong>
+            <span style="font-size:11px; color:var(--paper-dim); font-family:var(--font-display);">2026.07.15</span>
+          </div>
+          <p style="margin:0; color:var(--paper-dim);">
+            실시간 수강생을 위한 독자적 온라인 캠퍼스(campus.html) 및 14대 단과 커리큘럼, 온라인 자격검정 모의 응시실 분리 구축.
+          </p>
+        </div>
+
+        <!-- Ver 3.0 -->
+        <div style="border-left: 2px solid var(--line); padding-left: 18px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <strong style="color:#fff; font-size:14px; font-family:var(--font-display);">v3.0 · AI 리터러시 &amp; 윤리 인터랙티브 실습실</strong>
+            <span style="font-size:11px; color:var(--paper-dim); font-family:var(--font-display);">2026.07.01</span>
+          </div>
+          <p style="margin:0; color:var(--paper-dim);">
+            국내 최초 시나리오 기반 AI 윤리 및 딥페이크 판별 인터랙티브 시뮬레이션 모듈(ai_literacy_interactive) 개발 및 연동.
+          </p>
+        </div>
+
+        <!-- Ver 2.0 -->
+        <div style="border-left: 2px solid var(--line); padding-left: 18px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <strong style="color:#fff; font-size:14px; font-family:var(--font-display);">v2.0 · 헤나(Hena) &amp; MiMo House 데스크탑 포털</strong>
+            <span style="font-size:11px; color:var(--paper-dim); font-family:var(--font-display);">2026.06.20</span>
+          </div>
+          <p style="margin:0; color:var(--paper-dim);">
+            헤나 위스퍼(Hena Whisper) 단축키 음성 비서 제작 및 Rust/Tauri 경량 데스크탑 GUI 환경 연동.
+          </p>
+        </div>
+
+        <!-- Ver 1.0 -->
+        <div style="border-left: 2px solid var(--line); padding-left: 18px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <strong style="color:#fff; font-size:14px; font-family:var(--font-display);">v1.0 · Kimi 2.6 착안 &amp; 새미새론 설립 총회</strong>
+            <span style="font-size:11px; color:var(--paper-dim); font-family:var(--font-display);">2026.06.11</span>
+          </div>
+          <p style="margin:0; color:var(--paper-dim);">
+            Kimi 2.6의 모티베이션과 임창식 총괄이사의 30년 강의 내공을 결합하여 '새미새론AI교육원 협동조합' 창립총회 의결 및 첫 홈페이지 뼈대 수립.
+          </p>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 24px; text-align: center; border-top: 1px solid var(--line); padding-top: 18px;">
+        <button type="button" onclick="closeReleaseHistoryModal()" style="padding: 10px 24px; background: var(--gold); color: #080908; font-weight: 700; border: none; border-radius: 2px; cursor: pointer; font-size: 12px; letter-spacing: 0.1em;">
+          확인 (CLOSE TIMELINE)
+        </button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

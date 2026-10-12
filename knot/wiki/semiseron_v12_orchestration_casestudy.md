@@ -9,7 +9,7 @@
 ## 🌟 1. 개요 및 협업 패러다임의 대전환
 
 과거의 AI 개발이 **"사람이 프롬프트 치고, AI가 짜준 코드를 사람이 혼자 디버깅하는 외로운 방식"**이었다면,  
-이번 **새미새론 AI 교육원 (SEMISERON AI EDU) V12** 프로젝트는 **AI가 AI를 감리하고, 로컬 에이전트가 브라우저 런타임으로 실측 증거를 제출하는 '2026년형 멀티 에이전트 오케스트레이션'의 완성형 실전 모델**을 수립했습니다.
+이번 **새미새론AI교육원 (SEMISERON AI EDU) V12** 프로젝트는 **AI가 AI를 감리하고, 로컬 에이전트가 브라우저 런타임으로 실측 증거를 제출하는 '2026년형 멀티 에이전트 오케스트레이션'의 완성형 실전 모델**을 수립했습니다.
 
 ```mermaid
 graph TD
@@ -63,7 +63,7 @@ graph TD
 
 ## 🧊 5. 최종 확정 기준점 (Freeze Baseline)
 
-* **공식 파일명**: `saemisaeron_v12.html`
+* **공식 파일명**: `semiseron_v12.html`
 * **파일 크기**: `185,590 bytes`
 * **공식 SHA-256 해시**: `c370b13d420823a9c2b862b924596870949096b6bd3ae1dcbb0d2bbbf29069e3`
 * **콘솔 런타임 결과**: `console.error:0 ｜ console.warn:0 ｜ SyntaxError:0 ｜ ReferenceError:0 ｜ TypeError:0`
