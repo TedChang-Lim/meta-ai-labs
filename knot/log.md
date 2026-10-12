@@ -179,4 +179,23 @@
 - 접음: 사진 얼굴·몸매 보정(마스터님 판단). 미룸: 이사 4명 메일 주소(금요일 이후 — 확인 메일이 사전 통보 없이 가므로)
 - 상세: [[semiseron-partners-and-mail-2026-09-27]]
 
+## [2026-09-28] note — Velorn 실측 검증 + 에이전트 도구 선별 스킬 신설 (해나)
 
+- 계기: 마스터님, "에이전트가 쓸 수 있는 무료 영상편집 도구"를 찾게 되심. AI 에이전트가 242개 클립을 자동 편집할 수 있을 것이라 함
+- Velorn 설치: v0.3.36 Mac Apple Silicon, sha256 GitHub 공식값 일치, Developer ID + 공증 첨부 확인
+- Velorn 실측: MCP 127.0.0.1:19790, 도구 130개(95개에 미리보기). 사람이 창을 띄우면 실제 편집 성공 — 촬영본 75MB 임포트, 타임라인 배치(영상+음성 자동 분리), 5초→3초 자르기 반영(`"duration": 3` 디스크 저장 확인), mp4 내보내기(1920×1080 H.264+AAC 2.8MB)
+- **핵심 발견**: 130개 도구 전부가 앱 화면 클릭 명령. 창 없이는 모든 쓰기 명령이 타임아웃. 창 1600×1000인데 렌더러 0×0, 백엔드 `Failed to fetch` 367회
+- **탈락 사유**: 자막 엔진 미설치(`The local caption engine is not installed.`). 청각장애인 영화에 자막이 필수인데 그 부분을 제공하지 못함
+- 대안 후보: kinocut(Apache-2.0, 201 도구, ffmpeg 직접 호출, 창 불필요, Hyperframes로 HTML 인트로 제작 가능). star 175·6시간 전 갱신. **아직 실측 안 함**
+- 순서 교정: 마스터님 지적 — "Velorn은 니가 쓰는 거고 나는 필모라를 쓰면 된다". 도구 선택 기준에서 빠졌던 원칙. 사람 대리 조종 도구인지, 에이전트 자동화 도구인지를 먼저 물어야 함
+- 정리: 오늘 밤 만든 Velorn 테스트 프로젝트(75MB)·임시 프레임 6장·설치 dmg 전부 제거. 영화 폴더는 원본 4개만 남음
+- 산출물: `wiki/velorn-verification-2026-09-28.md`, 스킬 `verify-before-recommending-agent-tools` 신설
+- 미커밋: 이 실행 시작 시 `wiki/master-profile.md`·`wiki/semiseron_v12_orchestration_casestudy.md` 수정분과 `wiki/agent-mindset.md`·`wiki/semiseron-official-naming-rule.md`·`../semiseron_v12.html` 신규 파일이 이미 미커밋 상태였다. schema.md 규약(실행 시작 시 working tree가 더러우면 중단하고 보고)에 따라 커밋하지 않고 남긴다
+- 상세: [[velorn-verification-2026-09-28]]
+
+
+
+
+## [2026-10-13] query — HWPX 커뮤니티 현황과 판 비교 측정
+
+rhwp 0.8.6·0.8.7 비교로 글자 수 6,582자 동일·쪽 수 37 vs 31 측정. 학위논문 Ⅱ장·실험계획서 1.4절 반영.
