@@ -1,0 +1,41 @@
+{
+  "hero_id": 18,
+  "ticker": {
+    "badge": "오늘의 AI 핵심",
+    "headline": "글로벌 AI 연구소들의 자율 에이전트 및 하드웨어 혁신 가속화",
+    "link": "briefing.html"
+  },
+  "focus_news": {
+    "tag": "FRONTIER AI",
+    "title": "자율 추론과 에이전트 오케스트레이션이 이끄는 2026 AI 패러다임 전환",
+    "summary": "단순 프롬프트 입출력을 넘어 복합 태스크를 스스로 계획하고 실행하는 에이전트 시스템이 산업 전반의 표준으로 자리잡고 있습니다.",
+    "so_what": "새미새론 관점: 업무 자동화의 수준이 개인 도구를 넘어 조직 단위 워크플로우로 확장되고 있으므로, 에이전트 협업 역량이 핵심 경쟁력이 됩니다.",
+    "source_name": "TechCrunch AI",
+    "source_url": "https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/"
+  },
+  "daily_three": [
+    {
+      "id": 1,
+      "category": "COMPUTE",
+      "title": "차세대 반도체 공정, LLM 전력 소모 대폭 절감",
+      "one_line": "추론 인프라 비용 절감으로 엔터프라이즈 도입 속도 가속화 전망."
+    },
+    {
+      "id": 2,
+      "category": "EDUCATION",
+      "title": "글로벌 AI 교육 혁신, 실무 프로젝트 중심 개편",
+      "one_line": "이론 중심에서 실전 파이프라인 구축 중심의 커리큘럼 전환 확산."
+    },
+    {
+      "id": 3,
+      "category": "OPEN SOURCE",
+      "title": "고성능 오픈 가중치 모델 공개로 생태계 확장",
+      "one_line": "로컬 프라이빗 AI 구축을 원하는 기업들에게 강력한 대안 제공."
+    }
+  ],
+  "hero_image": "marks/heroes/hero_quantum_drop.jpg",
+  "hero_tag": "ORIGIN_DROP",
+  "date": "2026.10.18",
+  "updated_at": "2026-10-18T07:00:02.214735+09:00",
+  "issue_no": 35
+}
