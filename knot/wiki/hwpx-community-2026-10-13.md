@@ -1,8 +1,8 @@
 ---
 type: note
 created: 2026-10-13
-updated: 2026-10-13
-sources: [https://github.com/edwardkim/rhwp/issues/7857, https://github.com/chrisryugj/kordoc/issues/146, https://github.com/airmang/python-hwpx-automation/issues/167]
+updated: 2026-10-23
+sources: [https://github.com/edwardkim/rhwp/issues/7857, https://github.com/chrisryugj/kordoc/issues/146, https://github.com/airmang/python-hwpx-automation/issues/167, https://github.com/edwardkim/rhwp/issues/8060, https://github.com/edwardkim/rhwp/issues/7092]
 aliases: [hwpx 커뮤니티 2026-10, 판 비교 측정]
 ---
 
@@ -68,3 +68,37 @@ GitHub API 직접 조회(추적 저장소 10곳) + 키워드 검색(저장소·�
 
 - [[hwp-automation-breakthrough-2026-08-11]] — HWP 자동화 기반 작업 (rhwp CLI v0.8.2) <!-- stub -->
 - [[agent-media-pipeline-2026-07-31]] — HWP 편집 능력 검증 기록 <!-- stub -->
+
+## 6. 2026-10-23 재조회 (10일 뒤)
+
+### 6-1. 저장소 변화
+
+| 저장소 | 별 | 판 |
+|---|---|---|
+| edwardkim/rhwp | 3,919 → 3,989 | v0.8.7 그대로 (기본 가지는 계속 움직임, 열린 이슈 316 → 364) |
+| chrisryugj/kordoc | 2,425 → 2,678 | v4.21.27 → v4.24.1 |
+| postmelee/alhangeul-macos | 236 → 240 | v0.2.2 → v0.2.3 |
+| airmang/python-hwpx | 113 → 117 | v6.8.0 |
+| airmang/python-hwpx-automation | 68 | v7.3.4 |
+| sinteric/hanji | 2 | v0.3.0 → v0.5.0 (신규 추적) |
+| polaris_dvc · hwpx2html | 변화 없음 | |
+
+### 6-2. rhwp가 10월 20~22일 닫은 조판 결함 6건
+
+7677(쪽 넘긴 표 뒤 본문 줄 미예약) · 7678(표 뒤 본문이 쪽 끝에 걸릴 때 줄 단위로 안 나눔) ·
+7679(둘째 줄 표가 저장 줄 원점보다 16px 아래) · 8060(쪽 경계 칸 조각 높이 — 한글은 아래 안 여백 예약) ·
+7870(셀 안 중첩 표를 줄째 넘기는 차이) · 7092(가운뎃점 전진폭 0.70em 오차)
+
+**공개판은 여전히 v0.8.7.** 수정은 기본 가지에만 있어, 같은 날 받아도 판에 따라 결과가 달라진다.
+
+### 6-3. 반영
+
+- 학위논문 **표 4** 10-23 조회값 + 저장소별 최신 판·날짜 + hanji 행
+- 2.3절 재조회 날짜, **2.4절 문단 3개**(10/20~22 결함 · 7092 전진폭 · 기본 가지와 공개판의 차이)
+- 판 비교 수치 **40쪽/34쪽(6쪽 차) · 12쪽/11쪽**
+- kordoc 윤문 규칙(결산 접속어·평론 상투구)을 원고에 대조 — **상투구 0건**
+
+### 6-4. 판단
+
+**hanji는 편차 측정 표본에서 제외.** 내부에 rhwp를 품고 있어(`Bump rhwp from sinteric/rhwp`) 독립 구현체가 아니다.
+같은 계보를 두 번 재는 셈이 되므로 표 4에 편집 도구로만 올렸다.

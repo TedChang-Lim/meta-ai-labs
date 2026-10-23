@@ -10,11 +10,17 @@
 
 | 키 이름 | 용도 | 비고 |
 |:--------|:-----|:-----|
-| `DEEPSEEK_API_KEY` | DeepSeek V4 Flash / V4 Pro | Hermes 메인 provider (직연결) |
+| `OPENCODE_GO_API_KEY` | OpenCode Go (전 에이전트 주력 라우팅) | **2026.10.20 정책 개편**: 개인 API 키 체제 전환 (`Anomaly` 워크스페이스) |
+| `DEEPSEEK_API_KEY` | DeepSeek V4 Flash / V4 Pro | 비상용/예비용 (직연결 종량제 사용 금지) |
 | `OPENROUTER_API_KEY` | OpenRouter 라우팅 | Hy3(free) ZCode 연결용 |
 | `XIAOMI_API_KEY` | MiMo 2.5 / MiMo 2.5 Pro | 비전+텍스트 모두 사용 |
 | `GOOGLE_API_KEY` | Google Gemini API | Hermes 백업/fallback |
 | `GEMINI_API_KEY` | Gemini (GOOGLE_API_KEY와 동일) | 통일 예정 |
+
+> 🚨 **OpenCode Go API 키 중요 변경사항 (2026-10-20):**
+> 기존 공용 서비스 계정 키가 만료되었습니다. 이제 개인 API 키를 발급받아야 합니다.
+> - **발급 위치**: 계정 오른쪽 상단 메뉴 → `계정` → `개인 API 키` → `API 키 추가` (`Anomaly` 워크스페이스 선택)
+> - **세부 규칙**: [opencode-go-api-key-policy-2026-10-20.md](file:///Users/tedchanglimchangsik/초보프로젝트/meta-ai-labs/knot/wiki/opencode-go-api-key-policy-2026-10-20.md) 참조
 
 ## 2. 서치/웹 Keys
 
