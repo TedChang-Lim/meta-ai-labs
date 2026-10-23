@@ -16,6 +16,7 @@
 - [[kacec-capability]] — KACEC 사업 역량 종합 분석: 10대 사업 영역 + 잠재 확장 부문 (2026-07-05)
 
 ## entity
+- [[kordoc-4.24-fusion]] — kordoc 4.24.1: 파서가 HWPX 생성까지. 서식 견본 승계·예산 검산 실측, 우리 67개 HWPX와의 융합 판단 (2026-10-24)
 - [[rea-mcp]] — REA MCP: 앱 뜯어서 설계도 뽑는 도구, Hermes 수동 등록·합법선 확정 (2026-10-13)
 - [[kacec-capability]] — 한국 AI 융합 교육원 사업 역량 종합 분석 (2026-07-05)
 
