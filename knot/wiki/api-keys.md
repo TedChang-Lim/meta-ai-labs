@@ -37,6 +37,15 @@
 | `KLING_ACCESS_KEY` | Kling AI 영상 생성 | 키 살아있음 |
 | `KLING_SECRET_KEY` | Kling AI 시크릿 | 키 살아있음 |
 
+## 3-1. 음성(TTS) Keys
+
+| 키 이름 | 용도 | 비고 |
+|:--------|:-----|:-----|
+| `ELEVENLABS_API_KEY` | ElevenLabs TTS (한국어 캐릭터 음성) | 2026.10.24 등록 · 무료 10,000크레딧/월 · **키 파일: `~/.hermes/credentials/elevenlabs_api_key.txt`** · 무료는 비상업+출처표기 |
+| `FISH_AUDIO_API_KEY` | Fish Audio TTS ("소향이" 목소리) | 무료 s2.1-pro-free · 2026-11-30까지 |
+
+> ⚠️ **ElevenLabs 키 권한**: 키 생성 시 **Text to Speech** 권한을 반드시 켜야 한다. 꺼진 키는 모든 요청이 `401 missing_permissions`로 실패한다(실측 2026-10-24).
+
 ## 4. 커뮤니케이션 Keys
 
 | 키 이름 | 용도 | 비고 |
