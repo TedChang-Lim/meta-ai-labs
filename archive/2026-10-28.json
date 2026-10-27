@@ -1,0 +1,41 @@
+{
+  "hero_id": 8,
+  "ticker": {
+    "badge": "오늘의 AI 핵심",
+    "headline": "AI가 수학 난제에 도전장, 이제 남은 건 검증",
+    "link": "briefing.html"
+  },
+  "focus_news": {
+    "tag": "MODEL & REASONING",
+    "title": "AI가 50년 수학 난제를 반박했다고 말할 때, 우리가 확인해야 할 것",
+    "summary": "최전선 AI 연구소들이 자사 모델이 지수 시간 가설(ETH)을 반박하는 결과를 찾아냈다고 발표했습니다. ETH는 계산 복잡도 이론의 오랜 기둥이라, 이것이 정말 흔들린다면 알고리즘 연구의 지형 자체가 달라집니다. 다만 지금은 연구소의 주장 단계이고, MIT 연구진을 포함한 외부 검증이 남아 있습니다. 화려한 헤드라인보다 중요한 것은 이 증명이 검증이라는 관문을 통과하는지 여부입니다.",
+    "so_what": "1) 업무 적용점: 모델이 내놓은 결과를 곧바로 사실로 받아들이지 말고, 검증 절차를 설계하는 역량이 실무자의 새 기본기가 됩니다. 2) 교육적 가치: 정답을 빨리 얻는 법보다, 그 정답이 맞는지 확인하는 사고 훈련이 훨씬 값진 커리큘럼이 됩니다. 3) 향후 전망: 앞으로 몇 달은 발표와 반박이 번갈아 나오는 국면이 이어질 테니, 결론은 조금 느긋하게 기다려도 좋습니다.",
+    "source_name": "TechCrunch AI",
+    "source_url": "https://techcrunch.com/2026/10/27/frontier-ai-labs-say-their-models-refuted-the-exponential-time-hypothesis-what-does-that-mean/"
+  },
+  "daily_three": [
+    {
+      "id": 1,
+      "category": "HARDWARE",
+      "title": "100억 달러 규모 AI 펀드, 칩과 음성 AI에 집중 베팅",
+      "one_line": "큰 자금이 반도체와 음성 생성 인프라로 몰린다는 신호로 읽으면 됩니다."
+    },
+    {
+      "id": 2,
+      "category": "POLICY",
+      "title": "은행이 고객에게 남긴 한 줄, AI 비서에 비밀번호는 금물",
+      "one_line": "AI 에이전트에 계정 접근을 맡기면 그 결과의 책임도 고객 몫이라는 점을 기억해야 합니다."
+    },
+    {
+      "id": 3,
+      "category": "EDUCATION",
+      "title": "335쪽 공시 문서로 들여다본 Anthropic의 복잡한 지배구조",
+      "one_line": "AI 기업을 이해하려면 모델 성능만 아니라 의사결정 구조도 함께 읽어야 합니다."
+    }
+  ],
+  "hero_image": "marks/heroes/hero_space.webp",
+  "hero_tag": "SPACE",
+  "date": "2026.10.28",
+  "updated_at": "2026-10-28T07:00:05.402704+09:00",
+  "issue_no": 45
+}
