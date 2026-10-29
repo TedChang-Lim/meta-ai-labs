@@ -1,0 +1,41 @@
+{
+  "hero_id": 10,
+  "ticker": {
+    "badge": "오늘의 AI 핵심",
+    "headline": "레딧, AI 검색 시대에 로그인 장벽 세운다",
+    "link": "briefing.html"
+  },
+  "focus_news": {
+    "tag": "MODEL & REASONING",
+    "title": "레딧, 열린 웹의 문을 닫다 — 로그인 중심으로 방향 전환",
+    "summary": "AI가 정보를 찾는 방식을 바꾸면서 검색 유입이 눈에 띄게 줄자, 레딧이 그동안의 개방형 웹 노선을 손보기로 했습니다. 앞으로는 로그인한 사용자를 중심으로 서비스를 재편해, 이용자 보호와 수익 구조를 동시에 지키겠다는 계산입니다. 요약하면 검색해서 슬쩍 읽고 나가는 시대에서, 가입해서 머무는 시대로 옮겨가겠다는 선언입니다. 커뮤니티의 생존을 건 결정인 만큼, 이용자 반응은 좀 더 지켜봐야 할 것 같습니다.",
+    "so_what": "새미새론 관점: 1) 업무 적용점은 콘텐츠 기획 시 외부 검색 유입만 믿지 말고, 자체 채널과 로그인 기반 팬층을 함께 설계해야 한다는 것입니다. 2) 교육적 가치로는 무료 개방이 곧 지속 가능성을 뜻하지 않는다는 점을 사례로 가르칠 수 있습니다. 3) 향후 전망은 AI 요약이 보편화될수록 폐쇄형 커뮤니티와 검증된 원천 데이터의 가치가 더 커질 것입니다.",
+    "source_name": "TechCrunch AI",
+    "source_url": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/"
+  },
+  "daily_three": [
+    {
+      "id": 1,
+      "category": "HARDWARE",
+      "title": "리비안과 폭스바겐, 합작 범위를 AI 비서까지 넓힌다",
+      "one_line": "58억 달러 규모 합작 투자에 차량용 AI 어시스턴트가 새로 얹히며, 자동차 경쟁의 축이 소프트웨어로 옮겨가는 신호."
+    },
+    {
+      "id": 2,
+      "category": "POLICY",
+      "title": "AI 에이전트를 실시간으로 지켜봐야 하는 이유",
+      "one_line": "에이전트가 스스로 판단하고 행동하는 시대에는 사후 감사보다 실시간 모니터링 체계가 먼저라는 전문가 제언."
+    },
+    {
+      "id": 3,
+      "category": "EDUCATION",
+      "title": "메타, 조용히 내놓은 AI 패션 앱 '스타일 스케치'",
+      "one_line": "인스타그램 사진으로 가상 옷장을 만드는 이 앱은, 생활 속 창작 도구가 자연스럽게 학습으로 이어지는 사례."
+    }
+  ],
+  "hero_image": "marks/heroes/hero_library.webp",
+  "hero_tag": "LIBRARY",
+  "date": "2026.10.30",
+  "updated_at": "2026-10-30T07:00:01.591019+09:00",
+  "issue_no": 47
+}
