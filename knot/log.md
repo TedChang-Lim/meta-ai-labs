@@ -215,3 +215,17 @@ morluto/rea(MIT, 스타 16만) Hermes mcp_servers.rea 수동 등록·손잡기 �
 ## [2026-10-23] update — HWPX 커뮤니티 10일 뒤 재조회와 원고 반영
 
 rhwp 별 3,919→3,989(공개판 v0.8.7 그대로, 기본 가지에서 10/20~22 조판 결함 6건 종결) · kordoc v4.21.27→v4.24.1 · alhangeul 0.2.3 · hanji v0.5.0 신규. 학위논문 표 4·2.3·2.4절 갱신, 판 비교 40/34·11/10. 표 뒤 빈 줄을 지워 실험계획서 12→11쪽. hanji는 rhwp를 품고 있어 편차 측정 표본에서 제외. 상세: [[hwpx-community-2026-10-13]]
+
+## [2026-11-02] ingest — 헤르더 편대 구축과 미모·코코 복구
+
+헤르더 앱 창에 에이전트 7마리를 올림. 핵심 규칙: `hc run --bg --name X --parent t1`처럼 **`--parent t1`을 붙여야** 앱 사이드바에 뜬다(앱은 자기 공간 안에서 시작한 터미널만 나열). 붙이지 않으면 CLI에는 보이나 앱에는 안 보인다.
+
+**mimocode 함정(중요)**: npm의 `mimocode` 패키지는 샤오미 것이 아니라 `github.com/eurocybersecurite/mimocode`라는 남의 프로젝트다. 버전이 0.36.4로 표기되면서 로컬 런타임(llama-cpp·lmstudio·mlx·ollama)만 지원해 외부 API를 붙일 수 없다. 샤오미 정품은 `curl -fsSL https://mimo.xiaomi.com/install | bash`로 설치하는 별개 바이너리 `mimo` 0.1.9이며, `mimo providers`/`mimo models`로 OpenCode Go 모델을 그대로 인식한다. 두 달 동안 "미모"라 부르던 것이 실은 남의 프로그램이었다.
+
+**코코 복구**: Claude Code가 첫 실행에서 "이 API 키 쓸래?" 물을 때 No를 누르면 `~/.claude.json`의 `customApiKeyResponses.rejected`에 키 뒷자리가 남아 계속 `Not logged in`이 된다. 승인 목록으로 옮기면 즉시 붙는다. 모델은 `muse-spark-1.3-contributor`.
+
+**각 프레임워크 자체 검색 유무(실측)**: Claude Code는 `WebSearch`+`WebFetch` 내장(바이너리 언급 100/138회), Cline은 `web_search` 내장(166회), OpenCode는 `webfetch`만 있어 URL을 아는 경우만 가능하고 검색은 없다(지호에게 직접 물어 확인). 검색이 없는 곳에는 전 에이전트 공용 `~/.local/bin/free-search`(DDG AI Search → 로컬 추출 → Insane Search → browser_exec 폴백, 키 불필요)를 지침에 넣어야 실제로 쓴다.
+
+검색 도구 배치: 해나만 brave-free + ddgs 추출 + Tavily 키(58자) 보유. 나머지는 프리서치가 유일한 무료 경로.
+
+폐기: 웹사이트 클론 테스트(JCodesMore 템플릿, semiseron.kr 복제)는 확인 목적을 달성해 676MB 전체 삭제. 포트 3100 종료.
