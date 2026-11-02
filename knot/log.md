@@ -229,3 +229,19 @@ rhwp 별 3,919→3,989(공개판 v0.8.7 그대로, 기본 가지에서 10/20~22 
 검색 도구 배치: 해나만 brave-free + ddgs 추출 + Tavily 키(58자) 보유. 나머지는 프리서치가 유일한 무료 경로.
 
 폐기: 웹사이트 클론 테스트(JCodesMore 템플릿, semiseron.kr 복제)는 확인 목적을 달성해 676MB 전체 삭제. 포트 3100 종료.
+
+## [2026-11-02] ingest — Craft 앱들이 에이전트 조종을 지원함
+
+storytold의 Craft 앱 8종을 확인한 결과 **전부 로컬 제어 서버를 내장**하고 있었다. WordCraft·PdfCraft·VectorCraft·PhotoCraft·FilmCraft·DeckCraft는 `--control PORT`, DesignCraft·EffectCraft는 문서상 지원. 즉 어도비·MS 대체 앱들을 에이전트가 직접 조종할 수 있다.
+
+**DesignCraft 실측(핵심)**: InDesign 오픈소스 클론, Knuth-Plass 조판 엔진, `engine.commands`가 **709개** 명령을 반환. A4 3페이지 문서를 소켓 JSON lines로 조판해 인쇄용 PDF까지 뽑았다. 이전에 이북을 HTML로 페이지 나눠 만들다 제목이 잘리고 다음 장에 붙던 문제는 조판 엔진 부재가 원인이었고, 이 도구로 해결된다. IDML 양방향이라 InDesign과도 주고받는다.
+
+**한글 폰트 함정**: 기본 폰트가 `Source Serif 4` 하나뿐이라 한글이 두부(□)로 깨진다. 시스템 폰트는 `font.reload`로 940개 인식되지만 문서에 지정되지 않은 상태. `font.replace {family:"Source Serif 4", toFamily:"Apple SD Gothic Neo", redefineStyles:true}` 후 PDF를 다시 뽑아야 반영된다.
+
+**text.insert 함정**: `story` 파라미터를 받지 않는다(`text`, `raw`만). 프레임 생성 시 `text`로 한 번에 넣는 게 확실하다.
+
+**document.inspect 함정**: 프레임·스토리는 생성됐는데 pages·items가 0으로 나오는 경우가 있다. PDF는 정상 출력되므로 이 값만 보고 실패로 판단하면 안 되고 PDF를 이미지로 뽑아 눈으로 확인해야 한다.
+
+**중복 정리**: ieumoffice(42도구)·WordCraft·officecli가 워드/표/발표에서 겹친다. 일상 처리는 ieumoffice, 인쇄급 조판은 WordCraft, 페이지 조판은 DesignCraft, HWPX는 rhwp로 나눈다.
+
+산출물: 서재 `책조판-designcraft.md`, `무기목록.md`(13분류), `video-tools/` 2건.
