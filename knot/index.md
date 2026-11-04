@@ -21,6 +21,7 @@
 - [[kacec-capability]] — 한국 AI 융합 교육원 사업 역량 종합 분석 (2026-07-05)
 
 ## concept
+- [[morningsam-c-plan]] — 모닝샘 C안: 9월에 멈춘 카드·키워드를 최근 7일 흐름으로 교체, 49 PASS (2026-11-05)
 - [[pollinations-image-2026-08-12]] — 🔹 Pollinations 무료 이미지 생성: 0원·키 불필요, polli-img 스크립트 (2026-08-12)
 - [[hwp-automation-breakthrough-2026-08-11]] — 🔹 HWP 자동화 브레이크스루: 원본 포맷 유지 + 내용 채우기, rhwp CLI v0.8.2 (2026-08-11)
 - [[agent-standard-war-multisocket]] — 에이전트 표준 전쟁과 멀티 소켓 비유 (2026-06-23)
