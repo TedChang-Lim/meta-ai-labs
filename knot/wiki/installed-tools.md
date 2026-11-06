@@ -80,6 +80,42 @@ aliases: [도구 대장, tool ledger, 설치 도구]
 
 ---
 
+## OpenCode Go API — 구독 모델 직접 호출 (2026-11-06 실측)
+
+```bash
+curl -X POST https://opencode.ai/zen/go/v1/chat/completions \
+  -H "Authorization: Bearer $OC_OPENCODE_GO_KEY" \
+  -H "Content-Type: application/json" \
+  -H "x-opencode-session: <임의 세션ID>" \
+  -d '{"model":"muse-spark-1.3-contributor","messages":[...]}'
+```
+
+**세 가지를 틀리면 안 된다.** 하루를 날린 함정이다.
+
+| 틀리면 | 증상 | 정답 |
+|---|---|---|
+| 엔드포인트를 `/zen/v1`로 씀 | `Insufficient account funds` (종량제 계정 조회) | **`/zen/go/v1`** (구독) |
+| 모델명을 `muse-spark-1.3`으로 씀 | `Model is unavailable` | **`muse-spark-1.3-contributor`** |
+| `x-opencode-session` 헤더 누락 | `MissingSessionID` | 임의 문자열이면 통과 |
+
+**과금 확인:** 응답의 `opencode.billing_source` 가 `go` 면 **구독 차감(추가 결제 없음)**. `cost: 0` 으로 나온다.
+
+**모델 목록 조회**
+
+```bash
+curl https://opencode.ai/zen/go/v1/models -H "Authorization: Bearer $KEY"
+```
+
+2026-11-06 기준 30종: `deepseek-v4.1-flash` `deepseek-v4-pro` `glm-5.2` `glm-5.3` `glm-5.3-flash` `grok-4.7` `muse-spark-1.2-contributor` `muse-spark-1.3-contributor` `gpt-5.6-luna` `gpt-6-luna` `claude-haiku-5-5` `hy3` `hy4` `hy4-preview` `kimi-k2.7-code` `kimi-k3` `kimi-k3.1-pro` `mimo-v2.6-flash` `mimo-v2.6-pro` `minimax-m3` `minimax-m3.1-flash` `longcat-2.0` `step-5-preview` `beam-free` `qwen3.8-max` `qwen3.8-flash` `qwen3.7-plus` `iceman-contributor-free` `gemini-4-argon` `crouton-alpha-free`
+
+**함정** — `muse-spark-1.3` 은 추론 모델이다. 짧은 답에도 추론 토큰이 400~2,300개 나온다. `max_tokens` 를 2,000 미만으로 주면 **답이 비고 추론만 하다 끝난다.** 최소 4,000~6,000을 준다.
+
+**함정** — 파이썬 `urllib` 으로 호출하면 403이 난다(curl은 통과). `curl --data-binary @req.json` 으로 보낸다.
+
+- Kimi K3.1 Pro(`kimi-k3.1-pro`)는 **쓰지 않는다** — 쿼터를 급소진한다.
+
+---
+
 ## 장부 자동 갱신
 
 손으로 세지 않는다. 디스크를 훑어 다시 만든다.

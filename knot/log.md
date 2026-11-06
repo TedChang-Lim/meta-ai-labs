@@ -274,3 +274,16 @@ Scrapling이 이미 설치돼 있었는데도 "우리 원래 깔려 있지 않�
 - `wiki/scrapling.md` 신설 — TLS 위장 원리, 3종 수집기, 404/차단 혼동 함정
 - index.md 죽은 링크 `scrapling-mcp-guide` → `scrapling` 교체
 - 실측: docs.midjourney.com(Cloudflare) 헤드리스 크롬 차단 / Scrapling status 200 · 0.6초
+
+## [2026-11-06] query — OpenCode Go 구독 API 함정 3종 기록
+
+Muse Spark 1.3을 "크레딧 없어 못 쓴다"고 잘못 보고했다. 마스터님이 정정했고 원인을 규명했다.
+
+- 엔드포인트: `/zen/v1`(종량제)이 아니라 **`/zen/go/v1`(구독)**
+- 모델명: `muse-spark-1.3`이 아니라 **`muse-spark-1.3-contributor`**
+- 헤더: **`x-opencode-session`** 필수 (임의 문자열 통과)
+- 과금: 응답 `opencode.billing_source = go`, `cost: 0` → **추가 결제 없음**
+- 추론 모델이라 `max_tokens` 2,000 미만이면 답이 빈다. 4,000~6,000 필요
+- 파이썬 urllib은 403, curl은 통과
+
+`installed-tools.md`에 표로 기록.
