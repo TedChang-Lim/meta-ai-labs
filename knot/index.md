@@ -5,6 +5,7 @@
 ## source
 
 ## entity
+- [[installed-tools]] — **이 맥에 깔린 도구 대장(공용)**. 문제→도구 표 + 실측 경로. "없다"고 답하기 전에 여기부터 (2026-11-06)
 - [[master-profile]] — 마스터님(임창식/Ted Chang) 통합 프로필 + 대화규칙 (2026-06-23)
 - [[haena]] — 해나: Hermes Agent, 콘텐츠·총괄 (2026-06-18)
 - [[mimo]] — 미모: MiMo Code Agent, 코딩·파일작업 (2026-06-18)
@@ -37,7 +38,7 @@
 - [[gemini-live-translate-business]] — Gemini 3.5 Live Translate 비즈니스 기회 분석 (2026-06-22)
 - [[playwithailab-analysis]] — 🔹 Play with AI Lab YouTube+블로그 분석: 유료앱 개발 + 웹소설→영상 파이프라인 (2026-07-19)
 - [[insane-search-extract]] — Insane Search 웹 크롤링 우회 도구 장착 (2026-06-28)
-- [[scrapling-mcp-guide]] — Scrapling MCP: Cloudflare 우회 웹 스크래핑 도구 (2026-07-20)
+- [[scrapling]] — Scrapling: 봇 차단 우회 수집 (2026-11-06)
 - [[dual-brain-synergy]] — 듀얼 브레인 & 초가성비 에이전트 협업론 (2026-06-28)
 - [[ebook-publishing-standards]] — 📖 지식 상품 및 전자책(eBook) 출판 표준 강령 (2026-06-28)
 - [[ai-agent-hijacking-security]] — AI 에이전트 하이재킹(Hijacking) 위협 분석 및 아키텍처 다중 방어 전략 (2026-07-02)

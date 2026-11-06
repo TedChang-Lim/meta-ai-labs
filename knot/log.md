@@ -259,3 +259,18 @@ storytold의 Craft 앱 8종을 확인한 결과 **전부 로컬 제어 서버를
 **검증** 49 PASS / 0 FAIL — 배포본과 로컬본 바이트 일치까지 확인.
 
 산출물: `wiki/morningsam-c-plan.md`
+
+## [2026-11-06] query — 도구 대장 신설: installed-tools · scrapling
+
+Scrapling이 이미 설치돼 있었는데도 "우리 원래 깔려 있지 않아?" 질문을 받고서야 확인했다. 원인은 세 가지였다.
+
+1. 설치 위치가 `~/.hermes/hermes-agent/venv/bin/` 안쪽이라 PATH에 없었다.
+2. index.md에 `[[scrapling-mcp-guide]]`가 등재돼 있었지만 **해당 파일이 없었다**(죽은 링크).
+3. 도구의 "존재"를 적는 페이지가 없었다.
+
+조치:
+- `~/.local/bin/scrapling` 심볼릭 링크로 PATH 노출
+- `wiki/installed-tools.md` 신설 — 문제→도구 표 + 실측 경로 + "없다 답하기 전 디스크 확인" 철칙
+- `wiki/scrapling.md` 신설 — TLS 위장 원리, 3종 수집기, 404/차단 혼동 함정
+- index.md 죽은 링크 `scrapling-mcp-guide` → `scrapling` 교체
+- 실측: docs.midjourney.com(Cloudflare) 헤드리스 크롬 차단 / Scrapling status 200 · 0.6초
