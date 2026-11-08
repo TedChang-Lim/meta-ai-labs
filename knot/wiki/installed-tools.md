@@ -128,6 +128,73 @@ open ~/초보프로젝트/library/install-log/index.html
 
 전체 목록(141개 brew formula, 89개 폴더 등)은 위 장부에 있다. **이 페이지는 그중 "상황이 주어졌을 때 떠올려야 하는 것"만 추린 색인이다.**
 
+## 뜯어보기 삼총사
+
+세 가지가 역할이 다르다. 섞어 쓰면 웬만한 것은 다 뜯는다.
+
+```
+Scrapling         웹 페이지를 긁어온다 (봇 차단 우회)
+REA               앱·바이너리 속을 판다 (MCP 231개 도구)
+Craft Anything    뜯은 것을 바탕으로 실제 복제본을 만들고 원본과 대조해 검증한다
+```
+
+### Craft Anything
+
+- 경로 `~/.local/opt/craft-anything/craft-anything-cli-0.5.0-macos-universal/craft-anything-cli`
+- 심링크 `~/.local/bin/craft-anything-cli`
+- 저장소 `storytold/craft-anything` (MIT/Apache-2.0, 100% Rust, 2026-10-31 생성)
+- 설치 2026-11-08, 체크섬은 서명된 `SHA256SUMS.txt`와 대조해 통과
+- 상태 `early alpha` — 미해결 이슈가 279건이다. 큰 프로젝트에 바로 쓰지 않는다
+
+**AI는 내장돼 있지 않다.** 컴퓨터에 이미 로그인된 코딩 에이전트를 부린다.
+
+```bash
+craft-anything-cli doctor                 # 설치 상태 점검 (healthy:true 확인)
+craft-anything-cli ai detect              # 쓸 수 있는 백엔드 찾기
+craft-anything-cli ai add "Antigravity" --kind agent_cli --model antigravity
+craft-anything-cli ai builder "Antigravity"
+craft-anything-cli ai test "Antigravity"  # version_only:true 면 실제 생성은 아직 안 해본 것
+```
+
+**함정 1 — Claude Code는 지금 못 쓴다.** `~/.claude/settings.json`이 세 모델 모두
+`muse-spark-1.3-contributor`로 매핑돼 있는데 이 모델이 OpenCode Go에서 내려갔다.
+`API Error: 400 Upstream request failed: Model is unavailable`이 뜬다.
+→ **Antigravity(`agy`)로 붙이면 돈다.** 2026-11-08 실측 통과.
+
+**함정 2 — `--build-with` 값을 정확히 줘야 한다.** 생략하면 요청과 무관하게 Rust를 고른다.
+HTML 페이지를 원했는데 `Cargo.toml`을 만드는 일이 실제로 있었다.
+
+```
+쓸 수 있는 값: Builder's choice · Electron · Next.js + TypeScript · Python
+              React + TypeScript (Vite) · Plain HTML and CSS · Rust (console)
+              rust · Rust + egui (eframe) · unity · unreal · godot
+```
+
+**함정 3 — `ai test`는 버전만 확인한다.** `version_only:true`로 나오면 생성 능력은 아직 검증 안 된 것이다.
+실제 검증은 `rebuild` 한 번 돌려서 확인해야 한다.
+
+```bash
+craft-anything-cli rebuild - "회전하는 정육면체 단일 HTML 페이지" \
+  --rounds 1 --backend "Antigravity" --unattended \
+  --build-with "Plain HTML and CSS" --projects-dir <폴더>
+```
+
+**분석 모드 두 가지**
+
+```
+클린룸   겉만 본다. 화면 캡처·글자·색·배치·글꼴·여백·메뉴 반응
+딥       속까지 본다. Ghidra가 깔려 있으면 연결한다 (함수 추출)
+```
+
+**선택 엔진 현황 (2026-11-08 doctor)**
+
+```
+있음    Chromium · Java · LLDB · objdump
+없음    Ghidra · Frida · adb · JADX · Apktool · mitmproxy · binwalk · rizin · tshark
+```
+
+딥 모드를 제대로 쓰려면 Ghidra가 있어야 한다. Java는 이미 있으므로 바로 설치 가능하다.
+
 ## 관련
 
 - [[scrapling]]
