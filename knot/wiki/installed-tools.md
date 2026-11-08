@@ -156,10 +156,15 @@ craft-anything-cli ai builder "Antigravity"
 craft-anything-cli ai test "Antigravity"  # version_only:true 면 실제 생성은 아직 안 해본 것
 ```
 
-**함정 1 — Claude Code는 지금 못 쓴다.** `~/.claude/settings.json`이 세 모델 모두
-`muse-spark-1.3-contributor`로 매핑돼 있는데 이 모델이 OpenCode Go에서 내려갔다.
-`API Error: 400 Upstream request failed: Model is unavailable`이 뜬다.
-→ **Antigravity(`agy`)로 붙이면 돈다.** 2026-11-08 실측 통과.
+**함정 1 — Claude Code가 `Model is unavailable`로 죽는 일이 있다.**
+`~/.claude/settings.json`이 세 모델 모두 `muse-spark-1.3-contributor`로 매핑돼 있다.
+2026-11-08 12:15에 craft-anything이 이 오류로 두 번 실패했다.
+
+**그러나 이 모델은 내려간 것이 아니다.** 같은 날 15:35에 목록과 호출을 다시 확인한 결과
+OpenCode Go 모델 30개 안에 그대로 있었고 `HTTP 200 · billing_source go · cost 0`으로 정상 응답했다.
+**일시적 오류였다.** 모델이 사라졌다고 단정하지 말고 `GET /zen/go/v1/models`로 먼저 확인한다.
+
+→ **Antigravity(`agy`)로 붙이면 이 오류를 피할 수 있다.** 2026-11-08 실측 통과.
 
 **함정 2 — `--build-with` 값을 정확히 줘야 한다.** 생략하면 요청과 무관하게 Rust를 고른다.
 HTML 페이지를 원했는데 `Cargo.toml`을 만드는 일이 실제로 있었다.
