@@ -1,0 +1,128 @@
+{
+  "hero_id": 10,
+  "ticker": {
+    "badge": "오늘의 AI 핵심",
+    "headline": "앤트로픽, 신모델 '미토스·페이블' 전격 공개",
+    "link": "briefing.html"
+  },
+  "focus_news": {
+    "tag": "MODEL & REASONING",
+    "title": "앤트로픽, 코딩·추론·비전 강화한 신모델 '미토스'와 '페이블' 선보여",
+    "summary": "앤트로픽이 새로운 두 가지 모델인 미토스와 페이블을 공개했습니다. 회사 측은 이번 모델이 코딩과 추론, 그리고 이미지 이해 영역에서 한층 나아진 성능을 보인다고 설명합니다. 눈에 띄는 대목은 사용자와의 대화 방식입니다. 같은 내용이라도 더 또렷하고 자연스럽게 전달하도록 다듬었다는 점을 전면에 내세웠습니다. 성능 경쟁이 정체된 국면에서 '말이 통하는 AI'를 차별점으로 삼겠다는 의도로 읽힙니다.",
+    "so_what": "새미새론 관점: 1) 사내 문서 요약이나 고객 응대 초안처럼 '설명의 품질'이 중요한 업무에 바로 투입해 볼 만합니다. 2) 교육 현장에서는 모델 성능보다 질문을 얼마나 잘 이해하고 답을 정리하는지가 학습 효과를 좌우하므로, 강의 실습 과제로 적합합니다. 3) 앞으로 모델 경쟁은 점수표가 아니라 '얼마나 사람처럼 소통하는가'로 옮겨갈 가능성이 큽니다.",
+    "source_name": "TechCrunch AI",
+    "source_url": "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/"
+  },
+  "daily_three": [
+    {
+      "id": 1,
+      "category": "HARDWARE",
+      "title": "엔비디아 CEO, 논란 속 연속 행사 불참… 업계 긴장감 고조",
+      "one_line": "젠슨 황 CEO가 엘레븐랩스 서밋과 앤트로픽 행사에 연이어 모습을 드러내지 않으면서, 파트너사들과의 관계 변화 여부가 관심사로 떠올랐습니다."
+    },
+    {
+      "id": 2,
+      "category": "POLICY",
+      "title": "엔비디아의 중국 시장 구상, 예상치 못한 변수와 마주해",
+      "one_line": "미국 반도체 수출 규제 완화를 위해 애써온 엔비디아의 로비 라인에 사적인 논란이 겹치며, 중국 시장 접근 전략의 불확실성이 커졌습니다."
+    },
+    {
+      "id": 3,
+      "category": "EDUCATION",
+      "title": "데이터센터 반발의 진짜 뿌리는 '전기요금'일지도",
+      "one_line": "세계 최대 데이터센터 밀집 지역을 직접 찾은 취재진은, 지역 주민의 우려가 막연한 기술 불안보다 전력 인프라와 요금 부담에 집중돼 있다고 전합니다."
+    }
+  ],
+  "hero_image": "marks/heroes/hero_library.webp",
+  "hero_tag": "LIBRARY",
+  "date": "2026.11.10",
+  "updated_at": "2026-11-10T07:00:04.792989+09:00",
+  "issue_no": 58,
+  "window": {
+    "from": "2026-11-04",
+    "to": "2026-11-09",
+    "count": 20
+  },
+  "cards": [
+    {
+      "num": "01 · FRONTIER MODELS",
+      "cat": "model",
+      "title": "오픈AI 몸값 1조2500억 달러, 실탄부터 쌓았다",
+      "body": "오픈AI가 아직 끝나지 않은 투자 라운드에서 110억 달러를 더 받았다는 보도가 나왔습니다. 이번 조달로 회사 몸값은 1조2500억 달러 수준으로 평가됐고, 라운드는 몇 주 안에 마무리될 전망입니다. 숫자 자체보다 눈여겨볼 점은 이 돈이 모델 개발과 인프라에 들어갈 실탄으로 미리 확보됐다는 사실입니다.",
+      "so_what": "뉴스에 나오는 큰돈은 결국 우리가 쓰게 될 AI 기능으로 돌아옵니다. 지금 익혀두면 그 변화를 남보다 편하게 맞이합니다.",
+      "source_name": "TechCrunch",
+      "source_url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/"
+    },
+    {
+      "num": "02 · POLICY",
+      "cat": "policy",
+      "title": "데이터센터, 짓는 것도 허락받는 것도 어려워졌다",
+      "body": "구글이 난항을 겪던 와이오밍 데이터센터 사업을 넘겨받았습니다. 전력과 부지, 인허가, 자금이 한꺼번에 맞아야 하는 사업이라 도중에 주인이 바뀌는 일도 드물지 않습니다. 같은 주 미국 중간선거에서는 데이터센터 관련 주민투표 41건 가운데 40건이 규제를 강화하는 쪽으로 기울었습니다.",
+      "so_what": "AI를 쓰는 일은 결국 전기와 땅, 이웃의 동의 위에 서 있습니다. 그래서 요금과 속도가 정책 뉴스에 따라 달라질 수 있습니다.",
+      "source_name": "TechCrunch",
+      "source_url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/"
+    },
+    {
+      "num": "03 · CLASSROOM",
+      "cat": "edu",
+      "title": "휴머노이드 로봇이 집안일을 맡기 시작했다",
+      "body": "한 기자가 휴머노이드 청소 로봇에게 자기 아파트 청소를 맡기고 그 경험을 전했습니다. 로봇은 바닥만 닦는 수준을 넘어 사람이 사는 공간을 살피며 스스로 움직였습니다. 가격과 안정성은 아직 숙제지만, 가사 노동의 경계가 조금씩 넓어지고 있다는 신호입니다.",
+      "so_what": "집안일을 로봇이 거들어 주는 시대가 멀지 않았습니다. 그만큼 무엇을 사람이 할지 미리 생각해 두면 좋습니다.",
+      "source_name": "MIT Technology Review",
+      "source_url": "https://www.technologyreview.com/2026/11/06/1148154/the-download-humanoid-robot-cleaner-samsung-ai-chip-boom/"
+    }
+  ],
+  "keywords": [
+    "# 데이터센터",
+    "# 중간선거",
+    "# 휴머노이드",
+    "# 반도체"
+  ],
+  "easy": {
+    "c1": {
+      "tag": "1면 주간 · 쉽게 읽기",
+      "title": "오픈AI 몸값 1조2500억 달러, 실탄부터 쌓았다",
+      "bullets": [
+        "오픈AI가 투자자에게 110억 달러를 더 받았습니다.",
+        "회사 가치는 1조2500억 달러로 평가됐습니다.",
+        "이 돈은 AI 개발과 시설에 먼저 쓰일 예정입니다."
+      ],
+      "so": "<b>나에게는 ·</b> 큰돈이 몰리는 곳에서 결국 우리가 쓸 AI 기능이 나옵니다.",
+      "src": "출처: <a href=\"https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/\">TechCrunch ↗</a>"
+    },
+    "c2": {
+      "tag": "2면 주간 · 쉽게 읽기",
+      "title": "데이터센터, 짓는 것도 허락받는 것도 어려워졌다",
+      "bullets": [
+        "와이오밍 데이터센터 사업이 구글 손으로 넘어갔습니다.",
+        "데이터센터는 전기와 땅, 허가가 모두 맞아야 지을 수 있습니다.",
+        "중간선거에서는 데이터센터 규제를 강화하자는 쪽이 많았습니다."
+      ],
+      "so": "<b>나에게는 ·</b> AI 요금과 속도가 정책 뉴스에 따라 달라질 수 있습니다.",
+      "src": "출처: <a href=\"https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/\">TechCrunch ↗</a>"
+    },
+    "c3": {
+      "tag": "3면 주간 · 쉽게 읽기",
+      "title": "휴머노이드 로봇이 집안일을 맡기 시작했다",
+      "bullets": [
+        "기자가 청소 로봇에게 집안일을 맡겨봤습니다.",
+        "로봇은 집 구조를 살피며 스스로 청소했습니다.",
+        "아직 비싸고 불안정하지만 빠르게 좋아지고 있습니다."
+      ],
+      "so": "<b>나에게는 ·</b> 사람이 할 일과 로봇이 할 일을 미리 그려두면 좋습니다.",
+      "src": "출처: <a href=\"https://www.technologyreview.com/2026/11/06/1148154/the-download-humanoid-robot-cleaner-samsung-ai-chip-boom/\">MIT Technology Review ↗</a>"
+    },
+    "focus": {
+      "tag": "1면 FOCUS · 쉽게 읽기",
+      "title": "앤트로픽, 코딩·추론·비전 강화한 신모델 '미토스'와 '페이블' 선보여",
+      "bullets": [
+        "앤트로픽이 새로운 두 가지 모델인 미토스와 페이블을 공개했습니다",
+        "회사 측은 이번 모델이 코딩과 추론, 그리고 이미지 이해 영역에서 한층 나아진 성능을 보인다고 설명합니다",
+        "눈에 띄는 대목은 사용자와의 대화 방식입니다",
+        "같은 내용이라도 더 또렷하고 자연스럽게 전달하도록 다듬었다는 점을 전면에 내세웠습니다"
+      ],
+      "so": "<b>새미새론 시사점 ·</b> 새미새론 관점: 1) 사내 문서 요약이나 고객 응대 초안처럼 '설명의 품질'이 중요한 업무에 바로 투입해 볼 만합니다. 2) 교육 현장에서는 모델 성능보다 질문을 얼마나 잘 이해하고 답을 정리하는지가 학습 효과를 좌우하므로, 강의 실습 과제로 적합합니다. 3) 앞으로 모델 경쟁은 점수표가 아니라 '얼마나 사람처럼 소통하는가'로 옮겨갈 가능성이 큽니다.",
+      "src": "출처: <a href=\"https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/\" target=\"_blank\" rel=\"noopener\">TechCrunch AI ↗</a>"
+    }
+  }
+}
