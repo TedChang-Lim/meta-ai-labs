@@ -287,3 +287,10 @@ Muse Spark 1.3을 "크레딧 없어 못 쓴다"고 잘못 보고했다. 마스�
 - 파이썬 urllib은 403, curl은 통과
 
 `installed-tools.md`에 표로 기록.
+## [2026-11-09] note — semiseron.kr 파비콘 추가
+
+- 증상: 브라우저 탭에 아이콘이 없음. `/favicon.ico` 404, head에 icon 링크 0개
+- 조치: `symbol_light.png`에서 A만 잘라 잉크 바탕 타일 생성 → ico·32·48·192·512·apple-touch
+- head에 링크 6줄 + `site.webmanifest` 추가
+- 검증: 라이브 전부 200 (ico 450B, 32 1,085B, 192 7,259B)
+- 기억할 것: 심볼 전체를 16px로 줄이면 글자가 뭉개진다. **A만 남긴 단순화**가 정답
