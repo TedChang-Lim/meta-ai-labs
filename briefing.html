@@ -174,6 +174,48 @@ footer a{color:var(--muted)}
 .tickerbar .tk-head:hover{color:var(--gold-light)}
 /* 카드 구역 머리 */
 .wk-meta{font-size:12.5px;color:var(--muted);margin:-4px 0 14px}
+/* ── 2026-11-10 개편: 오늘의 한 줄 · 단신 · 오늘의 방향 · 용어 풀이 ── */
+.oneline{display:flex;align-items:center;gap:14px;margin:2px 0 18px;padding:14px 20px;border-left:2px solid var(--gold);background:linear-gradient(90deg,rgba(199,154,81,.10),rgba(199,154,81,0))}
+.oneline .lb{flex:0 0 auto;font-family:var(--font-display);font-size:10.5px;letter-spacing:.22em;color:var(--gold-light)}
+.oneline .tx{font-family:var(--font-serif);font-size:17px;color:var(--paper);line-height:1.55}
+
+.briefsec{margin:44px 0 8px}
+.briefgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:18px;border-top:1px solid var(--line)}
+.bitem{display:flex;gap:14px;padding:16px 18px 16px 0;border-bottom:1px solid var(--line)}
+.briefgrid .bitem:nth-child(odd){padding-right:26px;border-right:1px solid var(--line)}
+.briefgrid .bitem:nth-child(even){padding-left:26px}
+.bcat{flex:0 0 68px;font-family:var(--font-display);font-size:10px;letter-spacing:.12em;color:var(--gold-light);padding-top:3px}
+.bwrap{flex:1 1 auto;min-width:0}
+.bitem a.bt{display:block;font-size:14.5px;font-weight:600;color:var(--paper);text-decoration:none;line-height:1.45;margin-bottom:4px;overflow-wrap:anywhere}
+.bitem a.bt:hover{color:var(--gold-light)}
+.bitem .bl{font-size:13px;color:var(--paper-dim);line-height:1.6;overflow-wrap:anywhere}
+.bitem .bs{font-size:11px;color:var(--dim);margin-top:5px;letter-spacing:.04em}
+
+.direction{margin:52px 0 10px;padding:28px 30px;border:1px solid var(--line-gold);border-radius:12px;background:rgba(199,154,81,.04)}
+.direction .dt{font-family:var(--font-display);font-size:10.5px;letter-spacing:.24em;color:var(--gold-light);margin-bottom:10px}
+.direction h2{font-family:var(--font-serif);font-size:24px;color:var(--paper);margin:0 0 6px;font-weight:600}
+.direction .dsub{font-size:12.5px;color:var(--muted);margin-bottom:20px}
+.drow{display:flex;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
+.dlabel{flex:0 0 76px;font-family:var(--font-display);font-size:10px;letter-spacing:.1em;color:var(--dim);padding-top:4px}
+.drow.fact .dlabel{color:var(--teal-light)}
+.drow.view .dlabel{color:var(--gold-light)}
+.drow p{margin:0;font-size:15px;line-height:1.8;color:var(--paper-dim)}
+.drow.fact p{color:var(--paper)}
+
+.gloss{margin-top:18px;padding:16px 20px;border:1px dashed var(--line-gold);border-radius:10px;background:rgba(236,232,223,.03)}
+.gloss .gt{font-family:var(--font-display);font-size:10px;letter-spacing:.2em;color:var(--gold-light);margin-bottom:6px}
+.gloss b{display:block;font-size:15px;color:var(--paper);margin-bottom:4px}
+.gloss p{margin:0;font-size:13.5px;line-height:1.75;color:var(--paper-dim)}
+
+@media(max-width:760px){
+  .briefgrid{grid-template-columns:1fr}
+  .briefgrid .bitem:nth-child(odd){border-right:0;padding-right:0}
+  .briefgrid .bitem:nth-child(even){padding-left:0}
+  .oneline .tx{font-size:15.5px}
+  .direction{padding:22px 18px}
+  .drow{flex-direction:column;gap:4px}
+  .dlabel{flex:0 0 auto}
+}
 </style>
 </head>
 <body>
@@ -204,6 +246,11 @@ footer a{color:var(--muted)}
   <div class="tickerbar" id="tickerBar">
     <span class="tk-badge" id="tkBadge">오늘의 AI 핵심</span>
     <a class="tk-head" id="tkHead" href="#focus">오늘의 핵심 한 줄을 불러오는 중입니다.</a>
+  </div>
+
+  <div class="oneline" id="oneLine" hidden>
+    <span class="lb" id="oneLineLb">오늘의 한 줄</span>
+    <span class="tx" id="oneLineTx"></span>
   </div>
 
   <div class="frontgrid">
@@ -240,6 +287,13 @@ footer a{color:var(--muted)}
     <button data-t="c3"># GPU 1.5만 장</button>
   </div>
 
+  <section class="briefsec" id="briefSec" hidden>
+    <div class="sec-title">MORE BRIEFS</div>
+    <h2 class="sec-head">오늘의 단신</h2>
+    <p class="sec-desc">1면에 담지 못한 소식입니다. 제목을 누르면 원문으로 갑니다.</p>
+    <div class="briefgrid" id="briefGrid"></div>
+  </section>
+
   <div class="sec-title">THE WEEKLY THREE</div>
   <h2 class="sec-head">최근 7일, 이 세 가지</h2>
   <p class="sec-desc">오늘 뉴스가 아니라 <b>지난 한 주 흐름</b>에서 골랐습니다. 주제를 고르면 해당 소식만 모아 볼 수 있고, 저장은 하트 없이 버튼 한 번이면 됩니다.</p>
@@ -274,6 +328,20 @@ footer a{color:var(--muted)}
       <div class="foot"><span><a href="https://www.xdnode.co.kr/insight/articles/2026-government-ai-infrastructure-programs" target="_blank" rel="noopener">사업 정리 ↗</a></span><button class="savebtn" data-id="m3">저장</button></div>
     </article>
   </div>
+
+  <section class="direction" id="dirSec" hidden>
+    <div class="dt">TODAY'S DIRECTION</div>
+    <h2>오늘의 AI 방향</h2>
+    <p class="dsub">사실은 출처로 확인한 것, 해석은 우리 시선입니다. 단정하지 않습니다.</p>
+    <div class="drow fact"><div class="dlabel">FACT · 사실</div><p id="dirFact"></p></div>
+    <div class="drow view"><div class="dlabel">VIEW · 해석</div><p id="dirView"></p></div>
+    <div class="drow view"><div class="dlabel">US · 우리</div><p id="dirUs"></p></div>
+    <div class="gloss" id="glossBox" hidden>
+      <div class="gt">WORD OF THE DAY · 오늘의 낱말</div>
+      <b id="glossTerm"></b>
+      <p id="glossEasy"></p>
+    </div>
+  </section>
 
   <div class="principle">
     <span class="t">EDITING PRINCIPLE · 편집 원칙</span>
@@ -598,6 +666,78 @@ footer a{color:var(--muted)}
     .catch(function(err){
       console.log('Archive fetch error:', err);
     });
+})();
+</script>
+<script>
+/* 2026-11-10 개편분 — 오늘의 한 줄 · 단신 · 오늘의 방향 · 용어 풀이 */
+(function(){
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  fetch('today-briefing.json?v=' + Date.now())
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if (!d) return;
+
+      // 1) 오늘의 한 줄
+      if (d.one_line) {
+        var box = document.getElementById('oneLine');
+        var tx  = document.getElementById('oneLineTx');
+        if (box && tx) { tx.textContent = d.one_line; box.hidden = false; }
+      }
+
+      // 2) 오늘의 단신
+      if (d.briefs && d.briefs.length) {
+        var sec = document.getElementById('briefSec');
+        var grid = document.getElementById('briefGrid');
+        if (sec && grid) {
+          grid.innerHTML = d.briefs.map(function(b){
+            var title = b.url
+              ? '<a class="bt" href="' + esc(b.url) + '" target="_blank" rel="noopener">' + esc(b.title) + '</a>'
+              : '<span class="bt">' + esc(b.title) + '</span>';
+            return '<div class="bitem">'
+              + '<div class="bcat">' + esc(b.cat || 'AI') + '</div>'
+              + '<div class="bwrap">' + title
+              + (b.line ? '<div class="bl">' + esc(b.line) + '</div>' : '')
+              + '<div class="bs">' + esc(b.src || '') + '</div>'
+              + '</div></div>';
+          }).join('');
+          sec.hidden = false;
+        }
+      }
+
+      // 3) 오늘의 AI 방향
+      if (d.direction && (d.direction.fact || d.direction.view)) {
+        var ds = document.getElementById('dirSec');
+        var f = document.getElementById('dirFact');
+        var v = document.getElementById('dirView');
+        var u = document.getElementById('dirUs');
+        if (ds) {
+          if (f && d.direction.fact) f.textContent = d.direction.fact;
+          if (v && d.direction.view) v.textContent = d.direction.view;
+          if (u && d.direction.us)   u.textContent = d.direction.us;
+          var rows = ds.querySelectorAll('.drow');
+          rows.forEach(function(row, i){
+            var key = ['fact','view','us'][i];
+            if (!d.direction[key]) row.style.display = 'none';
+          });
+          ds.hidden = false;
+        }
+      }
+
+      // 4) 오늘의 낱말
+      if (d.glossary && d.glossary.term && d.glossary.easy) {
+        var gb = document.getElementById('glossBox');
+        var gt = document.getElementById('glossTerm');
+        var ge = document.getElementById('glossEasy');
+        if (gb && gt && ge) {
+          gt.textContent = d.glossary.term;
+          ge.textContent = d.glossary.easy;
+          gb.hidden = false;
+        }
+      }
+    })
+    .catch(function(err){ console.log('개편 블록 로드 실패:', err); });
 })();
 </script>
 </body>
