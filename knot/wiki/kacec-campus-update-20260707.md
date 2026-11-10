@@ -7,6 +7,8 @@ sources: [raw/2026-07-07_madcat-v2.md, raw/2026-07-07_campus-modal.md]
 
 # KACEC 온라인 캠퍼스 & MadCat v2 업데이트 (2026.07.07)
 
+> 옛 이름 안내: 이 문서의 'KACEC(한국 AI 융합 교육원)'는 현재 '새미새론AI교육원(SEMISERON AI Lab)'의 이전 명칭입니다. 기록 보존을 위해 원문은 그대로 둡니다.
+
 ## 개요
 오늘 작업으로 KACEC 온라인 캠퍼스 모달과 MadCat 서버 v2가 업그레이드되었습니다.
 

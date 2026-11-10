@@ -7,6 +7,8 @@ sources: [messages/2026-07-11_미모-ALL-KACEC-캠퍼스-카드-겹침-수정-�
 
 # KACEC 캠퍼스 카드 겹침 수정 (2026-07-11)
 
+> 옛 이름 안내: 이 문서의 'KACEC(한국 AI 융합 교육원)'는 현재 '새미새론AI교육원(SEMISERON AI Lab)'의 이전 명칭입니다. 기록 보존을 위해 원문은 그대로 둡니다.
+
 ## 문제
 해나가 만든 `~/ZCodeProject/kacec-online-campus.html`의 "AI 실전 퀵스타트"(8개)와 "이번 주 새 AI 실전 레슨"(11개) 섹션 카드가 겹쳐서 보임.
 
