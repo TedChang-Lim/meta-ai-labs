@@ -1,3 +1,10 @@
+---
+type: note
+created: 2026-09-15
+updated: 2026-09-15
+sources: []
+---
+
 # 🎯 0원 무적 에이전트 정예팀 — 에이전트 마음가짐 (Agent Mindset)
 
 **작성일**: 2026-08-04  

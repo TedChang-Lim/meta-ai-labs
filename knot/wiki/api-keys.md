@@ -1,3 +1,10 @@
+---
+type: note
+created: 2026-10-24
+updated: 2026-10-24
+sources: []
+---
+
 # 🔑 API 키 종합 가이드
 
 > 모든 API 키는 `~/.hermes/.env` 파일에 저장되어 있음.

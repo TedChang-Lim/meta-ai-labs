@@ -1,8 +1,8 @@
 ---
 type: concept
-name: ai-video-pipeline
-title: AI 영상 제작 파이프라인 (MCP 기반)
-tags: [video, workflow, mcp, higgsfield, consistency]
+created: 2026-07-18
+updated: 2026-07-18
+sources: []
 ---
 
 ## 개요

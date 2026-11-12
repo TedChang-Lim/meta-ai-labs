@@ -1,3 +1,10 @@
+---
+type: note
+created: 2026-07-18
+updated: 2026-07-18
+sources: []
+---
+
 # kacec.kr 도메인
 
 **한국 AI 융합 교육원 공식 도메인**

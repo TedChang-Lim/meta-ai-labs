@@ -1,3 +1,10 @@
+---
+type: note
+created: 2026-09-19
+updated: 2026-09-19
+sources: []
+---
+
 # 🏛️ [MASTER CASE STUDY] 4자 융합 AI 오케스트레이션 실전 협업 방법론
 > **부제: "말(Claim)이 아닌 증거(Evidence)로 완성한 185KB 단일 파일 풀스택 웹 빌드 실전기"**  
 > **기록 일시**: 2026년 8월 24일  

@@ -309,3 +309,23 @@ Muse Spark 1.3을 "크레딧 없어 못 쓴다"고 잘못 보고했다. 마스�
 - 띄어쓰기는 읽기 어려워서 하는 표기 관행일 뿐, 명칭 변경이 아니다
 - 계약·공문·세금계산서 = 붙여쓰기 / 본문·소개글 = 띄어쓰기 허용
 - 금지 목록에서 붙여쓰기 형태 삭제
+
+## [2026-11-13] ingest — 쇼츠 설계도·하이핏·중급 커리큘럼 등 12장
+- raw 5건 투입: 숏박스 84초 설계도, 중급 3반 원고, 원주 창업공간, 강사료 기준, 메일 발송규칙
+- 신규 페이지 12장: shorts-blueprint-sukbak, shorts-swipe-file, shortform-economics, youtube-shorts-policy-2026, hypit-install-and-svml, karpathy-llm-wiki, dictation-cleanup-design, wonju-startup-space-costs, lecture-fee-standard, mail-sending-rules, skill-diet-2026-11-13, midcourse-3class-curriculum
+- 다음 할 일: 잘 된 쇼츠 2편 더 뜯어 swipe file 채우기
+
+## [2026-11-13] lint — 건강검진 정리
+- frontmatter 누락 18장 보정, sources 미실재 3건 정리
+- type 값 오류 2건(announcement→note, guideline→concept), 깨진 링크 stub 표기
+- index 죽은 항목 제거·미등재 8장 추가·중복 3건 제거 → **errors 92 → 0**
+- 틀렸던 것: index에 12장을 넣을 때 `## entity`가 두 번 있어 두 항목이 중복 등재됨. dedupe로 되돌림
+
+## [2026-11-13] query — 하이핏 설치 범위 보고 정정
+- 틀렸던 것: "설치 완료 · 클로드 코드 코덱스 OpenClaw 안티그래비티에 연결됨"이라고 보고했으나 실제 링크는 해나·코코·루나 3곳뿐이었고 본체(CLI)도 없었다
+- 바로잡음: `npm i -g @hypit/hypit` 0.3.2 설치, `hypit doctor` 0. 프로젝트 `~/초보프로젝트/hypit-lab`
+- 교훈: 설치 메시지의 대상 목록을 실제 연결로 읽지 말 것. 링크·실행체를 따로 확인할 것
+
+## [2026-11-13] note — 스킬 다이어트
+- 사용 기록(state.db skill_view)으로 183개 중 미사용 103개 추림 → 84개를 서재로 이동, 19개 유지
+- 활성 스킬 183 → 98. 보관 `~/초보프로젝트/library/skills-archive/`, 복원 `~/.hermes/scripts/skill_restore.py`

@@ -1,3 +1,10 @@
+---
+type: note
+created: 2026-07-18
+updated: 2026-07-18
+sources: []
+---
+
 # 해나의 디자인 혁명 — Open Design 도입기
 
 ## 개요

@@ -1,9 +1,9 @@
 ---
-type: guideline
+type: concept
 created: 2026-09-15
 updated: 2026-09-15
+sources: []
 aliases: [새미새론 명칭 규칙, 새미새론 표기법, SEMISERON Naming]
-tags: [branding, rules, agents]
 ---
 
 # 🏛️ 새미새론AI교육원 공식 명칭 및 표기 절대 규칙

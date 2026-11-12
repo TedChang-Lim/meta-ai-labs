@@ -1,3 +1,10 @@
+---
+type: note
+created: 2026-07-18
+updated: 2026-07-18
+sources: []
+---
+
 # ☀️ 헤나 위스퍼 (Hena Whisper) - v1.0 / v1.1
 > **Groq Whisper API를 활용한 macOS Push-to-Talk 음성 받아쓰기 유틸리티**
 

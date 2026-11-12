@@ -1,8 +1,8 @@
 ---
 type: entity
-name: kling-api
-title: Kling AI API
-tags: [kling, api, video-generation]
+created: 2026-07-18
+updated: 2026-07-18
+sources: []
 ---
 
 ## Kling AI API 정보

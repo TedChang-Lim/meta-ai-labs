@@ -2,7 +2,7 @@
 type: note
 created: 2026-07-07
 updated: 2026-07-07
-sources: [raw/2026-07-07_madcat-v2.md, raw/2026-07-07_campus-modal.md]
+sources: []
 ---
 
 # KACEC 온라인 캠퍼스 & MadCat v2 업데이트 (2026.07.07)

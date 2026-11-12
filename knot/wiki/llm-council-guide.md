@@ -1,3 +1,10 @@
+---
+type: note
+created: 2026-07-18
+updated: 2026-07-18
+sources: []
+---
+
 # LLM Council — 5인 AI 위원회
 
 > **생성일:** 2026-07-09

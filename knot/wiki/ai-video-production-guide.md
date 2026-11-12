@@ -1,9 +1,8 @@
 ---
-name: ai-video-production-guide
 type: concept
-tags: [wan2.2, i2v, storyboard, character-consistency, tts, comfyui]
-description: "Wan 2.2 고품질 AI 영상 제작 종합 가이드. 캐릭터 일관성, 스토리보드, TTS, VRAM 관리 등 모든 노하우."
-related: [haena, mimo, ag, master-projects]
+created: 2026-07-18
+updated: 2026-07-18
+sources: []
 ---
 
 # AI 영상 제작 종합 가이드

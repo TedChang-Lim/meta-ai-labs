@@ -2,7 +2,7 @@
 type: concept
 created: 2026-06-28
 updated: 2026-06-28
-sources: [raw/독서연구소_AI_분석.md, raw/to-ag.md]
+sources: []
 aliases: [dual-brain, dual-brain-synergy]
 ---
 

@@ -1,10 +1,8 @@
 ---
-name: karpathy-guidelines
 type: concept
-tags: [프롬프트, 코딩, 가이드라인, 카파시]
-description: "Andrej Karpathy의 LLM 코딩 가이드라인 — 과도한 복잡성 방지, 수술적 변경, 목표 기반 실행"
-source: https://github.com/multica-ai/andrej-karpathy-skills/tree/main/skills/karpathy-guidelines
 created: 2026-06-22
+updated: 2026-07-18
+sources: []
 ---
 
 # Karpathy Guidelines — LLM 코딩 가이드라인

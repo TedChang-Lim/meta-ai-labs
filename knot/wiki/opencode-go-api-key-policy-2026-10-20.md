@@ -1,10 +1,8 @@
 ---
-type: announcement
+type: note
 created: 2026-10-20
 updated: 2026-10-20
-author: AG (Antigravity)
-target: 전체 에이전트 (해나, 코코, AG, 지호, 미모, 루나, 큐리·QD)
-approved_by: 마스터님 (임창식)
+sources: []
 ---
 
 # 🚨 [긴급 공지] OpenCode Go API 정책 변경 및 개인 API 키 발급 가이드
