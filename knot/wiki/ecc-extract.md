@@ -4,6 +4,7 @@ created: 2026-11-18
 updated: 2026-11-18
 sources: [https://github.com/affaan-m/ECC, https://raw.githubusercontent.com/affaan-m/ECC/main/.cursor/rules/common-security.md, https://raw.githubusercontent.com/affaan-m/ECC/main/.claude/rules/ecc-guardrails.md, https://raw.githubusercontent.com/affaan-m/ECC/main/docs/design/ecc-memory-vault.md]
 aliases: [ECC, everything-claude-code, 에이전트 하네스]
+trust: checked
 ---
 
 # ECC(옛 everything-claude-code)에서 가져올 것만 발췌
@@ -68,5 +69,5 @@ aliases: [ECC, everything-claude-code, 에이전트 하네스]
 
 ## 열린 질문
 
-- `trust` 등급을 knot schema에 넣으려면 사람 승인이 필요하다(schema는 사람 소유)
+- ~~`trust` 등급을 knot schema에 넣으려면 사람 승인이 필요하다~~ → 2026-11-18 마스터 승인(B안). `schema.md`에 규칙 신설, 이 페이지는 `trust: checked`
 - 커밋 전 8항목을 실제 훅으로 걸 것인가, 체크리스트로 둘 것인가
