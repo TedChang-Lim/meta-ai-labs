@@ -1,5 +1,13 @@
 # log
 
+## [2026-11-18] extract — ECC(옛 everything-claude-code) 발췌
+
+- 생성: [[ecc-extract]] (note) — ★305,359 MIT. 통째 설치 대신 4개만 발췌
+- 발췌: 프롬프트 방어 기준 / 커밋 전 보안 8항목 / 메모리 금고 규약(마크다운 정본·trust 등급·create-only) / instincts 신뢰도
+- 실측: 파일 4,878개(스킬 1,087 SKILL.md·에이전트 72·명령 453·문서 1,547)
+- 판단: 스킬 통째 설치는 우리 컨텍스트에 손해. 규칙·규약만 흡수
+- 남은 일: knot schema에 `trust` 등급 넣을지 사람 승인 필요
+
 ## [2026-10-24] investigate — kordoc 4.24.1 현황·융합 판단
 
 - 생성: [[kordoc-4.24-fusion]] (entity) — 파서가 HWPX 생성까지 확장. 서식 견본 승계(4.23.0)·예산 검산·블록 검수(4.24.0)
