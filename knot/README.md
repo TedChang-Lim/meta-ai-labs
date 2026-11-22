@@ -6,6 +6,7 @@
 - 흐름: `inbox/`(미처리 소스 큐) → ingest → `wiki/`(상호링크 페이지) + `raw/`(원본 보관, 불변)
 - 워크플로 프롬프트: `prompts/ingest.md` · `prompts/query.md` · `prompts/lint.md`
 - 기계 검사: `python3 scripts/lint.py` (의존성 0, ERROR 시 exit 1)
+- 그래프: `graph-knot.html` — `wiki/*.md`의 `[[링크]]`를 자동으로 그린다. `python3 scripts/build_graph.py` 로 재생성(TED CORE 지식화 때 자동 갱신). 의존성 0, 인터넷 불필요
 - Obsidian으로 열면 그래프 뷰 사용 가능(선택, `.obsidian/`은 git 제외)
 
 ## 사용
