@@ -42,12 +42,23 @@ def parse(path: str) -> dict:
             title = line[2:].strip()
             break
 
-    links = []
-    for tgt, _label in LINK_RE.findall(body):
-        tgt = tgt.strip()
-        if tgt and tgt not in links and tgt != slug:
-            links.append(tgt)
-    return {"slug": slug, "title": title, "type": typ, "links": links}
+    # schema: 아직 없는 페이지를 의도적으로 가리킬 때만 그 줄에 <!-- stub --> 를 붙인다.
+    # 그런 링크는 '끊긴 링크'가 아니라 '예정 페이지'다 — 따로 센다.
+    links, stubs = [], []
+    for line in body.splitlines():
+        # 인라인 코드(`...`) 안의 예시는 링크가 아니다.
+        line = re.sub(r"`[^`]*`", "", line)
+        if "[[" not in line:
+            continue
+        is_stub = "<!-- stub -->" in line
+        for tgt, _label in LINK_RE.findall(line):
+            tgt = tgt.strip()
+            if not tgt or tgt == slug:
+                continue
+            bucket = stubs if is_stub else links
+            if tgt not in links and tgt not in stubs:
+                bucket.append(tgt)
+    return {"slug": slug, "title": title, "type": typ, "links": links, "stubs": stubs}
 
 
 def main() -> int:
@@ -60,13 +71,21 @@ def main() -> int:
     known = {p["slug"] for p in pages}
     title_of = {p["slug"]: p["title"] for p in pages}
 
-    edges, dangling = [], {}
+    # 링크는 방향이 아니라 관계다 — A→B 와 B→A 를 두 줄로 세면 연결 수가 부풀고 선이 겹친다.
+    edges, seen, dangling, stubs = [], set(), {}, {}
     for p in pages:
         for tgt in p["links"]:
             if tgt in known:
+                key = tuple(sorted((p["slug"], tgt)))
+                if key in seen:
+                    continue
+                seen.add(key)
                 edges.append({"source": p["slug"], "target": tgt})
             else:
                 dangling.setdefault(tgt, []).append(p["slug"])
+        for tgt in p.get("stubs", []):
+            if tgt not in known:
+                stubs.setdefault(tgt, []).append(p["slug"])
 
     deg = {p["slug"]: 0 for p in pages}
     for e in edges:
@@ -84,11 +103,15 @@ def main() -> int:
     for p in pages:
         types[p["type"]] = types.get(p["type"], 0) + 1
 
-    print(f"페이지 {len(pages)} · 연결 {len(edges)} · 끊어진 링크 {len(dangling)}")
+    print(f"페이지 {len(pages)} · 연결 {len(edges)} · 끊긴 링크 {len(dangling)} · 예정(stub) {len(stubs)}")
     print("타입:", ", ".join(f"{k} {v}" for k, v in sorted(types.items(), key=lambda x: -x[1])))
+    # stub 은 정상 표기이므로 목록을 찍지 않는다. 진짜 끊김만 알린다.
     if dangling:
         for tgt, srcs in list(dangling.items())[:10]:
             print(f"  끊김: [[{tgt}]] ← {', '.join(srcs[:3])}")
+    if stubs and "--check" in sys.argv:
+        for tgt, srcs in list(stubs.items())[:20]:
+            print(f"  예정: [[{tgt}]] ← {', '.join(srcs[:3])}")
 
     if check_only:
         return 0
@@ -98,6 +121,7 @@ def main() -> int:
         "generated": datetime.now(kst).strftime("%Y-%m-%d %H:%M"),
         "nodes": nodes,
         "links": edges,
+        "stubs": len(stubs),
     }
     html = TEMPLATE.replace("/*__DATA__*/", json.dumps(payload, ensure_ascii=False))
     with open(OUT, "w", encoding="utf-8") as f:
@@ -197,7 +221,7 @@ const nbr = Object.fromEntries(nodes.map(n=>[n.id,new Set()]));
 links.forEach(l=>{ nbr[l.source].add(l.target); nbr[l.target].add(l.source); });
 
 document.getElementById('sub').textContent =
-  `페이지 ${D.nodes.length} · 연결 ${links.length} · ${D.generated} 생성`;
+  `페이지 ${D.nodes.length} · 연결 ${links.length}` + (D.stubs ? ` · 예정 ${D.stubs}` : '') + ` · ${D.generated} 생성`;
 document.getElementById('legend').innerHTML =
   Object.keys(COLORS).filter(k=>D.nodes.some(n=>n.type===k))
     .map(k=>`<span><i style="background:${COLORS[k]}"></i>${NAMES[k]} <span style="color:var(--faint)">${k}</span></span>`)
