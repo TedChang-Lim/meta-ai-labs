@@ -55,6 +55,7 @@
 - [[lecture-fee-standard]] — 강사료 기준. 학습관 8만/4만, 영상미디어센터 10만/5만 (2026-11-13)
 - [[mail-sending-rules]] — 메일 발송 규칙. 승인 후 발송·피클 첨부 0 (2026-11-13)
 
+- [[ted-core-session-to-knot]] — TED CORE 세션을 다모아 note 페이지로 자동 변환 (2026-11-22)
 ## domain
 - [[semiseron-official-naming-rule]] — 🏛️ 새미새론AI교육원 공식 명칭 및 표기 절대 규칙 (SEMISERON / semiseron.kr) (2026-09-15)
 - [[kacec-domain]] — kacec.kr: 한국 AI 융합 교육원 공식 도메인 (2026-06-21)
@@ -69,6 +70,7 @@
 - [[wonju-ai-training-center-consortium]] — 원주 'AI 특화 공동훈련센터' 후보. 진흥원 선정(2026~2028), 재직자·제조품질, 15억원은 보도값 (2026-11-22)
 
 
+- [[tedcore-20261120-189401]] — 강원 AI·교육 예산 지도 (2026-11-20)
 ## 2026-11-13 보정
 
 - [[agent-mindset]] — (2026-11-13 보정 등재)
