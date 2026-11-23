@@ -186,3 +186,8 @@ body.idx .ttl{align-items:center}
   body.idx .doc{padding:14px 14px 60px}
   body.idx .card{grid-template-columns:1fr}
 }
+
+/* v6: 모든 페이지 단일 단 (사이드바 폐기) */
+body{display:block!important}
+.doc{max-width:900px;margin:0 auto!important;padding:24px 20px 80px}
+@media (max-width:767px){.doc{padding:16px 15px 60px}}
