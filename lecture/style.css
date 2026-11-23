@@ -176,3 +176,13 @@ table.lst a:hover{color:var(--gold)}
 .doc .ttl .nm{color:#E5E2DA}
 .doc .menu a{color:#E5E2DA}
 .doc .menu .none{color:#6E6A5F}
+
+/* v5: 색인 페이지는 사이드바 없는 단일 단 */
+body.idx{display:block}
+body.idx .doc{max-width:880px;margin:0 auto;padding:20px 18px 70px}
+body.idx .card{grid-template-columns:minmax(0,1fr) auto}
+body.idx .ttl{align-items:center}
+@media (max-width:767px){
+  body.idx .doc{padding:14px 14px 60px}
+  body.idx .card{grid-template-columns:1fr}
+}
