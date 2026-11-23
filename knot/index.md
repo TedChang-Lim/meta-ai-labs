@@ -25,6 +25,7 @@
 - [[kordoc-4.24-fusion]] — kordoc 4.24.1: 파서가 HWPX 생성까지. 서식 견본 승계·예산 검산 실측, 우리 67개 HWPX와의 융합 판단 (2026-10-24)
 - [[rea-mcp]] — REA MCP: 앱 뜯어서 설계도 뽑는 도구, Hermes 수동 등록·합법선 확정 (2026-10-13)
 
+- [[semiseron-lecture-library]] — semiseron.kr/lecture 비밀번호 잠금 강의자료실 (2026-11-23)
 ## concept
 - [[morningsam-c-plan]] — 모닝샘 C안: 9월에 멈춘 카드·키워드를 최근 7일 흐름으로 교체, 49 PASS (2026-11-05)
 - [[agent-standard-war-multisocket]] — 에이전트 표준 전쟁과 멀티 소켓 비유 (2026-06-23)
