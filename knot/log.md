@@ -1,3 +1,7 @@
+## [2026-11-23] note — 강의자료실 v4·PPT 24개·누적 체계
+- 목록을 탭+카드로 정리, PPT 내려받기 연결
+- 정본은 맥, 사이트는 사본, 올리기.sh 한 번
+
 # log
 
 ## [2026-11-18] extract — ECC(옛 everything-claude-code) 발췌

@@ -85,3 +85,5 @@
 - [[semiseron_v12_orchestration_casestudy]] — (2026-11-13 보정 등재)
 
 - [[ad-principles-20s]] — 20초 영상 광고 원리 사전 (3B·후킹·전개·보상)
+
+- [[lecture-library-pipeline]] 강의자료실 자료 누적 체계 (정본·사본·올리기)
