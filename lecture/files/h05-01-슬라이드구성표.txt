@@ -1,0 +1,26 @@
+# 1회차 슬라이드 구성표 | 말로 홈페이지 한 장 만들기
+
+| 번호 | 슬라이드 제목 | 화면 구성 | 들어갈 텍스트 | 필요한 이미지 설명 | AI 이미지 생성 프롬프트 |
+|:--:|:--|:--|:--|:--|:--|
+| 1 | 홈페이지, 얼마라고 생각하십니까 | 중앙 큰 숫자 3개가 흐릿하게 | 200만 원 / 300만 원 / 두 달 | 견적서 느낌의 종이와 계산기 | "a crumpled paper estimate sheet with a calculator on a wooden desk, soft morning light, muted tones, no text" |
+| 2 | 오늘 두 시간 뒤 | 좌우 분할 | 왼쪽: 지금 / 오른쪽: 두 시간 뒤 | 빈 종이에서 화면이 켜지는 대비 | "left blank paper, right glowing laptop screen, split composition, warm light, minimal" |
+| 3 | 오늘 하는 일 | 3단 아이콘 | 1 페이지 한 장 띄우기 / 2 내 내용으로 바꾸기 / 3 한 곳 고치기 | 세 단계를 화살표로 잇는 도식 | "three simple icons connected by arrows, flat style, ivory background" |
+| 4 | 홈페이지의 실체 | 중앙에 종이 한 장 | 글 + 그림 + 연락처 = 문서 한 장 | 글과 사진이 붙은 종이 한 장 | "a single sheet of paper with handwriting and a small photo attached, top view, warm light" |
+| 5 | 준비물은 세 가지 | 3칸 카드 | 소개 글 / 사진 / 연락처 | 세 가지 물건이 책상에 놓인 모습 | "three items on a desk: notebook, photo print, phone, top view, natural light" |
+| 6 | 누가 무엇을 하나 | 2열 대비표 | 사람: 무엇을 보여줄지, 무슨 말을 할지 / AI: 배치, 색, 글씨 크기 | 사람과 기계가 나란히 일하는 도식 | "human hand writing and a laptop side by side, flat illustration, muted colors" |
+| 7 | 여섯 줄이면 충분합니다 | 6개 번호 목록 | 이름 / 하는 일 / 자랑거리 / 연락처 / 분위기 / 보는 사람 | 메모지에 여섯 줄이 적힌 모습 | "sticky note with six handwritten lines, close up, soft light" |
+| 8 | 그대로 붙여 넣으십시오 | 화면 캡처 | 프롬프트 전문 (카드와 동일) | 실제 대화창 캡처 | (캡처 사용, 생성 없음) |
+| 9 | 결과가 이렇게 나옵니다 | 화면 캡처 | 미리보기 화면 예시 | 실제 칼국수집 예시 페이지 캡처 | (캡처 사용, 생성 없음) |
+| 10 | 미리보기가 안 뜰 때 | 3단 문제해결 | 기다린다 / "미리보기로 보여 줘" / 새 대화 | 신호등 색의 세 단계 표시 | "three step indicator with amber lights, flat minimal, dark background" |
+| 11 | 내 것으로 바꾸기 | 중앙 프롬프트 박스 | 바꾸기 프롬프트 전문 | 대화창에 이어 쓰는 장면 | (캡처 사용, 생성 없음) |
+| 12 | 한 곳만 고치기 | 3분할 카드 | 색 / 문구 / 순서 | 세 가지 손잡이를 돌리는 도식 | "three simple knobs on a control panel, flat illustration" |
+| 13 | 말로 설명되면 내 것 | 좌우 대비 | 설명된다 = 내가 바꿨다 / 설명 안 된다 = AI가 바꿨다 | 말풍선 두 개의 대비 | "two speech bubbles, one filled and one empty, flat style" |
+| 14 | 오늘 손에 남는 세 가지 | 3개 체크리스트 | 페이지가 떴다 / 내 내용으로 바꿨다 / 한 곳을 고쳤다 | 체크 표시가 된 세 줄 | "three checked boxes on cream paper, close up" |
+| 15 | 다음 시간 예고 | 하단에 준비물 | 사진 한두 장 준비 | 스마트폰 사진첩 화면 | (캡처 또는 목업 사용) |
+
+## 제작 메모
+
+- 표지 슬라이드 없음. 1번부터 본론으로 시작한다.
+- 강사 이름·연락처·휴식 안내·Q&A 슬라이드 없음 (구두 안내).
+- 8·9·11·15번은 실제 화면 캡처로 채운다. 캡처가 없으면 도식으로 대체하고 빈 장을 남기지 않는다.
+- 어두운 사진 위에는 밝은 글자를 쓰고, 스크림을 명시적으로 깐다.
