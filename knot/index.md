@@ -57,6 +57,8 @@
 - [[mail-sending-rules]] — 메일 발송 규칙. 승인 후 발송·피클 첨부 0 (2026-11-13)
 
 - [[ted-core-session-to-knot]] — TED CORE 세션을 다모아 note 페이지로 자동 변환 (2026-11-22)
+- [[jiho-opencode-desktop-cli]] — 지호는 OpenCode 데스크탑 앱 번들 CLI(2.4.2)로 부른다. PATH의 옛 빌드 금지 (2026-11-27)
+
 ## domain
 - [[semiseron-official-naming-rule]] — 🏛️ 새미새론AI교육원 공식 명칭 및 표기 절대 규칙 (SEMISERON / semiseron.kr) (2026-09-15)
 - [[kacec-domain]] — kacec.kr: 한국 AI 융합 교육원 공식 도메인 (2026-06-21)

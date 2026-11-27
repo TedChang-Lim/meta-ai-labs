@@ -391,3 +391,10 @@ Muse Spark 1.3을 "크레딧 없어 못 쓴다"고 잘못 보고했다. 마스�
 - 평문 미커밋(공개 저장소), 암호문만 `lecture/`
 - 라이브 200·암호 해제 후 메뉴 41개 실측
 - 결정: Cloudflare Access 안 씀, 비번 1개로 시작, 강사 배출 때 구역 분리
+
+## [2026-11-27] ingest — 지호 = OpenCode 데스크탑 앱 CLI 정본
+- 정본 = `/Applications/OpenCode.app/Contents/Resources/opencode-cli` (2.4.2), PATH의 `opencode`(0.0.0-codex)·`~/.opencode`(1.19.5)는 폐기
+- 호출 = `opencode-cli run -m <model> --auto --archived "<지시>"` (`-m`을 최상위에 두면 사용법만 출력)
+- TED CORE `src/app.rs: jiho_bin()`로 교체, `agent.ask`·`studio.dispatch` 실측 통과(JIHO_CORE_OK / JIHO_STUDIO_OK)
+- 에이지 확인 회신 = 자사 설정에 PATH opencode 호출 없음, 수정 대상 없음
+- 전문 = hermes-ag-shared `2026-11-27_tedcore-지호-오픈코드-데스크탑CLI_해나.md`
