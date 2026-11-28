@@ -58,6 +58,7 @@
 
 - [[ted-core-session-to-knot]] — TED CORE 세션을 다모아 note 페이지로 자동 변환 (2026-11-22)
 - [[jiho-opencode-desktop-cli]] — 지호는 OpenCode 데스크탑 앱 번들 CLI(2.4.2)로 부른다. PATH의 옛 빌드 금지 (2026-11-27)
+- [[semiseron-bidding-automation]] — 입찰·Gemini 브리핑 자동 운영 크론 3종(토큰 0), lecture/bidding 배포 (2026-11-28)
 
 ## domain
 - [[semiseron-official-naming-rule]] — 🏛️ 새미새론AI교육원 공식 명칭 및 표기 절대 규칙 (SEMISERON / semiseron.kr) (2026-09-15)

@@ -398,3 +398,10 @@ Muse Spark 1.3을 "크레딧 없어 못 쓴다"고 잘못 보고했다. 마스�
 - TED CORE `src/app.rs: jiho_bin()`로 교체, `agent.ask`·`studio.dispatch` 실측 통과(JIHO_CORE_OK / JIHO_STUDIO_OK)
 - 에이지 확인 회신 = 자사 설정에 PATH opencode 호출 없음, 수정 대상 없음
 - 전문 = hermes-ag-shared `2026-11-27_tedcore-지호-오픈코드-데스크탑CLI_해나.md`
+
+## [2026-11-28] note — 입찰·브리핑 자동 운영 3종 가동
+- 크론(전부 no_agent, 토큰 0): 08:30 동기화 / 09:05 RFP 파싱·암호화 배포 / 일 19:00 Gemini 브리핑 수집
+- 배포 = https://semiseron.kr/lecture/bidding/ (staticrypt, 강의자료실과 같은 비밀). 평문 저장소 반입 금지 — 스크립트가 검사 후 중단
+- Gemini 스레드는 지연 렌더 → INFINITE-SCROLLER를 0.8화면씩 훑어 모으고 (날짜,종류) 중복 규칙으로 1일 1건 유지
+- 함정: ego-browser console 출력은 stderr, `task.finish`는 `keep: []`만 허용, HWP 발췌문 lone surrogate는 저장 전 정리
+- 전문 = hermes-ag-shared `2026-11-28_입찰-브리핑-자동운영-해나.md`
